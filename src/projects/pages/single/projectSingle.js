@@ -29,7 +29,7 @@ const ProjectSingle = () => {
     // const loadedProj = projects.filter(proj => proj.id == projID);
 
     const content = <React.Fragment>
-    <div class="container">
+    <div class="container test">
             {loadedProject && <SingleList items={loadedProject}></SingleList> } 
     </div>
   </React.Fragment>
