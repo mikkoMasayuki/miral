@@ -15,6 +15,16 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- frameworks -->
+    <link href="assets/framework/css/bootstrap.min.css" rel="stylesheet">
+    
+    
+    <!-- font and style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/fonts/museo-sans/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -27,17 +37,74 @@
     <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <nav id="navMiral" class="navbar navbar-expand-lg  m_header">
+
+    </nav>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <section id="miralProj" class="cstm_sec thumb_sec">
+      
+    </section>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <section id="miralSingle" class="cstm_sec single_proj"></section>
+    
+<!-- footer starts -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p><span>© 2022 Miral. All rights reserved.</span> <a href="#">Terms</a> <a href="#">Privacy</a></p>
+			</div>
+		</div>
+	</div>
+</footer>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+<!-- footer ends   -->
+
+
+<!-- ////////////////   SCRIPT AREA  ///////////////-->
+<script src="assets/framework/js/jquery-3.6.0.min.js"></script>
+<script src="assets/framework/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANt6Xy9LQccwaqMhnj1MQ9_CFVftSYuKA"></script>
+<script type="" src="assets/js/jquery.magnific-popup.min.js"></script>
+<script src="/assets/js/maplace.js"></script>
+
+
+<!-- fill star icon onClick starts -->
+<script>
+	$(document).ready(function() {
+	    $('.star_icon').click(function() {
+	        $(this).toggleClass('active');
+	    });
+	});
+</script>
+<!-- fill star icon onClick ends -->
+
+
+
+<!-- filter dropdown starts -->
+<script>
+	$(document).ready(function() {
+	    $('.thumb_sec .bt_left button').click(function() {
+	        $(this).toggleClass('active');
+	        $('.filter_drop').toggleClass('shown');
+	    });
+
+		$(".filter_drop .bg_overlay").click(function(){
+	    	$('.thumb_sec .bt_left button').removeClass('active');
+	    	$('.filter_drop').removeClass('shown');
+		   
+		});
+
+		$(".show_results").click(function(){
+	    	$('.thumb_sec .bt_left button').removeClass('active');
+	    	$('.filter_drop').removeClass('shown');
+		});
+
+
+	  
+	});
+</script>
+<!-- filter dropdown ends -->
   </body>
 </html>
