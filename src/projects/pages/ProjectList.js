@@ -18,12 +18,13 @@ const ProjectLists = props => {
 		<div className="container">
 			<div className="row">
 				<div className="col-md-12">
+					<div class="frm_wrap">
 						<fieldset>
 							<legend>Type:</legend>
 							<label>
 								<input type="checkbox" />
-								<span className="checkmark">All</span>
-								
+								<span className="checkmark"></span>
+								All
 							</label>
 
 							<label>
@@ -173,17 +174,18 @@ const ProjectLists = props => {
 
 							<label>
 								<input type="checkbox" name="" />
-								<span className="checkmark">
-								Favourites</span>
+								<span className="checkmark"></span>
+								Favourites
 							</label>
 						</fieldset>
 
 
 
-					<div className="bt_wrap">
+						<div className="bt_wrap">
 							<button className="show_results">Show 53 results</button>
 							<button className="reset"> Reset</button>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>
