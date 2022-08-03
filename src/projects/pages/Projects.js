@@ -6,6 +6,10 @@ import ReactDOM from "react-dom"
 const Projects = () => {
 
     const [loadedProject, setLoadedProject] = useState();
+    const [loadedFilter, setLoadedFilter] = useState(false);
+
+    const openFilterHandler = () => setLoadedFilter(true)
+    const closeFilterHandler = () => setLoadedFilter(false)
 
     useEffect(() => {
         const sendRequest = async () => {
@@ -25,7 +29,7 @@ const Projects = () => {
     // const loadedProj = projects.filter(proj => proj.id == projID);
 
     const content = <React.Fragment>
-    {loadedProject && <ProjectLists items={loadedProject}></ProjectLists> } 
+    {loadedProject && <ProjectLists items={loadedProject}  show={loadedFilter} onCancel={closeFilterHandler} onShow={openFilterHandler}></ProjectLists> } 
   </React.Fragment>
 
     return ReactDOM.createPortal(content, document.getElementById('miralProj'))

@@ -3,6 +3,13 @@ import Maplace from 'maplace-js'
 import { Link } from "react-router-dom";
 
 const MapView = () => {
+
+    const [loadedFilter, setLoadedFilter] = useState(false);
+
+    const openFilterHandler = () => setLoadedFilter(true)
+    const closeFilterHandler = () => setLoadedFilter(false)
+
+
     useEffect(() => {
         const map = new Maplace({
             map_div: '#gmap',
@@ -165,18 +172,180 @@ const MapView = () => {
     },[])
     return <React.Fragment>
         <section class="cstm_sec thumb_sec">
-	<div class="filter_drop">
-		<div class="bg_overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-				
+	<div className={`filter_drop ${ loadedFilter && "shown"}`}>
+		<div className="bg_overlay" onClick={closeFilterHandler}></div>
+		<div className="container">
+			<div className="row">
+            <   div className="col-md-12">
+						<div class="frm_wrap">
+							<fieldset>
+								<legend>Type:</legend>
+								<label>
+									<input type="checkbox" />
+									<span className="checkmark"></span>
+									All
+								</label>
 
-					<div class="bt_wrap">
-							<button class="show_results">Show 53 results</button>
-							<button class="reset"> Reset</button>
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Dine
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Discover
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Meet
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Play
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Stay
+								</label>
+							</fieldset>
+
+
+
+							<fieldset>
+								<legend>Role:</legend>
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									All
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Developed
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Managed
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Investment
+								</label>
+							</fieldset>
+
+
+
+							<fieldset>
+								<legend>Location:</legend>
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									All
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Yas Island, Abu Dhabi
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Saadiyat Island, Abu Dhabi
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Abu Dhabi City
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Jordan
+								</label>
+
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Kazakhstan
+								</label>
+							</fieldset>
+
+
+							<fieldset>
+								<legend>Business:</legend>
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									All
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Miral Group
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Miral Destinations
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Miral Experiences
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Yas Asset Management
+								</label>
+							</fieldset>
+
+
+							<fieldset>
+								<legend>More:</legend>
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Destination
+								</label>
+
+								<label>
+									<input type="checkbox" name="" />
+									<span className="checkmark"></span>
+									Favourites
+								</label>
+							</fieldset>
+
+
+
+							<div className="bt_wrap">
+								<button className="show_results" onClick={closeFilterHandler}>Show 53 results</button>
+								<button className="reset"> Reset</button>
+							</div>
 						</div>
-				</div>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -184,27 +353,27 @@ const MapView = () => {
 
 
 
-	<div class="container">
-		<div class="row bt_row">
-			<div class="col-md-12">
-				<div class="bt_left">
-					<button>Filter</button>
+	<div className="container">
+		<div className="row bt_row">
+			<div className="col-md-12">
+				<div className="bt_left">
+					<button className={`${loadedFilter && 'active'}`} onClick={openFilterHandler}>Filter</button>
 				</div>
 
-				<div class="bt_right">
+				<div className="bt_right">
                     <Link className="btn" to="/">Thumbnails</Link>
-					<a class="btn dark">Map</a>
+					<a className="btn dark">Map</a>
 				</div>
 			</div>
 		</div>
 
 
 		
-		<div class="row portfolio_map">
-			<div class="col-md-12">
-				<div class="map_bt">
-					<a  class="btn dark" href="#">Abu Dhabi</a>
-					<a class="btn " href="#">International</a>
+		<div className="row portfolio_map">
+			<div className="col-md-12">
+				<div className="map_bt">
+					<a  className="btn dark" href="#">Abu Dhabi</a>
+					<a className="btn " href="#">International</a>
 				</div>
 				<div id="gmap" ></div>
 			</div>

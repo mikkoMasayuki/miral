@@ -6,7 +6,7 @@ const ProjectItem = props => {
 
         <div className="col-md-3 item">
 			<div class="inner_wrap">
-           <Link to={`project/${props.id}`} className='link' ></Link>
+           <Link to={`project/${props.name}/${props.id}`} className='link' ></Link>
                 <div className="ftrd_img">
 						<img src={props.image.image_url} />
 				</div>

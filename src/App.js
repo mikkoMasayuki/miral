@@ -8,6 +8,7 @@ import Projects from './projects/pages/Projects';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import ProjectSingle from './projects/pages/single/projectSingle';
 import MapView from './maps/mapView';
+import Login from './login/login';
 
 const App = () => {
 
@@ -22,7 +23,11 @@ const App = () => {
        <Projects></Projects>
       </Route>
 
-      <Route path="/project/:id" exact >
+      <Route path="/login" exact> 
+        <Login></Login>
+      </Route>
+
+      <Route path="/project/:name/:id" exact >
         <ProjectSingle></ProjectSingle>
       </Route>
 
