@@ -20,7 +20,7 @@ const SingleItem = props => {
 
 			<div class="col-md-6 content_right">
 				<div class="bt_wrap">
-					<Link className="btn" to="/">Show on map</Link>
+					<Link className="btn" to="/map">Show on map</Link>
 					<a class="btn">Website</a>
 					<button class="btn star">
 						<svg class="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 117.1">
