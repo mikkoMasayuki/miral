@@ -13,7 +13,7 @@ const Projects = () => {
 
     useEffect(() => {
         const sendRequest = async () => {
-            const response = await fetch('http://3.101.21.72:4052/project')
+            const response = await fetch('http://54.183.107.251:4052/project')
 
             const responseData = await response.json();
 
