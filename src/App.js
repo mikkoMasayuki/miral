@@ -9,6 +9,9 @@ import MainNavigation from './shared/components/Navigation/MainNavigation';
 import ProjectSingle from './projects/pages/single/projectSingle';
 import MapView from './maps/mapView';
 import Login from './login/login';
+import Admin from './admin/login';
+import AdminProjects from './admin/projects';
+import AdminUpdateProjects from './admin/UpdateProject';
 
 const App = () => {
 
@@ -25,6 +28,18 @@ const App = () => {
 
       <Route path="/login" exact> 
         <Login></Login>
+      </Route>
+
+      <Route path="/admin/login" exact> 
+        <Admin></Admin>
+      </Route>
+
+      <Route path="/admin/projects" exact> 
+        <AdminProjects></AdminProjects>
+      </Route>
+
+      <Route path="/admin/update/:id" exact> 
+        <AdminUpdateProjects></AdminUpdateProjects>
       </Route>
 
       <Route path="/project/:name/:id" exact >
