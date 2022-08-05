@@ -14,7 +14,7 @@ const ListProjects = props => {
     return <React.Fragment>
 
   <div className="container dash_add_project">
-      
+      <a class="btn" href="">Add Project</a>
         <div className="box_wrapper"> 
           {props.items.map(project => {
               return <ProjRow 
