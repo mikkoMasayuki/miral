@@ -13,9 +13,9 @@ const ListProjects = props => {
 
     return <React.Fragment>
 
-  <div className="container">
+  <div className="container dash_add_project">
       
-        <div className="row portfolio_grid"> 
+        <div className="box_wrapper"> 
           {props.items.map(project => {
               return <ProjRow 
               key={project.id}
