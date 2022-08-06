@@ -3,7 +3,7 @@ import ProjectLists from "./ProjectList";
 import { useParams } from "react-router-dom"
 import ReactDOM from "react-dom"
 
-const Projects = () => {
+const Projects = (props) => {
 
     const [loadedProject, setLoadedProject] = useState();
     const [loadedFilter, setLoadedFilter] = useState(false);
@@ -11,14 +11,45 @@ const Projects = () => {
     const openFilterHandler = () => setLoadedFilter(true)
     const closeFilterHandler = () => setLoadedFilter(false)
 
-    useEffect(() => {
+
+    let filters ="";
+
+    const getDataBasedOnFilters = (theval) => {
+
+
+        console.log('Type: ', theval.payload.filtertype);
+        console.log('Role: ', theval.payload.filterRole);
+        console.log('Loc : ', theval.payload.filterLoc);
+        filters = "type="+ theval.payload.filtertype ; 
+
         const sendRequest = async () => {
-            const response = await fetch('http://54.183.107.251:4052/project')
+            const response = await fetch('http://54.183.107.251:4052/project/?'+filters)
 
             const responseData = await response.json();
 
             setLoadedProject(responseData.data);
 
+
+            console.log('filters: ', filters);    
+            console.log(responseData.data);
+            console.log(responseData.data.length);
+
+        };
+
+        sendRequest();
+        
+      }
+
+    
+
+    useEffect(() => {
+        const sendRequest = async () => {
+            const response = await fetch('http://54.183.107.251:4052/project/')
+
+            const responseData = await response.json();
+
+            setLoadedProject(responseData.data);
+            console.log('filters: ', filters);    
             console.log(responseData.data);
         };
 
@@ -27,9 +58,10 @@ const Projects = () => {
 
     // const projID = useParams().id;
     // const loadedProj = projects.filter(proj => proj.id == projID);
+    
 
     const content = <React.Fragment>
-    {loadedProject && <ProjectLists items={loadedProject}  show={loadedFilter} onCancel={closeFilterHandler} onShow={openFilterHandler}></ProjectLists> } 
+    {loadedProject && <ProjectLists ReloadFilters={getDataBasedOnFilters} items={loadedProject}  show={loadedFilter} onCancel={closeFilterHandler} onShow={openFilterHandler}></ProjectLists> } 
   </React.Fragment>
 
     return ReactDOM.createPortal(content, document.getElementById('miralProj'))
