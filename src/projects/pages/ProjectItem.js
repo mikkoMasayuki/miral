@@ -8,7 +8,8 @@ const ProjectItem = props => {
 			<div class="inner_wrap">
            <Link to={`project/${props.name}/${props.id}`} className='link' ></Link>
                 <div className="ftrd_img">
-						{/*<img src={props.image.image_url} />*/}
+						{props.image && <img src={props.image.image_url} /> }
+						
 				</div>
 
                 <div className="desc">
