@@ -120,67 +120,76 @@ const ProjectLists = props => {
 						<div class="frm_wrap">
 							<fieldset>
 								<legend>Type:</legend>
+
+								{/*
 								<label>
 									<input id="f_all" class="ftype" type="checkbox" value="all" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									All
 								</label>
+								*/}
 
 								<label>
-									<input id="f_dine" class="ftype" type="checkbox" value="dine" onClick={handleFilterChange}/>
+									<input id="f_dine" class="ftype" type="checkbox" value="Dine" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Dine
 								</label>
 
 								<label>
-									<input id="f_dis" class="ftype" type="checkbox" value="discover" onClick={handleFilterChange} />
+									<input id="f_dis" class="ftype" type="checkbox" value="Discover" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									Discover
 								</label>
 
 								<label>
-									<input id="f_meet" class="ftype" type="checkbox" value="meet" onClick={handleFilterChange} />
+									<input id="f_meet" class="ftype" type="checkbox" value="Meet" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									Meet
 								</label>
 
 								<label>
-									<input id="f_play" class="ftype" type="checkbox" value="play" onClick={handleFilterChange} />
+									<input id="f_play" class="ftype" type="checkbox" value="Play" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									Play
 								</label>
+								{/*
 
+							
 								<label>
-									<input id="f_stay" class="ftype" type="checkbox" value="stay" onClick={handleFilterChange} />
+									<input id="f_stay" class="ftype" type="checkbox" value="Stay" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									Stay
 								</label>
+								*/}
 							</fieldset>
 
 
 
 							<fieldset>
 								<legend>Role:</legend>
+
+								{/*
 								<label>
 									<input class="frole" type="checkbox" value="all" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									All
 								</label>
+								*/}
 
 								<label>
-									<input class="frole" type="checkbox" value="developed" onClick={handleFilterChange}/>
+									<input class="frole" type="checkbox" value="Developed" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Developed
 								</label>
 
 								<label>
-									<input class="frole" type="checkbox" value="managed" onClick={handleFilterChange}/>
+									<input class="frole" type="checkbox" value="Managed" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Managed
 								</label>
 
 								<label>
-									<input class="frole" type="checkbox" value="investment" onClick={handleFilterChange}/>
+									<input class="frole" type="checkbox" value="Investment" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Investment
 								</label>
@@ -190,11 +199,13 @@ const ProjectLists = props => {
 
 							<fieldset>
 								<legend>Location:</legend>
+								{/*
 								<label>
 									<input class="floc" type="checkbox" value="all" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									All
 								</label>
+								*/}
 
 								<label>
 									<input class="floc" type="checkbox" value="Yas Island Abu Dhabi" onClick={handleFilterChange}/>
@@ -215,38 +226,41 @@ const ProjectLists = props => {
 								</label>
 
 								<label>
-									<input class="floc" type="checkbox" value="Jordan" onClick={handleFilterChange}/>
+									<input class="floc" type="checkbox" value="Cornwall England UK" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Jordan
+									Cornwall England UK
 								</label>
 
+
+								<label>
+									<input class="floc" type="checkbox" value="Dubai United Arab Emirates" onClick={handleFilterChange}/>
+									<span className="checkmark"></span>
+									Dubai United Arab Emirates
+								</label>
 
 								<label>
 									<input class="floc" type="checkbox" value="Kazakhstan" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Kazakhstan
 								</label>
+
 							</fieldset>
 
 
 							<fieldset>
 								<legend>Business:</legend>
+								{/*
 								<label>
 									<input class="fbusi" type="checkbox" value="all" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									All
 								</label>
+								*/}
 
 								<label>
 									<input class="fbusi" type="checkbox" value="Miral Group" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Miral Group
-								</label>
-
-								<label>
-									<input class="fbusi" type="checkbox" value="Miral Destinations" onClick={handleFilterChange}/>
-									<span className="checkmark"></span>
-									Miral Destinations
 								</label>
 
 								<label>
@@ -262,7 +276,7 @@ const ProjectLists = props => {
 								</label>
 							</fieldset>
 
-
+						{/* 
 							<fieldset>
 								<legend>More:</legend>
 								<label>
@@ -277,6 +291,7 @@ const ProjectLists = props => {
 									Favourites
 								</label>
 							</fieldset>
+						*/}	
 
 
 
