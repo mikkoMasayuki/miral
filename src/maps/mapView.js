@@ -2,15 +2,12 @@ import React, { useEffect, useState } from "react";
 import Maplace from 'maplace-js'
 import { Link } from "react-router-dom";
 import MapList from "./maplist";
-import queryString from 'query-string'
 
 
 const MapView = props => {
 
     const [loadedFilter, setLoadedFilter] = useState(false);
 	const [loadedProject, setLoadedProject] = useState();
-
-	const parsed = queryString.parse(window.location.search);
 
     const openFilterHandler = () => setLoadedFilter(true)
     const closeFilterHandler = () => setLoadedFilter(false)
@@ -61,9 +58,12 @@ const MapView = props => {
 					
 						locations: arr,
 						afterCreateMarker: function(index, location, marker) {
-							console.log(marker.project_id)
+							let params = (new URL(document.location)).searchParams;
+							let mapId = params.get("id");
 
-							if (marker.project_id == parsed.id) {
+							console.log(mapId)
+
+							if (marker.project_id == mapId) {
 								let tmp23 = document.querySelectorAll('div[title="'+marker.title+'"]');
 
 								tmp23.forEach(el=>el.click());
@@ -95,183 +95,6 @@ const MapView = props => {
    
     return <React.Fragment>
             <section class="cstm_sec thumb_sec">
-	<div className={`filter_drop ${ loadedFilter && "shown"}`}>
-		<div className="bg_overlay" onClick={closeFilterHandler}></div>
-		<div className="container">
-			<div className="row">
-            <   div className="col-md-12">
-						<div class="frm_wrap">
-							<fieldset>
-								<legend>Type:</legend>
-								<label>
-									<input type="checkbox" />
-									<span className="checkmark"></span>
-									All
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Dine
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Discover
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Meet
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Play
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Stay
-								</label>
-							</fieldset>
-
-
-
-							<fieldset>
-								<legend>Role:</legend>
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									All
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Developed
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Managed
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Investment
-								</label>
-							</fieldset>
-
-
-
-							<fieldset>
-								<legend>Location:</legend>
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									All
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Yas Island, Abu Dhabi
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Saadiyat Island, Abu Dhabi
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Abu Dhabi City
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Jordan
-								</label>
-
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Kazakhstan
-								</label>
-							</fieldset>
-
-
-							<fieldset>
-								<legend>Business:</legend>
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									All
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Miral Group
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Miral Destinations
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Miral Experiences
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Yas Asset Management
-								</label>
-							</fieldset>
-
-
-							<fieldset>
-								<legend>More:</legend>
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Destination
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Favourites
-								</label>
-							</fieldset>
-
-
-
-							<div className="bt_wrap">
-								<button className="show_results" onClick={closeFilterHandler}>Show 53 results</button>
-								<button className="reset"> Reset</button>
-							</div>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
 
 
 
@@ -280,7 +103,7 @@ const MapView = props => {
 		<div className="row bt_row">
 			<div className="col-md-12">
 				<div className="bt_left">
-					<button className={`${loadedFilter && 'active'}`} onClick={openFilterHandler}>Filter</button>
+					
 				</div>
 
 				<div className="bt_right">
