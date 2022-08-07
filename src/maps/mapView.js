@@ -64,7 +64,7 @@ const MapView = props => {
 							console.log(marker.project_id)
 
 							if (marker.project_id == parsed.id) {
-								let tmp23 = document.querySelectorAll(`div[title="${marker.title}"]`);
+								let tmp23 = document.querySelectorAll('div[title="'+marker.title+'"]');
 
 								tmp23.forEach(el=>el.click());
 
