@@ -20,7 +20,8 @@ const Projects = (props) => {
         console.log('Type: ', theval.payload.filtertype);
         console.log('Role: ', theval.payload.filterRole);
         console.log('Loc : ', theval.payload.filterLoc);
-        filters = "type="+ theval.payload.filtertype ; 
+        console.log('busi : ', theval.payload.filterbusi);
+        filters = "type="+ theval.payload.filtertype + "&role=" +theval.payload.filterRole + "&location=" +theval.payload.filterLoc+ "&business=" +theval.payload.filterbusi; 
 
         const sendRequest = async () => {
             const response = await fetch('http://54.183.107.251:4052/project/?'+filters)
