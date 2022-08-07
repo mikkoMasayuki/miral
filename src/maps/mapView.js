@@ -64,11 +64,12 @@ const MapView = props => {
 							console.log(mapId)
 
 							if (marker.project_id == mapId) {
+
 								let tmp23 = document.querySelectorAll('div[title="'+marker.title+'"]');
 
 								tmp23.forEach(el=>el.click());
 
-								console.log(tmp23);
+								console.log(marker.title);
 							}
 
 							
