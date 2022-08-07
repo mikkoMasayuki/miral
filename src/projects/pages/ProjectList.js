@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ProjectItem from "./ProjectItem";
 const ProjectLists = props => {
 
+	/*
     if (props.items.length === 0) {
       return (
         <div className="center">
@@ -10,6 +11,7 @@ const ProjectLists = props => {
         </div>  
       )
     } 
+	*/
 
 	/*
 	const [filterType, setfilterType] = useState();
@@ -19,11 +21,38 @@ const ProjectLists = props => {
 	const [filterMore, setfilterMore] = useState();
 	*/
 
-	let payload = [];
-	const handleFilterChange = e => {
+	const [navTagsType, setnavTagsType] = useState("All")
+	const [navTagsRole,setnavTagsRole] = useState("All")
+	const [navTagsLocation,setnavTagsLocation] = useState("")
 
-		
-		
+	let payload = [];
+	
+			
+
+	const handleFilterReset = e => {
+		let getfilterType = document.getElementsByTagName('input');
+		for (let i = 0; i < getfilterType.length; i += 1) {
+				if (getfilterType[i].checked) {
+					getfilterType[i].checked = false;	
+				}
+		}			
+		payload = { 
+			'filtertype' : '', 
+			'filterRole' : '', 
+			'filterLoc' : '',
+			'filterbusi' : '',
+			'filtermore' : ''
+	   };
+
+	   setnavTagsType("All")
+	   setnavTagsRole("All")  
+	   setnavTagsLocation("")
+
+        props.ReloadFilters({payload}); 			
+		props.onCancel();
+	}
+
+	const handleFilterChange = e => {
 		let tmptype = "";
 		let filterType = "";
 		let filterRole = "";
@@ -36,6 +65,8 @@ const ProjectLists = props => {
 		let tmpfbusi="";
 		let tmpfmore="";
 
+		
+
 		let getfilterType = document.getElementsByTagName('input');
 
 		
@@ -46,11 +77,26 @@ const ProjectLists = props => {
 
 					console.log("className:"+getfilterType[i].className);	
 					if ( getfilterType[i].className == "ftype") {
-						if (tmpftype==="") {
-							tmpftype = getfilterType[i].value;
-						} else {
-							tmpftype = tmpftype +","+ getfilterType[i].value;	
-						}
+						
+						/*
+						alert(getfilterType[i].value);	
+						if( getfilterType[i].value === "all") {
+							let togglr =  document.getElementsByClassName(getfilterType[i].className);
+							for (let j = 0; j < togglr.length; j += 1) {
+								if( togglr[j].value !== "all") {
+									togglr[j].checked = false;
+								}
+							}
+						} 
+						*/
+							if (tmpftype==="") {
+								tmpftype = getfilterType[i].value;
+							} else {
+								tmpftype = tmpftype +","+ getfilterType[i].value;	
+							}								
+						
+
+
 					}	
 					if ( getfilterType[i].className == "frole") {
 						if (tmpfrole==="") {
@@ -86,11 +132,16 @@ const ProjectLists = props => {
 		}
 
 		
-		filterType=tmpftype;
-		filterRole=tmpfrole;
-		filterLoc=tmpfloc;
-		filterbusi=tmpfbusi;
-		filtermore=tmpfmore;
+		filterType=tmpftype
+		filterRole=tmpfrole
+		filterLoc=tmpfloc
+		filterbusi=tmpfbusi
+		filtermore=tmpfmore
+
+		setnavTagsType(filterType)
+		setnavTagsRole(filterRole)  
+		setnavTagsLocation(filterLoc)
+
 
 		payload = { 
 			'filtertype' : filterType, 
@@ -121,46 +172,72 @@ const ProjectLists = props => {
 							<fieldset>
 								<legend>Type:</legend>
 
-								{/*
+								
 								<label>
-									<input id="f_all" class="ftype" type="checkbox" value="all" onClick={handleFilterChange}/>
+									<input id="f_all" class="ftype" type="checkbox" value="" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									All
 								</label>
-								*/}
+								
+								<label>
+									<input class="ftype" type="checkbox" value="Asset" onClick={handleFilterChange}/>
+									<span className="checkmark"></span>
+									Asset
+								</label>
+								<label>
+									<input class="ftype" type="checkbox" value="Commercial" onClick={handleFilterChange}/>
+									<span className="checkmark"></span>
+									Commercial
+								</label>								
 
 								<label>
-									<input id="f_dine" class="ftype" type="checkbox" value="Dine" onClick={handleFilterChange}/>
+									<input class="ftype" type="checkbox" value="Destination" onClick={handleFilterChange}/>
+									<span className="checkmark"></span>
+									Destination
+								</label>
+
+								<label>
+									<input class="ftype" type="checkbox" value="Dine" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									Dine
 								</label>
-
 								<label>
-									<input id="f_dis" class="ftype" type="checkbox" value="Discover" onClick={handleFilterChange} />
+									<input class="ftype" type="checkbox" value="Discover" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									Discover
-								</label>
-
+								</label>								
 								<label>
-									<input id="f_meet" class="ftype" type="checkbox" value="Meet" onClick={handleFilterChange} />
+									<input class="ftype" type="checkbox" value="Land Plot" onClick={handleFilterChange} />
+									<span className="checkmark"></span>
+									Land Plot
+								</label>
+								<label>
+									<input class="ftype" type="checkbox" value="Meet" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									Meet
 								</label>
 
 								<label>
-									<input id="f_play" class="ftype" type="checkbox" value="Play" onClick={handleFilterChange} />
+									<input class="ftype" type="checkbox" value="Museum" onClick={handleFilterChange} />
+									<span className="checkmark"></span>
+									Museum
+								</label>
+								<label>
+									<input class="ftype" type="checkbox" value="Play" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									Play
-								</label>
-								{/*
-
-							
+								</label>	
 								<label>
-									<input id="f_stay" class="ftype" type="checkbox" value="Stay" onClick={handleFilterChange} />
+									<input class="ftype" type="checkbox" value="Stay" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									Stay
+								</label>															
+								<label>
+									<input class="ftype" type="checkbox" value="Other" onClick={handleFilterChange} />
+									<span className="checkmark"></span>
+									Other
 								</label>
-								*/}
+
 							</fieldset>
 
 
@@ -168,13 +245,13 @@ const ProjectLists = props => {
 							<fieldset>
 								<legend>Role:</legend>
 
-								{/*
+								
 								<label>
 									<input class="frole" type="checkbox" value="all" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
 									All
 								</label>
-								*/}
+								
 
 								<label>
 									<input class="frole" type="checkbox" value="Developed" onClick={handleFilterChange}/>
@@ -199,13 +276,13 @@ const ProjectLists = props => {
 
 							<fieldset>
 								<legend>Location:</legend>
-								{/*
+								
 								<label>
-									<input class="floc" type="checkbox" value="all" onClick={handleFilterChange}/>
+									<input class="floc" type="checkbox" value="" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									All
 								</label>
-								*/}
+								
 
 								<label>
 									<input class="floc" type="checkbox" value="Yas Island Abu Dhabi" onClick={handleFilterChange}/>
@@ -249,13 +326,13 @@ const ProjectLists = props => {
 
 							<fieldset>
 								<legend>Business:</legend>
-								{/*
+								
 								<label>
-									<input class="fbusi" type="checkbox" value="all" onClick={handleFilterChange}/>
+									<input class="fbusi" type="checkbox" value="" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									All
 								</label>
-								*/}
+								
 
 								<label>
 									<input class="fbusi" type="checkbox" value="Miral Group" onClick={handleFilterChange}/>
@@ -276,28 +353,28 @@ const ProjectLists = props => {
 								</label>
 							</fieldset>
 
-						{/* 
+						
 							<fieldset>
 								<legend>More:</legend>
 								<label>
-									<input class="fmore" type="checkbox" name="" onClick={handleFilterChange}/>
+									<input class="fmore" type="checkbox" value="Destination" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Destination
 								</label>
 
 								<label>
-									<input class="fmore" type="checkbox" value="favourites" onClick={handleFilterChange}/>
+									<input class="fmore" type="checkbox" value="Favourites" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Favourites
 								</label>
 							</fieldset>
-						*/}	
+						
 
 
 
 							<div className="bt_wrap">
 								<button className="show_results" onClick={props.onCancel}>Show {props.items.length} results</button>
-								<button className="reset"> Reset</button>
+								<button className="reset" onClick={handleFilterReset}> Reset</button>
 							</div>
 						</div>
 					</div>
@@ -322,9 +399,9 @@ const ProjectLists = props => {
       <div className="row filter_tags">
         <div className="col-md-12">
           <p>
-            <span>Type: <strong>All</strong></span>
-            <span>Role: <strong>All</strong></span>
-            <span>Location: <strong>Yas Island, Abu Dhabi</strong></span>
+            <span>Type:  <strong>{ navTagsType }</strong></span>
+            <span>Role: <strong>{ navTagsRole }</strong></span>
+            <span>Location: <strong>{ navTagsLocation }</strong></span>
           </p>
         </div>
       </div>

@@ -7,9 +7,13 @@ const Projects = (props) => {
 
     const [loadedProject, setLoadedProject] = useState();
     const [loadedFilter, setLoadedFilter] = useState(false);
+    const [resetFilter,setResetFilter] = useState(false)
+
 
     const openFilterHandler = () => setLoadedFilter(true)
     const closeFilterHandler = () => setLoadedFilter(false)
+    const resetFilterHandler = () => setResetFilter(false)
+ 
 
 
     let filters ="";
@@ -31,7 +35,7 @@ const Projects = (props) => {
             setLoadedProject(responseData.data);
 
 
-            console.log('filters: ', filters);    
+            console.log('filters click: ', filters);    
             console.log(responseData.data);
             console.log(responseData.data.length);
 
@@ -62,7 +66,7 @@ const Projects = (props) => {
     
 
     const content = <React.Fragment>
-    {loadedProject && <ProjectLists ReloadFilters={getDataBasedOnFilters} items={loadedProject}  show={loadedFilter} onCancel={closeFilterHandler} onShow={openFilterHandler}></ProjectLists> } 
+    {loadedProject && <ProjectLists ReloadFilters={getDataBasedOnFilters} items={loadedProject}  show={loadedFilter} onReset={resetFilterHandler} onCancel={closeFilterHandler} onShow={openFilterHandler}></ProjectLists> } 
   </React.Fragment>
 
     return ReactDOM.createPortal(content, document.getElementById('miralProj'))
