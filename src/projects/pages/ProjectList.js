@@ -417,6 +417,9 @@ const ProjectLists = props => {
               description={project.description}
               location={project.location}
 			  image={project.image[0]}
+			  type={project.type.split(',')}
+			  role={project.role.split(',')}
+			  favorite={project.is_favorite}
               />;
           })}
         </div>

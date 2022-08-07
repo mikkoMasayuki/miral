@@ -140,8 +140,6 @@ const MapList = props => {
           
             // },
     
-			
-    
     
             // ],
             // listeners: {

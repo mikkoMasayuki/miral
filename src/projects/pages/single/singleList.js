@@ -26,6 +26,9 @@ const SingleList = props => {
               size={project.size}
               value={project.value}
               annual_visitor={project.annual_visitor}
+              type={project.type.split(',')}
+              role={project.role.split(',')}
+      			  favorite={project.is_favorite}
               />;
           })}
     </React.Fragment>

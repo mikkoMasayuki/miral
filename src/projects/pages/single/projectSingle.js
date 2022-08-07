@@ -7,7 +7,6 @@ const ProjectSingle = () => {
 
     const [loadedProject, setLoadedProject] = useState();
     const initializeState = () => !!JSON.parse(localStorage.getItem("refresh"));
-    console.log(localStorage.getItem("refresh"))
     const [token, setToken] = useState(initializeState);
     const projID = useParams().id;
     useEffect(() => {
