@@ -49,7 +49,7 @@ const ProjectLists = props => {
 	   setnavTagsLocation("")
 
         props.ReloadFilters({payload}); 			
-		props.onCancel();
+		/*props.onCancel();*/
 	}
 
 	const handleFilterChange = e => {
@@ -363,7 +363,7 @@ const ProjectLists = props => {
 								</label>
 
 								<label>
-									<input class="fmore" type="checkbox" value="Favourites" onClick={handleFilterChange}/>
+									<input class="fmore" type="checkbox" value="1" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Favourites
 								</label>
