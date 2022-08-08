@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import React, {useEffect,useState} from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { combineReducers } from 'redux';
+import { sessionReducer } from 'redux-react-session';
+
 
 import Users from './user/pages/User';
 import Projects from './projects/pages/Projects';
@@ -15,6 +18,12 @@ import AdminUpdateProjects from './admin/UpdateProject';
 
 const App = () => {
 
+
+  if(window.location.pathname === '/') {
+    let tmp_url = window.location.href
+    const url_arr = tmp_url.split("/")
+    window.location.href = window.location.protocol + "//" + url_arr[2]+"/login"
+  } 
   
   return <Router>
       <MainNavigation />
@@ -22,7 +31,7 @@ const App = () => {
       <main>
       <Switch>
 
-      <Route path="/" exact> 
+      <Route path="/projects" exact> 
        <Projects></Projects>
       </Route>
 
