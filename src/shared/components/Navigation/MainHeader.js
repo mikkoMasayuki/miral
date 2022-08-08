@@ -12,7 +12,7 @@ const MainHeader = props => {
     const content  = 
     <div className="container">
 
-        <Link className="navbar-brand" to={'/'}>
+        <Link className="navbar-brand" to={'/projects'}>
         <img className="logo" src="/assets/img/logo-miral.svg" alt="" />PORTFOLIO
         </Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
