@@ -30,7 +30,7 @@ const UpdateProjectSingle = props => {
               description_ar={project.desciption_ar}
               location={project.location}
               location_ar={project.location_ar}
-			  image={project.image[0]}
+			        image={project.image[0]}
               images={project.image}
               year={project.year}
               size={project.size}
