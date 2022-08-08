@@ -25,6 +25,7 @@ const SingleList = props => {
               year={project.year}
               size={project.size}
               value={project.value}
+              website={project.website}
               annual_visitor={project.annual_visitor}
               type={project.type.split(',')}
               role={project.role.split(',')}
