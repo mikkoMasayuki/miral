@@ -278,13 +278,29 @@ const UpdateProjectSingleItem = props => {
 						</span>
 					</fieldset>
 
+					<fieldset class="ima_ges">
+						<label>Images (JPG max fi le size 2mb):</label>
+						<div class="item_wrap">
+							
+
+							{props.images.map(image => {
+								return <div class="item">
+								<img src={image.image_url} />
+								<a>Delete</a>
+								</div>
+							})}
+
+
+
+
+						</div>
+
+						<button class="btn">Add more images</button>
+					</fieldset>					
+
 					<fieldset class="btns">
-						
 						<button type='submit' onClick={updateAPIData}>Update</button>
                         <button  onClick={cancelUpdate}>Cancel</button>
-
-
-                        
 					</fieldset>                    
 
                 </form>    
