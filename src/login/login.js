@@ -43,7 +43,7 @@ class Login extends Component {
                     <div className="col-md-6">
                         <div className="box">
                             <div className="logo">
-                                <span><img src="/assets/img/logo-miral.svg" /> PORTFOLIO EDITOR</span>
+                                <span><img src="/assets/img/logo-miral.svg" /> PORTFOLIO</span>
                             </div>
 
                             <form className="form" onSubmit={this.handleSubmit} >

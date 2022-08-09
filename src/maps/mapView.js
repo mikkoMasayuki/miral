@@ -108,7 +108,7 @@ const MapView = props => {
 				</div>
 
 				<div className="bt_right">
-                    <Link className="btn" to="/">Thumbnails</Link>
+                    <Link className="btn" to="/projects">Thumbnails</Link>
 					<a className="btn dark">Map</a>
 				</div>
 			</div>
