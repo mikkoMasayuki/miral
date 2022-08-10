@@ -19,20 +19,73 @@ const UpdateProjectSingleItem = props => {
         setName_Ar(localStorage.getItem('Name_Ar'));
         setCheckbox(localStorage.getItem('Checkbox Value'));
     }, []);
+
+
+	const getData = (s_string, s_source) => {
+		return s_source.search(s_string) >= 0 ? true : false
+	}	
+
+	console.log("ptype:"+props.ptype)
+	console.log("++++++++++++:"+getData("Dine",props.ptype))
     
     const updateAPIData = async (event) => {
-        let id_val = document.getElementById("idd").value;
-        let Name  = document.getElementById("name").value;
-        let Name_Ar  = document.getElementById("name_ar").value;
-        let Location = document.getElementById("location").value;
-        let Location_ar = document.getElementById("location_ar").value;     
-        let Website = document.getElementById("website").value;    
-        let Description_en = document.getElementById("desc_en").value;
-        let Description_ar = document.getElementById("desc_ar").value;
-        let Yyear = document.getElementById("yyear").value;
-        let Ssize = document.getElementById("ssize").value;
-        let Vval = document.getElementById("vval").value;
-        let Annual_v = document.getElementById("annual_visitor").value;
+
+
+		let filterType = "";
+		let filterRole = "";
+		let tmpftype="";
+		let tmpfrole="";
+		let getfilterType = document.getElementsByTagName('input');
+
+		for (let i = 0; i < getfilterType.length; i += 1) {
+
+				if (getfilterType[i].checked) {
+
+					console.log("className:"+getfilterType[i].className);	
+					if ( getfilterType[i].className == "ftype") {
+							if (tmpftype==="") {
+								tmpftype = getfilterType[i].value;
+							} else {
+								tmpftype = tmpftype +","+ getfilterType[i].value;	
+							}								
+					}	
+					if ( getfilterType[i].className == "frole") {
+						if (tmpfrole==="") {
+							tmpfrole = getfilterType[i].value;
+						} else {
+							tmpfrole = tmpfrole +","+ getfilterType[i].value;	
+						}
+					}
+				} 
+			
+		}
+
+		
+		filterType=tmpftype
+		filterRole=tmpfrole
+
+		console.log("update type : "+filterType);
+		console.log("update role : "+filterRole);
+
+		
+
+		/*check what status*/
+		let checkstatval = document.getElementById("status1").checked ? 1 : 2 
+        let id_val = document.getElementById("idd").value
+        let Name  = document.getElementById("name").value
+        let Name_Ar  = document.getElementById("name_ar").valu
+		let Status  = checkstatval
+		let tType =  filterType
+		let rRole = filterRole
+        let Location = document.getElementById("location").value
+        let Location_ar = document.getElementById("location_ar").value    
+        let Website = document.getElementById("website").value   
+        let Description_en = document.getElementById("desc_en").value
+        let Description_ar = document.getElementById("desc_ar").value
+        let Yyear = document.getElementById("yyear").value
+        let Ssize = document.getElementById("ssize").value
+        let Vval = document.getElementById("vval").value
+        let Annual_v = document.getElementById("annual_visitor").value
 
         /*
         
@@ -49,8 +102,8 @@ const UpdateProjectSingleItem = props => {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-                id: id_val, name: Name, name_ar: Name_Ar, location: Location,
-                location_ar: Location_ar, website: Website, desciption: Description_en,
+                id: id_val, name: Name, name_ar: Name_Ar, status: Status, type: tType, role: rRole,
+                location: Location, location_ar: Location_ar, website: Website, desciption: Description_en,
                 desciption_ar: Description_ar, year: Yyear, size: Ssize, value: Vval,
                 annual_visitor: Annual_v
                 //, value: Vval, annual_visitor: Annual_visitor    
@@ -61,7 +114,7 @@ const UpdateProjectSingleItem = props => {
      
         event.preventDefault();  
         //window.location.reload(false);
-        const timer = setTimeout(() => window.location.reload(false), 1000);
+        //const timer = setTimeout(() => window.location.reload(false), 1000);
        
    
     }
@@ -69,6 +122,32 @@ const UpdateProjectSingleItem = props => {
     const cancelUpdate =  (event) => {
         const timer = setTimeout(() => window.location.reload(false), 1000);
     }
+
+	const onlyOne = (checkbox) => {
+		let checkboxes = document.getElementsByName("statusbox")
+		checkboxes.forEach((item) => {
+			item.checked = false
+		})
+		checkbox.checked = true
+	}
+
+
+	const handleChange = event => {
+		let checkboxes = document.getElementsByName("statusbox")
+		checkboxes.forEach((item) => {
+			item.checked = false
+		})	
+
+		if (event.target.checked ) {
+			event.target.checked = false	
+		} else {
+			event.target.checked = true
+		}
+		
+		
+		
+	}
+
 
     return <React.Fragment>
 
@@ -89,19 +168,16 @@ const UpdateProjectSingleItem = props => {
 						<label>Status:</label>
 						
 						<label class="ch_lbl">
-							<input type="checkbox" name="status"  />
+							<input type="checkbox" defaultChecked={props.status==1 ? true : false} id="status1" value="1" name="statusbox" onClick={handleChange} />
 							<span class="checkmark"></span>
 							Published on site
 						</label>
+						<label class="ch_lbl">
+							<input type="checkbox" defaultChecked={props.status==2 ? true : false} id="status2" value="2" name="statusbox" onClick={handleChange}/>
+							<span class="checkmark"></span>
+							Pipeline project (visible to selected people only)
+						</label>
 
-
-						<select>
-							<option>Pipeline project (visible to selected people only)</option>
-							<option>option</option>
-							<option>option</option>
-							<option>option</option>
-							<option>option</option>
-						</select>
 					</fieldset>
 
 					<fieldset class="half">
@@ -127,13 +203,15 @@ const UpdateProjectSingleItem = props => {
 						
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" name="ptype" />
+								<input type="checkbox" defaultChecked={getData("Dine",props.ptype) ? true : false} value="Dine" class="ftype" />
+								
 								<span class="checkmark"></span>
+								
 								Dine
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Discover",props.ptype) ? true : false} value="Discover" class="ftype" />
 								<span class="checkmark"></span>
 								Discover
 							</label>
@@ -142,13 +220,13 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Meet",props.ptype) ? true : false} value="Meet" class="ftype" />
 								<span class="checkmark"></span>
 								Meet
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Play",props.ptype) ? true : false} value="Play" class="ftype" />
 								<span class="checkmark"></span>
 								Play
 							</label>
@@ -157,13 +235,13 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Stay",props.ptype) ? true : false} value="Stay" class="ftype" />
 								<span class="checkmark"></span>
 								Stay
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Destination",props.ptype) ? true : false} value="Destination" class="ftype" />
 								<span class="checkmark"></span>
 								Destination
 							</label>
@@ -172,13 +250,13 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Asset",props.ptype) ? true : false} value="Asset" class="ftype" />
 								<span class="checkmark"></span>
 								Asset
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Land Plot",props.ptype) ? true : false} value="Land Plot" class="ftype" />
 								<span class="checkmark"></span>
 								Land plot
 							</label>
@@ -187,13 +265,13 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Commercial",props.ptype) ? true : false} value="Commercial" class="ftype" />
 								<span class="checkmark"></span>
 								Commercial
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Museum",props.ptype) ? true : false} value="Museum" class="ftype" />
 								<span class="checkmark"></span>
 								Museum
 							</label>
@@ -202,7 +280,7 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Other",props.ptype) ? true : false} value="Other" class="ftype" />
 								<span class="checkmark"></span>
 								Other
 							</label>
@@ -216,28 +294,24 @@ const UpdateProjectSingleItem = props => {
 						
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Developed",props.role) ? true : false} value="Developed" class="frole" />
 								<span class="checkmark"></span>
 								Developed
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Investment",props.role) ? true : false} value="Investment" class="frole" />
 								<span class="checkmark"></span>
 								Investment
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" name="" />
+								<input type="checkbox" defaultChecked={getData("Managed",props.role) ? true : false} value="Managed" class="frole" />
 								<span class="checkmark"></span>
 								Managed
 							</label>
 
-							<label class="ch_lbl">
-								<input type="checkbox" name="" />
-								<span class="checkmark"></span>
-								TBC
-							</label>
+
 						</span>
 					</fieldset>
 
@@ -257,24 +331,24 @@ const UpdateProjectSingleItem = props => {
 
 					<fieldset class="half">
 						<label>Description (EN):
-							<textarea id="desc_en">{props.description_en}</textarea>
+							<textarea id="desc_en" defaultValue={props.description_en}></textarea>
 						</label>
 
 						<label>Description (AR):
-							<textarea id="desc_ar">{props.description_ar}</textarea>
+							<textarea id="desc_ar" defaultValue={props.description_ar}></textarea>
 						</label>
 					</fieldset>                                     
 
 					<fieldset class="stats">
 						<label>Statistics:</label>
 						<span class="group">
-							<input type="text" defaultValue={props.year} id="yyear" />
-							<input type="text" defaultValue={props.value} id="vval" />
+							<input type="text" placeholder="Completion year" defaultValue={props.year} id="yyear" />
+							<input type="text" placeholder="Value (USD)" defaultValue={props.value} id="vval" />
 						</span>
 
 						<span class="group">
-							<input type="text" defaultValue={props.size} id="ssize" />
-							<input type="text" defaultValue={props.annual_visitor} id="annual_visitor" />
+							<input type="text" placeholder="Size(sqm)" defaultValue={props.size} id="ssize" />
+							<input type="text" placeholder="Annual visitors" defaultValue={props.annual_visitor} id="annual_visitor" />
 						</span>
 					</fieldset>
 
