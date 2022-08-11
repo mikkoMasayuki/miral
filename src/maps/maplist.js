@@ -1,380 +1,175 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Maplace from 'maplace-js'
-const MapList = props => {
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import googleMapStyles from './GoogelMapStyle.js';
+import $ from 'jquery';
 
-	// const tmp = props.items
-    // const tmp = props.items
-    // return tmp.map((proj) => {
-    //     return proj.name;
-    // })
+	
+export class MapContainer extends Component {
+	constructor(props) {
+		super(props);
+	  }
+	state = {
+		showingInfoWindow: false,
+		activeMarker: {},
+		selectedPlace: {},
+		projects: [],
+		selectMark: false,
+	  };
 
-	// const mapNew = tmp.map((proj) => {
-	// 	return proj.name;
-	// })
-    
-
-    useEffect(() => {
-        const tmp = [
-    
-            {
-               html: "<div class=\" item\"><a class=\"link\" href=\"#\"> </a><div class=\"ftrd_img\"><img src=\"https://pi.ae/live/miral-portfolio/assets/img/projects/proj-etihad-arena-00.webp\"></div><div class=\"desc\"><svg class=\"star_icon\" width=\"25\" height=\"25\" xmlns=\"http://www.w3.org/2000/svg\" id=\"Layer_1\" data-name=\"Layer 1\" viewBox=\"0 0 122.88 117.1\"><path stroke=\"#9d9d9c\" stroke-width=\"3\" fill=\"none\" class=\"cls-1\" d=\"M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z\"></path></svg><h4>Etihad Arena</h4><p>Yas Bay Waterfront, Yas Island, Abu Dhabi</p><p class=\"tag tag_1\"><span>Play</span></p><p class=\"tag tag_2\"><span class=\"dev\">Developed</span><span class=\"mana_ged\">Managed</span></p></div></div>",
-               icon: "/assets/img/pin.svg",
-               lat: 24.4781577,
-               lon: 54.3529111,
-               title: "Etihad Arena"
-            
-           },{
-               lat:24.485129,
-               lon: 54.366349,
-               title: 'Al Danah',
-               html:'<div class=" item"><a class="link" href="projects-single.html"> </a><div class="ftrd_img"><img src="assets/img/portfolio-03.webp"></div><div class="desc"><svg class="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 117.1"><path stroke="#9d9d9c" stroke-width="3" fill="none" class="cls-1" d="M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z"></path></svg><h4>Qasr Al Watan</h4><p>Abu Dhabi</p><p class="tag tag_1"><span>Discover</span></p><p class="tag tag_2"><span class="mana_ged">Managed</span></p></div></div>',
-               icon: '/assets/img/pin.svg'
-             
-           },
-   
-   
-           {
-               
-               lat:24.496896,
-               lon: 54.592532,
-               title: 'Yas Island',
-                html:'<div class=" item"><a class="link" href="projects-single.html"> </a><div class="ftrd_img"><img src="assets/img/single-01.webp"></div><div class="desc"><svg class="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 117.1"><path stroke="#9d9d9c" stroke-width="3" fill="none" class="cls-1" d="M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z"></path></svg><h4>Yas Waterworld</h4><p>Abu Dhabi</p><p class="tag tag_1"><span>Play</span></p><p class="tag tag_2"><span class="dev">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
-               icon: '/assets/img/pin.svg'
-             
-           },
-   
-   
-          
-           {
-              lat:24.485946,
-               lon: 54.603574,
-               title: 'Yas Island Warner Bros',
-                html:'<div class=" item"><a class="link" href="projects-single.html"> </a><div class="ftrd_img"><img src="assets/img/portfolio-03.webp"></div><div class="desc"><svg class="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 117.1"><path stroke="#9d9d9c" stroke-width="3" fill="none" class="cls-1" d="M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z"></path></svg><h4>Warner Bros. World</h4><p>Abu Dhabi</p><p class="tag tag_1"><span>Play</span></p><p class="tag tag_2"><span class="dev">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
-               icon: '/assets/img/pin.svg'
-         
-         
-           },
-   
-            {
-              lat:24.465710,
-               lon: 54.599639,
-               title: 'Yas Plaza',
-                html:'<div class=" item"><a class="link" href="projects-single.html"> </a><div class="ftrd_img"><img src="assets/img/portfolio-03.webp"></div><div class="desc"><svg class="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 117.1"><path stroke="#9d9d9c" stroke-width="3" fill="none" class="cls-1" d="M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z"></path></svg><h4>Warner Bros. World</h4><p>Abu Dhabi</p><p class="tag tag_1"><span>Play</span></p><p class="tag tag_2"><span class="dev">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
-               icon: '/assets/img/pin.svg'
-         
-         
-           },
-   
-           
-   
-   
-           ];
-
-           const arr = props.items;
-
-
-
-        const map = new Maplace({
-            map_div: '#gmap',
-            show_markers: true,
-            // controls_type: 'list',
-            // type : 'polygon',
-            // controls_title: 'Choose a location:',
-            map_options: {
-                zoom: 12
-            },
-    
-            // locations: [
-    
-            //  {
-            //     html: "<div class=\" item\"><a class=\"link\" href=\"#\"> </a><div class=\"ftrd_img\"><img src=\"https://pi.ae/live/miral-portfolio/assets/img/projects/proj-etihad-arena-00.webp\"></div><div class=\"desc\"><svg class=\"star_icon\" width=\"25\" height=\"25\" xmlns=\"http://www.w3.org/2000/svg\" id=\"Layer_1\" data-name=\"Layer 1\" viewBox=\"0 0 122.88 117.1\"><path stroke=\"#9d9d9c\" stroke-width=\"3\" fill=\"none\" class=\"cls-1\" d=\"M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z\"></path></svg><h4>Etihad Arena</h4><p>Yas Bay Waterfront, Yas Island, Abu Dhabi</p><p class=\"tag tag_1\"><span>Play</span></p><p class=\"tag tag_2\"><span class=\"dev\">Developed</span><span class=\"mana_ged\">Managed</span></p></div></div>",
-            //     icon: "/assets/img/pin.svg",
-            //     lat: 24.4781577,
-            //     lon: 54.3529111,
-            //     title: "Etihad Arena"
-             
-            // },
-    
-             
-    
-            //  {
-            //     lat:24.485129,
-            //     lon: 54.366349,
-            //     title: 'Al Danah',
-            //     html:'<div class=" item"><a class="link" href="projects-single.html"> </a><div class="ftrd_img"><img src="assets/img/portfolio-03.webp"></div><div class="desc"><svg class="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 117.1"><path stroke="#9d9d9c" stroke-width="3" fill="none" class="cls-1" d="M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z"></path></svg><h4>Qasr Al Watan</h4><p>Abu Dhabi</p><p class="tag tag_1"><span>Discover</span></p><p class="tag tag_2"><span class="mana_ged">Managed</span></p></div></div>',
-            //     icon: '/assets/img/pin.svg'
-              
-            // },
-    
-    
-            // {
-                
-            //     lat:24.496896,
-            //     lon: 54.592532,
-            //     title: 'Yas Island',
-            //      html:'<div class=" item"><a class="link" href="projects-single.html"> </a><div class="ftrd_img"><img src="assets/img/single-01.webp"></div><div class="desc"><svg class="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 117.1"><path stroke="#9d9d9c" stroke-width="3" fill="none" class="cls-1" d="M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z"></path></svg><h4>Yas Waterworld</h4><p>Abu Dhabi</p><p class="tag tag_1"><span>Play</span></p><p class="tag tag_2"><span class="dev">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
-            //     icon: '/assets/img/pin.svg'
-              
-            // },
-    
-    
-           
-            // {
-            //    lat:24.485946,
-            //     lon: 54.603574,
-            //     title: 'Yas Island Warner Bros',
-            //      html:'<div class=" item"><a class="link" href="projects-single.html"> </a><div class="ftrd_img"><img src="assets/img/portfolio-03.webp"></div><div class="desc"><svg class="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 117.1"><path stroke="#9d9d9c" stroke-width="3" fill="none" class="cls-1" d="M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z"></path></svg><h4>Warner Bros. World</h4><p>Abu Dhabi</p><p class="tag tag_1"><span>Play</span></p><p class="tag tag_2"><span class="dev">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
-            //     icon: '/assets/img/pin.svg'
-          
-          
-            // },
-    
-            //  {
-            //    lat:24.465710,
-            //     lon: 54.599639,
-            //     title: 'Yas Plaza',
-            //      html:'<div class=" item"><a class="link" href="projects-single.html"> </a><div class="ftrd_img"><img src="assets/img/portfolio-03.webp"></div><div class="desc"><svg class="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 122.88 117.1"><path stroke="#9d9d9c" stroke-width="3" fill="none" class="cls-1" d="M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z"></path></svg><h4>Warner Bros. World</h4><p>Abu Dhabi</p><p class="tag tag_1"><span>Play</span></p><p class="tag tag_2"><span class="dev">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
-            //     icon: '/assets/img/pin.svg'
-          
-          
-            // },
-    
-    
-            // ],
-            // listeners: {
-            //     click: function(map, event) {
-                    
-            //     }
-            // },
-            locations: props.items,
-    
-    
-            styles:{
-                'Greyscale':[ {"featureType": "administrative","elementType": "all","stylers": [{"visibility": "on" },{"saturation": -100},{"lightness": 20} ]},{"featureType": "road","elementType": "all","stylers": [ {"visibility": "on" }, {"saturation": -100},{ "lightness": 40}]},{"featureType": "water","elementType": "all","stylers": [{"visibility": "on" }, {"saturation": -10 },{ "lightness": 30}]},{"featureType": "landscape.man_made","elementType": "all","stylers": [{ "visibility": "simplified"},{"saturation": -60},{"lightness": 10}]},{"featureType": "landscape.natural","elementType": "all","stylers": [{"visibility": "simplified" },{"saturation": -60},{"lightness": 60}]},{"featureType": "poi","elementType": "all","stylers": [{"visibility": "off"},{"saturation": -100},{"lightness": 60}]},{"featureType": "transit","elementType": "all","stylers": [{"visibility": "off"},{"saturation": -100},{"lightness": 60}]}]
-            },
-            controls_on_map: false
-           
+	  componentDidMount() {
+        fetch('http://54.183.107.251:4052/project')
+        .then((response) => response.json())
+        .then(projectlist => {
+            this.setState({
+				 projects: projectlist.data 
+			});
         });
+	
+		
+    }
 
-        map.Load();
-    },[props.items])
+	handleClick = (e) => {
+		this.inputElement.click();
+	  }
 
-    
+	onMarkerClick = (props, marker, e) =>
+		
+	  this.setState({
+		selectedPlace: props,
+		activeMarker: marker,
+		showingInfoWindow: true,
+		selectMark:true
+	  });
+  
+	onClose = props => {
+	  if (this.state.showingInfoWindow) {
+		this.setState({
+		  showingInfoWindow: false,
+		  activeMarker: null
+		});
+	  }
+	};
 
-    return <React.Fragment>
-         <section class="cstm_sec thumb_sec">
-	<div className={`filter_drop ${ props.show && "shown"}`}>
-		<div className="bg_overlay" onClick={props.onCancel}></div>
+	_mapLoaded(mapProps, map) {
+		map.setOptions({
+		   styles:  [ {"featureType": "administrative","elementType": "all","stylers": [{"visibility": "on" },{"saturation": -100},{"lightness": 20} ]},{"featureType": "road","elementType": "all","stylers": [ {"visibility": "on" }, {"saturation": -100},{ "lightness": 40}]},{"featureType": "water","elementType": "all","stylers": [{"visibility": "on" }, {"saturation": -10 },{ "lightness": 30}]},{"featureType": "landscape.man_made","elementType": "all","stylers": [{ "visibility": "simplified"},{"saturation": -60},{"lightness": 10}]},{"featureType": "landscape.natural","elementType": "all","stylers": [{"visibility": "simplified" },{"saturation": -60},{"lightness": 60}]},{"featureType": "poi","elementType": "all","stylers": [{"visibility": "off"},{"saturation": -100},{"lightness": 60}]},{"featureType": "transit","elementType": "all","stylers": [{"visibility": "off"},{"saturation": -100},{"lightness": 60}]}]
+		})
+	 }
+  render() {
+	console.log(this.state.selectedPlace)
+    return (
+	<React.Fragment>
+
+		<section class="cstm_sec thumb_sec">
+
 		<div className="container">
-			<div className="row">
-            <   div className="col-md-12">
-						<div class="frm_wrap">
-							<fieldset>
-								<legend>Type:</legend>
-								<label>
-									<input type="checkbox" />
-									<span className="checkmark"></span>
-									All
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Dine
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Discover
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Meet
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Play
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Stay
-								</label>
-							</fieldset>
-
-
-
-							<fieldset>
-								<legend>Role:</legend>
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									All
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Developed
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Managed
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Investment
-								</label>
-							</fieldset>
-
-
-
-							<fieldset>
-								<legend>Location:</legend>
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									All
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Yas Island, Abu Dhabi
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Saadiyat Island, Abu Dhabi
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Abu Dhabi City
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Jordan
-								</label>
-
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Kazakhstan
-								</label>
-							</fieldset>
-
-
-							<fieldset>
-								<legend>Business:</legend>
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									All
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Miral Group
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Miral Destinations
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Miral Experiences
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Yas Asset Management
-								</label>
-							</fieldset>
-
-
-							<fieldset>
-								<legend>More:</legend>
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Destination
-								</label>
-
-								<label>
-									<input type="checkbox" name="" />
-									<span className="checkmark"></span>
-									Favourites
-								</label>
-							</fieldset>
-
-
-
-							<div className="bt_wrap">
-								<button className="show_results" onClick={props.onCancel}>Show 53 results</button>
-								<button className="reset"> Reset</button>
-							</div>
-						</div>
+			<div className="row bt_row">
+				<div className="col-md-12">
+					<div className="bt_left">
+						
 					</div>
-			</div>
-		</div>
-	</div>
 
-
-
-
-	<div className="container">
-		<div className="row bt_row">
-			<div className="col-md-12">
-				<div className="bt_left">
-					<button className={`${props.show && 'active'}`} onClick={props.onShow}>Filter</button>
-				</div>
-
-				<div className="bt_right">
-                    <Link className="btn" to="/">Thumbnails</Link>
-					<a className="btn dark">Map</a>
+					<div className="bt_right">
+						<Link className="btn" to="/projects">Thumbnails</Link>
+						<a className="btn dark">Map</a>
+					</div>
 				</div>
 			</div>
-		</div>
 
+
+			
+			<div className="row portfolio_map">
+				<div className="col-md-12">
+					<div className="map_bt">
+						<a  className="btn dark" href="#">Abu Dhabi</a>
+						<a className="btn " href="#">International</a>
+					</div>
+					<div id="gmap" >
+					
+
+					<Map
+						
+						google={this.props.google}
+						zoom={12}
+						style={this.props.mapStyle}
+						initialCenter={
+							{
+							lat: 24.481952,
+							lng: 54.497535
+							}
+						}
+						onReady={(mapProps, map) => this._mapLoaded(mapProps, map)}
+					>
+
+						{this.state.projects.map((project, i) => (
+							<Marker position={{lat: project.lat, lng: project.long}} onClick={this.onMarkerClick} name={project.name} icon={{
+								url: "../assets/img/pin.svg",
+								}} 
+							location={project.location}
+							type={project.type.split(',').map(t => <span>{t}</span>)
+							.reduce((prev, curr) => [prev, '', curr])}
+							role={project.role.split(',').map(t => <span  className={ t == 'Developed' ? 'dev' : 'mana_ged' }>{t}</span>)
+							.reduce((prev, curr) => [prev, '', curr])}
+							image={project.image[0].image_url}
+							title={project.name}
+							ref={() => { 
+								const markVar = this.state.selectMark
+								function selectMap(selectMark = markVar){
+
+									let params = (new URL(document.location)).searchParams;
+									let mapId = params.get("id");
+									if (project.id == mapId && selectMark == false ) {
+									
+									const test = window.document.querySelectorAll('div[title="'+project.name+'"]')
+
+									console.log(test)
+									console.log('div[title="'+project.name+'"]')
+
+									test.forEach(el=>el.click());
+									}
+									
+								}
+
+								setTimeout(selectMap, 500);
+
+								  
+								}}
+								>
+								
+						 </Marker>
+
+						 
+						))
+
+						}
+						
+								<InfoWindow
+								marker={this.state.activeMarker}
+								visible={this.state.showingInfoWindow}>
+									
+
+									<div className=" item"><a className="link" > </a><div className="ftrd_img"><img src={this.state.selectedPlace.image} /></div><div className="desc"><svg className="star_icon" width="25" height="25" xmlns="http://www.w3.org/2000/svg" id="" data-name="Layer 1" viewBox="0 0 122.88 117.1"><path stroke="#9d9d9c" stroke-width="3" fill="none" className="cls-1" d="M64.42,2,80.13,38.7,120,42.26a3.2,3.2,0,0,1,1.82,5.62h0L91.64,74.18l8.9,39A3.19,3.19,0,0,1,98.12,117a3.27,3.27,0,0,1-2.46-.46L61.41,96.1,27.07,116.64a3.18,3.18,0,0,1-4.38-1.09,3.14,3.14,0,0,1-.37-2.38h0l8.91-39L1.09,47.88a3.24,3.24,0,0,1-.32-4.52,3.32,3.32,0,0,1,2.29-1l39.72-3.56L58.49,2a3.24,3.24,0,0,1,5.93,0Z"></path></svg><h4>{this.state.selectedPlace.name}</h4><p>{this.state.selectedPlace.location}</p><p className="tag tag_1">{this.state.selectedPlace.type}</p><p className="tag tag_2">{this.state.selectedPlace.role}</p></div></div>
+								</InfoWindow>
+						
+						
+					</Map>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
 
 		
-		<div className="row portfolio_map">
-			<div className="col-md-12">
-				<div className="map_bt">
-					<a  className="btn dark" href="#">Abu Dhabi</a>
-					<a className="btn " href="#">International</a>
-				</div>
-				<div id="gmap" ></div>
-			</div>
-		</div>
-	</div>
-</section>
+	</React.Fragment>
       
-    </React.Fragment>
+    );
+  }
 
-};
+}
 
-export default MapList;
+MapContainer.defaultProps = googleMapStyles;
+
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyANt6Xy9LQccwaqMhnj1MQ9_CFVftSYuKA'
+})(MapContainer);

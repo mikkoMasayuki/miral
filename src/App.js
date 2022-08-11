@@ -15,6 +15,7 @@ import Login from './login/login';
 import Admin from './admin/login';
 import AdminProjects from './admin/projects';
 import AdminUpdateProjects from './admin/UpdateProject';
+import MapList from './maps/maplist';
 
 const App = () => {
 
@@ -56,7 +57,7 @@ const App = () => {
       </Route>
 
       <Route path="/map" exact>
-        <MapView></MapView>
+        <MapList></MapList>
       </Route>
 
      
