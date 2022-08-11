@@ -15,6 +15,10 @@ export class MapContainer extends Component {
 		selectedPlace: {},
 		projects: [],
 		selectMark: false,
+		initial: {
+			lat: 24.481952,
+			lng: 54.497535
+			}
 	  };
 
 	  componentDidMount() {
@@ -51,6 +55,25 @@ export class MapContainer extends Component {
 	  }
 	};
 
+	onDubai = props => {
+		const test = window.document.querySelectorAll('div[title="Abu Dhabi Plaza"]')
+
+		test.forEach(el=>el.click());
+	}
+
+	onGeneral = props => {
+		if (this.state.showingInfoWindow) {
+			this.setState({
+			  showingInfoWindow: false,
+			  activeMarker: null,
+			  initial: {
+				lat: 24.481952,
+				lng: 54.497535
+				}
+			});
+		  }
+	}
+
 	_mapLoaded(mapProps, map) {
 		map.setOptions({
 		   styles:  [ {"featureType": "administrative","elementType": "all","stylers": [{"visibility": "on" },{"saturation": -100},{"lightness": 20} ]},{"featureType": "road","elementType": "all","stylers": [ {"visibility": "on" }, {"saturation": -100},{ "lightness": 40}]},{"featureType": "water","elementType": "all","stylers": [{"visibility": "on" }, {"saturation": -10 },{ "lightness": 30}]},{"featureType": "landscape.man_made","elementType": "all","stylers": [{ "visibility": "simplified"},{"saturation": -60},{"lightness": 10}]},{"featureType": "landscape.natural","elementType": "all","stylers": [{"visibility": "simplified" },{"saturation": -60},{"lightness": 60}]},{"featureType": "poi","elementType": "all","stylers": [{"visibility": "off"},{"saturation": -100},{"lightness": 60}]},{"featureType": "transit","elementType": "all","stylers": [{"visibility": "off"},{"saturation": -100},{"lightness": 60}]}]
@@ -82,8 +105,8 @@ export class MapContainer extends Component {
 			<div className="row portfolio_map">
 				<div className="col-md-12">
 					<div className="map_bt">
-						<a  className="btn dark" href="#">Abu Dhabi</a>
-						<a className="btn " href="#">International</a>
+						<a onClick={this.onDubai} className="btn dark" href="#">Abu Dhabi</a>
+						<a onClick={this.onGeneral} className="btn " href="#">International</a>
 					</div>
 					<div id="gmap" >
 					
@@ -93,12 +116,8 @@ export class MapContainer extends Component {
 						google={this.props.google}
 						zoom={12}
 						style={this.props.mapStyle}
-						initialCenter={
-							{
-							lat: 24.481952,
-							lng: 54.497535
-							}
-						}
+						initialCenter={this.state.initial}
+						center={this.state.initial}
 						onReady={(mapProps, map) => this._mapLoaded(mapProps, map)}
 					>
 
@@ -119,20 +138,22 @@ export class MapContainer extends Component {
 
 									let params = (new URL(document.location)).searchParams;
 									let mapId = params.get("id");
+
 									if (project.id == mapId && selectMark == false ) {
 									
 									const test = window.document.querySelectorAll('div[title="'+project.name+'"]')
 
-									console.log(test)
-									console.log('div[title="'+project.name+'"]')
-
 									test.forEach(el=>el.click());
+									}else if (selectMark == false && mapId == null) {
+										const test = window.document.querySelectorAll('div[title="Abu Dhabi Plaza"]')
+
+										test.forEach(el=>el.click());
 									}
 									
 								}
 
 								setTimeout(selectMap, 500);
-
+									
 								  
 								}}
 								>
