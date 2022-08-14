@@ -65,7 +65,7 @@ const ProjectItem = props => {
 					<p className="tag tag_2">
 						{
 							props.role
-							.map(t => <span className="mana_ged">{t}</span>)
+							.map(t => <span className={ t == 'Developed' ? 'dev' : 'mana_ged' }>{t}</span>)
 							.reduce((prev, curr) => [prev, '', curr])
 						}
 					</p>
