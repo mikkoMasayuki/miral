@@ -38,7 +38,7 @@ const Projects = (props) => {
         
 
         const sendRequest = async () => {
-            const response = await fetch('http://54.183.107.251:4052/project/?'+filters)
+            const response = await fetch('http://185.140.248.26:4052/project/?'+filters)
 
             const responseData = await response.json();
 
@@ -59,7 +59,7 @@ const Projects = (props) => {
 
     useEffect(() => {
         const sendRequest = async () => {
-            const response = await fetch('http://54.183.107.251:4052/project/')
+            const response = await fetch('http://185.140.248.26:4052/project/')
 
             const responseData = await response.json();
 

@@ -17,7 +17,7 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('http://54.183.107.251:4052/project', requestOptions)
+			fetch('http://185.140.248.26:4052/project', requestOptions)
 			.then(response => response.json());
 		}else{
 			const requestOptions = {
@@ -29,7 +29,7 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('http://54.183.107.251:4052/project', requestOptions)
+			fetch('http://185.140.248.26:4052/project', requestOptions)
 			.then(response => response.json());
 		}
 	}
