@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 
-const UpdateProjectSingleItem = props => {
+const AddProject = props => {
 
     let history = useHistory();
     const [id, setID] = useState(null);
@@ -25,10 +25,8 @@ const UpdateProjectSingleItem = props => {
 		return s_source.search(s_string) >= 0 ? true : false
 	}	
 
-	console.log("ptype:"+props.ptype)
-	console.log("++++++++++++:"+getData("Dine",props.ptype))
     
-    const updateAPIData = async (event) => {
+    const addAPIData = async (event) => {
 
 
 		let filterType = "";
@@ -64,8 +62,8 @@ const UpdateProjectSingleItem = props => {
 		filterType=tmpftype
 		filterRole=tmpfrole
 
-		console.log("update type : "+filterType);
-		console.log("update role : "+filterRole);
+		console.log("Add type : "+filterType);
+		console.log("Add role : "+filterRole);
 
 		
 
@@ -73,7 +71,7 @@ const UpdateProjectSingleItem = props => {
 		let checkstatval = document.getElementById("status1").checked ? 1 : 2 
         let id_val = document.getElementById("idd").value
         let Name  = document.getElementById("name").value
-        let Name_Ar  = document.getElementById("name_ar").valu
+        let Name_Ar  = document.getElementById("name_ar").value
 		let Status  = checkstatval
 		let tType =  filterType
 		let rRole = filterRole
@@ -86,7 +84,14 @@ const UpdateProjectSingleItem = props => {
         let Ssize = document.getElementById("ssize").value
         let Vval = document.getElementById("vval").value
         let Annual_v = document.getElementById("annual_visitor").value
+        let Longitude = document.getElementById("longitude").value
+        let Latitude = document.getElementById("latitude").value
+		let Business = document.getElementById("business").value
 
+
+		console.log(Name+" "+ Name_Ar +" "+Status+" "+tType+" "+rRole+" "+Location+" "+Location_ar)	
+		console.log(Website+" "+ Description_en +" "+Description_ar+" "+Yyear+" "+Ssize+" "+Vval+" "+Annual_v)	
+		console.log(Longitude+" "+ Latitude +" "+Business)
         /*
         
 
@@ -99,19 +104,43 @@ const UpdateProjectSingleItem = props => {
       
         
         const requestOptions = {
-            method: 'PUT',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-                id: id_val, name: Name, name_ar: Name_Ar, status: Status, type: tType, role: rRole,
-                location: Location, location_ar: Location_ar, website: Website, desciption: Description_en,
-                desciption_ar: Description_ar, year: Yyear, size: Ssize, value: Vval,
-                annual_visitor: Annual_v
-                //, value: Vval, annual_visitor: Annual_visitor    
+
+				name: Name,
+				name_ar: Name_Ar, 
+				status: Status,
+				location: Location,
+				location_ar: Location_ar,
+				lat: Latitude,
+				long: Longitude,
+				type: tType,
+				role: rRole,
+				business: Business,
+				website: Website,
+				desciption: Description_en,
+				desciption_ar: Description_ar,
+				year: Yyear,
+				size: Ssize,
+				value: Vval,
+				annual_visitor: Annual_v,
+				created_at: "",
+				updated_at: ""   
             })
         };
-        fetch('http://185.140.248.26:4052/project', requestOptions)
-            .then(response => response.json());
-     
+
+
+		fetch('http://185.140.248.26:4052/project', requestOptions)
+		.then(response => response.json())
+		.then((data) => {
+			console.log('Success:', data);
+		  })
+		  .catch((error) => {
+			console.error('Error:', error);
+		  });		
+		
+		
         event.preventDefault();  
         //window.location.reload(false);
         //const timer = setTimeout(() => window.location.reload(false), 1000);
@@ -122,15 +151,6 @@ const UpdateProjectSingleItem = props => {
     const cancelUpdate =  (event) => {
         const timer = setTimeout(() => window.location.reload(false), 1000);
     }
-
-	const onlyOne = (checkbox) => {
-		let checkboxes = document.getElementsByName("statusbox")
-		checkboxes.forEach((item) => {
-			item.checked = false
-		})
-		checkbox.checked = true
-	}
-
 
 	const handleChange = event => {
 		let checkboxes = document.getElementsByName("statusbox")
@@ -150,7 +170,7 @@ const UpdateProjectSingleItem = props => {
 
 
     return <React.Fragment>
-
+<div class="container test">
 <div class="col-md-12 edit_dashboard">
 				<form id="update">
 					<fieldset class="half">
@@ -182,23 +202,25 @@ const UpdateProjectSingleItem = props => {
 
 					<fieldset class="half">
 						<label>Location (EN):
-							<input type="text" id="location" defaultValue={props.location}/>
+							<input type="text" id="location"/>
 						</label>
 
 						<label>Location (AR):
-							<input type="text" id="location_ar" defaultValue={props.location_ar}/>
+							<input type="text" id="location_ar"/>
 						</label>
 					</fieldset>
 
 
 					<fieldset class="half">
+                        
 						<label>Map  ( Longitude )
-							<input type="text" id="longitude" defaultValue={props.longitude} />
+							<input type="text" id="longitude"/>
 						</label>
 
 						<label>(Latitude)
-							<input type="text" id="latitude"defaultValue={props.latitude} />
-						</label>
+							<input type="text" id="latitude"/>
+						</label>						
+						
 					</fieldset>
 
 
@@ -207,7 +229,7 @@ const UpdateProjectSingleItem = props => {
 						
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Dine",props.ptype) ? true : false} value="Dine" class="ftype" />
+								<input type="checkbox" value="Dine" class="ftype" />
 								
 								<span class="checkmark"></span>
 								
@@ -215,7 +237,7 @@ const UpdateProjectSingleItem = props => {
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Discover",props.ptype) ? true : false} value="Discover" class="ftype" />
+								<input type="checkbox" value="Discover" class="ftype" />
 								<span class="checkmark"></span>
 								Discover
 							</label>
@@ -224,13 +246,13 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Meet",props.ptype) ? true : false} value="Meet" class="ftype" />
+								<input type="checkbox" value="Meet" class="ftype" />
 								<span class="checkmark"></span>
 								Meet
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Play",props.ptype) ? true : false} value="Play" class="ftype" />
+								<input type="checkbox" value="Play" class="ftype" />
 								<span class="checkmark"></span>
 								Play
 							</label>
@@ -239,13 +261,13 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Stay",props.ptype) ? true : false} value="Stay" class="ftype" />
+								<input type="checkbox" value="Stay" class="ftype" />
 								<span class="checkmark"></span>
 								Stay
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Destination",props.ptype) ? true : false} value="Destination" class="ftype" />
+								<input type="checkbox" value="Destination" class="ftype" />
 								<span class="checkmark"></span>
 								Destination
 							</label>
@@ -254,13 +276,13 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Asset",props.ptype) ? true : false} value="Asset" class="ftype" />
+								<input type="checkbox" value="Asset" class="ftype" />
 								<span class="checkmark"></span>
 								Asset
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Land Plot",props.ptype) ? true : false} value="Land Plot" class="ftype" />
+								<input type="checkbox" value="Land Plot" class="ftype" />
 								<span class="checkmark"></span>
 								Land plot
 							</label>
@@ -269,13 +291,13 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Commercial",props.ptype) ? true : false} value="Commercial" class="ftype" />
+								<input type="checkbox" value="Commercial" class="ftype" />
 								<span class="checkmark"></span>
 								Commercial
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Museum",props.ptype) ? true : false} value="Museum" class="ftype" />
+								<input type="checkbox" value="Museum" class="ftype" />
 								<span class="checkmark"></span>
 								Museum
 							</label>
@@ -284,7 +306,7 @@ const UpdateProjectSingleItem = props => {
 
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Other",props.ptype) ? true : false} value="Other" class="ftype" />
+								<input type="checkbox" value="Other" class="ftype" />
 								<span class="checkmark"></span>
 								Other
 							</label>
@@ -298,19 +320,19 @@ const UpdateProjectSingleItem = props => {
 						
 						<span class="group">
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Developed",props.role) ? true : false} value="Developed" class="frole" />
+								<input type="checkbox" value="Developed" class="frole" />
 								<span class="checkmark"></span>
 								Developed
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Investment",props.role) ? true : false} value="Investment" class="frole" />
+								<input type="checkbox" value="Investment" class="frole" />
 								<span class="checkmark"></span>
 								Investment
 							</label>
 
 							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Managed",props.role) ? true : false} value="Managed" class="frole" />
+								<input type="checkbox" value="Managed" class="frole" />
 								<span class="checkmark"></span>
 								Managed
 							</label>
@@ -321,7 +343,7 @@ const UpdateProjectSingleItem = props => {
 
 					<fieldset class="half">
 						<label>Business:
-							<select>
+							<select id="business">
 								<option>Miral Experiences</option>
 								<option>option</option>
 							</select>
@@ -359,36 +381,24 @@ const UpdateProjectSingleItem = props => {
 					<fieldset class="ima_ges">
 						<label>Images (JPG max fi le size 2mb):</label>
 						<div class="item_wrap">
-							
-
-							{props.images.map(image => {
-								return <div class="item">
-								<img src={image.image_url} />
-								<a>Delete</a>
-								</div>
-							})}
-
-
-
 
 						</div>
 
-						<button class="btn bt_orange">Add more images</button>
+						<button class="btn">Add more images</button>
 					</fieldset>					
 
 					<fieldset class="btns">
-						<button class="btn bt_orange save" type='submit' onClick={updateAPIData}>Update</button>
-                        <button class="btn bt_orange cancel" onClick={cancelUpdate}>Cancel</button>
-						<button class="btn del" >Delete Project</button>
+						<button type='submit' onClick={addAPIData}>Save</button>
+                        <button  onClick={cancelUpdate}>Cancel</button>
 					</fieldset>                    
 
                 </form>    
 </div>                    
-        
+</div>        
 
 
         
     </React.Fragment>;
 }
 
-export default UpdateProjectSingleItem;
+export default AddProject;

@@ -36,32 +36,30 @@ class Login extends Component {
 
   render() {
     return (
-        <section className="cstm_sec login_sec">
-            <div className="container">
-                <div className="row">
+<section class="cstm_sec login_sec">
+	<div class="container">
+		<div class="row">
 
-                    <div className="col-md-6">
-                        <div className="box">
-                            <div className="logo">
-                                <span><img src="/assets/img/logo-miral.svg" /> PORTFOLIO EDITOR</span>
-                            </div>
+			<div class="col-md-6">
+				<div class="box">
+					<div class="logo">
+						<span><img src="/assets/img/miral-logo-cms.svg" /></span>
+					</div>
 
-                            <form className="form" onSubmit={this.handleSubmit} >
-                                <input type="email" placeholder="Email" name="email"/>
-                                <input type="password" placeholder="Password" name="password"/>
-                                <button type='submit'>Sign in</button>
-                                <a href="#">Forgot password</a>
-                            </form>
-                        </div>
-                    </div>
+          <form className="form" onSubmit={this.handleSubmit} >
+            <input type="email" placeholder="Email" name="email"/>
+            <input type="password" placeholder="Password" name="password"/>
+            <button class="sub_mit" type='submit'>Sign in</button>
 
-                    <div className="col-md-6">
-                        <img className="ftrd" src="/assets/img/login-ftrd-editor.png" />
-                    </div>
+					</form>
+				</div>
+			</div>
 
-                </div>
-            </div>
-        </section>
+		</div>
+	</div>
+</section>
+
+
     );
   }
 }

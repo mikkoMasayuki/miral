@@ -14,7 +14,8 @@ const ListProjects = props => {
     return <React.Fragment>
 
   <div className="container dash_add_project">
-      <a class="btn" href="">Add Project</a>
+      
+      <Link to={`/admin/addproject`} className='btn' >Add Project</Link>
         <div className="box_wrapper"> 
           {props.items.map(project => {
               return <ProjRow 
@@ -23,7 +24,8 @@ const ListProjects = props => {
               name={project.name}
               description={project.description}
               location={project.location}
-			  image={project.image[0]}
+			        image={project.image[0]}
+              status={project.status}
               />;
           })}
         </div>

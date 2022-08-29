@@ -6,7 +6,7 @@ const ProjectRow = props => {
 
         <div className="col-md-12">
 			<div class="inner_wrap">
-				<div class="box"><p> <Link to={`/admin/update/${props.id}`} className='link' >{props.name}</Link></p></div>
+				<div class="box"><p> <Link to={`/admin/update/${props.id}`} className='link' >{props.name} <span>{props.status}</span></Link></p></div>
 			
            </div>
         </div>

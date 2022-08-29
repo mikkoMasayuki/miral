@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Gotham';
+    src: url('GothamRounded-Book.eot');
+    src: url('GothamRounded-Book.eot?#iefix') format('embedded-opentype'),
+        url('GothamRounded-Book.woff2') format('woff2'),
+        url('GothamRounded-Book.woff') format('woff'),
+        url('GothamRounded-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('GothamRounded-Medium.eot');
+    src: url('GothamRounded-Medium.eot?#iefix') format('embedded-opentype'),
+        url('GothamRounded-Medium.woff2') format('woff2'),
+        url('GothamRounded-Medium.woff') format('woff'),
+        url('GothamRounded-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('GothamRounded-Bold.eot');
+    src: url('GothamRounded-Bold.eot?#iefix') format('embedded-opentype'),
+        url('GothamRounded-Bold.woff2') format('woff2'),
+        url('GothamRounded-Bold.woff') format('woff'),
+        url('GothamRounded-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: block;
+}
+

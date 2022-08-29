@@ -1,7 +1,7 @@
 
 /*
 Theme Name: Miral Portfolio
-Developer: DigitalSme
+Developer: Miral
 Theme URI:  www.thedigital-sme.com
 
 Author:  
@@ -13,7 +13,7 @@ Version: 1.0
 
 html{ overflow-x: hidden;}
 html body{
-  font-family: 'MuseoSans', sans-serif!important;
+  font-family: 'Gotham', sans-serif!important;
  -webkit-font-smoothing: antialiased;
  -moz-font-smoothing: antialiased;
  -ms-font-smoothing: antialiased;
@@ -24,19 +24,19 @@ html body{
  -o-text-rendering: optimizeLegibility;
  text-rendering: optimizeLegibility;
  font-smoothing: antialiased;
- background: #e3e4e3!important;
- color: #4a4a49!important;  
+ background: #fff!important;
+ color: #333!important;  
  padding: 0px;
  transition: all 0.5s ease;
  font-size: 15px;
 }
 
-body h1,body h2, body h3, body h4, body h5 {margin-top: 0px;font-family: 'MuseoSans'; font-weight: bold; color: #222;}
+body h1,body h2, body h3, body h4, body h5 {margin-top: 0px;font-family: 'Gotham'; font-weight: bold; color: #222;}
 h1{font-size: 50px;}
 h2{ font-size: 40px; }
 h3{ font-size: 32px; }
 h4{ font-size: 22px; }
-p, li{ font-size: 15px; line-height: 20px; margin-top: 0px;}
+p, li{ font-size: 16px; line-height: 1.4; margin-top: 0px; font-family: 'Gotham', sans-serif!important;}
 a { outline: none !important; background: none;}
 
 
@@ -44,7 +44,7 @@ a { outline: none !important; background: none;}
 form label{ display: block;}
 input{border: 1px solid #CCC;width: 100%;height: 36px;padding: 0px 15px;outline: none;}
 input, input[type="text"], input[type="submit"],
-textarea {font-size: 15px;font-family: 'MuseoSans' , sans-serif;}
+textarea {font-size: 15px;font-family: 'Gotham' , sans-serif;}
 
 input[type="text"]{width: 100%;}
 input[type=file]{border: none;visibility: visible;height: 23px;padding: 0px;}
@@ -70,24 +70,75 @@ hr{
 
 /*############ header starts ############*/
 .log_in .m_header { opacity: 0; pointer-events: none; display: none; }
-nav.m_header{ background: #fff; position: relative; padding: 15px 0px; }
+nav.m_header{ background: #333; position: relative; padding: 0px 0px; }
+.m_header::before{
+    content: '';
+    position: absolute;
+    width: 75%;
+    height: 100%;
+    right: 0;
+    background: #1ca6b8;
+    z-index: 0;
+}
 
-.m_header a.navbar-brand{ color: #262626; font-weight: bold; font-size: 15px;}
-.m_header img.logo{ height: 62px; vertical-align: baseline;  margin-right: 15px; }
+.nav_single::before{
+     background: #ff8a03;
+}
+.m_header .container { position: relative; }
+
+
+/*home header*/
+nav.home_header{ overflow: hidden; }
+nav.home_header img.logo{ margin: 0px;     height: 150px; }
+nav.home_header,
+nav.home_header a.navbar-brand{ background: #fff; border-radius: 0px; }
+
+nav.home_header .navbar-nav{ display: block; }
+nav.home_header .nav-item a{  
+    padding: 5px 20px!important;
+    justify-content: flex-end;
+}
+
+nav.home_header::before{ width: 50%; }
+
+
+.ftrd_header{ margin-bottom: -5px; }
+nav.home_header a.navbar-brand{ flex-basis: 30%; }
+nav.home_header #navbarNav{ flex-basis: 40%; }
+
+
+
+
+
+.m_header a.navbar-brand{ 
+    color: #262626; 
+    font-weight: bold; 
+    font-size: 15px; 
+    padding: 10px 0px;
+    background: #333;
+    border-radius: 100px;
+}
+.m_header img.logo{ height: 62px;  margin-right: 15px;    margin-left: -20px; }
 
 .nav-item input{font-weight: 500; height: 42px; border: 1px solid #dadada; }
 .nav-item input::placeholder{color: #262626;  }
 .nav-item a{ 
-    color: #262626; 
+    color: #fff; 
     font-weight: 500; 
     display: flex;
     align-items: center;
-    height: 42px;
+    font-size: 14px;
+    padding: 10px 20px!important;
+}
+
+.nav-item.lang a{
+    font-family: 'Noto Kufi Arabic', sans-serif;
 }
 .nav-item.prof_icon a{  
     background: #ededed;
     border-radius: 100%;
     width: 42px;
+
 }
 
 .nav-item.prof_icon a img{
@@ -103,22 +154,33 @@ nav.m_header{ background: #fff; position: relative; padding: 15px 0px; }
 } 
 
 .nav-item.nav_about a:hover{
-    color: #262626;
+    color: #fff;
 }
 
-.navbar-nav { padding-top: 20px; }
+.navbar-nav { padding-top: 0px; }
 
 
 /*dashboard header*/
-.m_header_alt .nav-item.nav_about a{ background: #ccc;}
+body.cms_body{ background: #e6e7e8!important; }
+.m_header_alt .nav-item.nav_about a{ 
+    background: #1ca6b8;
+    width: auto;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+.m_header_alt{ background: #fff!important;padding: 15px 0px!important; }
+.m_header_alt::before{ content: none; }
+.m_header_alt a.navbar-brand{ background: transparent; }
+.m_header_alt img.logo{ margin-left: 0px; height: 50px; }
 
 /*############ header ends ##############*/
 
 
 /*############ login starts ############*/
+body.log_in{ background: #e6e7e8!important; }
 .cstm_sec{ padding: 90px 0px; }
-.login_sec{ padding: 115px 0px 30px 0; }
-.login_sec .box{ background: #fff; border-radius: 10px; padding: 40px 40px 20px 40px; }
+.login_sec{ padding: 65px 0px 30px 0; }
+.login_sec .box{ /*background: #fff; border-radius: 10px; padding: 40px 40px 20px 40px;*/ }
 .login_sec .box span{  
     color: #4b4c4d;
     font-weight: bold;
@@ -126,9 +188,16 @@ nav.m_header{ background: #fff; position: relative; padding: 15px 0px; }
     display: flex;
     align-items: baseline;
 }
-.login_sec .box span img{ height: 100px;  margin-right: 20px;  }
-.login_sec .box form{ padding-top: 65px; width: 70%; }
-.login_sec .box input{ margin-bottom: 20px;  background: #e6e7e9; border: none; height: 44px; font-weight: 500;}
+.login_sec .box span img{ height: 250px;  margin-right: 20px;  }
+.login_sec .box form{ padding-top: 50px; width: 70%; }
+.login_sec .box input{ 
+    margin-bottom: 20px;  
+    background: #fff; 
+    border: none; 
+    height: 44px; 
+    border-radius: 3px;
+    color: #333;
+}
 .login_sec .box input::placeholder{ color: #262626;  }
 .login_sec .box a{ color: #262626; font-weight: 500;}
 
@@ -140,15 +209,19 @@ nav.m_header{ background: #fff; position: relative; padding: 15px 0px; }
 }
 
 .login_sec .box a.sub_mit,
-.login_sec .box button[type="submit"]{
+.login_sec .box button.sub_mit,
+.login_sec .box input.sub_mit{
     margin-bottom: 20px;
-    background: #CACCCB ;
+    background: #ff8a03 ;
+    color: #fff;
+    border-radius: 3px;
     border: none;
     height: 44px;
     font-weight: 500;
     display: inline-block;
     padding: 10px 20px;
     margin-right: 10px;
+    text-transform: uppercase;
 }
 
 .login_sec img.ftrd{ 
@@ -167,30 +240,36 @@ nav.m_header{ background: #fff; position: relative; padding: 15px 0px; }
 
 /*############ footer starts ############*/
 footer{ padding-bottom: 40px; }
-footer p{ font-weight: 300; color: #4a4a49; }
-footer p a { text-decoration: underline; color: #4a4a49; margin-right: 5px;}
+footer p{ color: #4a4a49; }
+footer p a { text-decoration: underline; color: #4a4a49; margin-right: 5px; text-underline-offset: 3px;}
 footer p a:hover{ color: #4a4a49; }
 /*############ footer ends ##############*/
 
 
 /*############ thumb_sec starts ############*/
-.thumb_sec{  padding: 45px 0px; position: relative; }
+.thumb_sec{  
+    padding: 45px 0px; 
+    position: relative; 
+    background-position: 485px 110px!important;
+    background-size: 80%!important;
+}
 .bt_row .col-md-12{  
     display: flex;
     justify-content: space-between;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 body button, body .btn{  
-    background: #CACCCB ;
+    background: #333 ;
     border: none;
     outline: none;
-    padding: 10px 25px;
-    color: #4a4a49;
+    padding: 10px 20px;
+    color: #fff;
     font-weight: 500;
     box-shadow: none;
     transition: .3s;
-    border-radius: 0;
-    font-size: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 body button:focus{ border:none; outline: none;}
@@ -199,23 +278,30 @@ body button:focus{ border:none; outline: none;}
 .bt_left button.active,
 .bt_right .btn:hover{
     color: #fff;
-    background: #4a4a49;
+    background: #333;
     transition: .3s;
 }
 
 .bt_right button, .bt_right .btn{ margin-left: 29px; }
-.bt_right button.dark, .bt_right .btn.dark{  
+.bt_left button.dark, .bt_right .btn.dark{  
     color: #fff;
-    background: #4a4a49;
+    background: #333;
 }
 .filter_tags p span{ margin-right: 10px;  }
+a.bt_orange, a.bt_orange:hover, button.bt_orange, button.bt_orange:hover,
+button.bt_orange.active{  
+    color: #fff;
+    background: #ff8a03;
+}
+.bt_left button.bt_orange{ margin-right: 15px;  }
+
 /*############ thumb_sec ends ############*/
 
 
 
 /*############ filter dropdownstarts ############*/
 .filter_drop{  
-    background: #4a4a49;
+    background: #ededed;
     padding: 45px 0px;
     position: absolute;
     left: 0;
@@ -231,7 +317,7 @@ body button:focus{ border:none; outline: none;}
 .filter_drop.shown{
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0px);
+    transform: translateY(-3px);
     transition: .5s;
 }
 
@@ -246,21 +332,24 @@ body button:focus{ border:none; outline: none;}
 }
 .filter_drop form,
 .filter_drop .frm_wrap{ display: flex; gap: 45px;    flex-wrap: wrap; }
-.filter_drop legend{ font-size: 15px; font-weight: bold; color: #fff; }
+.filter_drop legend{ font-size: 14px; font-weight: 500; margin-bottom: 5px; color: #333; }
 .filter_drop label{ 
     position: relative;
     font-size: 15px;
     font-weight: 300;
     margin-bottom: 3px; 
-    color: #fff;
+    color: #333;
     display: block;
 }
 .filter_drop label input{  
     -webkit-appearance: none;
     appearance: none;
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
     margin-right: 9px;
+    border-radius: 100px;
+    background: #fff;
+    border-color: #fff;
 }
 
 .filter_drop .bt_wrap{  
@@ -270,16 +359,18 @@ body button:focus{ border:none; outline: none;}
 }
 .filter_drop .bt_wrap button{
     margin-left: 19px;
-    font-size: 15px;
+    font-size: 14px;
+    margin-bottom: 10px;
 }
 
 .filter_drop input:checked ~ .checkmark {
     position: absolute;
     top: 3px;
     left: 0;
-    height: 12px;
-    width: 12px;
-    background-color: #fff;
+    height: 13px;
+    width: 13px;
+    background-color: #ff8a03;
+    border-radius: 100px;
 }
 /*############ filter dropdownends ############*/
 
@@ -308,7 +399,7 @@ body button:focus{ border:none; outline: none;}
     object-fit: cover;
 }
 .thumb_sec .item .desc{  
-    background: #fff;
+    background: #ededed;
     padding: 20px;
     border-radius: 6px;
     position: relative;
@@ -324,50 +415,65 @@ body button:focus{ border:none; outline: none;}
 }
 .thumb_sec .item .desc h4{ font-size: 15px; margin-bottom:2px; ;  }
 
-.thumb_sec .item .desc h4 + p{ padding-right: 30px;  }
-.thumb_sec .item .desc p.tag{ margin-bottom: 0px; }
+.thumb_sec .item .desc h4 + p{ padding-right: 30px; margin-bottom: 5px;  }
+.thumb_sec .item .desc p.tag{ margin-bottom: 0px;  text-transform: uppercase; }
 .thumb_sec .item .desc p.tag_1{ margin-bottom: 5px;  padding-top: 5px;  }
-.thumb_sec .item .desc p.tag span{  
-    background: #9d9d9c;
-    padding: 2px 7px;
+.thumb_sec .item .desc p.tag  span{  
+    background: #1ca6b8;
+    padding: 4px 7px 5px 7px;
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 2px;
     color: #fff;
-    font-weight: 300;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 10px;
     margin-right: 3px;
 }
-.thumb_sec .item .desc p.tag span.dev{ background: #ffc300; }
-.thumb_sec .item .desc p.tag span.mana_ged{ background: #ff5733; }
+.thumb_sec .item .desc p.tag span.dev{ background: #ff8a03; }
+.thumb_sec .item .desc p.tag span.mana_ged{ background: #ff8a03; }
 /*############ Portfolio grid ends ############*/
 
 
 /*############ single Projects  starts ############*/
 .single_proj{  padding: 0px 0px 45px 0;  margin-top: -45px;}
-.single_proj .content_right{ padding-bottom: 50px;  }
-.single_proj .content_left h2{ font-size: 20px; }
-.single_proj .content_left h2 span{ font-weight: 300; display: block;  }
+.single_proj .content_left, .single_proj .content_right{ padding: 0 20px; }
 
-.single_proj .tag_wrap{ padding: 30px 0px; }
+
+.single_proj .content_right{ padding-bottom: 15px;  padding-top: 105px; }
+.single_proj .content_left h2{ font-size: 40px; font-weight: 500;     text-transform: uppercase;}
+.single_proj .content_left h2 span{ font-size: 25px;display: block; color: #1ca6b8;  }
+
+.single_proj .tag_wrap{ padding:0px 0px 15px 0px; }
 .tag_wrap span{  
- background: #9d9d9c;
- padding: 2px 7px;
+ background: #1ca6b8;
+ padding: 4px 7px;
  display: inline-block;
- border-radius: 5px;
+ border-radius: 2px;
  color: #fff;
  font-weight: 300;
- font-size: 13px;
+ font-size: 12px;
  margin-right: 6px;
+ text-transform: uppercase;
 }
-.tag_wrap span.dev{ background: #ffc300; }
-.tag_wrap span.mana_ged{ background: #ff5733; }
+.tag_wrap span.dev{ background: #1ca6b8; }
+.tag_wrap span.mana_ged{ background: #ff8a03; }
 
+.single_proj .content_left .details{
+    background: #dadada;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.single_proj .content_left .details ul{ padding-left: 0px; }
+.single_proj .content_left .details li{ list-style: none;     margin-bottom: 2px;}
+.single_proj .content_left .details li strong{ font-weight: 500; }
 .single_proj .content_left p {  
     line-height: 1.5;
 }
 
-.content_right{ text-align: right; }
-.content_right .bt_wrap .btn{  
+.single_proj .content_right h3{ font-weight: 500; font-size: 22px;    margin-bottom: 17px; }
+.single_proj .content_right  p{ font-size: 16px; }
+.single_proj .content_right .bt_wrap .btn{  
     background: #CACCCB;
     border: none;
     outline: none;
@@ -381,22 +487,22 @@ body button:focus{ border:none; outline: none;}
     display: inline-flex;
     align-items: center;
 }
-.content_right .bt_wrap .btn.star{
+.single_proj .content_right .bt_wrap .btn.star{
     padding: 10px 15px;
 }
 
-.content_right .bt_wrap .btn.star svg.active path {
+.single_proj .content_right .bt_wrap .btn.star svg.active path {
     fill: #4a4a49; 
 } 
 
 
-.content_right table{ width: 65%;  margin-top: 75px; float: right; }
-.content_right table td{ 
+.single_proj .content_right table{ width: 65%;  margin-top: 75px; float: right; }
+.single_proj .content_right table td{ 
  text-align: left; 
  border-bottom: 1px solid;
  padding: 6px 0px;
 }
-.content_right table td:nth-child(even){ text-align: right;   }
+.single_proj .content_right table td:nth-child(even){ text-align: right;   }
 
 
 .single_grid{ padding-top: 20px; }
@@ -407,32 +513,36 @@ body button:focus{ border:none; outline: none;}
 
 /*############ admin Projects starts ############*/
 .dash_add_project{
-    padding: 40px 0 30px 0;
+    padding: 60px 0 40px 0;
 }
 .dash_add_project .btn,
 .dash_add_project .btn:hover{
- background: #ccc;
+ background: #ff8a03;
  box-shadow: none;
+ color: #fff;
 }
 
 .dash_add_project .box_wrapper{
     margin-top: 30px;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
-    width: 500px;
+    width: 460px;
     min-height: 500px;
 }
 
 .dash_add_project .box_wrapper .col-md-12{ padding: 0px 0px;}
 
-.dash_add_project .box p{ margin-bottom: 5px; font-weight: 300; }
-.dash_add_project .box p a{
- color: #4a4a49;
+.dash_add_project .box_wrapper p{ margin-bottom: 3px; font-size: 14px; }
+.dash_add_project .box_wrapper p a{
+ color: #333;
 }
-.dash_add_project .box p a:hover{
+.dash_add_project .box_wrapper p a:hover{
     text-decoration: none;
 }
+
+.dash_add_project .box_wrapper p span{ float: right; }
+.dash_add_project .box_wrapper p.draft a{color: #ff8a03;  }
 /*############ admin Projects ends ############*/
 
 
@@ -457,7 +567,7 @@ body button:focus{ border:none; outline: none;}
     border: none;
     height: 42px;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .edit_dashboard input::placeholder,
@@ -484,13 +594,69 @@ body button:focus{ border:none; outline: none;}
     left: 1px;
     height: 18px;
     width: 18px;
-    background-color: #c6c6c6;
+    background-color: #ff8a03;
     border-radius: 3px;
 }
 
+
+/*input radio*/
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #333;
+    border-radius: 100%;
+    background: transparent;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #ff8a03;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+/*input radio ends*/
+
+
+
 .edit_dashboard label.ch_lbl{  
-    font-weight: 300;
-    font-size: 15px;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .edit_dashboard select{  
@@ -513,7 +679,12 @@ body button:focus{ border:none; outline: none;}
 
 .edit_dashboard fieldset.sta_tus label.ch_lbl{ margin: 15px 0px; }
 .edit_dashboard fieldset.sta_tus select{ width: 32%;  }
+.edit_dashboard fieldset.sta_tus .group label{  
+    font-weight: 400;
+    font-size: 14px;
+}
 
+.edit_dashboard fieldset.map input{ width: 32%; }
 
 
 .edit_dashboard fieldset.ty_pe,
@@ -539,7 +710,7 @@ body button:focus{ border:none; outline: none;}
     border: none;
     height: 160px;
     font-weight: 300;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .edit_dashboard .stats input{ margin-bottom: 15px;  }
@@ -565,21 +736,29 @@ body button:focus{ border:none; outline: none;}
     margin-left: 20px;
 }
 
-.edit_dashboard .btns a.del{ background: #f4ccd7; }
+.edit_dashboard .btns a.del{ background: #c70039; color: #fff; }
 .edit_dashboard .btns a{  
     margin-left: 20px;
-    background: #CACCCB ;
+    margin-bottom: 8px;
+    /*background: #CACCCB ;*/
 }
 
 .edit_dashboard .btns a:hover{
-     background: #dadada;
+     /*background: #dadada;*/
 }
 /*############ admin Edit Projects ends ############*/
 
 
 /*############ Map starts ############*/
+.portfolio_map{
+    margin-left: calc(-100vw / 2 + 100% / 2);
+    margin-right: calc(-100vw / 2 + 100% / 2);
+    max-width: 100vw;
+}
+.portfolio_map .col-md-12{ padding: 0px; }
 #gmap{
-    height: 750px;
+    height: 500px;
+    margin-bottom: 40px;
 }
 
 .portfolio_map .item{  
@@ -619,6 +798,10 @@ body button:focus{ border:none; outline: none;}
     height: 20px!important;
 }
 
+.gm-style .gm-style-iw-tc::after{
+    background: #ededed!important;
+}
+
 .dropdown { display: none; }
 
 .map_bt{
@@ -644,6 +827,42 @@ body button:focus{ border:none; outline: none;}
 }
 /*############ Map ends ############*/
 
+
+/*############ News starts ############*/
+.news_sec{
+    background: #ededed;
+    padding: 40px 0px;
+}
+
+.news_sec h2{font-size: 20px;  margin-bottom: 15px;  }
+.news_sec p{ font-size: 18px; line-height: 1.3; margin-bottom: 0px; }
+.news_sec p a{ color: #ff8a03; }
+/*############ News ends ############*/
+
+
+
+/*############ Destination Happiness starts ############*/
+.dest_happiness{  
+    padding: 60px 0px;
+    position: relative;
+    background-position: 485px 110px!important;
+    background-size: 80%!important;
+}
+.dest_happiness .content_left h2{ font-size: 50px; margin-bottom: 60px; font-weight: 500; }
+.dest_happiness .content_left  h2 span{ display: inline; color: #ff8a03; }
+
+.dest_happiness .ftrd_img img{ border-radius: 5px; }
+.dest_happiness .box{ 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border-radius: 0px;
+    background: #e6e7e8;
+    height: 550px;
+    margin: 80px 0px;
+}
+.dest_happiness .box p{ font-weight: 500; font-size: 22px; margin-bottom: 0px;  }
+/*############ Destination Happiness ends ############*/
 
 /*####### mobile queries ##################*/
 
@@ -673,7 +892,7 @@ body button:focus{ border:none; outline: none;}
 
 
  /*login page*/
- .login_sec .box span img{ height: 75px; }
+ .login_sec .box span img{ /*height: 75px;*/ }
  .login_sec img.ftrd{ height: 402px; }
  .login_sec .box span{ font-size: 21px;}
 
@@ -683,13 +902,48 @@ body button:focus{ border:none; outline: none;}
 @media(max-width: 991px){
 
  /*header*/
-  nav.m_header{ padding: 15px 15px; }
- .m_header img.logo{ height: 50px; }
- .navbar-nav{ flex-direction: initial!important; }
+  nav.m_header{ padding: 0px!important; }
+ .m_header img.logo{ height: 35px;    margin-left: 0px; }
+ .navbar-nav{ flex-direction: initial!important; display: block;  padding: 20px 0px;}
  .nav-item.prof_icon a{ justify-content: center; }
  .nav-item.prof_icon a img{ width: 28px; }
  .navbar-toggler-icon i{ font-size: 32px; }
  .navbar-toggler{ padding: 0px; }
+
+ .m_header a.navbar-brand{
+    margin-left: -50px;
+    padding-left: 33px;
+ }
+
+ .m_header::before{ width: 100%; }
+ .nav-item a{ justify-content: flex-end; padding-right: 0!important; }
+
+
+
+/*cms header*/
+.m_header_alt a.navbar-brand{ margin-left: 0px; padding-left: 20px;     flex-basis: 60%; }
+.m_header_alt .navbar-toggler{ display: none; }
+.m_header_alt .collapse:not(.show){ display: inline-block; flex-basis: 30%;  }
+.m_header_alt .nav-item.nav_about a{ padding: 10px 15px!important; }
+
+
+
+ /*home menu*/
+ nav.home_header{ height: 168px; }
+ nav.home_header a.navbar-brand{ 
+    margin-left: 0px;    
+    padding: 10px 25px 10px 5px; 
+}
+ .ftrd_header{ display: none; }
+ nav.home_header .navbar-nav{ padding: 60px 0px 20px 0px; }
+ nav.home_header .navbar-toggler{  
+    position: absolute;
+    right: 0;
+    top: 20px;
+ }
+
+ nav.home_header .nav-item a{ padding: 5px 0px!important; }
+
 
  /*login page*/
  .login_sec .row{ display: block; }
@@ -712,6 +966,7 @@ body button:focus{ border:none; outline: none;}
  /*admin edit users*/
  .edit_dashboard fieldset.half label{ flex-basis: 50%; }
  .edit_dashboard fieldset.sta_tus select{ width: 47.5%; }
+ .edit_dashboard fieldset.map input{  width: 47.5%;  }
 
  .edit_dashboard .stats .group{ width: 47.5%; }
  .edit_dashboard .stats .group:nth-child(3){ margin-right: 0px; }
@@ -719,6 +974,10 @@ body button:focus{ border:none; outline: none;}
 
  .edit_dashboard .ima_ges .item_wrap{ width: 100%; }
  .edit_dashboard .btns{ width: 100%; }
+
+
+
+
 }
 
 
@@ -731,6 +990,7 @@ body button:focus{ border:none; outline: none;}
 
 
  /*single project*/
+ .single_proj .content_left h2{ font-size: 35px; }
  .content_right table{ width: 100%; margin-top: 25px; }
  .content_right .bt_wrap{ padding-top: 30px; text-align: left; }
  .content_right .bt_wrap .btn{ padding: 0px 15px;margin-right: 5px; }
@@ -741,8 +1001,22 @@ body button:focus{ border:none; outline: none;}
   /*admin edit users*/
   .edit_dashboard fieldset.half{ display: block; }
   .edit_dashboard fieldset.sta_tus select{ width: 100%; }
+  .edit_dashboard fieldset.map input{  width: 100%;  }
   .edit_dashboard .stats .group{ width: 100%; margin-right: 0px; }
   .edit_dashboard fieldset.half label:nth-child(2){  margin-top: 20px; margin-bottom: 20px; }
+
+
+  /*destination happiness*/
+  .dest_happiness .content_left h2{ font-size: 40px;     margin-bottom: 35px; }
+  .dest_happiness .box{ height: 400px; margin: 25px 0px; }
+  .dest_happiness .ftrd_img{ padding-top: 20px; }
+
+
+
+
+
+
+
 }
 
 
@@ -750,10 +1024,10 @@ body button:focus{ border:none; outline: none;}
 @media(max-width: 680px){
  /*login page*/
  .login_sec{     padding: 60px 0px; }
- .login_sec .box span img{ height: 50px; }
+ .login_sec .box span img{ height: 160px; }
  .login_sec .box span{ font-size: 14px; }
  .login_sec .box form{ width: 100%; }
- .login_sec .box{   padding: 30px 30px 20px 30px; }
+ .login_sec .box{  /* padding: 30px 30px 20px 30px;*/ }
  .login_sec img.ftrd{ height: 320px; }
 
 
@@ -769,9 +1043,31 @@ body button:focus{ border:none; outline: none;}
  }
  .filter_drop .bg_overlay{ opacity: 0; height: 60vh;}
  .filter_drop fieldset{ flex: 0 0 50%; max-width: 42%; }
+ .filter_drop .bt_wrap button{ margin-left: 5px; }
+ .filter_drop label{ padding-left: 22px; }
+ .filter_drop label input{ 
+    position: absolute;
+    left: 0;
+    margin-top: 2px; 
+}
+.filter_drop input:checked ~ .checkmark{ top: 2px; }
+
 
  .bt_right button, .bt_right .btn{  margin-left: 10px; padding: 10px 20px; }
  button, .btn{ padding: 10px 20px; }
+
+
+ .news_sec h2{ font-size: 18px; }
+ .news_sec p{ font-size: 16px; }
+
+
+ /*single project*/
+ .single_proj .content_right{ padding-top: 40px; }
+ .single_proj .content_left h2{ font-size: 30px; }
+ .single_proj .content_left h2 span{ font-size: 20px; }
+ .single_proj .content_right h3{ font-size: 20px; }
+
+
 
  /*admin-projects*/
  .dash_add_project .box_wrapper{ width: 100%;}
@@ -787,12 +1083,18 @@ body button:focus{ border:none; outline: none;}
  .edit_dashboard textarea{ height: 205px; }
 
  .edit_dashboard fieldset.stats{ display: block; }
+  .edit_dashboard .sta_tus .group{ margin-right: 22px; }
 
 
  .edit_dashboard .ima_ges .item_wrap{ flex-wrap: wrap; }
  .edit_dashboard .ima_ges .item{ flex-basis: 46%; }
 
- .edit_dashboard .btns a{ margin-left: 8px;padding: 11px 15px; }
+ .edit_dashboard .btns a{ margin-left: 5px;padding: 10px 10px; }
+
+
+  /*destination happiness*/
+  .dest_happiness .content_left h2{ font-size: 30px;  }
+  .dest_happiness .box{ height: 300px;  }
 
 }
 
@@ -821,4 +1123,3 @@ body button:focus{ border:none; outline: none;}
  /*admin projecs*/
  .dash_add_project{ padding: 20px 0px 30px 0px; }
 }
-

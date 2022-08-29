@@ -5,6 +5,24 @@ import App from './App';
 import './assets/framework/css/bootstrap.min.css'
 import reportWebVitals from './reportWebVitals';
 
+
+if(window.location.pathname === '/admin/login') {
+  var body = document.querySelector("body");
+  body.className = "log_in";
+} 
+
+if(window.location.pathname === '/admin/projects') {
+  var body = document.querySelector("body");
+  body.className = "cms_body";
+} 
+
+
+if(window.location.pathname.includes('admin/update')) {
+  var body = document.querySelector("body");
+  body.className = "cms_body";
+} 
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

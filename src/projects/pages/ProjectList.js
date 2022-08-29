@@ -162,7 +162,7 @@ const ProjectLists = props => {
     }
 
     return <React.Fragment>
-      
+    
       <div className={`filter_drop ${ props.show && "shown"}`}> 
 		<div className="bg_overlay" onClick={props.onCancel}></div>
 			<div className="container">
@@ -373,8 +373,10 @@ const ProjectLists = props => {
 
 
 							<div className="bt_wrap">
-								<button className="show_results" onClick={props.onCancel}>Show {props.items.length} results</button>
-								<button className="reset" onClick={handleFilterReset}> Reset</button>
+								<button className="show_results dark" onClick={props.onCancel}>Show {props.items.length} results</button>
+								<button className="reset dark" onClick={handleFilterReset}> Reset</button>
+								<button className="show_results dark" onClick={props.onCancel}>HIDE</button>
+
 							</div>
 						</div>
 					</div>
@@ -385,15 +387,14 @@ const ProjectLists = props => {
       <div className="row bt_row">
         <div className="col-md-12">
           <div className="bt_left">
-            <button className={`${props.show && 'active'}`} onClick={props.onShow}>Filter</button>
+            <button className={`${props.show && 'active'} bt_orange bt_filter`} onClick={props.onShow}>FILTER PROJECTS</button>
+			<button class="dark">RESET</button>
+
           </div>
 
-          <div className="bt_right">
-            <a  className="btn dark" href="projects-main.html">Thumbnails</a>
-			<Link className="btn" to="/map">Map</Link>
-          </div>
         </div>
       </div>
+
 
 
       <div className="row filter_tags">

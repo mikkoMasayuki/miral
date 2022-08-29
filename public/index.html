@@ -17,33 +17,34 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="../assets/img/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../assets/img/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../assets/img/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../assets/img/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../assets/img/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../assets/img/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../assets/img/favicon/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/img/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="../assets/img/favicon/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- frameworks -->
-    <link href="assets/framework/css/bootstrap.min.css" rel="stylesheet">
-    
-    
-    <!-- font and style -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/fonts/museo-sans/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="/style.css">
+
+	<!-- frameworks -->
+	<link href="/assets/framework/css/bootstrap.min.css" rel="stylesheet">
+	
+	
+	<!-- font and style -->
+	<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/fonts/gotham/stylesheet.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/style.css">    
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -56,16 +57,15 @@
     <title>Miral - Portfolio</title>
   </head>
   <body>
-    <nav id="navMiral" class="navbar navbar-expand-lg  m_header">
-
-    </nav>
-    <div id="root"></div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <section id="miralProj" class="cstm_sec thumb_sec">
+    <div id="root"></div>
+    <div id="appwrapper">
+      <div id="MainHeaderWrapper"></div>
       
-    </section>
+      <section id="miralProj" class="cstm_sec thumb_sec"></section>
+      <section id="miralSingle" class="cstm_sec single_proj"></section>      
+    </div>>
 
-    <section id="miralSingle" class="cstm_sec single_proj"></section>
     
 <!-- footer starts -->
 <footer>
@@ -82,13 +82,278 @@
 
 
 <!-- ////////////////   SCRIPT AREA  ///////////////-->
-<script src="assets/framework/js/jquery-3.6.0.min.js"></script>
-<script src="assets/framework/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANt6Xy9LQccwaqMhnj1MQ9_CFVftSYuKA"></script>
-<script type="" src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="/assets/js/maplace.js"></script>
 
 
+
+<script src="/assets/framework/js/jquery-3.6.0.min.js"></script>
+<script src="/assets/framework/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="" src="/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANt6Xy9LQccwaqMhnj1MQ9_CFVftSYuKA&callback=initMap&v=weekly&channel=2" async >  </script>
+
+
+
+<script type="text/javascript">
+
+  let map;
+  
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("gmap"), {
+      center: new google.maps.LatLng(24.481952, 54.497535),
+      zoom: 12,
+      mapTypeId: 'roadmap',
+      styles: [
+      {
+          "featureType": "administrative",
+          "elementType": "labels.text.fill",
+          "stylers": [
+              {
+                  "color": "#444444"
+              }
+          ]
+      },
+      {
+          "featureType": "landscape",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "color": "#f2f2f2"
+              }
+          ]
+      },
+      {
+          "featureType": "poi",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "road",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "saturation": -100
+              },
+              {
+                  "lightness": 45
+              }
+          ]
+      },
+      {
+          "featureType": "road.highway",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "simplified"
+              }
+          ]
+      },
+      {
+          "featureType": "road.arterial",
+          "elementType": "labels.icon",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "transit",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "visibility": "off"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "all",
+          "stylers": [
+              {
+                  "color": "#46bcec"
+              },
+              {
+                  "visibility": "on"
+              }
+          ]
+      },
+      {
+          "featureType": "water",
+          "elementType": "geometry",
+          "stylers": [
+              {
+                  "color": "#00b7bd"
+              }
+          ]
+      }
+  ]
+    });
+  
+    const iconBase =
+      "assets/img/";
+    const icons = {
+      circle_mark:{
+          url:iconBase + 'map-pin.png',
+      }
+      
+    };
+    const features = [
+      {
+      
+        position: new google.maps.LatLng(24.4781577, 54.3529111),
+        type: "circle_mark",
+        title: 'Al Hisn',
+      },
+      {
+        position: new google.maps.LatLng(24.485129, 54.366349),
+        type: "circle_mark",
+        title: 'Al Danah',
+      },
+      {
+        position: new google.maps.LatLng(24.496896, 54.592532),
+        type: "circle_mark",
+        title: 'Yas Island',
+      },
+      {
+        position: new google.maps.LatLng(24.485946, 54.603574),
+        type: "circle_mark",
+        title: 'Yas Island Warner Bros',
+      },
+      {
+        position: new google.maps.LatLng(24.465710, 54.599639),
+        type: "circle_mark",
+        title: 'Yas Plaza',
+      },
+      {
+        position: new google.maps.LatLng(24.477409, 54.601805),
+        type: "circle_mark",
+        title: 'Yas water World',
+      },
+      {
+        position: new google.maps.LatLng(24.507758, 54.604797),
+        type: "circle_mark",
+        title: 'Yas North',
+      },
+      {
+        position: new google.maps.LatLng(24.499323, 54.626142),
+        type: "circle_mark",
+        title: 'Yas North2',
+      },
+      {
+        position: new google.maps.LatLng(24.496538,54.617613),
+        type: "circle_mark",
+        title: 'Yas North3',
+      },
+      {
+        position: new google.maps.LatLng(24.496538,54.617613),
+        type: "circle_mark",
+        title: 'Yas North4',
+      },
+      {
+        position: new google.maps.LatLng(24.484580,54.619598),
+        type: "circle_mark",
+        title: 'Yas North5',
+      },
+      {
+        position: new google.maps.LatLng(24.525664,54.431043),
+        type: "circle_mark",
+         title: 'Cultural District',
+      },
+      
+    ];
+  
+    // Create markers.
+    for (let i = 0; i < features.length; i++) {
+      const marker = new google.maps.Marker({
+        position: features[i].position,
+        icon: icons[features[i].type],
+        title: features[i].title,
+        map: map,
+        type:features[i].type,
+        image:features[i].image,
+      });
+  
+     
+  
+      if (marker.type == 'circle_mark') {
+  
+        console.log(marker.image);
+  
+          var contentString =
+              '<div class=" item"><a class="link" href="projects-single.html"> </a><div class="ftrd_img"><img src="assets/img/portfolio-03.webp"></div><div class="desc"><h4>Qasr Al Watan</h4><p>Abu Dhabi</p><p class="tag tag_1"><span>Discover</span></p><p class="tag tag_2"><span class="mana_ged">Managed</span></p></div></div>';
+  
+          infowindow = new google.maps.InfoWindow();
+  
+            google.maps.event.addListener(marker,'click', (function(marker,contentString,infowindow){ 
+              return function() {
+                infowindow.setContent(contentString);
+                infowindow.open(map,marker);
+                let starId = 'Layer_' + i ;
+                let elem = document.getElementById(starId) ;
+                // elem.addEventListener("click", favorite);
+                  console.log(elem);
+  
+                  var className = document.getElementsByClassName('star_icon');
+  
+                  for(var index=0;index < className.length;index++){
+                      console.log(className[index]);
+                      className[index].removeEventListener("click", favorite);
+  
+                      className[index].addEventListener("click", favorite);
+                   }
+  
+  
+              };
+            })(marker,contentString,infowindow)); 
+  
+            google.maps.event.addListener(marker, 'click', function() {
+                  if (infowindow) {
+                      infowindow.close();
+                  }
+                  infowindow = new google.maps.InfoWindow();
+            });
+  
+            
+  
+      function favorite(){
+        console.log($(this))
+        $(this).toggleClass('active');
+      }
+     
+      }else{
+          // marker.addListener("click", () => {
+  
+          // var redirectArr = {
+          //       'The Beach': 'meraas-the-beach.html',
+          //       'City Walk': 'meraas-city-walk.html',
+          //       'ICD': 'icd-brookfield-place.html',
+          //       'Lamer': 'lamer.html',
+          //     };
+  
+          //     var videoArr = {
+          //         'The Beach': 'the-beach',
+          //         'City Walk': 'city-walk',
+          //         'ICD': 'icd',
+          //         'Lamer': 'lamer',
+          //     };
+          //     console.log(redirectArr[marker.title]);
+  
+          //     window.location.href = redirectArr[marker.title];
+  
+          //     $.post("post.php", { text: videoArr[marker.title] }); 
+          // });
+      }
+  
+      
+    }
+    
+  }
+  </script>
+  
+  
 <!-- fill star icon onClick starts -->
 <script>
 	$(document).ready(function() {
