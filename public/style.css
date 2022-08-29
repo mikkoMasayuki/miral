@@ -74,7 +74,7 @@ nav.m_header{ background: #333; position: relative; padding: 0px 0px; }
 .m_header::before{
     content: '';
     position: absolute;
-    width: 75%;
+    width: 77%;
     height: 100%;
     right: 0;
     background: #1ca6b8;
@@ -102,7 +102,8 @@ nav.home_header .nav-item a{
 nav.home_header::before{ width: 50%; }
 
 
-.ftrd_header{ margin-bottom: -5px; }
+.ftrd_header{ margin-bottom: -5px; text-align: center;}
+.ftrd_header img{ max-width: 80%;}
 nav.home_header a.navbar-brand{ flex-basis: 30%; }
 nav.home_header #navbarNav{ flex-basis: 40%; }
 
@@ -888,8 +889,23 @@ button.bt_orange.active{
 
 /*####### mobile queries ##################*/
 
+
+@media (min-width:1600px){
+    body .container{ max-width: 100%; padding-left: 50px; padding-right: 50px; }
+   .portfolio_grid .item{  
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .single_grid .item{
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
 @media (min-width:1200px){
-    body .container{ max-width: 1320px; }
+    body .container{ max-width: 100%; padding-left: 50px; padding-right: 50px; }
+
 }
 
 @media (max-width:992px){
@@ -898,7 +914,10 @@ button.bt_orange.active{
 }
 
 @media (max-width: 1440px){  
-
+    body .col-md-3{  
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
 }
 
 @media (max-width: 1366px){
@@ -908,7 +927,6 @@ button.bt_orange.active{
  .login_sec img.ftrd{ margin-left: 0px; }
  
 }
-
 
 @media (max-width: 1180px){
 
