@@ -153,17 +153,6 @@ const UpdateProjectSingleItem = props => {
 
 <div class="col-md-12 edit_dashboard">
 				<form id="update">
-					<fieldset class="half">
-                            <input type="hidden" id="idd" Value={props.id} />
-						<label>Name (EN):
-                        
-							<input id="name" type="text" defaultValue={props.name} />
-						</label>
-						<label>Name (AR):
-							<input id="name_ar" type="text" defaultValue={props.name_ar} />
-						</label>
-					</fieldset>
-
 					<fieldset class="sta_tus">
 						<label>Status:</label>
 						
@@ -179,6 +168,19 @@ const UpdateProjectSingleItem = props => {
 						</label>
 
 					</fieldset>
+
+					<fieldset class="half">
+                            <input type="hidden" id="idd" Value={props.id} />
+						<label>Name (EN):
+                        
+							<input id="name" type="text" defaultValue={props.name} />
+						</label>
+						<label>Name (AR):
+							<input id="name_ar" type="text" defaultValue={props.name_ar} />
+						</label>
+					</fieldset>
+
+					
 
 					<fieldset class="half">
 						<label>Location (EN):
@@ -364,7 +366,7 @@ const UpdateProjectSingleItem = props => {
 							{props.images.map(image => {
 								return <div class="item">
 								<img src={image.image_url} />
-								<a>Delete</a>
+								<a>Remove</a>
 								</div>
 							})}
 
