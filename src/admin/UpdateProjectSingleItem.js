@@ -113,7 +113,7 @@ const UpdateProjectSingleItem = props => {
         fetch('http://185.140.248.26:4052/project', requestOptions)
             .then(response => response.json());
      
-
+		alert('Updated');
         event.preventDefault();  
         //window.location.reload(false);
         //const timer = setTimeout(() => window.location.reload(false), 1000);
