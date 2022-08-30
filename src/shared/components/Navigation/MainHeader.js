@@ -27,7 +27,7 @@ const MainHeader = props => {
             </li>
 
             <li className="nav-item nav_about">
-                <a className="nav-link " href="#">About</a>
+                <a className="nav-link " href="/destination.html">About</a>
             </li>
 
             <li className="nav-item prof_icon">

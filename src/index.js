@@ -5,10 +5,19 @@ import App from './App';
 import './assets/framework/css/bootstrap.min.css'
 import reportWebVitals from './reportWebVitals';
 
+if(window.location.pathname.includes('/project')) {
+
+  const e = document.querySelector('#mapwrap');
+  e.style.display = 'none';  
+
+} 
 
 if(window.location.pathname === '/admin/login') {
-  var body = document.querySelector("body");
+  const body = document.querySelector("body");
   body.className = "log_in";
+
+  const e = document.querySelector('#mapwrap');
+  e.style.display = 'none';  
 } 
 
 if(window.location.pathname === '/admin/projects') {
@@ -17,10 +26,15 @@ if(window.location.pathname === '/admin/projects') {
 } 
 
 
-if(window.location.pathname.includes('admin/update')) {
+if(window.location.pathname.includes('/admin/update')) {
   var body = document.querySelector("body");
   body.className = "cms_body";
+
+  const e = document.querySelector('#mapwrap');
+  e.style.display = 'none';  
 } 
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -5,11 +5,19 @@ import SingleList from "./singleList";
 
 const ProjectSingle = () => {
 
+
+
     const [loadedProject, setLoadedProject] = useState();
     const initializeState = () => !!JSON.parse(localStorage.getItem("refresh"));
     const [token, setToken] = useState(initializeState);
     const projID = useParams().id;
+    
     useEffect(() => {
+
+
+        const e = document.querySelector('#mapwrap');
+        e.style.display = 'none';  
+
         const sendRequest = async () => {
             
             const response = await fetch(`http://185.140.248.26:4052/project/${projID}`)
@@ -17,7 +25,8 @@ const ProjectSingle = () => {
             const responseData = await response.json();
 
             setLoadedProject(responseData.data);
-            console.log(responseData.data)
+            
+
 
         };
 

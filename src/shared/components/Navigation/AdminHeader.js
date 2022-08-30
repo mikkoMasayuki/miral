@@ -18,7 +18,7 @@ const AdminHeader = props => {
 		      
 
 			    <li class="nav-item nav_about">
-			       	<a class="nav-link " href="admin-login.html">Sign out</a>
+			       	<a class="nav-link " href="/">Sign out</a>
 			    </li>
 		     
 		    </ul>
