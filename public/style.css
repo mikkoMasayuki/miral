@@ -559,7 +559,9 @@ button.bt_orange.active{
 }
 
 .dash_add_project .box_wrapper p span{ float: right; }
-.dash_add_project .box_wrapper p.draft a{color: #ff8a03;  }
+.dash_add_project .box_wrapper p.draft a, 
+.dash_add_project .box_wrapper p.jsx_orange , 
+.dash_add_project .box_wrapper p.jsx_orange a{color: #ff8a03;  }
 /*############ admin Projects ends ############*/
 
 
