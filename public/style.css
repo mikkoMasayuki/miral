@@ -250,11 +250,11 @@ footer p a:hover{ color: #4a4a49; }
 /*############ thumb_sec starts ############*/
 .cms_body .thumb_sec{ background: transparent; }
 .thumb_sec{  
-    padding: 45px 0px; 
+    padding: 0px 0px; 
     /* position: relative;  */
-    background-position: 485px 110px!important;
-    background-size: 80%!important;
-    background: url(assets/img/mrl-bg-right.svg)no-repeat;
+    background-position: 100px -405px!important;
+    background-size: 100%!important;
+    background: url(assets/img/mrl-bg-right2.svg)no-repeat;
 }
 
 .thumb_sec .bt_row{ display: none;}
@@ -380,6 +380,8 @@ button.bt_orange.active{
 }
 
 .filter_tags{ display: none!important;}
+
+.filter_drop + .container{ padding-bottom: 150px; padding-top: 45px;}
 /*############ filter dropdownends ############*/
 
 
@@ -425,7 +427,7 @@ button.bt_orange.active{
 
 .thumb_sec .item .desc h4 + p{ padding-right: 30px; margin-bottom: 5px;  }
 .thumb_sec .item .desc p.tag{ margin-bottom: 0px;  text-transform: uppercase; }
-.thumb_sec .item .desc p.tag_1{ margin-bottom: 5px;  padding-top: 5px;  }
+.thumb_sec .item .desc p.tag_1{ margin-bottom: 0px;  padding-top: 5px;  }
 .thumb_sec .item .desc p.tag  span{  
     background: #1ca6b8;
     padding: 4px 7px 5px 7px;
@@ -435,6 +437,7 @@ button.bt_orange.active{
     font-weight: 500;
     font-size: 10px;
     margin-right: 3px;
+    margin-top: 5px;;
 }
 
 .thumb_sec .item .desc p.tag  span:empty{ opacity: 0;}
@@ -444,7 +447,7 @@ button.bt_orange.active{
 
 
 /*############ single Projects  starts ############*/
-.single_proj{  padding: 0px 0px 45px 0;  margin-top: -45px;}
+.single_proj{  padding: 45px 0px 45px 0; }
 .single_proj .content_left, .single_proj .content_right{ padding: 0 20px; }
 
 
@@ -463,6 +466,7 @@ button.bt_orange.active{
  font-size: 12px;
  margin-right: 6px;
  text-transform: uppercase;
+ margin-bottom: 5px;
 }
 
 .tag_wrap span:empty{ display: none;}
@@ -526,7 +530,7 @@ button.bt_orange.active{
 
 /*############ admin Projects starts ############*/
 .dash_add_project{
-    padding: 15px 0 40px 0;
+    padding: 45px 0 40px 0;
 }
 .dash_add_project .btn,
 .dash_add_project .btn:hover{
@@ -956,6 +960,7 @@ button.bt_orange.active{
 @media (max-width: 1180px){
     .portfolio_map .bt_row{ padding:45px 30px 20px 50px;}
     .filter_drop{ top: 465px;}
+    .filter_drop + .container{ padding-bottom: 0px;}
 
  /*login page*/
  .login_sec .box span img{ /*height: 75px;*/ }

@@ -9,7 +9,7 @@ const HomePageHeader = props => {
     <div>
     <nav id="navMiral" class="navbar navbar-expand-lg  m_header home_header">
         <div class="container">
-            <a class="navbar-brand" href="projects-login.html"><img class="logo" src="/assets/img/miral-logo.svg" alt="" /></a>
+            <a class="navbar-brand" href="/"><img class="logo" src="/assets/img/miral-logo.svg" alt="" /></a>
 
 
 
