@@ -58,10 +58,16 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+
     <div id="root"></div>
     <div id="appwrapper">
       <div id="MainHeaderWrapper"></div>
-      
+      <div class="row portfolio_map">
+        <div class="col-md-12">
+          <div id="gmap" ></div>
+        </div>
+      </div>      
       <section id="miralProj" class="cstm_sec thumb_sec"></section>
       <section id="miralSingle" class="cstm_sec single_proj"></section>      
     </div>
@@ -88,8 +94,6 @@
 <script src="/assets/framework/js/jquery-3.6.0.min.js"></script>
 <script src="/assets/framework/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="" src="/assets/js/jquery.magnific-popup.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANt6Xy9LQccwaqMhnj1MQ9_CFVftSYuKA&callback=initMap&v=weekly&channel=2" async >  </script>
-
 
 
 <script type="text/javascript">
@@ -352,6 +356,8 @@
     
   }
   </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANt6Xy9LQccwaqMhnj1MQ9_CFVftSYuKA&callback=initMap&v=weekly&channel=2" async defer >  </script>
+
   
   
 <!-- fill star icon onClick starts -->
