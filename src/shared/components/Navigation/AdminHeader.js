@@ -9,7 +9,7 @@ const AdminHeader = props => {
     <div>
 <nav class="navbar navbar-expand-lg  m_header m_header_alt">
 	<div class="container">
-		<a class="navbar-brand" href="/"><img class="logo" src="/assets/img/miral-logo-cms-inside.svg" alt="" /></a>
+		<a class="navbar-brand" href="/admin/projects"><img class="logo" src="/assets/img/miral-logo-cms-inside.svg" alt="" /></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"><i class="lnr lnr-menu"></i></span>
 		</button>
