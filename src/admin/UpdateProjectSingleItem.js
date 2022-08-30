@@ -194,7 +194,7 @@ const UpdateProjectSingleItem = props => {
 
 
 					<fieldset class="half">
-						<label>Map  ( Longitude )
+						<label>Map  (Longitude)
 							<input type="text" id="longitude" defaultValue={props.longitude} />
 						</label>
 
@@ -359,7 +359,7 @@ const UpdateProjectSingleItem = props => {
 					</fieldset>
 
 					<fieldset class="ima_ges">
-						<label>Images (JPG max fi le size 2mb):</label>
+						<label>Images (JPG max file size 2mb):</label>
 						<div class="item_wrap">
 							
 
