@@ -25,6 +25,7 @@ const UpdateProjectSingleItem = props => {
 		return s_source.search(s_string) >= 0 ? true : false
 	}	
 
+
 	console.log("ptype:"+props.ptype)
 	console.log("++++++++++++:"+getData("Dine",props.ptype))
     
@@ -112,6 +113,7 @@ const UpdateProjectSingleItem = props => {
         fetch('http://185.140.248.26:4052/project', requestOptions)
             .then(response => response.json());
      
+
         event.preventDefault();  
         //window.location.reload(false);
         //const timer = setTimeout(() => window.location.reload(false), 1000);
