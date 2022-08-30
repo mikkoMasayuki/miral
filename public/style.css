@@ -103,7 +103,7 @@ nav.home_header::before{ width: 50%; }
 
 
 .ftrd_header{ margin-bottom: -5px; text-align: center;}
-.ftrd_header img{ max-width: 80%;}
+.ftrd_header img{ max-width: 100%;}
 nav.home_header a.navbar-brand{ flex-basis: 30%; }
 nav.home_header #navbarNav{ flex-basis: 40%; }
 
@@ -248,11 +248,13 @@ footer p a:hover{ color: #4a4a49; }
 
 
 /*############ thumb_sec starts ############*/
+.cms_body .thumb_sec{ background: transparent; }
 .thumb_sec{  
     padding: 45px 0px; 
     position: relative; 
     background-position: 485px 110px!important;
     background-size: 80%!important;
+    background: url(assets/img/mrl-bg-right.svg)no-repeat;
 }
 .bt_row .col-md-12{  
     display: flex;
@@ -901,6 +903,8 @@ button.bt_orange.active{
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
+
+    .ftrd_header img{ max-width: 80%;}
 }
 
 @media (min-width:1200px){
