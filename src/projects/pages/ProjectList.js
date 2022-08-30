@@ -242,35 +242,7 @@ const ProjectLists = props => {
 
 
 
-							<fieldset>
-								<legend>Role:</legend>
 
-								
-								<label>
-									<input class="frole" type="checkbox" value="all" onClick={handleFilterChange} />
-									<span className="checkmark"></span>
-									All
-								</label>
-								
-
-								<label>
-									<input class="frole" type="checkbox" value="Developed" onClick={handleFilterChange}/>
-									<span className="checkmark"></span>
-									Developed
-								</label>
-
-								<label>
-									<input class="frole" type="checkbox" value="Managed" onClick={handleFilterChange}/>
-									<span className="checkmark"></span>
-									Managed
-								</label>
-
-								<label>
-									<input class="frole" type="checkbox" value="Investment" onClick={handleFilterChange}/>
-									<span className="checkmark"></span>
-									Investment
-								</label>
-							</fieldset>
 
 
 
@@ -352,23 +324,6 @@ const ProjectLists = props => {
 									Yas Asset Management
 								</label>
 							</fieldset>
-
-						
-							<fieldset>
-								<legend>More:</legend>
-								<label>
-									<input class="fmore" type="checkbox" value="Destination" onClick={handleFilterChange}/>
-									<span className="checkmark"></span>
-									Destination
-								</label>
-
-								<label>
-									<input class="fmore" type="checkbox" value="1" onClick={handleFilterChange}/>
-									<span className="checkmark"></span>
-									Favourites
-								</label>
-							</fieldset>
-						
 
 
 
