@@ -252,8 +252,8 @@ footer p a:hover{ color: #4a4a49; }
 .thumb_sec{  
     padding: 0px 0px; 
     /* position: relative;  */
-    background-position: 100px -405px!important;
-    background-size: 100%!important;
+    background-position: -160px -528px!important;
+    background-size: 115%!important;
     background: url(assets/img/mrl-bg-right2.svg)no-repeat;
 }
 
@@ -425,7 +425,7 @@ button.bt_orange.active{
 }
 .thumb_sec .item .desc h4{ font-size: 15px; margin-bottom:2px; ;  }
 
-.thumb_sec .item .desc h4 + p{ padding-right: 30px; margin-bottom: 5px;  }
+.thumb_sec .item .desc h4 + p{ padding-right: 30px; margin-bottom: 5px;font-size: 15px;  }
 .thumb_sec .item .desc p.tag{ margin-bottom: 0px;  text-transform: uppercase; }
 .thumb_sec .item .desc p.tag_1{ margin-bottom: 0px;  padding-top: 5px;  }
 .thumb_sec .item .desc p.tag  span{  
@@ -797,7 +797,7 @@ button.bt_orange.active{
 
 .portfolio_map .item{  
     position: relative;
-    width: 275px;
+    width: 285px;
     margin-bottom: 0px;
     max-width: 100%!important;
 }
@@ -893,8 +893,8 @@ button.bt_orange.active{
 .dest_happiness{  
     padding: 60px 0px;
     position: relative;
-    background-position: 485px 110px!important;
-    background-size: 80%!important;
+    background-position: -600px 293px!important;
+    background-size: 140%!important;
 }
 .dest_happiness .content_left h2{ font-size: 50px; margin-bottom: 60px; font-weight: 500; }
 .dest_happiness .content_left  h2 span{ display: inline; color: #ff8a03; }
@@ -928,7 +928,10 @@ button.bt_orange.active{
     }
 
     .ftrd_header img{ max-width: 80%;}
+
+    
 }
+
 
 @media (min-width:1200px){
     body .container{ max-width: 100%; padding-left: 50px; padding-right: 50px; }
@@ -940,6 +943,14 @@ button.bt_orange.active{
  
 }
 
+@media (max-width:1600px){
+    .filter_drop{ top: 467px;}
+}
+
+@media (max-width:1500px){
+    .filter_drop{ top: 502px;}
+}
+
 @media (max-width: 1440px){  
     body .col-md-3{  
         flex: 0 0 25%;
@@ -947,6 +958,8 @@ button.bt_orange.active{
     }
 
     .filter_drop{     top: 502px;}
+
+    .thumb_sec{ background-position: -150px -400px!important;}
 }
 
 @media (max-width: 1366px){
@@ -954,11 +967,17 @@ button.bt_orange.active{
 
  /*login page*/
  .login_sec img.ftrd{ margin-left: 0px; }
+
+ .filter_drop{     top: 486px;}
  
 }
 
+@media (max-width: 1280px){
+    .filter_drop{     top: 475px;}
+}
+
 @media (max-width: 1180px){
-    .portfolio_map .bt_row{ padding:45px 30px 20px 50px;}
+    .portfolio_map .bt_row{ padding:45px 30px 20px 45px;}
     .filter_drop{ top: 465px;}
     .filter_drop + .container{ padding-bottom: 0px;}
 
@@ -966,6 +985,9 @@ button.bt_orange.active{
  .login_sec .box span img{ /*height: 75px;*/ }
  .login_sec img.ftrd{ height: 402px; }
  .login_sec .box span{ font-size: 21px;}
+
+
+ .thumb_sec{ background-size: 125%!important;background-position: -160px -320px!important;}
 
 }
 
@@ -1032,6 +1054,7 @@ button.bt_orange.active{
  .filter_drop .bt_wrap{ position: initial; text-align: right; padding: 20px 0;display: inline-block; width: 100%; }
  .filter_drop .bg_overlay{  height: 108vh;top: 356px; }
  .filter_drop form{ gap:25px; }
+ .filter_drop{  top: 423px;}
 
 
 
@@ -1177,6 +1200,8 @@ button.bt_orange.active{
 
 
 @media(max-width: 580px){
+    /* home header */
+    nav.home_header a.navbar-brand{ margin-left: 30px; }
 
  /*admin header*/
  .nav-item.nav_about a{ margin: 0px 13px; }
@@ -1200,7 +1225,13 @@ button.bt_orange.active{
  /*admin projecs*/
  .dash_add_project{ padding: 20px 0px 30px 0px; }
 
-
-
  .filter_drop{     top: 437px;}
+
+ /* destination */
+ .dest_happiness{ padding-top: 45px;}
+ .navbar-toggler{  margin-right: 15px;}
+ .nav_single .navbar-toggler{  margin-right: 0px;}
+
+
+
 }
