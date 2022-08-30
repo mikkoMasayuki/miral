@@ -27,7 +27,10 @@ const ProjectLists = props => {
 
 	let payload = [];
 	
-			
+	const handleForceClose  = e => {
+		let btn = document.getElementById('btnfilter')
+			btn.click()
+	}		
 
 	const handleFilterReset = e => {
 		let getfilterType = document.getElementsByTagName('input');
@@ -328,9 +331,9 @@ const ProjectLists = props => {
 
 
 							<div className="bt_wrap">
-								<button className="show_results dark" onClick={props.onCancel}>Show {props.items.length} results</button>
+								<button className="show_results dark" onClick={handleForceClose}>Show {props.items.length} results</button>
 								<button className="reset dark" onClick={handleFilterReset}> Reset</button>
-								<button className="show_results dark" onClick={props.onCancel}>HIDE</button>
+								<button className="show_results dark" onClick={handleForceClose}>HIDE</button>
 
 							</div>
 						</div>
