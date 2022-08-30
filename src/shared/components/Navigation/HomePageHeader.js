@@ -26,7 +26,7 @@ const HomePageHeader = props => {
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link " href="/destination.html">ABOUT</a>
+                    <a class="nav-link " href="/destination-happiness/">ABOUT</a>
                 </li>
 
                 <li class="nav-item ">
@@ -47,7 +47,7 @@ const HomePageHeader = props => {
 		<div class="row">
 			<div class="col-md-12">
 				<h2>LOREM IPSUM DOLOR SIT AMET CONSECTETUR</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim  ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="#">Read more</a></p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim  ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="/destination-happiness/">Read more</a></p>
 			</div>
 		</div>
 	</div>

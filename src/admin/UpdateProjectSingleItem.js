@@ -359,7 +359,7 @@ const UpdateProjectSingleItem = props => {
 					</fieldset>
 
 					<fieldset class="ima_ges">
-						<label>Images (JPG max fi le size 2mb):</label>
+						<label>Images (JPG max file size 2mb):</label>
 						<div class="item_wrap">
 							
 
