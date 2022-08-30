@@ -15,7 +15,7 @@ const ListProjects = props => {
 
   <div className="container dash_add_project">
       
-      <Link to={`/admin/addproject`} className='btn' >Add Project</Link>
+      <Link to={`#`} className='btn' >Add Project</Link>
         <div className="box_wrapper"> 
           {props.items.map(project => {
               return <ProjRow 
