@@ -31,12 +31,15 @@ const ProjectLists = props => {
 		let btn = document.getElementById('btnfilter')
 			btn.click()
 	}		
-
+//here
 	const handleFilterReset = e => {
 		let getfilterType = document.getElementsByTagName('input');
 		for (let i = 0; i < getfilterType.length; i += 1) {
 				if (getfilterType[i].checked) {
-					getfilterType[i].checked = false;	
+					if(getfilterType[i].value!=="") {
+						getfilterType[i].checked = false;		
+					}
+					
 				}
 		}			
 		payload = { 
@@ -80,26 +83,12 @@ const ProjectLists = props => {
 
 					console.log("className:"+getfilterType[i].className);	
 					if ( getfilterType[i].className == "ftype") {
-						
-						/*
-						alert(getfilterType[i].value);	
-						if( getfilterType[i].value === "all") {
-							let togglr =  document.getElementsByClassName(getfilterType[i].className);
-							for (let j = 0; j < togglr.length; j += 1) {
-								if( togglr[j].value !== "all") {
-									togglr[j].checked = false;
-								}
-							}
-						} 
-						*/
+
 							if (tmpftype==="") {
 								tmpftype = getfilterType[i].value;
 							} else {
 								tmpftype = tmpftype +","+ getfilterType[i].value;	
 							}								
-						
-
-
 					}	
 					if ( getfilterType[i].className == "frole") {
 						if (tmpfrole==="") {
@@ -167,7 +156,7 @@ const ProjectLists = props => {
     return <React.Fragment>
     
       <div className={`filter_drop ${ props.show && "shown"}`}> 
-		<div className="bg_overlay" onClick={handleForceClose}></div>
+		<div className="bg_overlay" onClick={props.onCancel}></div>
 			<div className="container">
 				<div className="row">
 					<div className="col-md-12">
@@ -177,20 +166,41 @@ const ProjectLists = props => {
 
 								
 								<label>
-									<input id="f_all" class="ftype" type="checkbox" value="" onClick={handleFilterChange}/>
+									<input id="f_all" class="ftype" type="checkbox" value="" onClick={handleFilterReset}/>
 									<span className="checkmark"></span>
 									All
 								</label>
-								
 								<label>
-									<input class="ftype" type="checkbox" value="Asset" onClick={handleFilterChange}/>
+									<input class="ftype" type="checkbox" value="Most Popular" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Asset
-								</label>
+									Most Popular
+								</label>								
 								<label>
-									<input class="ftype" type="checkbox" value="Commercial" onClick={handleFilterChange}/>
+									<input class="ftype" type="checkbox" value="Stay" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
-									Commercial
+									Stay
+								</label>	
+								<label>
+									<input class="ftype" type="checkbox" value="Play" onClick={handleFilterChange} />
+									<span className="checkmark"></span>
+									Play
+								</label>	
+
+								<label>
+									<input class="ftype" type="checkbox" value="Dine" onClick={handleFilterChange} />
+									<span className="checkmark"></span>
+									Dine
+								</label>	
+								<label>
+									<input class="ftype" type="checkbox" value="Meet" onClick={handleFilterChange} />
+									<span className="checkmark"></span>
+									Meet
+								</label>																																
+
+								<label>
+									<input class="ftype" type="checkbox" value="Culture" onClick={handleFilterChange}/>
+									<span className="checkmark"></span>
+									Culture
 								</label>								
 
 								<label>
@@ -199,47 +209,6 @@ const ProjectLists = props => {
 									Destination
 								</label>
 
-								<label>
-									<input class="ftype" type="checkbox" value="Dine" onClick={handleFilterChange} />
-									<span className="checkmark"></span>
-									Dine
-								</label>
-								<label>
-									<input class="ftype" type="checkbox" value="Discover" onClick={handleFilterChange} />
-									<span className="checkmark"></span>
-									Discover
-								</label>								
-								<label>
-									<input class="ftype" type="checkbox" value="Land Plot" onClick={handleFilterChange} />
-									<span className="checkmark"></span>
-									Land Plot
-								</label>
-								<label>
-									<input class="ftype" type="checkbox" value="Meet" onClick={handleFilterChange} />
-									<span className="checkmark"></span>
-									Meet
-								</label>
-
-								<label>
-									<input class="ftype" type="checkbox" value="Museum" onClick={handleFilterChange} />
-									<span className="checkmark"></span>
-									Museum
-								</label>
-								<label>
-									<input class="ftype" type="checkbox" value="Play" onClick={handleFilterChange} />
-									<span className="checkmark"></span>
-									Play
-								</label>	
-								<label>
-									<input class="ftype" type="checkbox" value="Stay" onClick={handleFilterChange} />
-									<span className="checkmark"></span>
-									Stay
-								</label>															
-								<label>
-									<input class="ftype" type="checkbox" value="Other" onClick={handleFilterChange} />
-									<span className="checkmark"></span>
-									Other
-								</label>
 
 							</fieldset>
 
@@ -253,11 +222,10 @@ const ProjectLists = props => {
 								<legend>Location:</legend>
 								
 								<label>
-									<input class="floc" type="checkbox" value="" onClick={handleFilterChange}/>
+									<input class="floc" type="checkbox" value="" onClick={handleFilterReset}/>
 									<span className="checkmark"></span>
 									All
 								</label>
-								
 
 								<label>
 									<input class="floc" type="checkbox" value="Yas Island Abu Dhabi" onClick={handleFilterChange}/>
@@ -277,23 +245,11 @@ const ProjectLists = props => {
 									Abu Dhabi City
 								</label>
 
-								<label>
-									<input class="floc" type="checkbox" value="Cornwall England UK" onClick={handleFilterChange}/>
-									<span className="checkmark"></span>
-									Cornwall England UK
-								</label>
-
 
 								<label>
-									<input class="floc" type="checkbox" value="Dubai United Arab Emirates" onClick={handleFilterChange}/>
+									<input class="floc" type="checkbox" value="Jordan" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Dubai United Arab Emirates
-								</label>
-
-								<label>
-									<input class="floc" type="checkbox" value="Kazakhstan" onClick={handleFilterChange}/>
-									<span className="checkmark"></span>
-									Kazakhstan
+									Jordan
 								</label>
 
 							</fieldset>
@@ -303,16 +259,16 @@ const ProjectLists = props => {
 								<legend>Business:</legend>
 								
 								<label>
-									<input class="fbusi" type="checkbox" value="" onClick={handleFilterChange}/>
+									<input class="fbusi" type="checkbox" value="" onClick={handleFilterReset}/>
 									<span className="checkmark"></span>
 									All
 								</label>
 								
 
 								<label>
-									<input class="fbusi" type="checkbox" value="Miral Group" onClick={handleFilterChange}/>
+									<input class="fbusi" type="checkbox" value="Miral" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Miral Group
+									Miral
 								</label>
 
 								<label>
@@ -332,7 +288,7 @@ const ProjectLists = props => {
 
 							<div className="bt_wrap">
 								<button className="show_results dark" onClick={handleForceClose}>Show {props.items.length} results</button>
-								<button className="reset dark" onClick={handleFilterReset}> Reset</button>
+								<button id="btnreset" className="reset dark" onClick={handleFilterReset}> Reset</button>
 								<button className="show_results dark" onClick={handleForceClose}>HIDE</button>
 
 							</div>
