@@ -30,7 +30,36 @@ const ProjectLists = props => {
 	const handleForceClose  = e => {
 		let btn = document.getElementById('btnfilter')
 			btn.click()
-	}		
+	}
+	
+	const handleFilterResetFromButton = e => {
+		let getfilterType = document.getElementsByTagName('input');
+		for (let i = 0; i < getfilterType.length; i += 1) {
+				if (getfilterType[i].checked) {
+					if(getfilterType[i].value!=="") {
+						getfilterType[i].checked = false;		
+					} 
+					
+				}
+				if(getfilterType[i].value==="") {
+					getfilterType[i].checked = true;		
+				} 				
+		}			
+		payload = { 
+			'filtertype' : '', 
+			'filterRole' : '', 
+			'filterLoc' : '',
+			'filterbusi' : '',
+			'filtermore' : ''
+	   };
+
+	   setnavTagsType("All")
+	   setnavTagsRole("All")  
+	   setnavTagsLocation("")
+
+        props.ReloadFilters({payload}); 			
+		/*props.onCancel();*/
+	}	
 //here
 	const handleFilterReset = e => {
 		let getfilterType = document.getElementsByTagName('input');
@@ -293,7 +322,7 @@ const ProjectLists = props => {
 
 							<div className="bt_wrap">
 								<button className="show_results dark" onClick={handleForceClose}>Show {props.items.length} results</button>
-								<button id="btnreset" className="reset dark" onClick={handleFilterReset}> Reset</button>
+								<button id="btnreset" className="reset dark" onClick={handleFilterResetFromButton}> Reset</button>
 								<button className="show_results dark" onClick={handleForceClose}>HIDE</button>
 
 							</div>
