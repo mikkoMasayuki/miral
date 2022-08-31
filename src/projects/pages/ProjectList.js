@@ -19,7 +19,7 @@ const ProjectLists = props => {
 	const [filterLoc, setfilterLoc] = useState();
 	const [filterBusi, setfilterBusi] = useState();
 	const [filterMore, setfilterMore] = useState();
-	*/
+	*/ 
 
 	const [navTagsType, setnavTagsType] = useState("All")
 	const [navTagsRole,setnavTagsRole] = useState("All")
