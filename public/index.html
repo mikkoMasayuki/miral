@@ -70,7 +70,7 @@
                 <div class="col-md-12">
                     <div class="bt_left">
                         <button id="btnfilter" class="active bt_orange bt_filter">FILTER PROJECTS</button>
-                        <button class="dark bt_reset">RESET</button>
+                         <button onclick="hardReset()" class="dark">RESET</button>
                     </div>
                 </div>
             </div>
@@ -107,6 +107,11 @@
 
 
 <script type="text/javascript">
+
+   function hardReset(){
+    let btn = document.getElementById('btnreset')
+		btn.click()
+   } 
 
 	var markers = [
         {
