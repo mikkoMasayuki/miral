@@ -70,7 +70,7 @@
                 <div class="col-md-12">
                     <div class="bt_left">
                         <button id="btnfilter" class="active bt_orange bt_filter">FILTER PROJECTS</button>
-                        <button class="dark">RESET</button>
+                        <button onclick="hardReset()" class="dark">RESET</button>
                     </div>
                 </div>
             </div>
@@ -110,6 +110,14 @@
 
     let map;
     
+
+   function hardReset(){
+    let btn = document.getElementById('btnreset')
+		btn.click()
+   } 
+            
+            
+
     function initMap() {
       map = new google.maps.Map(document.getElementById("gmap"), {
         center: new google.maps.LatLng(24.481952, 54.497535),
