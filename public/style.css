@@ -89,7 +89,7 @@ nav.m_header{ background: #333; position: relative; padding: 0px 0px; }
 
 /*home header*/
 nav.home_header{ overflow: hidden; }
-nav.home_header img.logo{ margin: 0px;     height: 150px; }
+nav.home_header img.logo{ margin: 0px;     height: 195px; }
 nav.home_header,
 nav.home_header a.navbar-brand{ background: #fff; border-radius: 0px; }
 
@@ -432,7 +432,8 @@ button.bt_orange.active{
 
 .thumb_sec .item .desc h4 + p{ padding-right: 30px; margin-bottom: 5px;font-size: 15px;  }
 .thumb_sec .item .desc p.tag{ margin-bottom: 0px;  text-transform: uppercase; }
-.thumb_sec .item .desc p.tag_1{ margin-bottom: 0px;  padding-top: 5px;  }
+p.tag.tag_2{ display: none;}
+.thumb_sec .item .desc p.tag_1{ margin-bottom: 0px;  padding-top: 3px;  }
 .thumb_sec .item .desc p.tag  span{  
     background: #1ca6b8;
     padding: 5px 7px 5px 7px;
@@ -994,6 +995,8 @@ button.bt_orange.active{
     .filter_drop{ top: 483px;}
     .filter_drop + .container{ padding-bottom: 0px;}
 
+    nav.home_header img.logo{ height: 150px;}
+
     /*login page*/
     .login_sec .box span img{ /*height: 75px;*/ }
     .login_sec img.ftrd{ height: 402px; }
@@ -1266,7 +1269,7 @@ button.bt_orange.active{
     .filter_drop{ top: 517px; }
 }
 
-@media(max-width: 380px){
+@media(max-width: 395px){
     .filter_drop{ top: 539px; }
 }
 

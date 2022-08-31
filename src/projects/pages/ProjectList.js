@@ -156,7 +156,7 @@ const ProjectLists = props => {
     return <React.Fragment>
     
       <div className={`filter_drop ${ props.show && "shown"}`}> 
-		<div className="bg_overlay" onClick={props.onCancel}></div>
+		<div className="bg_overlay" onClick={handleForceClose}></div>
 			<div className="container">
 				<div className="row">
 					<div className="col-md-12">
