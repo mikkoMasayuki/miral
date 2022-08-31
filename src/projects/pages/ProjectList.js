@@ -82,6 +82,11 @@ const ProjectLists = props => {
 				if (getfilterType[i].checked) {
 
 					console.log("className:"+getfilterType[i].className);	
+
+					if(getfilterType[i].value==="") {
+						getfilterType[i].checked = false;		
+					}
+
 					if ( getfilterType[i].className == "ftype") {
 
 							if (tmpftype==="") {
