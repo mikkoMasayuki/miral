@@ -34,6 +34,7 @@ const ProjectLists = props => {
 	
 	const handleFilterResetFromButton = e => {
 		let getfilterType = document.getElementsByTagName('input');
+		let filterType = "";
 		for (let i = 0; i < getfilterType.length; i += 1) {
 				if (getfilterType[i].checked) {
 					if(getfilterType[i].value!=="") {
@@ -43,7 +44,20 @@ const ProjectLists = props => {
 				}
 				if(getfilterType[i].value==="") {
 					getfilterType[i].checked = true;		
-				} 				
+				} 	
+				
+				if ( getfilterType[i].className == "ftype") {
+
+					if (getfilterType[i].value==="Most Popular") {
+						getfilterType[i].checked = true;
+						filterType = getfilterType[i].value
+					}		
+					if(getfilterType[i].value==="") {
+						getfilterType[i].checked = false;		
+					} 						
+				}
+			
+			
 		}			
 		payload = { 
 			'filtertype' : '', 
