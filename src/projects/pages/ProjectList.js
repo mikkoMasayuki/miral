@@ -31,7 +31,7 @@ const ProjectLists = props => {
 		let btn = document.getElementById('btnfilter')
 			btn.click()
 	}		
-
+// Mikko edit
 	const handleFilterReset = e => {
 		let getfilterType = document.getElementsByTagName('input');
 		for (let i = 0; i < getfilterType.length; i += 1) {
