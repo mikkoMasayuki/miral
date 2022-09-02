@@ -24,6 +24,7 @@ const Projects = (props) => {
     const getDataBasedOnFilters = (theval) => {
 
 
+
         console.log('Type: ', theval.payload.filtertype);
         console.log('Role: ', theval.payload.filterRole);
         console.log('Loc : ', theval.payload.filterLoc);
@@ -48,7 +49,7 @@ const Projects = (props) => {
             console.log('filters click: ', filters);    
             console.log(responseData.data);
             console.log(responseData.data.length);
-
+ 
         };
 
         sendRequest();
@@ -66,6 +67,7 @@ const Projects = (props) => {
             setLoadedProject(responseData.data);
             console.log('filters: ', filters);    
             console.log(responseData.data);
+            
         };
 
         sendRequest();
