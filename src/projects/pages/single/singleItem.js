@@ -48,9 +48,9 @@ const SingleItem = props => {
 						}
 
 						{
-							props.role
-							.map(t => <span  className={ t == 'Developed' ? 'dev' : 'mana_ged' }>{t}</span>)
-							.reduce((prev, curr) => [prev, '', curr])
+							//props.role
+							//.map(t => <span>{t}</span>)
+							//.reduce((prev, curr) => [prev, '', curr])
 						}
 						
 					</div>
