@@ -477,6 +477,7 @@
 	    $('.star_icon').click(function() {
 	        $(this).toggleClass('active');
 	    });
+        
 	});
 </script>
 <!-- fill star icon onClick ends -->
@@ -489,6 +490,7 @@
 	    $('.bt_row .bt_left .bt_filter').click(function() {
 	        $(this).toggleClass('active');
 	        $('.filter_drop').toggleClass('shown');
+           
 	    });
 
 		$(".filter_drop .bg_overlay").click(function(){
@@ -506,7 +508,10 @@
 	    	$('.filter_drop').removeClass('shown');
             $(body).reload();
 		});
-
+        
+        setTimeout(() => {
+            hardReset()
+        }, 1000);
 
 	});
 </script>
