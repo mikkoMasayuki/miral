@@ -458,7 +458,14 @@ p.tag.tag_2{ display: none;}
 .single_proj .content_left, .single_proj .content_right{ padding: 0 20px; }
 
 
-.single_proj .content_right{ padding-bottom: 15px;  padding-top: 105px; }
+.single_proj .content_right{ 
+    padding-bottom: 15px;
+    padding-top: 25px;
+    display: inline-block;
+    width: 50%;
+    padding-left: 20px;
+    float: right;
+}
 .single_proj .content_left h2{ font-size: 40px; font-weight: 500;     text-transform: uppercase;}
 .single_proj .content_left h2 span{ font-size: 25px;display: block; color: #1ca6b8;  }
 
@@ -486,6 +493,8 @@ p.tag.tag_2{ display: none;}
     padding: 15px;
     margin-top: 30px;
     margin-bottom: 45px;
+    display: inline-block;
+    width: 48.5%;
 }
 
 .single_proj .content_left .details ul{ padding-left: 0px; }
@@ -876,6 +885,11 @@ p.tag.tag_2{ display: none;}
     display: block;
     margin: 0!important;
 }
+
+.portfolio_map .bt_row .bt_left{
+    position: relative;
+    z-index: 999;
+}
 /*############ Map ends ############*/
 
 
@@ -922,6 +936,22 @@ p.tag.tag_2{ display: none;}
 }
 .dest_happiness .box p{ font-weight: 500; font-size: 22px; margin-bottom: 0px;  }
 /*############ Destination Happiness ends ############*/
+
+/*############ Privacy Policy starts ############*/
+.privacy{  
+    background-position: -32% 11%!important;
+    background-size: 35%!important;
+    padding-top: 60px;
+}
+.privacy h1{  
+    font-size: 40px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+.privacy p{ margin-bottom: 20px; }
+.privacy h3{ font-size: 16px;  font-weight: 500; margin-bottom: 15px; }
+/*############ Privacy Policy ends ############*/
+
 
 /*####### mobile queries ##################*/
 
@@ -1090,6 +1120,13 @@ p.tag.tag_2{ display: none;}
     .edit_dashboard .ima_ges .item_wrap{ width: 100%; }
     .edit_dashboard .btns{ width: 100%; }
 
+    /*privacy policy*/
+    .privacy{
+        background-position: -40% 14%!important;
+        background-size: 39%!important;
+    }
+    .privacy .content_left{ max-width: 100%; flex-basis: 100%;}
+
 
 
 
@@ -1111,6 +1148,8 @@ p.tag.tag_2{ display: none;}
  .content_right .bt_wrap .btn{ padding: 0px 15px;margin-right: 5px; }
  .single_grid{ padding-top: 0px; }
  .single_grid .item{ margin-bottom: 20px; }
+ .single_proj .content_left .details{ width: 100%; margin-bottom: 0;}
+ .single_proj .content_right{ width: 100%; float: none;     padding-left: 0;}
 
 
   /*admin edit users*/
@@ -1189,7 +1228,6 @@ p.tag.tag_2{ display: none;}
 
 
     /*single project*/
-    .single_proj .content_right{ padding-top: 0px; }
     .single_proj .content_left h2{ font-size: 30px; }
     .single_proj .content_left h2 span{ font-size: 20px; }
     .single_proj .content_right h3{ font-size: 20px; }
@@ -1223,6 +1261,15 @@ p.tag.tag_2{ display: none;}
     /*destination happiness*/
     .dest_happiness .content_left h2{ font-size: 30px;  }
     .dest_happiness .box{ height: 300px;  }
+
+    
+      /*privacy policy*/
+      .privacy{
+        background-position: -75% 14%!important;
+        background-size: 55%!important;
+     }
+
+     .privacy h1{ font-size: 30px; margin-bottom: 20px; }
 
 }
 

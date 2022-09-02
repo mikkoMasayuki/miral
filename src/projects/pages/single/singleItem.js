@@ -37,7 +37,7 @@ const SingleItem = props => {
     return <React.Fragment>
         <div class="row head_content">
 			
-			<div class="col-md-6 content_left">
+			<div class="col-md-12 content_left">
 				<h2>{props.name} <span> {props.location} </span></h2>
 				<div class="details">
 					<div class="tag_wrap">
@@ -62,15 +62,15 @@ const SingleItem = props => {
 					</ul>					
 				</div>
 
-				
-
-			</div>
-
-			<div class="col-md-6 content_right">
+				<div class=" content_right">
 
 				<p>{props.description}</p>
 
 			</div>
+
+			</div>
+
+			
 			
 		</div>
 
