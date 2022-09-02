@@ -11,7 +11,7 @@ Version: 1.0
 
 [ July 25, 2022 ]  */
 
-html{ overflow-x: hidden; background: #fff;}
+html{ overflow-x: hidden; }
 html body{
   font-family: 'Gotham', sans-serif!important;
  -webkit-font-smoothing: antialiased;
@@ -23,7 +23,6 @@ html body{
  -ms-text-rendering: optimizeLegibility;
  -o-text-rendering: optimizeLegibility;
  text-rendering: optimizeLegibility;
- font-smoothing: antialiased;
  background: #fff!important;
  color: #333!important;  
  padding: 0px;
@@ -55,7 +54,7 @@ input[type='submit']{font-weight: bold; background: #222;color: #fff;border: 1px
 
 img{ max-width: 100%; }
 a:focus, a:hover{ text-decoration: none; background: none;}
-input:-webkit-autofill { -webkit-box-shadow: inset 0 0 0px 9999px white;}
+input:-webkit-autofill { -webkit-box-shadow: inset 0 0 0px 9999px white; box-shadow: inset 0 0 0px 9999px white;}
 hr{
  border-top: 3px solid #EFCB13;
  width: 44px;
@@ -184,7 +183,6 @@ body.cms_body{ background: #e6e7e8!important; }
 body.log_in{ background: #e6e7e8!important; }
 .cstm_sec{ padding: 90px 0px; }
 .login_sec{ padding: 65px 0px 30px 0; }
-.login_sec .box{ /*background: #fff; border-radius: 10px; padding: 40px 40px 20px 40px;*/ }
 .login_sec .box span{  
     color: #4b4c4d;
     font-weight: bold;
@@ -238,6 +236,7 @@ body.log_in{ background: #e6e7e8!important; }
 
 .login_sec input:-webkit-autofill{
     -webkit-box-shadow: inset 0 0 0px 9999px #fff;
+    box-shadow: inset 0 0 0px 9999px #fff;
 }
 /*############ login ends #############*/
 
@@ -395,6 +394,7 @@ button.bt_orange.active{
     background: #ededed;
     height: 100%;
     border-radius: 6px;
+    overflow: hidden;
 }
 .thumb_sec .item a.link{
     position: absolute;
@@ -405,17 +405,32 @@ button.bt_orange.active{
     height: 100%;
     z-index: 1;
 }
+.thumb_sec .item .ftrd_img{
+    overflow: hidden;
+}
 .thumb_sec .item .ftrd_img img{ 
-    border-radius: 6px 6px 0 0; 
     max-width: 100%; 
     height: 192px;
     width: 100%;
     object-fit: cover;
+    transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    transform: scale(1);
+}
+.thumb_sec .item:hover .ftrd_img img{
+    transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+    transform: scale(1.1);
 }
 .thumb_sec .item .desc{  
     background: #ededed;
     padding: 20px;
-    border-radius: 0 0 6px 6px;
     position: relative;
     color: #4a4a49;
     
@@ -461,12 +476,11 @@ p.tag.tag_2{ display: none;}
 .single_proj .content_right{ 
     padding-bottom: 15px;
     padding-top: 25px;
-    display: inline-block;
     width: 50%;
     padding-left: 20px;
     float: right;
 }
-.single_proj .content_left h2{ font-size: 40px; font-weight: 500;     text-transform: uppercase;}
+.single_proj .content_left h2{ font-size: 40px; font-weight: 500; text-transform: uppercase;}
 .single_proj .content_left h2 span{ font-size: 25px;display: block; color: #1ca6b8;  }
 
 .single_proj .tag_wrap{ padding:0px 0px 15px 0px; }
@@ -790,11 +804,6 @@ p.tag.tag_2{ display: none;}
 .edit_dashboard .btns a{  
     margin-left: 20px;
     margin-bottom: 8px;
-    /*background: #CACCCB ;*/
-}
-
-.edit_dashboard .btns a:hover{
-     /*background: #dadada;*/
 }
 /*############ admin Edit Projects ends ############*/
 
@@ -879,7 +888,6 @@ p.tag.tag_2{ display: none;}
  background: #4a4a49;
 }
 
-
 .portfolio_map .bt_row{
     padding: 45px 80px 20px 50px;
     display: block;
@@ -898,20 +906,14 @@ p.tag.tag_2{ display: none;}
     background: #ededed;
     padding: 40px 0px;
 }
-
 .news_sec h2{font-size: 20px;  margin-bottom: 15px;  }
 .news_sec p{ 
     font-size: 18px; 
     line-height: 1.3; 
     margin-bottom: 0px; 
-    /* display: -webkit-box; */
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;  
-  overflow: hidden;
 }
 .news_sec p a{ color: #ff8a03; }
 /*############ News ends ############*/
-
 
 
 /*############ Destination Happiness starts ############*/
@@ -954,8 +956,6 @@ p.tag.tag_2{ display: none;}
 
 
 /*####### mobile queries ##################*/
-
-
 @media (min-width:1800px){
     .filter_drop + .container{ padding-bottom: 150px;}
 }
@@ -974,18 +974,15 @@ p.tag.tag_2{ display: none;}
 
     .ftrd_header img{ max-width: 80%;}
 
-    
 }
 
 
 @media (min-width:1200px){
     body .container{ max-width: 100%;  }
-
 }
 
 @media (max-width:992px){
 
- 
 }
 
 @media (max-width:1600px){
@@ -1013,12 +1010,12 @@ p.tag.tag_2{ display: none;}
     /*login page*/
     .login_sec img.ftrd{ margin-left: 0px; }
 
-    .filter_drop{     top: 486px;}
+    .filter_drop{  top: 486px;}
  
 }
 
 @media (max-width: 1280px){
-    .filter_drop{     top: 475px;}
+    .filter_drop{ top: 475px;}
 }
 
 @media (max-width: 1199px){
@@ -1028,10 +1025,8 @@ p.tag.tag_2{ display: none;}
     nav.home_header img.logo{ height: 150px;}
 
     /*login page*/
-    .login_sec .box span img{ /*height: 75px;*/ }
     .login_sec img.ftrd{ height: 402px; }
     .login_sec .box span{ font-size: 21px;}
-
 
     .thumb_sec{ background-size: 125%!important;background-position: -160px -320px!important;}
 
@@ -1039,7 +1034,6 @@ p.tag.tag_2{ display: none;}
 
 
 @media(max-width: 991px){
-
     body .container{ padding-left: 30px ; padding-right: 30px;}
 
     /*header*/
@@ -1062,10 +1056,10 @@ p.tag.tag_2{ display: none;}
 
 
     /*cms header*/
-    .m_header_alt a.navbar-brand{ margin-left: 0px; padding-left: 30px;     flex-basis: 53%; }
+    .m_header_alt a.navbar-brand{ margin-left: 0px; padding-left: 30px; flex-basis: 53%; }
     .m_header_alt .navbar-toggler{ display: none; }
     .m_header_alt .collapse:not(.show){ display: inline-block; flex-basis: 30%;  }
-    .m_header_alt .nav-item.nav_about a{ padding: 10px 15px!important;     margin-right: 0px;}
+    .m_header_alt .nav-item.nav_about a{ padding: 10px 15px!important; margin-right: 0px;}
     .m_header_alt img.logo{ margin-left: 0px;}
 
 
@@ -1128,8 +1122,6 @@ p.tag.tag_2{ display: none;}
     .privacy .content_left{ max-width: 100%; flex-basis: 100%;}
 
 
-
-
 }
 
 
@@ -1149,19 +1141,19 @@ p.tag.tag_2{ display: none;}
  .single_grid{ padding-top: 0px; }
  .single_grid .item{ margin-bottom: 20px; }
  .single_proj .content_left .details{ width: 100%; margin-bottom: 0;}
- .single_proj .content_right{ width: 100%; float: none;     padding-left: 0;}
+ .single_proj .content_right{ width: 100%; float: none;  padding-left: 0;}
 
 
   /*admin edit users*/
   .edit_dashboard fieldset.half{ display: block; }
   .edit_dashboard fieldset.sta_tus select{ width: 100%; }
-  .edit_dashboard fieldset.map input{  width: 100%;  }
+  .edit_dashboard fieldset.map input{  width: 100%; }
   .edit_dashboard .stats .group{ width: 100%; margin-right: 0px; }
   .edit_dashboard fieldset.half label:nth-child(2){  margin-top: 20px; margin-bottom: 20px; }
 
 
   /*destination happiness*/
-  .dest_happiness .content_left h2{ font-size: 40px;     margin-bottom: 35px; }
+  .dest_happiness .content_left h2{ font-size: 40px; margin-bottom: 35px; }
   .dest_happiness .box{ height: 400px; margin: 25px 0px; }
   .dest_happiness .ftrd_img{ padding-top: 20px; }
 
@@ -1171,12 +1163,9 @@ p.tag.tag_2{ display: none;}
 
 }
 
-
 @media(max-width: 768px){
     .filter_drop{ top: 468px; }
 }
-
-
 
 @media(max-width: 680px){
     body .container{ padding-left: 20px ; padding-right: 20px;}
@@ -1191,14 +1180,11 @@ p.tag.tag_2{ display: none;}
     .login_sec .box span img{ height: 160px; }
     .login_sec .box span{ font-size: 14px; }
     .login_sec .box form{ width: 100%; }
-    .login_sec .box{  /* padding: 30px 30px 20px 30px;*/ }
     .login_sec img.ftrd{ height: 320px; }
-
 
     /*foooter*/
     footer p{ text-align: center; }
     footer p span{ display: block; margin-bottom: 5px; }
-
 
     /*projects main*/
     .thumb_sec .item{  
@@ -1218,14 +1204,11 @@ p.tag.tag_2{ display: none;}
     }
     .filter_drop input:checked ~ .checkmark{ top: 2px; }
 
-
     .bt_right button, .bt_right .btn{  margin-left: 10px; padding: 10px 20px; }
     button, .btn{ padding: 10px 20px; }
 
-
     .news_sec h2{ font-size: 18px; }
     .news_sec p{ font-size: 16px; }
-
 
     /*single project*/
     .single_proj .content_left h2{ font-size: 30px; }
@@ -1233,11 +1216,8 @@ p.tag.tag_2{ display: none;}
     .single_proj .content_right h3{ font-size: 20px; }
     
 
-
-
     /*admin-projects*/
     .dash_add_project .box_wrapper{ width: 100%;}
-
 
 
     /*admin edit users*/
@@ -1251,10 +1231,8 @@ p.tag.tag_2{ display: none;}
     .edit_dashboard fieldset.stats{ display: block; }
     .edit_dashboard .sta_tus .group{ margin-right: 22px; }
 
-
     .edit_dashboard .ima_ges .item_wrap{ flex-wrap: wrap; }
     .edit_dashboard .ima_ges .item{ flex-basis: 46%; }
-
     .edit_dashboard .btns button{ margin-left: 5px;padding: 10px 10px; }
 
 
@@ -1263,8 +1241,8 @@ p.tag.tag_2{ display: none;}
     .dest_happiness .box{ height: 300px;  }
 
     
-      /*privacy policy*/
-      .privacy{
+    /*privacy policy*/
+    .privacy{
         background-position: -75% 14%!important;
         background-size: 55%!important;
      }
@@ -1272,7 +1250,6 @@ p.tag.tag_2{ display: none;}
      .privacy h1{ font-size: 30px; margin-bottom: 20px; }
 
 }
-
 
 @media(max-width: 580px){
     /* home header */
@@ -1287,7 +1264,6 @@ p.tag.tag_2{ display: none;}
         max-width: 100%;
     }
 
-
     /*projects map*/
     .map_bt{ top: 64px; }
     .thumb_sec .item .desc{ padding: 15px; }
@@ -1295,22 +1271,17 @@ p.tag.tag_2{ display: none;}
     .portfolio_map .item{ width: 300px;}
     .gm-style .gm-style-iw-c{ max-width: 290px!important;}
 
-
-
     /*admin projecs*/
     .dash_add_project{ padding: 20px 0px 30px 0px; }
 
-    .filter_drop{     top: 477px;}
+    .filter_drop{  top: 477px;}
 
     /* destination */
     .dest_happiness{ padding-top: 45px;}
     .navbar-toggler{  margin-right: 15px;}
     .nav_single .navbar-toggler, .home_header .navbar-toggler{  margin-right: 0px;}
 
-
-
 }
-
 
 @media(max-width: 450px){
     .filter_drop{ top: 517px; }
