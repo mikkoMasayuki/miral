@@ -111,6 +111,8 @@
    function hardReset(){
     let btn = document.getElementById('btnreset')
 		btn.click()
+        $('.bt_row .bt_left .bt_filter').removeClass('active');
+	    $('.filter_drop').removeClass('shown');        
    } 
 
 	var markers = [
