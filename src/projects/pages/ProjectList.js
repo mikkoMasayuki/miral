@@ -75,32 +75,6 @@ const ProjectLists = props => {
 		/*props.onCancel();*/
 	}	
 //here
-	const handleFilterReset = e => {
-		let getfilterType = document.getElementsByTagName('input');
-		for (let i = 0; i < getfilterType.length; i += 1) {
-				if (getfilterType[i].checked) {
-					if(getfilterType[i].value!=="") {
-						getfilterType[i].checked = false;		
-					}
-					
-				}
-		}			
-		payload = { 
-			'filtertype' : '', 
-			'filterRole' : '', 
-			'filterLoc' : '',
-			'filterbusi' : '',
-			'filtermore' : ''
-	   };
-
-	   setnavTagsType("All")
-	   setnavTagsRole("All")  
-	   setnavTagsLocation("")
-
-        props.ReloadFilters({payload}); 			
-		/*props.onCancel();*/
-	}
-
 	const handleFilterChange = e => {
 		let tmptype = "";
 		let filterType = "";
@@ -201,6 +175,132 @@ const ProjectLists = props => {
 	
     }
 
+
+	const handleFilterReset = e => {
+		let tmptype = "";
+		let filterType = "";
+		let filterRole = "";
+		let filterLoc = "";
+		let filterbusi = "";
+		let filtermore = "";
+		let tmpftype="";
+		let tmpfrole="";
+		let tmpfloc="";
+		let tmpfbusi="";
+		let tmpfmore="";
+
+		
+
+		let getfilterType = document.getElementsByTagName('input');
+
+		
+		for (let i = 0; i < getfilterType.length; i += 1) {
+
+			
+				if (getfilterType[i].checked) {
+
+					console.log("className:"+getfilterType[i].className);	
+
+					if(getfilterType[i].value==="") {
+						if ( getfilterType[i].className == "ftype") {
+							for (let j = 0; j < getfilterType.length; j += 1) {
+								if ( getfilterType[j].className == "ftype") {
+									getfilterType[j].checked = false;	
+								}
+							}
+							getfilterType[i].checked = true;	
+						} 
+						if ( getfilterType[i].className == "floc") {
+							for (let j = 0; j < getfilterType.length; j += 1) {
+								if ( getfilterType[j].className == "floc") {
+									getfilterType[j].checked = false;	
+								}
+							}
+							getfilterType[i].checked = true;	
+						}				
+						if ( getfilterType[i].className == "fbusi") {
+							for (let j = 0; j < getfilterType.length; j += 1) {
+								if ( getfilterType[j].className == "fbusi") {
+									getfilterType[j].checked = false;	
+								}
+							}
+							getfilterType[i].checked = true;	
+						}									
+					} else {
+
+
+							if ( getfilterType[i].className == "ftype") {
+
+									if (tmpftype==="") {
+										tmpftype = getfilterType[i].value;
+									} else {
+										tmpftype = tmpftype +","+ getfilterType[i].value;	
+									}								
+							}	
+							if ( getfilterType[i].className == "frole") {
+								if (tmpfrole==="") {
+									tmpfrole = getfilterType[i].value;
+								} else {
+									tmpfrole = tmpfrole +","+ getfilterType[i].value;	
+								}
+							}
+							if ( getfilterType[i].className == "floc") {
+								if (tmpfloc==="") {
+									tmpfloc = getfilterType[i].value;
+								} else {
+									tmpfloc = tmpfloc +","+ getfilterType[i].value;	
+								}
+							}	
+							if ( getfilterType[i].className == "fbusi") {
+								if (tmpfbusi==="") {
+									tmpfbusi = getfilterType[i].value;
+								} else {
+									tmpfbusi = tmpfbusi +","+ getfilterType[i].value;	
+								}
+							}		
+							if ( getfilterType[i].className == "fmore") {
+								if (tmpfmore==="") {
+									tmpfmore = getfilterType[i].value;
+								} else {
+									tmpfmore = tmpfmore +","+ getfilterType[i].value;	
+								}
+							}	
+					}													
+					
+				} 
+			
+		}
+
+		
+		filterType=tmpftype
+		filterRole=tmpfrole
+		filterLoc=tmpfloc
+		filterbusi=tmpfbusi
+		filtermore=tmpfmore
+
+		setnavTagsType(filterType)
+		setnavTagsRole(filterRole)  
+		setnavTagsLocation(filterLoc)
+
+
+		payload = { 
+			'filtertype' : filterType, 
+			'filterRole' : filterRole, 
+			'filterLoc' : filterLoc,
+			'filterbusi' : filterbusi,
+			'filtermore' : filtermore
+	   };
+
+		
+
+		console.log(">>>>"+payload);
+        props.ReloadFilters({payload}); 
+
+		// /props.onCancel(1);
+		
+	
+    }
+
     return <React.Fragment>
     
       <div className={`filter_drop ${ props.show && "shown"}`}> 
@@ -219,7 +319,7 @@ const ProjectLists = props => {
 									All
 								</label>
 								<label>
-									<input class="ftype" type="checkbox" value="Most Popular" onClick={handleFilterChange}/>
+									<input class="ftype" type="checkbox"  value="Most Popular" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Most Popular
 								</label>								
