@@ -97,6 +97,10 @@ const ProjectLists = props => {
 		let getAllBusi = document.querySelector('#fbusi_all');
 
 		
+		let tmpAllType = getAllType.checked
+		let tmpAllLoc = getAllLoc.checked
+		let tmpAllBusi = getAllBusi.checked
+		
 		for (let i = 0; i < getfilterType.length; i += 1) {
 
 			
@@ -108,6 +112,7 @@ const ProjectLists = props => {
 						//getfilterType[i].checked = false;	
 					}
 					
+					
 
 					if ( getfilterType[i].className == "ftype") {
 
@@ -116,29 +121,22 @@ const ProjectLists = props => {
 							} else {
 								tmpftype = tmpftype +","+ getfilterType[i].value;	
 							}
-							if(getfilterType[i].value==="") {
-								getfilterType[i].checked = false;	
+							if(getfilterType[i].value!=="") {
+								getAllType.checked = false
 							}
-		
+
 					}	
-					if ( getfilterType[i].className == "frole") {
-						if (tmpfrole==="") {
-							tmpfrole = getfilterType[i].value;
-						} else {
-							tmpfrole = tmpfrole +","+ getfilterType[i].value;	
-						}
-						
-					}
+
 					if ( getfilterType[i].className == "floc") {
 						if (tmpfloc==="") {
 							tmpfloc = getfilterType[i].value;
 						} else {
 							tmpfloc = tmpfloc +","+ getfilterType[i].value;	
 						}
-						if(getfilterType[i].value==="") {
-							getfilterType[i].checked = false;	
-						}
-						
+						if(getfilterType[i].value!=="") {
+							getAllLoc.checked = false
+						}						
+
 					}	
 					if ( getfilterType[i].className == "fbusi") {
 						if (tmpfbusi==="") {
@@ -146,22 +144,20 @@ const ProjectLists = props => {
 						} else {
 							tmpfbusi = tmpfbusi +","+ getfilterType[i].value;	
 						}
-
-						if(getfilterType[i].value==="") {
-							getfilterType[i].checked = false;	
+						if(getfilterType[i].value!=="") {
+							getAllBusi.checked = false
 						}						
 					}		
-					if ( getfilterType[i].className == "fmore") {
-						if (tmpfmore==="") {
-							tmpfmore = getfilterType[i].value;
-						} else {
-							tmpfmore = tmpfmore +","+ getfilterType[i].value;	
-						}
-					}												
+										
 					
 				} 
 			
 		}
+
+		//alert("type "+tmpAllType+" loc " +tmpAllLoc +" busi "+tmpAllBusi);
+
+		
+		
 
 
 		filterType=tmpftype
@@ -192,6 +188,8 @@ const ProjectLists = props => {
 		
 	
     }
+
+	
 
 
 	const handleFilterReset = e => {
