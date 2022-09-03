@@ -92,6 +92,10 @@ const ProjectLists = props => {
 
 		let getfilterType = document.getElementsByTagName('input');
 
+		let getAllType = document.querySelector('#ftype_all');
+		let getAllLoc = document.querySelector('#floc_all');
+		let getAllBusi = document.querySelector('#fbusi_all');
+
 		
 		for (let i = 0; i < getfilterType.length; i += 1) {
 
@@ -101,8 +105,9 @@ const ProjectLists = props => {
 					console.log("className:"+getfilterType[i].className);	
 
 					if(getfilterType[i].value==="") {
-						getfilterType[i].checked = false;		
+						//getfilterType[i].checked = false;	
 					}
+					
 
 					if ( getfilterType[i].className == "ftype") {
 
@@ -110,7 +115,11 @@ const ProjectLists = props => {
 								tmpftype = getfilterType[i].value;
 							} else {
 								tmpftype = tmpftype +","+ getfilterType[i].value;	
-							}								
+							}
+							if(getfilterType[i].value==="") {
+								getfilterType[i].checked = false;	
+							}
+		
 					}	
 					if ( getfilterType[i].className == "frole") {
 						if (tmpfrole==="") {
@@ -118,6 +127,7 @@ const ProjectLists = props => {
 						} else {
 							tmpfrole = tmpfrole +","+ getfilterType[i].value;	
 						}
+						
 					}
 					if ( getfilterType[i].className == "floc") {
 						if (tmpfloc==="") {
@@ -125,6 +135,10 @@ const ProjectLists = props => {
 						} else {
 							tmpfloc = tmpfloc +","+ getfilterType[i].value;	
 						}
+						if(getfilterType[i].value==="") {
+							getfilterType[i].checked = false;	
+						}
+						
 					}	
 					if ( getfilterType[i].className == "fbusi") {
 						if (tmpfbusi==="") {
@@ -132,6 +146,10 @@ const ProjectLists = props => {
 						} else {
 							tmpfbusi = tmpfbusi +","+ getfilterType[i].value;	
 						}
+
+						if(getfilterType[i].value==="") {
+							getfilterType[i].checked = false;	
+						}						
 					}		
 					if ( getfilterType[i].className == "fmore") {
 						if (tmpfmore==="") {
@@ -145,7 +163,7 @@ const ProjectLists = props => {
 			
 		}
 
-		
+
 		filterType=tmpftype
 		filterRole=tmpfrole
 		filterLoc=tmpfloc
@@ -314,7 +332,7 @@ const ProjectLists = props => {
 
 								
 								<label>
-									<input id="f_all" class="ftype" type="checkbox" value="" onClick={handleFilterReset}/>
+									<input id="ftype_all" class="ftype" type="checkbox" value="" onClick={handleFilterReset}/>
 									<span className="checkmark"></span>
 									All
 								</label>
@@ -370,7 +388,7 @@ const ProjectLists = props => {
 								<legend>Location:</legend>
 								
 								<label>
-									<input class="floc" type="checkbox" value="" onClick={handleFilterReset}/>
+									<input id="floc_all" class="floc" type="checkbox" value="" onClick={handleFilterReset}/>
 									<span className="checkmark"></span>
 									All
 								</label>
@@ -407,7 +425,7 @@ const ProjectLists = props => {
 								<legend>Business:</legend>
 								
 								<label>
-									<input class="fbusi" type="checkbox" value="" onClick={handleFilterReset}/>
+									<input id="fbusi_all" class="fbusi" type="checkbox" value="" onClick={handleFilterReset}/>
 									<span className="checkmark"></span>
 									All
 								</label>
