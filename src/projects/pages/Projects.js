@@ -47,9 +47,18 @@ const Projects = (props) => {
 
 
             console.log('filters click: ', filters);    
-            console.log(responseData.data);
-            console.log(responseData.data.length);
- 
+            console.log('-------response data filtered-------->');
+            //console.log(responseData.data);
+            //console.log(responseData.data.length);
+            //console.log('>>>>'+responseData.data.length);
+            //console.log('>>>>'+responseData.data[0].name);
+            //console.log('>>>>'+responseData.data[0].lat);
+            //console.log('>>>>'+responseData.data[0].long);
+
+           localStorage.setItem('filter_projects', JSON.stringify(responseData.data));
+
+         //console.log(JSON.stringify(responseData.data))
+           // document.getElementById("filtered_data").innerHTML = JSON.stringify(responseData.data)
         };
 
         sendRequest();
@@ -66,6 +75,7 @@ const Projects = (props) => {
 
             setLoadedProject(responseData.data);
             console.log('filters: ', filters);    
+            console.log('-------response data all-------->');
             console.log(responseData.data);
             
         };
