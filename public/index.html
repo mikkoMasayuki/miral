@@ -71,6 +71,7 @@
                     <div class="bt_left">
                         <button id="btnfilter" class="active bt_orange bt_filter">FILTER PROJECTS</button>
                          <button onclick="hardReset()" class="dark">RESET</button>
+                         <button id="btnloadmap" style="display:none" onclick="LoadMap()" class="dark">loadmap</button>
                     </div>
                 </div>
             </div>
@@ -81,6 +82,7 @@
       <section id="miralProj" class="cstm_sec thumb_sec"></section>
       <section id="miralSingle" class="cstm_sec single_proj"></section>      
     </div>
+
 
     
 <!-- footer starts -->
@@ -107,15 +109,61 @@
 
 
 <script type="text/javascript">
+    function loadit() {
+        //var gmaps_projects = JSON.parse(document.getElementById("filtered_data").innerHTML);
+        //alert( gmaps_projects[0].name)  
+        //alert( markers[0].title)   
+        //alert(gmaps_projects.length)
+
+    }
 
    function hardReset(){
     let btn = document.getElementById('btnreset')
 		btn.click()
         $('.bt_row .bt_left .bt_filter').removeClass('active');
 	    $('.filter_drop').removeClass('shown');        
+
+        //var gmaps_projects = JSON.parse(document.getElementById("filtered_data").innerHTML);
+        //alert( gmaps_projects[0].name)  
+        //alert( markers[0].title)   
+        //alert(gmaps_projects.length)
+        //var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
+        //alert( gmaps_projects[0].name)  
+        //alert( markers[0].title)   
+        //alert(gmaps_projects.length)             
+
+        LoadMap();
    } 
 
-	var markers = [
+ 
+
+	window.onload = function () {
+		//LoadMap();
+	}
+
+
+	function LoadMap() {
+
+        var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
+        //alert( "zzz "+gmaps_projects[0].image[0].image_url)  
+       
+       var d_marker= []
+        for(var i=0; i<gmaps_projects.length; i++) {
+            d_marker.push({"title": gmaps_projects[i].name,
+                            "lat": gmaps_projects[i].lat,
+                            "lng": gmaps_projects[i].long,
+                            "description": '<div class=" item"><a class="link" href="/project/Etihad%20Arena/1"> </a><div class="ftrd_img"><img src="'+gmaps_projects[i].image[0].image_url+'"></div><div class="desc"><h4>'+gmaps_projects[i].name+'</h4><p>'+gmaps_projects[i].desciption+'</p><p class="tag tag_1"><span>Play</span><span>Discover</span></p><p class="tag tag_2"><span class="mana_ged">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
+                            "icon": 'assets/img/map-pin.png'
+                        }) 
+        }
+        
+        console.log( "vvvvvvv ");
+        console.log(d_marker);
+
+        var markers = d_marker;
+        
+        /*
+        var markers = [
         {
             "title": 'Etihad Arena',
             "lat": '24.460352',
@@ -208,10 +256,8 @@
             "icon": 'assets/img/map-pin.png'
         }
     ];
-	window.onload = function () {
-		LoadMap();
-	}
-	function LoadMap() {
+    */
+
 		var mapOptions = {
 			center: new google.maps.LatLng(24.481952, 54.497535),
 			zoom: 12,
@@ -489,6 +535,8 @@
 <!-- filter dropdown starts -->
 <script>
 	$(document).ready(function() {
+
+
 	    $('.bt_row .bt_left .bt_filter').click(function() {
 	        $(this).toggleClass('active');
 	        $('.filter_drop').toggleClass('shown');
@@ -512,10 +560,13 @@
 		});
         
         setTimeout(() => {
+           
             hardReset()
         }, 1000);
 
 	});
+
+
 </script>
 <!-- filter dropdown ends -->
   </body>
