@@ -31,7 +31,7 @@ if(window.location.pathname.includes('/admin/update')) {
   body.className = "cms_body";
 
   const e = document.querySelector('#mapwrap');
-  e.style.display = 'none';  
+ e.style.display = 'none';  
 } 
 
 
