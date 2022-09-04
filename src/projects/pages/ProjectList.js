@@ -30,11 +30,19 @@ const ProjectLists = props => {
 	const handleForceClose  = e => {
 		let btn = document.getElementById('btnfilter')
 			btn.click()
+
+		let btnloadmap = document.getElementById('btnloadmap')
+		btnloadmap.click()
+
+			
 	}
 	
 	const handleFilterResetFromButton = e => {
 		let getfilterType = document.getElementsByTagName('input');
 		let filterType = "";
+
+
+
 		for (let i = 0; i < getfilterType.length; i += 1) {
 				if (getfilterType[i].checked) {
 					if(getfilterType[i].value!=="") {
