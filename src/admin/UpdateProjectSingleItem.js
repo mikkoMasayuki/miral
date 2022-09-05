@@ -25,6 +25,11 @@ const UpdateProjectSingleItem = props => {
 		return s_source.search(s_string) >= 0 ? true : false
 	}	
 
+	const getCoords = (lat,long) => {
+		return lat+","+long
+	}
+
+
 
 	console.log("ptype:"+props.ptype)
 	console.log("++++++++++++:"+getData("Dine",props.ptype))
@@ -88,6 +93,12 @@ const UpdateProjectSingleItem = props => {
         let Vval = document.getElementById("vval").value
         let Annual_v = document.getElementById("annual_visitor").value
 
+		let mapcoords = document.getElementById("mapcoords").value
+
+		let coords = mapcoords.split(",")
+		let lat = coords[0]
+		let long = coords[1]
+	
         /*
         
 
@@ -105,7 +116,8 @@ const UpdateProjectSingleItem = props => {
                 id: id_val, name: Name, name_ar: Name_Ar, status: Status, type: tType, role: rRole,
                 location: Location, location_ar: Location_ar, website: Website, desciption: Description_en,
                 desciption_ar: Description_ar, year: Yyear, size: Ssize, value: Vval,
-                annual_visitor: Annual_v
+                annual_visitor: Annual_v,
+				lat: lat, long: long 
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
         };
@@ -162,12 +174,12 @@ const UpdateProjectSingleItem = props => {
 						<label class="ch_lbl">
 							<input type="checkbox" defaultChecked={props.status==1 ? true : false} id="status1" value="1" name="statusbox" onClick={handleChange} />
 							<span class="checkmark"></span>
-							Published on site
+							Published
 						</label>
 						<label class="ch_lbl">
 							<input type="checkbox" defaultChecked={props.status==2 ? true : false} id="status2" value="2" name="statusbox" onClick={handleChange}/>
 							<span class="checkmark"></span>
-							Pipeline project (visible to selected people only)
+							Draft
 						</label>
 
 					</fieldset>
@@ -197,13 +209,10 @@ const UpdateProjectSingleItem = props => {
 
 
 					<fieldset class="half">
-						<label>Map  (Longitude)
-							<input type="text" id="longitude" defaultValue={props.longitude} />
+						<label>Map Coordinates (lat,long)
+							<input type="text" id="mapcoords" defaultValue={getCoords(props.lat,props.long )} />
 						</label>
 
-						<label>(Latitude)
-							<input type="text" id="latitude"defaultValue={props.latitude} />
-						</label>
 					</fieldset>
 
 
