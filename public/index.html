@@ -141,123 +141,48 @@
 		LoadMap();
 	}
 
-
+    function getTags(item) {
+    return [item.type];
+    }
 	function LoadMap() {
 
         var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
         //alert( "zzz "+gmaps_projects[0].image[0].image_url)  
        
-       var d_marker= []
+       var d_marker= [];
+       var d_tags1 = '';
+       var d_tags2 = '';
+
         for(var i=0; i<gmaps_projects.length; i++) {
+            var tags1 = '';
+            var tags2 = '';
+
+            d_tags1 =gmaps_projects[i].type.split(",");
+            for(var j=0;j<d_tags1.length;j++) {
+                    tags1=tags1+'<span>'+d_tags1[j].trim()+'</span>';
+            }
+
+            d_tags2 =gmaps_projects[i].role.split(",");
+            for(var j=0;j<d_tags2.length;j++) {
+                    tags2=tags2+'<span class="mana_ged">'+d_tags2[j].trim()+'</span>';
+            }            
+
             d_marker.push({"title": gmaps_projects[i].name,
                             "lat": gmaps_projects[i].lat,
                             "lng": gmaps_projects[i].long,
-                            "description": '<div class=" item"><a class="link" href="/project/Etihad%20Arena/1"> </a><div class="ftrd_img"><img src="'+gmaps_projects[i].image[0].image_url+'"></div><div class="desc"><h4>'+gmaps_projects[i].name+'</h4><p>'+gmaps_projects[i].desciption+'</p><p class="tag tag_1"><span>Play</span><span>Discover</span></p><p class="tag tag_2"><span class="mana_ged">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
+                            "description": '<div class=" item"><a class="link" href="/project/Etihad%20Arena/1"> </a><div class="ftrd_img"><img src="'
+                                +gmaps_projects[i].image[0].image_url+'"></div><div class="desc"><h4>'
+                                +gmaps_projects[i].name+'</h4><p>'
+                                +gmaps_projects[i].location+'</p><p class="tag tag_1">'
+                                +tags1+'</p><p class="tag tag_2">'
+                                +tags2+'</p></div></div>',
                             "icon": 'assets/img/map-pin.png'
                         }) 
         }
         
-        console.log( "vvvvvvv ");
-        console.log(d_marker);
 
         var markers = d_marker;
-        
-        /*
-        var markers = [
-        {
-            "title": 'Etihad Arena',
-            "lat": '24.460352',
-            "lng": '54.604126',
-            "description": '<div class=" item"><a class="link" href="/project/Etihad%20Arena/1"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850283/Miral/projects/etihad-arena-02_acgfal.jpg"></div><div class="desc"><h4>Etihad Arena</h4><p>Yas Island Abu Dhabi</p><p class="tag tag_1"><span>Play</span><span>Discover</span></p><p class="tag tag_2"><span class="mana_ged">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-            "title": 'Ferrari World',
-            "lat": '24.484123',
-            "lng": '54.605096',
-            "description": '<div class=" item"><a class="link" href="/project/Ferrari%20World/4"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850281/Miral/projects/Ferrari-world-01_mzss1v.jpg"></div><div class="desc"><h4>Ferrari World</h4><p>Yas Island Abu Dhabi</p><p class="tag tag_2"><span class="mana_ged">Developed</span><span class="mana_ged">Managed</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-            "title": 'Saadiyat Island',
-            "lat": '24.531153',
-            "lng": '54.444563',
-            "description": '<div class=" item"><a class="link" href="/project/Saadiyat%20Island/6"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850285/Miral/projects/saadiyat-island-01_sktzy7.jpg"></div><div class="desc"><h4>Saadiyat Island</h4><p>Saadiyat Island Abu Dhabi</p><p class="tag tag_1"><span>Dine</span><span>Discover</span><span>Stay</span></p><p class="tag tag_2"><span class="mana_ged">Developed</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-            "title": 'Wahat Al Karama',
-            "lat": '24.413505',
-            "lng": '54.478745',
-            "description": '<div class=" item"><a class="link" href="/project/Wahat%20Al%20Karama/7"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850285/Miral/projects/wahat-al-karama-01_rznxcz.jpg"></div><div class="desc"><h4>Wahat Al Karama</h4><p>Abu Dhabi City</p><p class="tag tag_1"><span>Discover</span><span>Museum</span></p><p class="tag tag_2"><span class="mana_ged">Developed</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-            "title": 'Yas Waterworld',
-            "lat": '24.488261',
-            "lng": '54.599604',
-            "description": '<div class=" item"><a class="link" href="/project/Yas%20Waterworld/8"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850285/Miral/projects/yas-waterland-01_gdajmm.jpg"></div><div class="desc"><h4>Yas Waterworld</h4><p>Yas Island Abu Dhabi</p><p class="tag tag_1"><span>Play</span><span>Asset</span></p><p class="tag tag_2"><span class="mana_ged">Investment</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-            "title": 'Dubai World Trade Centre',
-            "lat": '24.486789',
-            "lng": '54.357853',
-            "description": '<div class=" item"><a class="link" href="/project/Dubai%20World%20Trade%20Centre/11"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850281/Miral/projects/dwtc-01_lrby6j.jpg"></div><div class="desc"><h4>Dubai World Trade Centre</h4><p>Dubai United Arab Emirates</p><p class="tag tag_1"><span>Asset</span><span>Dine</span><span>Commercial</span></p><p class="tag tag_2"><span class="mana_ged">Managed</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-            "title": 'Abrahamic Family House',
-            "lat": '24.531149',
-            "lng": '54.406081',
-            "description": '<div class=" item"><a class="link" href="/project/Abrahamic%20Family%20House/12"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850209/Miral/projects/abrahamic-01_znqpjh.jpg"></div><div class="desc"><h4>Abrahamic Family House</h4><p>Abu Dhabi City</p><p class="tag tag_1"><span>Discover</span><span>Museum</span></p><p class="tag tag_2"><span class="mana_ged">Investment</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-            "title": 'Abu Dhabi Plaza',
-            "lat": '24.491876',
-            "lng": '54.586886',
-            "description": '<div class=" item"><a class="link" href="/project/Abu%20Dhabi%20Plaza/13"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850277/Miral/projects/auh-plaza-03_dktieo.jpg"></div><div class="desc"><h4>Abu Dhabi Plaza</h4><p>Kazakhstan</p><p class="tag tag_1"><span>Meet</span><span>Commercial</span></p><p class="tag tag_2"><span class="mana_ged">Developed</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-           "title": 'Warner Bros. World Abu Dhabi',
-            "lat": '24.491127',
-            "lng": '54.599214',
-            "description": '<div class=" item"><a class="link" href="/project/Warner%20Bros.%20World%20Abu%20Dhabi/14"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850288/Miral/projects/warner-bros.-world-abu-dhabi-01_mgqqex.jpg"></div><div class="desc"><h4>Warner Bros. World Abu Dhabi</h4><p>Abu Dhabi City</p><p class="tag tag_1"><span>Asset</span><span>Play</span></p><p class="tag tag_2"><span class="mana_ged">Developed</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-           "title": 'Abu Dhabi Safari Park',
-            "lat": '24.545731',
-            "lng": '54.67369',
-            "description": '<div class=" item"><a class="link" href="/project/Abu%20Dhabi%20Safari%20Park/15"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850279/Miral/projects/dubai-safari-01_yytchd.jpg"></div><div class="desc"><h4>Abu Dhabi Safari Park</h4><p>Al Ain Abu Dhabi</p><p class="tag tag_1"><span>Discover</span><span>Meet</span></p><p class="tag tag_2"><span class="mana_ged">Developed</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-           "title": 'The WB Abu Dhabi',
-            "lat": '24.344358',
-            "lng": '54.500206',
-            "description": '<div class=" item"><a class="link" href="/project/The%20WB%20Abu%20Dhabi/16"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850279/Miral/projects/dubai-safari-01_yytchd.jpg"></div><div class="desc"><h4>The WB Abu Dhabi</h4><p>Abu Dhabi City</p><p class="tag tag_1"><span>Asset</span><span>Play</span></p><p class="tag tag_2"><span class="mana_ged">Managed</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-           "title": 'CLYMB Abu Dhabi',
-            "lat": '24.486279',
-            "lng": '54.606615',
-            "description": '<div class=" item"><a class="link" href="/project/CLYMB%20Abu%20Dhabi/17"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850278/Miral/projects/clymb-01_d8g74d.jpg"></div><div class="desc"><h4>CLYMB Abu Dhabi</h4><p>Abu Dhabi City</p><p class="tag tag_1"><span>Play</span></p><p class="tag tag_2"><span class="mana_ged">Investment</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        },
-        {
-            title: 'Eden Project',
-            "lat": '24.490569',
-            "lng": '54.596199',
-            "description": '<div class=" item"><a class="link" href="/project/Eden%20Project/18"> </a><div class="ftrd_img"><img src="https://res.cloudinary.com/dsme/image/upload/v1659850282/Miral/projects/eden-01_skt3rx.jpg"></div><div class="desc"><h4>Eden Project</h4><p>Cornwall England UK</p><p class="tag tag_2"><span class="mana_ged">Developed</span><span class="mana_ged">Investment</span></p></div></div>',
-            "icon": 'assets/img/map-pin.png'
-        }
-    ];
-    */
-
+ 
 		var mapOptions = {
 			center: new google.maps.LatLng(24.481952, 54.497535),
 			zoom: 12,
@@ -560,13 +485,17 @@
 		});
         
         setTimeout(() => {
-           
-            hardReset()
+            LoadMap();
+            hardReset();
         }, 1000);
 
+        loadbod();
 	});
 
-
+function loadbod() {
+    var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
+        LoadMap();
+}
 </script>
 <!-- filter dropdown ends -->
   </body>
