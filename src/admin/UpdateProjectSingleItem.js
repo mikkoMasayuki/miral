@@ -97,7 +97,6 @@ const UpdateProjectSingleItem = props => {
         */
 
 
-      
         
         const requestOptions = {
             method: 'PUT',
@@ -114,6 +113,8 @@ const UpdateProjectSingleItem = props => {
             .then(response => response.json());
      
 		alert('Updated');
+		window.location.replace('/admin/projects')
+		//navigate('/admin/projects')
         event.preventDefault();  
         //window.location.reload(false);
         //const timer = setTimeout(() => window.location.reload(false), 1000);
