@@ -77,6 +77,11 @@ const Projects = (props) => {
             console.log('filters: ', filters);    
             console.log('-------response data all-------->');
             console.log(responseData.data);
+
+           // alert('here'+responseData.data);
+            localStorage.setItem('filter_projects', JSON.stringify(responseData.data));
+            var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));  
+            //alert( "zzz "+gmaps_projects[0].image[0].image_url)  
             
         };
 
