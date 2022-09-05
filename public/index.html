@@ -485,7 +485,7 @@
 		});
         
         setTimeout(() => {
-            LoadMap();
+            //LoadMap();
             hardReset();
         }, 1000);
 
@@ -499,11 +499,11 @@ function loadbod() {
         var interval = setInterval(function(){
             LoadMap();
             console.log('loaded....');
-          },300);
+          },900);
 
         setTimeout(() => {
             clearInterval(interval);
-        }, 1000);
+        }, 2000);
 
         
 }
