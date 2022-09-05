@@ -220,11 +220,60 @@ const UpdateProjectSingleItem = props => {
 						<label>Type:</label>
 						
 						<span class="group">
+
+						    <label class="ch_lbl">
+								<input type="checkbox" defaultChecked={getData("Most Popular",props.ptype) ? true : false} value="Most Popular" class="ftype" />
+								<span class="checkmark"></span>
+								Most Popular
+							</label>
+
+						    <label class="ch_lbl">
+								<input type="checkbox" defaultChecked={getData("Stay",props.ptype) ? true : false} value="Stay" class="ftype" />
+								<span class="checkmark"></span>
+								Stay
+							</label>
+
+						    <label class="ch_lbl">
+								<input type="checkbox" defaultChecked={getData("Play",props.ptype) ? true : false} value="Play" class="ftype" />
+								<span class="checkmark"></span>
+								Play
+							</label>
+
+						</span>
+
+
+						<span class="group">
+						<label class="ch_lbl">
+								<input type="checkbox" defaultChecked={getData("Dine",props.ptype) ? true : false} value="Dine" class="ftype" />
+								<span class="checkmark"></span>
+								Dine
+							</label>
+
+						    <label class="ch_lbl">
+								<input type="checkbox" defaultChecked={getData("Meet",props.ptype) ? true : false} value="Meet" class="ftype" />
+								<span class="checkmark"></span>
+								Meet
+							</label>
+
+						    <label class="ch_lbl">
+								<input type="checkbox" defaultChecked={getData("Culture",props.ptype) ? true : false} value="Culture" class="ftype" />
+								<span class="checkmark"></span>
+								Culture
+							</label>
+						</span>
+
+
+						<span class="group">
+						<label class="ch_lbl">
+								<input type="checkbox" defaultChecked={getData("Destination",props.ptype) ? true : false} value="Destination" class="ftype" />
+								<span class="checkmark"></span>
+								Destination
+							</label>
+
+
 							<label class="ch_lbl">
 								<input type="checkbox" defaultChecked={getData("Dine",props.ptype) ? true : false} value="Dine" class="ftype" />
-								
 								<span class="checkmark"></span>
-								
 								Dine
 							</label>
 
@@ -234,104 +283,11 @@ const UpdateProjectSingleItem = props => {
 								Discover
 							</label>
 						</span>
-
-
-						<span class="group">
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Meet",props.ptype) ? true : false} value="Meet" class="ftype" />
-								<span class="checkmark"></span>
-								Meet
-							</label>
-
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Play",props.ptype) ? true : false} value="Play" class="ftype" />
-								<span class="checkmark"></span>
-								Play
-							</label>
-						</span>
-
-
-						<span class="group">
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Stay",props.ptype) ? true : false} value="Stay" class="ftype" />
-								<span class="checkmark"></span>
-								Stay
-							</label>
-
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Destination",props.ptype) ? true : false} value="Destination" class="ftype" />
-								<span class="checkmark"></span>
-								Destination
-							</label>
-						</span>
-
-
-						<span class="group">
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Asset",props.ptype) ? true : false} value="Asset" class="ftype" />
-								<span class="checkmark"></span>
-								Asset
-							</label>
-
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Land Plot",props.ptype) ? true : false} value="Land Plot" class="ftype" />
-								<span class="checkmark"></span>
-								Land plot
-							</label>
-						</span>
-
-
-						<span class="group">
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Commercial",props.ptype) ? true : false} value="Commercial" class="ftype" />
-								<span class="checkmark"></span>
-								Commercial
-							</label>
-
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Museum",props.ptype) ? true : false} value="Museum" class="ftype" />
-								<span class="checkmark"></span>
-								Museum
-							</label>
-						</span>
-
-
-						<span class="group">
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Other",props.ptype) ? true : false} value="Other" class="ftype" />
-								<span class="checkmark"></span>
-								Other
-							</label>
-						</span>
 						
 					</fieldset>
 
-
-					<fieldset class="ro_le">
-						<label>Role:</label>
-						
-						<span class="group">
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Developed",props.role) ? true : false} value="Developed" class="frole" />
-								<span class="checkmark"></span>
-								Developed
-							</label>
-
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Investment",props.role) ? true : false} value="Investment" class="frole" />
-								<span class="checkmark"></span>
-								Investment
-							</label>
-
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Managed",props.role) ? true : false} value="Managed" class="frole" />
-								<span class="checkmark"></span>
-								Managed
-							</label>
-
-
-						</span>
-					</fieldset>
+					
+					
 
 					<fieldset class="half">
 						<label>Business:
