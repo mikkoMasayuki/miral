@@ -491,10 +491,20 @@
 
         loadbod();
 	});
-
+ 
 function loadbod() {
-    var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
-        LoadMap();
+        var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
+        // alert( "zzz "+gmaps_projects[0].image[0].image_url)   
+
+        var interval = setInterval(function(){
+            LoadMap();
+          },300);
+
+        setTimeout(() => {
+            clearInterval(interval);
+        }, 1000);
+
+        
 }
 </script>
 <!-- filter dropdown ends -->
