@@ -88,11 +88,11 @@ nav.m_header{ background: #333; position: relative; padding: 0px 0px; }
 
 /*home header*/
 nav.home_header{ overflow: hidden; }
-nav.home_header img.logo{ margin: 0px;     height: 195px; }
+nav.home_header img.logo{ margin: 0px;     height: 170px; }
 nav.home_header,
 nav.home_header a.navbar-brand{ background: #fff; border-radius: 0px; }
 
-nav.home_header .navbar-nav{ display: block; margin-top: -25px; }
+nav.home_header .navbar-nav{ display: block; margin-top: -100px; }
 nav.home_header .nav-item a{  
     padding: 5px 20px!important;
     justify-content: flex-end;
@@ -413,19 +413,17 @@ button.bt_orange.active{
     height: 192px;
     width: 100%;
     object-fit: cover;
-    transition: all 0.4s linear;
-    -moz-transition: all 0.4s linear;
-    -o-transition: all 0.4s linear;
-    -webkit-transition: all 0.4s linear;
-    transition: all 0.4s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
     transform: scale(1);
 }
 .thumb_sec .item:hover .ftrd_img img{
-    transition: all 0.4s linear;
-    -moz-transition: all 0.4s linear;
-    -o-transition: all 0.4s linear;
-    -webkit-transition: all 0.4s linear;
-    transition: all 0.4s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
     transform: scale(1.1);
 }
 .thumb_sec .item .desc{  
@@ -483,7 +481,8 @@ p.tag.tag_2{ display: none;}
 .single_proj .content_left h2{ font-size: 40px; font-weight: 500; text-transform: uppercase;}
 .single_proj .content_left h2 span{ font-size: 25px;display: block; color: #1ca6b8;  }
 
-.single_proj .tag_wrap{ padding:0px 0px 15px 0px; }
+.single_proj .tag_wrap{ padding:0px 0px 0px 0px; }
+.single_proj .tag_wrap:empty{ display: none;}
 .tag_wrap span{  
  background: #1ca6b8;
  padding: 4px 7px;
@@ -494,7 +493,7 @@ p.tag.tag_2{ display: none;}
  font-size: 12px;
  margin-right: 6px;
  text-transform: uppercase;
- margin-bottom: 5px;
+ margin-bottom: 15px;
 }
 
 .tag_wrap span:empty{ display: none;}
@@ -506,12 +505,12 @@ p.tag.tag_2{ display: none;}
     border-radius: 5px;
     padding: 15px;
     margin-top: 30px;
-    margin-bottom: 45px;
+    margin-bottom: 20px;
     display: inline-block;
     width: 48.5%;
 }
 
-.single_proj .content_left .details ul{ padding-left: 0px; }
+.single_proj .content_left .details ul{ padding-left: 0px; margin: 0px 0 -7px 0; }
 .single_proj .content_left .details li{ list-style: none;     margin-bottom: 2px;}
 .single_proj .content_left .details li strong{ font-weight: 500; }
 .single_proj .content_left p {  
@@ -575,7 +574,7 @@ p.tag.tag_2{ display: none;}
     border-radius: 5px;
     padding: 20px;
     width: 460px;
-    min-height: 500px;
+    min-height: 350px;
 }
 
 .dash_add_project .box_wrapper .col-md-12{ padding: 0px 0px;}
@@ -596,7 +595,7 @@ p.tag.tag_2{ display: none;}
 
 
 /*############ admin Edit Projects starts ############*/
-.container .edit_dashboard{ padding: 40px 0px;}
+.container .edit_dashboard{ padding: 40px 0px; width: 70%;}
 .edit_dashboard fieldset.half {   
     display: flex;
     gap: 40px;
@@ -976,7 +975,6 @@ p.tag.tag_2{ display: none;}
 
 }
 
-
 @media (min-width:1200px){
     body .container{ max-width: 100%;  }
 }
@@ -999,7 +997,9 @@ p.tag.tag_2{ display: none;}
         max-width: 25%;
     }
 
-    .filter_drop{     top: 502px;}
+    .container .edit_dashboard{  width: 75%;}
+
+    .filter_drop{ top: 502px;}
 
     .thumb_sec{ background-position: -150px -400px!important;}
 }
@@ -1016,6 +1016,7 @@ p.tag.tag_2{ display: none;}
 
 @media (max-width: 1280px){
     .filter_drop{ top: 475px;}
+    .container .edit_dashboard{  width: 100%;}
 }
 
 @media (max-width: 1199px){
