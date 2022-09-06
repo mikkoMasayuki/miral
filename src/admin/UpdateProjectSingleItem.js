@@ -124,7 +124,7 @@ const UpdateProjectSingleItem = props => {
         fetch(process.env.REACT_APP_APIURL+'/project', requestOptions)
             .then(response => response.json());
      
-		alert('Updated');
+		//alert('Updated');
 		window.location.replace('/admin/projects')
 		//navigate('/admin/projects')
         event.preventDefault();  
