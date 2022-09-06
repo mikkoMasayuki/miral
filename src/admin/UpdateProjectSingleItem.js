@@ -122,10 +122,9 @@ const UpdateProjectSingleItem = props => {
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
         };
-        fetch(process.env.REACT_APP_APIURL+'/project', requestOptions)
+        fetch('http://185.140.248.26:4052/project', requestOptions)
             .then(response => response.json())
 			.then((result) => {
-				console.log('From :' + process.env.REACT_APP_APIURL)
 				console.log('Successxxxxxxxxxxxxxxx:', result)
 			})			
 		
