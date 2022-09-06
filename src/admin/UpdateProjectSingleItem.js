@@ -125,6 +125,7 @@ const UpdateProjectSingleItem = props => {
         fetch(process.env.REACT_APP_APIURL+'/project', requestOptions)
             .then(response => response.json())
 			.then((result) => {
+				console.log('From :' + process.env.REACT_APP_APIURL)
 				console.log('Successxxxxxxxxxxxxxxx:', result)
 			})			
 		
