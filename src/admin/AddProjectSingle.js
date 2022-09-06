@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
 import ImageUploading from 'react-images-uploading';
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
 
 
 
@@ -36,6 +35,30 @@ const AddProjectSingleItem = props => {
 
 	const getCoords = (lat,long) => {
 		return lat+","+long
+	}
+
+	const Business_options = [
+		{
+		  label: "Miral",
+		  value: "Miral",
+		},
+		{
+		  label: "Miral Destinations",
+		  value: "Miral Destinations",
+		},
+		{
+		  label: "Miral Experiences",
+		  value: "Miral Experiences",
+		},
+		{
+		  label: "Yas Asset Managements",
+		  value: "Yas Asset Managements",
+		},
+	  ];	
+
+	function handleSelectChange(e) {
+		console.log(  e.target.value )
+			return e.target.value
 	}
 
 
@@ -96,7 +119,7 @@ const AddProjectSingleItem = props => {
         let tType =  filterType
         let rRole = filterRole
 
-        let business = document.getElementById("busi").value 
+        //let business = document.getElementById("busi").value 
         let Location = document.getElementById("location").value
         let Location_ar = document.getElementById("location_ar").value    
         let Website = document.getElementById("website").value   
@@ -112,6 +135,8 @@ const AddProjectSingleItem = props => {
 		let coords = mapcoords.split(",")
 		let lat = coords[0]
 		let long = coords[1]
+
+		let busi = document.getElementById("selbusiness").value 
 
         /*
         
@@ -130,8 +155,8 @@ const AddProjectSingleItem = props => {
                 name: Name, name_ar: Name_Ar, status: Status, type: tType, role: rRole,
                 location: Location, location_ar: Location_ar, website: Website, desciption: Description_en,
                 desciption_ar: Description_ar, year: Yyear, size: Ssize, value: Vval,
-                annual_visitor: Annual_v,business: business,
-				        lat: lat, long: long 
+                annual_visitor: Annual_v,business: busi,
+				lat: lat, long: long 
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
         };
@@ -157,7 +182,10 @@ const AddProjectSingleItem = props => {
     }
 
     const cancelAdd =  (event) => {
-        const timer = setTimeout(() => window.location.reload(false), 1000);
+		window.location.href = "http://www.w3schools.com";
+		//window.location.replace('/admin/projects')
+		event.preventDefault();  
+
     }
 
 	const onlyOne = (checkbox) => {
@@ -297,9 +325,10 @@ const AddProjectSingleItem = props => {
 
 					<fieldset class="half">
 						<label>Business:
-							<select id="busi">
-								<option>Miral Experiences</option>
-								<option>option</option>
+						<select id="selbusiness" onChange={handleSelectChange}>
+							{Business_options.map((option) => (
+							<option value={option.value}>{option.label}</option>
+							))}
 							</select>
 						</label>
 
@@ -323,12 +352,12 @@ const AddProjectSingleItem = props => {
 						<label>Statistics:</label>
 						<span class="group">
 							<input type="text" placeholder="Completion year" id="yyear" />
-              <input type="text" placeholder="Architect" id="annual_visitor" />
+              				<input type="text" placeholder="Architect" id="vval" />
 						</span>
 
 						<span class="group">
 							<input type="text" placeholder="Size(sqm)" id="ssize" />
-							<input type="hidden" placeholder="Value (USD)" id="vval" />							
+							<input type="hidden" placeholder="Value (USD)" id="annual_visitor" />							
 						</span>
 					</fieldset>
 
@@ -385,7 +414,7 @@ const AddProjectSingleItem = props => {
 
 		<fieldset class="btns">
 			<button class="btn bt_orange save" type='submit' onClick={AddAPIData}>Add</button>
-			<button class="btn bt_orange cancel" onClick={cancelAdd}>Cancel</button>
+			<Link to={`/admin/projects`} className='btn bt_orange cancel' >Cancel</Link>
 		</fieldset>                    
 
                 </form>    
