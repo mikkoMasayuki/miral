@@ -17,7 +17,7 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('http://185.140.248.26:4052/project', requestOptions)
+			fetch(process.env.REACT_APP_APIURL+'/project', requestOptions)
 			.then(response => response.json());
 		}else{
 			const requestOptions = {
@@ -29,7 +29,7 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('http://185.140.248.26:4052/project', requestOptions)
+			fetch(process.env.REACT_APP_APIURL+'/project', requestOptions)
 			.then(response => response.json());
 		}
 	}
@@ -57,8 +57,8 @@ const SingleItem = props => {
 					<ul>
 						<li><strong>Completed:</strong> {props.year}</li>
 						<li><strong>Size:</strong> {props.size}</li>
-						<li><strong>Value:</strong> {props.value} </li>
-						<li><strong>Annual visitors:</strong>{props.annual_visitor}</li>
+						<li><strong>Architect:</strong> {props.value} </li>
+						<li><strong>Website:</strong>{props.website}</li>
 					</ul>					
 				</div>
 
@@ -77,7 +77,7 @@ const SingleItem = props => {
         <div class="row single_grid">
             {props.images.map(image => {
 			return <div class="col-md-6 item">
-				<img src={image.image_url} />
+				<img src={ typeof(image.image_url) !== 'undefined' && image.image_url != null ? image.image_url : '' } />
 			</div>
             })}
 
