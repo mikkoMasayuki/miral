@@ -73,7 +73,7 @@ const AddProjectSingleItem = props => {
 			
 		}
 
-		
+		 
 		filterType=tmpftype
 		filterRole=tmpfrole
 
