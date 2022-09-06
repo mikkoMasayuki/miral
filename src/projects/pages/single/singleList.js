@@ -20,7 +20,7 @@ const SingleList = props => {
               name={project.name}
               description={project.desciption}
               location={project.location}
-			  image={project.image[0]}
+			        image={project.image[0]}
               images={project.image}
               year={project.year}
               size={project.size}
