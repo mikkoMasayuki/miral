@@ -444,6 +444,12 @@ const ProjectLists = props => {
 								</label>
 
 								<label>
+									<input class="fbusi" type="checkbox" value="Miral Destinations" onClick={handleFilterChange}/>
+									<span className="checkmark"></span>
+									Miral Destinations
+								</label>
+
+								<label>
 									<input class="fbusi" type="checkbox" value="Miral Experiences" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Miral Experiences
