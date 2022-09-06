@@ -25,6 +25,12 @@ if(window.location.pathname === '/admin/projects') {
   body.className = "cms_body";
 } 
 
+if(window.location.pathname === '/admin/addproject') {
+  var body = document.querySelector("body");
+  body.className = "cms_body";
+  const e = document.querySelector('#mapwrap');
+  e.style.display = 'none';    
+} 
 
 if(window.location.pathname.includes('/admin/update')) {
   var body = document.querySelector("body");
@@ -33,7 +39,6 @@ if(window.location.pathname.includes('/admin/update')) {
   const e = document.querySelector('#mapwrap');
  e.style.display = 'none';  
 } 
-
 
 
 
