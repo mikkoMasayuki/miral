@@ -45,7 +45,7 @@ const Projects = (props) => {
 
             setLoadedProject(responseData.data);
 
-
+            console.log('http://185.140.248.26:4052/project/?'+ filters);  
             console.log('filters click: ', filters);    
             console.log('-------response data filtered-------->');
             //console.log(responseData.data);
@@ -70,7 +70,7 @@ const Projects = (props) => {
 
     useEffect(() => {
         const sendRequest = async () => {
-            const response = await fetch('http://185.140.248.26:4052/project/')
+            const response = await fetch('http://185.140.248.26:4052/project/?status=1')
 
             const responseData = await response.json();
 
