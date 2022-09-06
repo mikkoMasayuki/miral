@@ -80,7 +80,7 @@ const UpdateProjectSingleItem = props => {
 		let checkstatval = document.getElementById("status1").checked ? 1 : 2 
         let id_val = document.getElementById("idd").value
         let Name  = document.getElementById("name").value
-        let Name_Ar  = document.getElementById("name_ar").valu
+        let Name_Ar  = document.getElementById("name_ar").value
 		let Status  = checkstatval
 		let tType =  filterType
 		let rRole = filterRole
@@ -125,7 +125,14 @@ const UpdateProjectSingleItem = props => {
         fetch('http://185.140.248.26:4052/project', requestOptions)
             .then(response => response.json())
 			.then((result) => {
-				console.log('Successxxxxxxxxxxxxxxx:', result)
+				console.log('Success:', result)
+				console.log('error:', result.error)
+				if(result.error === null ){
+					window.location.replace('/admin/projects')
+				} else {
+					alert("Something is wrong while saving please try again!")
+				}
+					
 			})			
 		
 		//console.log(requestOptions)	
