@@ -20,6 +20,7 @@ const AdminProjects = () => {
             setLoadedProject(responseData.data);
 
             console.log(responseData.data);
+           // console.log('Admin Projects - Running from :'+process.env.REACT_APP_APIURL)
         };
 
         sendRequest();

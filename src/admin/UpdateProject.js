@@ -10,6 +10,7 @@ const Update = () => {
     console.log(localStorage.getItem("refresh"))
     const [token, setToken] = useState(initializeState);
     const projID = useParams().id;
+    
     useEffect(() => {
         const sendRequest = async () => {
             

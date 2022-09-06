@@ -32,9 +32,9 @@ const Projects = (props) => {
         console.log('filtermore : ', theval.payload.filtermore);
 
         if (theval.payload.filtermore == "") {
-            filters = "type="+ theval.payload.filtertype + "&role=" +theval.payload.filterRole + "&location=" +theval.payload.filterLoc+ "&business=" +theval.payload.filterbusi
+            filters = "type="+ theval.payload.filtertype + "&role=" +theval.payload.filterRole + "&location=" +theval.payload.filterLoc+ "&business=" +theval.payload.filterbusi+ "&status=1"
         } else {
-            filters = "type="+ theval.payload.filtertype + "&role=" +theval.payload.filterRole + "&location=" +theval.payload.filterLoc+ "&business=" +theval.payload.filterbusi+ "&is_favorite=" +theval.payload.filtermore
+            filters = "type="+ theval.payload.filtertype + "&role=" +theval.payload.filterRole + "&location=" +theval.payload.filterLoc+ "&business=" +theval.payload.filterbusi+ "&is_favorite=" +theval.payload.filtermore+ "&status=1"
         }
 
        
@@ -56,6 +56,7 @@ const Projects = (props) => {
             //console.log('>>>>'+responseData.data[0].long);
 
            localStorage.setItem('filter_projects', JSON.stringify(responseData.data));
+           console.log('Projects - Running from :'+process.env.REACT_APP_APIURL)
 
          //console.log(JSON.stringify(responseData.data))
            // document.getElementById("filtered_data").innerHTML = JSON.stringify(responseData.data)
@@ -82,6 +83,7 @@ const Projects = (props) => {
             localStorage.setItem('filter_projects', JSON.stringify(responseData.data));
             var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));  
             //alert( "zzz "+gmaps_projects[0].image[0].image_url)  
+            
             
         };
 
