@@ -33,7 +33,7 @@ const UpdateProjectSingleItem = props => {
 
 	console.log("ptype:"+props.ptype)
 	console.log("++++++++++++:"+getData("Dine",props.ptype))
-	console.log("Running from :"+process.env.REACT_APP_APIURL)
+	//console.log("Running from :"+process.env.REACT_APP_APIURL)
     
     const updateAPIData = async (event) => {
 
