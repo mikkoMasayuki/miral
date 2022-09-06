@@ -29,6 +29,29 @@ const UpdateProjectSingleItem = props => {
 		return lat+","+long
 	}
 
+	const Business_options = [
+		{
+		  label: "Miral",
+		  value: "Miral",
+		},
+		{
+		  label: "Miral Destinations",
+		  value: "Miral Destinations",
+		},
+		{
+		  label: "Miral Experiences",
+		  value: "Miral Experiences",
+		},
+		{
+		  label: "Yas Asset Managements",
+		  value: "Yas Asset Managements",
+		},
+	  ];	
+
+	function handleSelectChange(e) {
+	console.log(  e.target.value )
+		return e.target.value
+	}
 
 
 	console.log("ptype:"+props.ptype)
@@ -99,6 +122,8 @@ const UpdateProjectSingleItem = props => {
 		let coords = mapcoords.split(",")
 		let lat = coords[0]
 		let long = coords[1]
+		let busi = document.getElementById("selbusiness").value 
+
 	
         /*
         
@@ -118,7 +143,7 @@ const UpdateProjectSingleItem = props => {
                 location: Location, location_ar: Location_ar, website: Website, desciption: Description_en,
                 desciption_ar: Description_ar, year: Yyear, size: Ssize, value: Vval,
                 annual_visitor: Annual_v,
-				lat: lat, long: long 
+				lat: lat, long: long, business: busi, 
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
         };
@@ -293,10 +318,13 @@ const UpdateProjectSingleItem = props => {
 
 					<fieldset class="half">
 						<label>Business:
-							<select>
-								<option>Miral Experiences</option>
-								<option>option</option>
+
+							<select id="selbusiness" defaultValue={props.business} onChange={handleSelectChange}>
+							{Business_options.map((option) => (
+							<option value={option.value}>{option.label}</option>
+							))}
 							</select>
+
 						</label>
 
 
@@ -350,7 +378,7 @@ const UpdateProjectSingleItem = props => {
 
 					<fieldset class="btns">
 						<button class="btn bt_orange save" type='submit' onClick={updateAPIData}>Update</button>
-                        <button class="btn bt_orange cancel" onClick={cancelUpdate}>Cancel</button>
+						<Link to={`/admin/projects`} className='btn bt_orange cancel' >Cancel</Link>
 						<button class="btn del" >Delete Project</button>
 					</fieldset>                    
 
