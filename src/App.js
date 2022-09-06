@@ -19,7 +19,7 @@ import Login from './login/login';
 import Admin from './admin/login';
 import AdminProjects from './admin/projects';
 import AdminUpdateProjects from './admin/UpdateProject';
-import AdminAddProjects from './admin/addproject';
+import AdminAddProjects from './admin/AddProject';
 import MapList from './maps/maplist';
 
 const App = () => {
