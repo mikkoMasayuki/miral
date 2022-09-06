@@ -157,6 +157,15 @@
             var tags1 = '';
             var tags2 = '';
 
+           
+                try {
+                    image_url = '<img src="'+gmaps_projects[i].image[0].image_url+'"/>';
+                }
+                catch(err) {
+                    image_url = ''; 
+                }
+
+                
             d_tags1 =gmaps_projects[i].type.split(",");
             for(var j=0;j<d_tags1.length;j++) {
                     tags1=tags1+'<span>'+d_tags1[j].trim()+'</span>';
@@ -170,8 +179,8 @@
             d_marker.push({"title": gmaps_projects[i].name,
                             "lat": gmaps_projects[i].lat,
                             "lng": gmaps_projects[i].long,
-                            "description": '<div class=" item"><a class="link" href="/project/Etihad%20Arena/1"> </a><div class="ftrd_img"><img src="'
-                                +gmaps_projects[i].image[0].image_url+'"></div><div class="desc"><h4>'
+                            "description": '<div class=" item"><a class="link" href="/project/Etihad%20Arena/1"> </a><div class="ftrd_img">"'
+                                +image_url+'</div><div class="desc"><h4>'
                                 +gmaps_projects[i].name+'</h4><p>'
                                 +gmaps_projects[i].location+'</p><p class="tag tag_1">'
                                 +tags1+'</p><p class="tag tag_2">'
