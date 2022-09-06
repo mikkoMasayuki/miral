@@ -38,6 +38,10 @@ const HomePageHeader = props => {
                 
             </div>
         </div>
+
+        <div class="ftrd_header ftrd_header2">
+            <img src="/assets/img/mrl-header-01.webp" />
+        </div>
     </nav>
     <section class="cstm_sec news_sec">
 	<div class="container">

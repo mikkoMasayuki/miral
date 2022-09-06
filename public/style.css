@@ -102,7 +102,8 @@ nav.home_header::before{ width: 50%; }
 
 
 .ftrd_header{ margin-bottom: -5px; text-align: center;}
-.ftrd_header img{ max-width: 100%;}
+.ftrd_header2{ display: none;}
+.ftrd_header img{ max-width: 101%;}
 nav.home_header a.navbar-brand{ flex-basis: 30%; }
 nav.home_header #navbarNav{ flex-basis: 40%; }
 
@@ -511,7 +512,7 @@ p.tag.tag_2{ display: none;}
 }
 
 .single_proj .content_left .details ul{ padding-left: 0px; margin: 0px 0 -7px 0; }
-.single_proj .content_left .details li{ list-style: none;     margin-bottom: 2px;}
+.single_proj .content_left .details li{ list-style: none;     margin-bottom: 2px; word-break: break-word;}
 .single_proj .content_left .details li strong{ font-weight: 500; }
 .single_proj .content_left p {  
     line-height: 1.5;
@@ -919,8 +920,16 @@ p.tag.tag_2{ display: none;}
 .dest_happiness{  
     padding: 60px 0px;
     position: relative;
-    background-position: -600px 293px!important;
+    /* background-position: -600px 293px!important; */
+    background-position: -365px 250px!important;
     background-size: 140%!important;
+}
+
+
+.dest_happiness .container{
+    background: url('assets/img/bg-circle.svg')no-repeat;
+    background-size: 30%;
+    background-position: -24% 40%;
 }
 .dest_happiness .content_left h2{ font-size: 50px; margin-bottom: 60px; font-weight: 500; }
 .dest_happiness .content_left  h2 span{ display: inline; color: #ff8a03; }
@@ -957,6 +966,9 @@ p.tag.tag_2{ display: none;}
 /*####### mobile queries ##################*/
 @media (min-width:1800px){
     .filter_drop + .container{ padding-bottom: 150px;}
+    .dest_happiness{  
+        background-position: 60% 50%!important;
+    }
 }
 
 @media (min-width:1600px){
@@ -1011,6 +1023,11 @@ p.tag.tag_2{ display: none;}
     .login_sec img.ftrd{ margin-left: 0px; }
 
     .filter_drop{  top: 486px;}
+
+    /* destination happiness */
+    .dest_happiness{
+        background-position: -333px 160px!important;    
+    }
  
 }
 
@@ -1023,7 +1040,7 @@ p.tag.tag_2{ display: none;}
     .filter_drop{ top: 483px;}
     .filter_drop + .container{ padding-bottom: 0px;}
 
-    nav.home_header img.logo{ height: 150px;}
+    nav.home_header img.logo{ height: 120px;}
 
     /*login page*/
     .login_sec img.ftrd{ height: 402px; }
@@ -1044,7 +1061,7 @@ p.tag.tag_2{ display: none;}
     .nav-item.prof_icon a{ justify-content: center; }
     .nav-item.prof_icon a img{ width: 28px; }
     .navbar-toggler-icon i{ font-size: 32px; }
-    .navbar-toggler{ padding: 0px; }
+    .navbar-toggler{ padding: 0px; margin-right: 15px; }
 
     .m_header a.navbar-brand{
         margin-left: -50px;
@@ -1066,17 +1083,28 @@ p.tag.tag_2{ display: none;}
 
 
     /*home menu*/
-    nav.home_header{ height: 168px; }
+    nav.home_header{ /*height: 168px; */ overflow: visible;}
     nav.home_header a.navbar-brand{ 
         margin-left: 0px;    
         padding: 10px 25px 10px 30px; 
     }
-    .ftrd_header{ display: none; }
+    nav.home_header .container{ padding-bottom: 15px;;}
+    .ftrd_header{ display: none;}
+    .ftrd_header2{ 
+        display: block; 
+        position: relative;
+        width: 100%;
+        margin: auto;
+        padding-top: 0px;
+        background: #fff;
+        overflow: hidden;
+    }
     nav.home_header .navbar-nav{ padding: 60px 15px 20px 0px;margin-top: 0px; }
     nav.home_header .navbar-toggler{  
         position: absolute;
         right: 0;
         top: 20px;
+        margin-right: 0px;
     }
 
     nav.home_header .nav-item a{ padding: 5px 0px!important; }
@@ -1166,6 +1194,9 @@ p.tag.tag_2{ display: none;}
 
 @media(max-width: 768px){
     .filter_drop{ top: 468px; }
+
+    .dest_happiness{ background-position: 65% 77%!important;}
+    .dest_happiness .container{ background-position: -24% 80%;}
 }
 
 @media(max-width: 680px){
@@ -1175,6 +1206,8 @@ p.tag.tag_2{ display: none;}
 
     .m_header_alt img.logo{ margin-left: 0px;}
     .m_header_alt a.navbar-brand{ padding-left: 20px;}
+
+    nav.home_header img.logo{ height: 110px;}
 
     /*login page*/
     .login_sec{     padding: 60px 0px; }
@@ -1196,7 +1229,7 @@ p.tag.tag_2{ display: none;}
     .filter_drop{ top: 455px;}
     .filter_drop .bg_overlay{ opacity: 0; height: 60vh;}
     .filter_drop fieldset{ flex: 0 0 50%; max-width: 42%; }
-    .filter_drop .bt_wrap button{ margin-left: 5px; }
+    .filter_drop .bt_wrap button{ margin-left: 5px;    padding: 15px 15px 13px 15px; }
     .filter_drop label{ padding-left: 22px; font-size: 14px; }
     .filter_drop label input{ 
         position: absolute;
@@ -1264,6 +1297,8 @@ p.tag.tag_2{ display: none;}
         flex: 0 0 100%;
         max-width: 100%;
     }
+
+    .tag_wrap span{ margin-bottom: 6px;}
 
     /*projects map*/
     .map_bt{ top: 64px; }
