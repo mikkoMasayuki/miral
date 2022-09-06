@@ -13,7 +13,7 @@ const ProjectSingle = () => {
     const projID = useParams().id;
     
     useEffect(() => {
-
+ 
 
         const e = document.querySelector('#mapwrap');
         e.style.display = 'none';  
