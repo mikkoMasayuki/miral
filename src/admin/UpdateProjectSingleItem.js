@@ -123,10 +123,14 @@ const UpdateProjectSingleItem = props => {
             })
         };
         fetch(process.env.REACT_APP_APIURL+'/project', requestOptions)
-            .then(response => response.json());
-     
+            .then(response => response.json())
+			.then((result) => {
+				console.log('Successxxxxxxxxxxxxxxx:', result)
+			})			
+		
+		//console.log(requestOptions)	
 		//alert('Updated');
-		window.location.replace('/admin/projects')
+//		window.location.replace('/admin/projects')
 		//navigate('/admin/projects')
         event.preventDefault();  
         //window.location.reload(false);
