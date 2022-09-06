@@ -136,15 +136,24 @@ const AddProjectSingleItem = props => {
             })
         };
 
-        fetch('http://185.140.248.26:4052/project', requestOptions).then(response => response.json());
+        fetch('http://185.140.248.26:4052/project', requestOptions)
+		.then(response => response.json())
+		.then((result) => {
+			console.log('Success:', result)
+			console.log('error:', result.error)
+			if(result.error === null ){
+				window.location.replace('/admin/projects')
+			} else {
+				alert("Something is wrong while saving please try again!")
+			}
+				
+		})			
           
-        alert('Added');
-        window.location.replace('/admin/projects')
+        //alert('Added');
+        //window.location.replace('/admin/projects')
 
         event.preventDefault();  
 
-       
-   
     }
 
     const cancelAdd =  (event) => {
@@ -373,18 +382,11 @@ const AddProjectSingleItem = props => {
               </ImageUploading>
             </div>            
           </fieldset>		
-		  <fieldset>
-		  <span class="btn btn-success fileinput-button">
-    <span>Select Attachment</span>
-        <input accept="image/jpeg, image/png, image/gif," 
-         id="files" multiple="multiple" name="files[]" type="file" />
-</span>
-		  </fieldset>
 
-					<fieldset class="btns">
-              <button class="btn bt_orange save" type='submit' onClick={AddAPIData}>Add</button>
-              <button class="btn bt_orange cancel" onClick={cancelAdd}>Cancel</button>
-					</fieldset>                    
+		<fieldset class="btns">
+			<button class="btn bt_orange save" type='submit' onClick={AddAPIData}>Add</button>
+			<button class="btn bt_orange cancel" onClick={cancelAdd}>Cancel</button>
+		</fieldset>                    
 
                 </form>    
 </div>                    
