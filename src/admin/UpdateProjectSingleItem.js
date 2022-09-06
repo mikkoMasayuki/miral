@@ -121,7 +121,7 @@ const UpdateProjectSingleItem = props => {
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
         };
-        fetch('http://185.140.248.26:4052/project', requestOptions)
+        fetch(process.env.REACT_APP_APIURL+'/project', requestOptions)
             .then(response => response.json());
      
 		alert('Updated');
@@ -233,35 +233,37 @@ const UpdateProjectSingleItem = props => {
 								Stay
 							</label>
 
-						    <label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Play",props.ptype) ? true : false} value="Play" class="ftype" />
-								<span class="checkmark"></span>
-								Play
-							</label>
-
 						</span>
 
 
 						<span class="group">
 						<label class="ch_lbl">
+								<input type="checkbox" defaultChecked={getData("Play",props.ptype) ? true : false} value="Play" class="ftype" />
+								<span class="checkmark"></span>
+								Play
+							</label>							
+							<label class="ch_lbl">
 								<input type="checkbox" defaultChecked={getData("Dine",props.ptype) ? true : false} value="Dine" class="ftype" />
 								<span class="checkmark"></span>
 								Dine
 							</label>
 
-						    <label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Meet",props.ptype) ? true : false} value="Meet" class="ftype" />
+						</span>
+
+						<span class="group">
+
+						<label class="ch_lbl">
+							<input type="checkbox" defaultChecked={getData("Meet",props.ptype) ? true : false} value="Meet" class="ftype" />
 								<span class="checkmark"></span>
 								Meet
 							</label>
 
-						    <label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Culture",props.ptype) ? true : false} value="Culture" class="ftype" />
+							<label class="ch_lbl">
+							<input type="checkbox" defaultChecked={getData("Culture",props.ptype) ? true : false} value="Culture" class="ftype" />
 								<span class="checkmark"></span>
 								Culture
 							</label>
-						</span>
-
+						</span>							
 
 						<span class="group">
 						<label class="ch_lbl">
@@ -270,18 +272,6 @@ const UpdateProjectSingleItem = props => {
 								Destination
 							</label>
 
-
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Dine",props.ptype) ? true : false} value="Dine" class="ftype" />
-								<span class="checkmark"></span>
-								Dine
-							</label>
-
-							<label class="ch_lbl">
-								<input type="checkbox" defaultChecked={getData("Discover",props.ptype) ? true : false} value="Discover" class="ftype" />
-								<span class="checkmark"></span>
-								Discover
-							</label>
 						</span>
 						
 					</fieldset>
@@ -317,12 +307,12 @@ const UpdateProjectSingleItem = props => {
 						<label>Statistics:</label>
 						<span class="group">
 							<input type="text" placeholder="Completion year" defaultValue={props.year} id="yyear" />
-							<input type="text" placeholder="Value (USD)" defaultValue={props.value} id="vval" />
+							<input type="text" placeholder="Architect" defaultValue={props.value} id="vval" />
 						</span>
 
 						<span class="group">
 							<input type="text" placeholder="Size(sqm)" defaultValue={props.size} id="ssize" />
-							<input type="text" placeholder="Annual visitors" defaultValue={props.annual_visitor} id="annual_visitor" />
+							<input type="hidden" placeholder="Annual visitors" id="annual_visitor" />
 						</span>
 					</fieldset>
 
