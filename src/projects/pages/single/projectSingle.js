@@ -20,7 +20,7 @@ const ProjectSingle = () => {
 
         const sendRequest = async () => {
             
-            const response = await fetch(`http://185.140.248.26:4052/project/${projID}`)
+            const response = await fetch(`http://3.28.53.5:4052/project/${projID}`)
 
             const responseData = await response.json();
 
