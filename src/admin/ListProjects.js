@@ -11,6 +11,9 @@ const ListProjects = props => {
       )
     } 
 
+    console.log('-------prop.items-------')
+    console.log(props.items)
+
     return <React.Fragment>
 
   <div className="container dash_add_project">
