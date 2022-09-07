@@ -23,7 +23,7 @@ export class MapContainer extends Component {
 	  };
 
 	  componentDidMount() {
-        fetch('http://185.140.248.26:4052/project')
+        fetch('http://3.28.53.5:4052/project')
         .then((response) => response.json())
         .then(projectlist => {
             this.setState({
@@ -78,10 +78,10 @@ export class MapContainer extends Component {
 			elem.classList.add("active");
 
 	
-			fetch('http://185.140.248.26:4052/project', requestOptions)
+			fetch('http://3.28.53.5:4052/project', requestOptions)
 			.then(response => {
 				
-				fetch('http://185.140.248.26:4052/project')
+				fetch('http://3.28.53.5:4052/project')
 				.then((response) => response.json())
 				.then(projectlist => {
 					this.setState({
@@ -113,9 +113,9 @@ export class MapContainer extends Component {
 			elem.classList.remove("active");
 
 	
-			fetch('http://185.140.248.26:4052/project', requestOptions)
+			fetch('http://3.28.53.5:4052/project', requestOptions)
 			.then(response => {
-				fetch('http://185.140.248.26:4052/project')
+				fetch('http://3.28.53.5:4052/project')
 				.then((response) => response.json())
 				.then(projectlist => {
 					this.setState({
