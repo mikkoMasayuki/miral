@@ -171,7 +171,7 @@
                     tags1=tags1+'<span>'+d_tags1[j].trim()+'</span>';
             }
 
-            d_tags2 =gmaps_projects[i].role.split(",");
+            d_tags2 =gmaps_projects[i].business.split(",");
             for(var j=0;j<d_tags2.length;j++) {
                     tags2=tags2+'<span class="mana_ged">'+d_tags2[j].trim()+'</span>';
             }            
@@ -183,8 +183,8 @@
                                 +image_url+'</div><div class="desc"><h4>'
                                 +gmaps_projects[i].name+'</h4><p>'
                                 +gmaps_projects[i].location+'</p><p class="tag tag_1">'
-                                +tags1+'</p><p class="tag tag_2">'
-                                +tags2+'</p></div></div>',
+                                +tags1+'</p><p class="tag">'
+                                +tags2+'</p><br></div></div>',
                             "icon": 'assets/img/map-pin.png'
                         }) 
         }
