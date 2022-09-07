@@ -20,6 +20,15 @@ if(window.location.pathname === '/admin/login') {
   e.style.display = 'none';  
 } 
 
+if(window.location.pathname === '/login') {
+  const body = document.querySelector("body");
+  body.className = "log_in";
+
+  const e = document.querySelector('#mapwrap');
+  e.style.display = 'none';  
+} 
+
+
 if(window.location.pathname === '/admin/projects') {
   var body = document.querySelector("body");
   body.className = "cms_body";
