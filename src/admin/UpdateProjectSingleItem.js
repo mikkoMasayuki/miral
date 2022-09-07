@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+
 
 
 const UpdateProjectSingleItem = props => {
@@ -52,11 +52,11 @@ const UpdateProjectSingleItem = props => {
 	  const location_options = [
 		{
 		  label: "Yas Island, Abu Dhabi",
-		  value: "Yas Island, Abu Dhabi",
+		  value: "Yas Island Abu Dhabi",
 		},
 		{
 		  label: "Saadiyat Island, Abu Dhabi",
-		  value: "Saadiyat Island, Abu Dhabi",
+		  value: "Saadiyat Island Abu Dhabi",
 		},
 		{
 		  label: "Abu Dhabi City",
@@ -219,6 +219,61 @@ const UpdateProjectSingleItem = props => {
 		
 		
 	}
+
+
+	const swalWithBootstrapButtons = Swal.mixin({
+		customClass: {
+		  confirmButton: 'btn btn-success',
+		  cancelButton: 'btn btn-danger'
+		},
+		buttonsStyling: false
+	  })
+
+	const opensweetalert =  (event) => {
+		event.preventDefault(); 
+
+		  
+		  swalWithBootstrapButtons.fire({
+			title: `Are you sure you want to delete this project?`,
+			text: `This operation can’t be undone.`,
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonText: `Delete`,
+			cancelButtonText: `Don't Delete`,
+			reverseButtons: false
+		  }).then((result) => {
+			if (result.isConfirmed) {
+
+			const requestDelete = {
+				method: 'DELETE'
+			};
+			
+			  fetch('http://3.28.53.5:4052/project/'+props.id, requestDelete)
+			  .then(response => response.json())
+			  .then((result) => {
+				  if(result.error === null ){
+				swalWithBootstrapButtons.fire(
+					'Deleted!',
+					'Project has been deleted.',
+					'success'
+					  )	
+					  window.location.replace('/admin/projects')  				  
+				  } 
+					  
+			  })			  
+
+			} else if (
+			  /* Read more about handling dismissals below */
+			  result.dismiss === Swal.DismissReason.cancel
+			) {
+			  swalWithBootstrapButtons.fire(
+				'Cancelled',
+				'delete cancelled',
+				'error'
+			  )
+			}
+		  })		
+    }
 
 
 
@@ -403,7 +458,7 @@ const UpdateProjectSingleItem = props => {
 					<fieldset class="btns">
 						<button class="btn bt_orange save" type='submit' onClick={updateAPIData}>Update</button>
 						<Link to={`/admin/projects`} className='btn bt_orange cancel' >Cancel</Link>
-						<button class="btn del" onclick={Swal.fire('Any fool can use a computer')}>Delete Project</button>
+						<button class="btn del" onClick={opensweetalert}>Delete Project</button>
 					</fieldset>                    
 
                 </form>    
