@@ -35,7 +35,7 @@ const SingleItem = props => {
 	}
 
 	function removeHttp(url) {
-		return url.replace(/^https?:\/\/www/, '');
+		return url.replace(/^https?:\/\/www./, '');
 	}
 
     return <React.Fragment>
