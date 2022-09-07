@@ -17,7 +17,7 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('http://185.140.248.26:4052/project', requestOptions)
+			fetch('http://3.28.53.5:4052/project', requestOptions)
 			.then(response => response.json());
 		}else{
 			const requestOptions = {
@@ -29,9 +29,13 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('http://185.140.248.26:4052/project', requestOptions)
+			fetch('http://3.28.53.5:4052/project', requestOptions)
 			.then(response => response.json());
 		}
+	}
+
+	function removeHttp(url) {
+		return url.replace(/^https?:\/\/www/, '');
 	}
 
     return <React.Fragment>
@@ -46,11 +50,11 @@ const SingleItem = props => {
 							.map(t => <span>{t}</span>)
 							.reduce((prev, curr) => [prev, '', curr])
 						}
-
+						<br/>
 						{
-							//props.role
-							//.map(t => <span>{t}</span>)
-							//.reduce((prev, curr) => [prev, '', curr])
+							props.business
+							.map(t => <span class='mana_ged'>{t}</span>)
+							.reduce((prev, curr) => [prev, '', curr])
 						}
 						
 					</div>
@@ -58,7 +62,7 @@ const SingleItem = props => {
 						<li><strong>Completed:</strong> {props.year}</li>
 						<li><strong>Size:</strong> {props.size}</li>
 						<li><strong>Architect:</strong> {props.value} </li>
-						<li><strong>Website:</strong>{props.website}</li>
+						<li><strong>Website:</strong><a target="_blank" href={props.website}> {removeHttp(props.website)}</a></li>
 					</ul>					
 				</div>
 
