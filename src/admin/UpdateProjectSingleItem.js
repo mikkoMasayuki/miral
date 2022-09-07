@@ -252,11 +252,6 @@ const UpdateProjectSingleItem = props => {
 			  .then(response => response.json())
 			  .then((result) => {
 				  if(result.error === null ){
-				swalWithBootstrapButtons.fire(
-					'Deleted!',
-					'Project has been deleted.',
-					'success'
-					  )	
 					  window.location.replace('/admin/projects')  				  
 				  } 
 					  
@@ -266,11 +261,7 @@ const UpdateProjectSingleItem = props => {
 			  /* Read more about handling dismissals below */
 			  result.dismiss === Swal.DismissReason.cancel
 			) {
-			  swalWithBootstrapButtons.fire(
-				'Cancelled',
-				'delete cancelled',
-				'error'
-			  )
+
 			}
 		  })		
     }
