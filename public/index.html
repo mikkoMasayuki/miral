@@ -426,6 +426,14 @@
 		};
 		var map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
 
+
+        var screenWidth = window.screen.width * window.devicePixelRatio;
+        var screenHeight = window.screen.height * window.devicePixelRatio;
+        if (screenWidth < 600 && typeof map !== "undefined")
+        {
+        map.setZoom(1);
+        }
+
 		//Create and open InfoWindow.
 		var infoWindow = new google.maps.InfoWindow();
 		for (var i = 0; i < markers.length; i++) {
@@ -443,7 +451,20 @@
 				google.maps.event.addListener(marker, "click", function (e) {
 					//Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
 					infoWindow.setContent("<div>" + data.description + "</div>");
-					infoWindow.open(map, marker);
+					//infoWindow.open(map, marker);
+                            if(!marker.open){
+                                infoWindow.open(map,marker);
+                                marker.open = true;
+                            }
+                            else{
+                                infoWindow.close();
+                                marker.open = false;
+                            }
+                            google.maps.event.addListener(map, 'click', function() {
+                                infoWindow.close();
+                                marker.open = false;
+                            });                            
+
 				});
 			})(marker, data);
 		}
