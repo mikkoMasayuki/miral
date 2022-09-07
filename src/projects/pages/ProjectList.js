@@ -513,6 +513,7 @@ const ProjectLists = props => {
 			  type={project.type.split(',')}
 			  role={project.role.split(',')}
 			  favorite={project.is_favorite}
+			  business={project.business.split(',')}
               />;
           })}
         </div>
