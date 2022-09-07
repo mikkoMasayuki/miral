@@ -51,11 +51,31 @@ const AddProjectSingleItem = props => {
 		  value: "Miral Experiences",
 		},
 		{
-		  label: "Yas Asset Managements",
-		  value: "Yas Asset Managements",
+		  label: "Yas Asset Management",
+		  value: "Yas Asset Management",
 		},
 	  ];	
 
+
+	  const location_options = [
+		{
+		  label: "Yas Island, Abu Dhabi",
+		  value: "Yas Island, Abu Dhabi",
+		},
+		{
+		  label: "Saadiyat Island, Abu Dhabi",
+		  value: "Saadiyat Island, Abu Dhabi",
+		},
+		{
+		  label: "Abu Dhabi City",
+		  value: "Abu Dhabi City",
+		},
+		{
+		  label: "Jordan",
+		  value: "Jordan",
+		},
+	  ];
+	  	  
 	function handleSelectChange(e) {
 		console.log(  e.target.value )
 			return e.target.value
@@ -121,7 +141,7 @@ const AddProjectSingleItem = props => {
 
         //let business = document.getElementById("busi").value 
         let Location = document.getElementById("location").value
-        let Location_ar = document.getElementById("location_ar").value    
+        let Location_ar = ''    
         let Website = document.getElementById("website").value   
         let Description_en = document.getElementById("desc_en").value
         let Description_ar = document.getElementById("desc_ar").value
@@ -161,7 +181,7 @@ const AddProjectSingleItem = props => {
             })
         };
 
-        fetch('http://185.140.248.26:4052/project', requestOptions)
+        fetch('http://3.28.53.5:4052/project', requestOptions)
 		.then(response => response.json())
 		.then((result) => {
 			console.log('Success:', result)
@@ -182,7 +202,6 @@ const AddProjectSingleItem = props => {
     }
 
     const cancelAdd =  (event) => {
-		window.location.href = "http://www.w3schools.com";
 		//window.location.replace('/admin/projects')
 		event.preventDefault();  
 
@@ -246,13 +265,17 @@ const AddProjectSingleItem = props => {
 					
 
 					<fieldset class="half">
-						<label>Location (EN):
-							<input type="text" id="location"/>
+
+						<label>Location:
+							<select id="location" defaultValue={props.location} onChange={handleSelectChange}>
+							{location_options.map((option) => (
+							<option value={option.value}>{option.label}</option>
+							))}
+							</select>
+
 						</label>
 
-						<label>Location (AR):
-							<input type="text" id="location_ar"/>
-						</label>
+
 					</fieldset>
 
 
