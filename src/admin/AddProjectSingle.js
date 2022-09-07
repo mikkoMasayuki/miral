@@ -60,11 +60,11 @@ const AddProjectSingleItem = props => {
 	  const location_options = [
 		{
 		  label: "Yas Island, Abu Dhabi",
-		  value: "Yas Island, Abu Dhabi",
+		  value: "Yas Island Abu Dhabi",
 		},
 		{
 		  label: "Saadiyat Island, Abu Dhabi",
-		  value: "Saadiyat Island, Abu Dhabi",
+		  value: "Saadiyat Island Abu Dhabi",
 		},
 		{
 		  label: "Abu Dhabi City",
