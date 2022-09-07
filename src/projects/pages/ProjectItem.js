@@ -18,7 +18,7 @@ const ProjectItem = props => {
 				})
 			};
 	
-			fetch('http://185.140.248.26:4052/project', requestOptions)
+			fetch('http://3.28.53.5:4052/project', requestOptions)
 			.then(response => response.json());
 		}else{
 			const requestOptions = {
@@ -30,7 +30,7 @@ const ProjectItem = props => {
 				})
 			};
 	
-			fetch('http://185.140.248.26:4052/project', requestOptions)
+			fetch('http://3.28.53.5:4052/project', requestOptions)
 			.then(response => response.json());
 		}
 	}
@@ -58,11 +58,11 @@ const ProjectItem = props => {
 							.map(t => <span>{t}</span>)
 							.reduce((prev, curr) => [prev, '', curr])
 						}
-						</p>
-					<p className="tag tag_2">
+					</p>
+					<p className="tag" >
 						{
-							props.role
-							.map(t => <span className={ t == 'Developed' ? 'dev' : 'mana_ged' }>{t}</span>)
+							props.business
+							.map(t => <span className='mana_ged'>{t}</span>)
 							.reduce((prev, curr) => [prev, '', curr])
 						}
 					</p>
