@@ -171,6 +171,7 @@ body.cms_body{ background: #e6e7e8!important; }
     width: auto;
     border-radius: 3px;
     text-transform: uppercase;
+    padding: 11px 20px 10px 20px!important;
 }
 .m_header_alt{ background: #fff!important;padding: 15px 0px!important; }
 .m_header_alt::before{ content: none; }
@@ -192,7 +193,7 @@ body.log_in{ background: #e6e7e8!important; }
     align-items: baseline;
 }
 .login_sec .box span img{ height: 250px;  margin-right: 20px;  }
-.login_sec .box form{ padding-top: 50px; width: 70%; }
+.login_sec .box form{ padding-top: 50px; width: 60%; }
 .login_sec .box input{ 
     margin-bottom: 20px;  
     background: #fff; 
@@ -408,6 +409,7 @@ button.bt_orange.active{
 }
 .thumb_sec .item .ftrd_img{
     overflow: hidden;
+    border-radius: 6px 6px 0 0;
 }
 .thumb_sec .item .ftrd_img img{ 
     max-width: 100%; 
@@ -450,7 +452,7 @@ p.tag.tag_2{ display: none;}
 .thumb_sec .item .desc p.tag_1{ margin-bottom: 0px;  padding-top: 3px;  }
 .thumb_sec .item .desc p.tag  span{  
     background: #1ca6b8;
-    padding: 5px 7px 5px 7px;
+    padding: 6px 7px 5px 7px;
     display: inline-block;
     border-radius: 2px;
     color: #fff;
@@ -468,7 +470,7 @@ p.tag.tag_2{ display: none;}
 
 
 /*############ single Projects  starts ############*/
-.single_proj{  padding: 45px 0px 45px 0; }
+.single_proj{  padding: 45px 0px 0px 0; }
 .single_proj .content_left, .single_proj .content_right{ padding: 0 20px; }
 
 
@@ -552,7 +554,7 @@ p.tag.tag_2{ display: none;}
 .single_proj .content_right table td:nth-child(even){ text-align: right;   }
 
 
-.single_grid{ padding-top: 20px; }
+.single_grid{ padding-top: 20px;    padding-bottom: 40px; }
 .single_grid .item{ margin-bottom: 30px; padding: 0 20px; }
 .single_grid .item img{ border-radius: 5px; }
 /*############ single Projects  ends ############*/
@@ -573,7 +575,7 @@ p.tag.tag_2{ display: none;}
     margin-top: 30px;
     background: #fff;
     border-radius: 5px;
-    padding: 20px;
+    padding: 20px 20px 17px 20px;
     width: 460px;
     min-height: 350px;
 }
@@ -758,7 +760,7 @@ p.tag.tag_2{ display: none;}
 
 .edit_dashboard fieldset.ty_pe > label,
 .edit_dashboard fieldset.stats > label{ flex-basis: 100%; }
-.edit_dashboard .group{ margin-right: 43px; }
+.edit_dashboard .group{ margin-right: 75px; }
 
 .edit_dashboard fieldset.ro_le .group{
     display: flex;
@@ -965,7 +967,7 @@ p.tag.tag_2{ display: none;}
 
 /*####### mobile queries ##################*/
 @media (min-width:1800px){
-    .filter_drop + .container{ padding-bottom: 150px;}
+    .filter_drop + .container{ padding-bottom: 80px;}
     .dest_happiness{  
         background-position: 60% 50%!important;
     }
@@ -985,6 +987,9 @@ p.tag.tag_2{ display: none;}
 
     .ftrd_header img{ max-width: 80%;}
 
+    /* cms pages */
+    .login_sec .box form{ width: 40%;}
+
 }
 
 @media (min-width:1200px){
@@ -995,15 +1000,19 @@ p.tag.tag_2{ display: none;}
 
 }
 
+@media (max-width:1700px){
+    .filter_drop{ top: 476px;}
+}
+
 @media (max-width:1600px){
-    .filter_drop{ top: 523px;}
+    .filter_drop{ top: 521px;}
 }
 
 @media (max-width:1500px){
-    .filter_drop{ top: 502px;}
+    .filter_drop{ top: 511px;}
 }
 
-@media (max-width: 1440px){  
+@media (max-width: 1460px){  
     body .col-md-3{  
         flex: 0 0 25%;
         max-width: 25%;
@@ -1022,7 +1031,7 @@ p.tag.tag_2{ display: none;}
     /*login page*/
     .login_sec img.ftrd{ margin-left: 0px; }
 
-    .filter_drop{  top: 486px;}
+    .filter_drop{  top: 490px;}
 
     /* destination happiness */
     .dest_happiness{
@@ -1057,7 +1066,7 @@ p.tag.tag_2{ display: none;}
     /*header*/
     nav.m_header{ padding: 0px!important; }
     .m_header img.logo{ height: 35px;    margin-left: 35px; }
-    .navbar-nav{ flex-direction: initial!important; display: block!important;  padding: 20px 15px;}
+    .navbar-nav{ flex-direction: initial!important; display: block!important;  padding:12px 15px 20px 15px;}
     .nav-item.prof_icon a{ justify-content: center; }
     .nav-item.prof_icon a img{ width: 28px; }
     .navbar-toggler-icon i{ font-size: 32px; }
@@ -1071,6 +1080,14 @@ p.tag.tag_2{ display: none;}
     .m_header::before{ width: 100%; }
     .nav-item a{ justify-content: flex-end; padding-right: 0!important; }
     .nav-item.lang a{ padding: 6px 0px!important;}
+
+
+    nav.home_header::before{
+        background-image: url(assets/img/mrl-header-01.webp);
+        background-position: center -2px;
+        background-size: 260%;
+        background-repeat: no-repeat;
+    }
 
 
     /*cms header*/
@@ -1091,7 +1108,7 @@ p.tag.tag_2{ display: none;}
     nav.home_header .container{ padding-bottom: 15px;;}
     .ftrd_header{ display: none;}
     .ftrd_header2{ 
-        display: block; 
+        /* display: block;  */
         position: relative;
         width: 100%;
         margin: auto;
@@ -1099,7 +1116,7 @@ p.tag.tag_2{ display: none;}
         background: #fff;
         overflow: hidden;
     }
-    nav.home_header .navbar-nav{ padding: 60px 15px 20px 0px;margin-top: 0px; }
+    nav.home_header .navbar-nav{ padding: 60px 15px 5px 0px;margin-top: 0px; }
     nav.home_header .navbar-toggler{  
         position: absolute;
         right: 0;
@@ -1226,7 +1243,7 @@ p.tag.tag_2{ display: none;}
         max-width: 50%;
     }
 
-    .filter_drop{ top: 455px;}
+    .filter_drop{ top: 435px;}
     .filter_drop .bg_overlay{ opacity: 0; height: 60vh;}
     .filter_drop fieldset{ flex: 0 0 50%; max-width: 42%; }
     .filter_drop .bt_wrap button{ margin-left: 5px;    padding: 15px 15px 13px 15px; }
@@ -1289,6 +1306,13 @@ p.tag.tag_2{ display: none;}
     /* home header */
     nav.home_header a.navbar-brand{ margin-left: 30px; padding: 10px 25px 10px 5px; }
 
+    nav.home_header::before{
+        background-size: 400%;
+        background-position: 54% 0px;
+    }
+
+    nav.home_header .navbar-toggler{ top: 5px;}
+
     /*admin header*/
     .nav-item.nav_about a{ margin: 0px 13px; }
 
@@ -1310,7 +1334,7 @@ p.tag.tag_2{ display: none;}
     /*admin projecs*/
     .dash_add_project{ padding: 20px 0px 30px 0px; }
 
-    .filter_drop{  top: 477px;}
+    .filter_drop{  top: 436px;}
 
     /* destination */
     .dest_happiness{ padding-top: 45px;}
@@ -1320,12 +1344,14 @@ p.tag.tag_2{ display: none;}
 }
 
 @media(max-width: 450px){
-    .filter_drop{ top: 517px; }
+    .filter_drop{ top: 498px; }
 }
 
-@media(max-width: 395px){
-    .filter_drop{ top: 539px; }
+@media(max-width: 400px){
+    .filter_drop{ top: 519px; }
 }
-
+@media(max-width: 365px){
+    .filter_drop{ top: 540px; }
+}
 
 
