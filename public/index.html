@@ -138,7 +138,7 @@
  
 
 	window.onload = function () {
-		LoadMap();
+		//LoadMap();
 	}
 
     function getTags(item) {
@@ -503,8 +503,6 @@
  
 function loadbod() {
         var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
-        // alert( "zzz "+gmaps_projects[0].image[0].image_url)   
-
         var interval = setInterval(function(){
             LoadMap();
             console.log('loaded....');
