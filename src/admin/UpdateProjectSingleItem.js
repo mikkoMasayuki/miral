@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom'
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 const UpdateProjectSingleItem = props => {
@@ -43,10 +44,29 @@ const UpdateProjectSingleItem = props => {
 		  value: "Miral Experiences",
 		},
 		{
-		  label: "Yas Asset Managements",
-		  value: "Yas Asset Managements",
+		  label: "Yas Asset Management",
+		  value: "Yas Asset Management",
 		},
 	  ];	
+
+	  const location_options = [
+		{
+		  label: "Yas Island, Abu Dhabi",
+		  value: "Yas Island, Abu Dhabi",
+		},
+		{
+		  label: "Saadiyat Island, Abu Dhabi",
+		  value: "Saadiyat Island, Abu Dhabi",
+		},
+		{
+		  label: "Abu Dhabi City",
+		  value: "Abu Dhabi City",
+		},
+		{
+		  label: "Jordan",
+		  value: "Jordan",
+		},
+	  ];	  
 
 	function handleSelectChange(e) {
 	console.log(  e.target.value )
@@ -108,7 +128,7 @@ const UpdateProjectSingleItem = props => {
 		let tType =  filterType
 		let rRole = filterRole
         let Location = document.getElementById("location").value
-        let Location_ar = document.getElementById("location_ar").value    
+        let Location_ar = ''    
         let Website = document.getElementById("website").value   
         let Description_en = document.getElementById("desc_en").value
         let Description_ar = document.getElementById("desc_ar").value
@@ -147,7 +167,7 @@ const UpdateProjectSingleItem = props => {
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
         };
-        fetch('http://185.140.248.26:4052/project', requestOptions)
+        fetch('http://3.28.53.5:4052/project', requestOptions)
             .then(response => response.json())
 			.then((result) => {
 				console.log('Success:', result)
@@ -201,6 +221,7 @@ const UpdateProjectSingleItem = props => {
 	}
 
 
+
     return <React.Fragment>
 
 <div class="col-md-12 edit_dashboard">
@@ -235,12 +256,15 @@ const UpdateProjectSingleItem = props => {
 					
 
 					<fieldset class="half">
-						<label>Location (EN):
-							<input type="text" id="location" defaultValue={props.location}/>
-						</label>
 
-						<label>Location (AR):
-							<input type="text" id="location_ar" defaultValue={props.location_ar}/>
+					
+						<label>Location:
+							<select id="location" defaultValue={props.location} onChange={handleSelectChange}>
+							{location_options.map((option) => (
+							<option value={option.value}>{option.label}</option>
+							))}
+							</select>
+
 						</label>
 					</fieldset>
 
@@ -379,7 +403,7 @@ const UpdateProjectSingleItem = props => {
 					<fieldset class="btns">
 						<button class="btn bt_orange save" type='submit' onClick={updateAPIData}>Update</button>
 						<Link to={`/admin/projects`} className='btn bt_orange cancel' >Cancel</Link>
-						<button class="btn del" >Delete Project</button>
+						<button class="btn del" onclick={Swal.fire('Any fool can use a computer')}>Delete Project</button>
 					</fieldset>                    
 
                 </form>    
