@@ -410,6 +410,7 @@ button.bt_orange.active{
 .thumb_sec .item .ftrd_img{
     overflow: hidden;
     border-radius: 6px 6px 0 0;
+    isolation: isolate;
 }
 .thumb_sec .item .ftrd_img img{ 
     max-width: 100%; 
@@ -422,6 +423,8 @@ button.bt_orange.active{
     transition: all 0.2s linear;
     transform: scale(1);
     border-radius: 6px 6px 0 0;
+    z-index: 0;
+    position: relative;
 }
 .thumb_sec .item:hover .ftrd_img img{
     -moz-transition: all 0.2s linear;
@@ -997,7 +1000,7 @@ p.tag.tag_2{ display: none;}
 .swal2-confirm,
 .btn-success:hover,
 .btn-success:focus {
-    background: #ff8a03!important;
+    background: #c70039!important;
     border:none!important;
     box-shadow: none!important;
 }
@@ -1005,7 +1008,7 @@ p.tag.tag_2{ display: none;}
 .swal2-cancel,
 .btn-danger:hover,
 .btn-danger:focus{
-    background: #c70039!important;
+    background: #ff8a03!important;
     border:none!important;
     box-shadow: none!important;
 }
@@ -1431,3 +1434,7 @@ p.tag.tag_2{ display: none;}
 }
 
 
+@supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */ 
+    .thumb_sec .item .desc p.tag span{ padding: 7px 7px 5px 7px;}
+  }
