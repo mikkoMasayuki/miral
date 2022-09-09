@@ -32,6 +32,10 @@ const UpdateProjectSingleItem = props => {
 
 	const Business_options = [
 		{
+			label: "Choose",
+			value: "",
+		},		
+		{
 		  label: "Miral",
 		  value: "Miral",
 		},
@@ -50,6 +54,10 @@ const UpdateProjectSingleItem = props => {
 	  ];	
 
 	  const location_options = [
+		{
+			label: "Choose",
+			value: "",
+		},			
 		{
 		  label: "Yas Island, Abu Dhabi",
 		  value: "Yas Island Abu Dhabi",
