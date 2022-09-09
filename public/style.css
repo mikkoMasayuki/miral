@@ -88,7 +88,11 @@ nav.m_header{ background: #333; position: relative; padding: 0px 0px; }
 
 /*home header*/
 nav.home_header{ overflow: hidden; }
-nav.home_header img.logo{ margin: 0px;     height: 140px; }
+nav.home_header img.logo{  
+    margin: 23px 0 0 0px;
+    height: 150px;
+
+}
 nav.home_header,
 nav.home_header a.navbar-brand{ background: #fff; border-radius: 0px; }
 
@@ -821,7 +825,8 @@ button.swal2-cancel:hover{
     width: 67%;
 }
 
-.edit_dashboard .ima_ges label{
+.edit_dashboard .ima_ges label span{
+    display: block;
     font-size: 15px;
     font-weight: normal;
     margin-bottom: 0px;
@@ -1129,7 +1134,7 @@ button.swal2-cancel:hover{
     .filter_drop{ top: 473px;}
     .filter_drop + .container{ padding-bottom: 0px;}
 
-    
+    nav.home_header img.logo{ height: 135px;}
 
     /*login page*/
     .login_sec img.ftrd{ height: 402px; }
