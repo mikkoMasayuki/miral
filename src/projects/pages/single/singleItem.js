@@ -38,11 +38,30 @@ const SingleItem = props => {
 		return url.replace(/^https?:\/\/www./, '');
 	}
 
+	function addHttp(url) {
+		if (url.substr(0, 5) === 'https' || url.substr(0, 4) === 'http') {
+			return url
+		} else {
+			console.log('https://'+url)
+			return 'https://'+url
+		}
+	}	
+
+	function putComma(val) {
+
+		if (val === 'Yas Island Abu Dhabi') {
+			return 'Yas Island, Abu Dhabi'
+		}
+		if (val === 'Saadiyat Island Abu Dhabi') {
+			return 'Saadiyat Island, Abu Dhabi'
+		}
+}	
+
     return <React.Fragment>
         <div class="row head_content">
 			
 			<div class="col-md-12 content_left">
-				<h2>{props.name} <span> {props.location} </span></h2>
+				<h2>{props.name} <span> {putComma( props.location )} </span></h2>
 				<div class="details">
 					<div class="tag_wrap">
 						{
@@ -60,8 +79,8 @@ const SingleItem = props => {
 					</div>
 					<ul>
 						<li><strong>Completed:</strong> {props.year}</li>
-						<li><strong>Size:</strong> {props.size} sqm.</li>
-						<li><strong>Website: </strong><a target="_blank" href={props.website}>{removeHttp(props.website)}</a></li>
+						<li><strong>Size:</strong> {props.size} (sq.m)</li>
+						<li><strong>Website: </strong><a target="_blank" href={addHttp(props.website)}>{removeHttp(props.website)}</a></li>
 					</ul>					
 				</div>
 
