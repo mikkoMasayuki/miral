@@ -388,7 +388,7 @@ const AddProjectSingleItem = props => {
 						<label>Statistics:</label>
 						<span class="group">
 							<input type="text" placeholder="Completion year" id="yyear" />
-              				<input type="text" placeholder="Architect" id="vval" />
+              				<input type="hidden" placeholder="Architect" id="vval" />
 						</span>
 
 						<span class="group">
