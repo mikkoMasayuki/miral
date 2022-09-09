@@ -35,6 +35,17 @@ const ProjectItem = props => {
 		}
 	}
 
+
+	function putComma(val) {
+
+			if (val === 'Yas Island Abu Dhabi') {
+				return 'Yas Island, Abu Dhabi'
+			}
+			if (val === 'Saadiyat Island Abu Dhabi') {
+				return 'Saadiyat Island, Abu Dhabi'
+			}
+	}
+
     return (
 
         <div className="col-md-3 item">
@@ -50,7 +61,7 @@ const ProjectItem = props => {
 			  
 
                     <h4 >{props.name}</h4>
-					<p>{props.location}</p>
+					<p>{putComma(props.location)}</p>
 
 					<p className="tag tag_1">
 						{
