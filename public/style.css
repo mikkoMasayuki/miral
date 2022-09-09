@@ -96,7 +96,7 @@ nav.home_header img.logo{
 nav.home_header,
 nav.home_header a.navbar-brand{ background: #fff; border-radius: 0px; }
 
-nav.home_header .navbar-nav{ display: block; margin-top: -100px; }
+nav.home_header .navbar-nav{ display: block; margin-top: -85px; }
 nav.home_header .nav-item a{  
     padding: 5px 20px!important;
     justify-content: flex-end;
@@ -106,14 +106,60 @@ nav.home_header::before{ width: 50%; }
 
 
 .ftrd_header{ margin-bottom: -5px; text-align: center;}
+.ftrd_header .img_main{ margin-right: -50px;}
 .ftrd_header2{ display: none;}
-.ftrd_header img{ max-width: 101%;}
+.ftrd_header img{ max-width: 80%;}
 nav.home_header a.navbar-brand{ flex-basis: 30%; }
 nav.home_header #navbarNav{ flex-basis: 40%; }
 
+/* animated elements */
+.animated_elements{ 
+    position: absolute;
+    top: 0;
+    height: 100%;
 
+}
+.animated_elements .img_flipped{ 
+    width: 160px;
+    margin-left: 25vw;
+    -webkit-animation: upDown .3s ease-out 1s;
+    animation: upDown .3s forwards ease-out 1s;
+    opacity: 0;
+}
+.animated_elements .img_th{ 
+    width: 110px;
+    position: absolute;
+    left: 105px;
+    bottom: 0;
+    -webkit-animation: DownUp1 .3s ease-out 1.3s;
+    animation: DownUp1 .3s forwards ease-out 1.3s;
+    opacity: 0;
 
+}
+.animated_elements .img_portfolio{ 
+    position: absolute;
+    bottom: 0;
+    width: 220px;
+    left: -20px;
+    -webkit-animation: DownUp2 .3s ease-out 1.7s;
+    animation: DownUp2 .3s forwards ease-out 1.7s;
+    opacity: 0;
+}
 
+@keyframes upDown {
+    0%   { opacity: 0; transform: translateY(-100px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes DownUp1 {
+    0%   { opacity: 0; transform: translateY(100px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes DownUp2 {
+    0%   { opacity: 0; transform: translateY(100px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
 
 .m_header a.navbar-brand{ 
     color: #262626; 
@@ -342,7 +388,7 @@ button.bt_orange:hover{
     right: 0;
     z-index: 11;
     /* top: 87px; */
-    top: 470px;
+    top: 483px;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-42px);
@@ -975,6 +1021,27 @@ button.swal2-cancel:hover{
     background-size: 140%!important;
 }
 
+.dest_happiness::before{
+    content: '';
+    background: url(assets/img/orange-circle.svg)no-repeat;
+    background-size: 28%;
+    background-position: 100% 17%;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    z-index: 1;
+    right: 0;
+    top: 98px;
+    opacity: 0;
+    -webkit-animation: RightToLeft .3s ease-out 1s;
+    animation: RightToLeft .3s forwards ease-out 1s;
+}
+
+@keyframes RightToLeft {
+    0%   { opacity: 0; transform: translateX(50px);}
+    100% { opacity: 1; transform: translateX(0);}
+}
+
 
 .dest_happiness .container{
     background: url('assets/img/bg-circle.svg')no-repeat;
@@ -1070,7 +1137,7 @@ button.swal2-cancel:hover{
         max-width: 33.333333%;
     }
 
-    .ftrd_header img{ max-width: 80%;}
+    .ftrd_header img{ max-width: 77%;}
 
     /* cms pages */
     .login_sec .box form{ width: 40%;}
@@ -1090,7 +1157,12 @@ button.swal2-cancel:hover{
 }
 
 @media (max-width:1600px){
-    .filter_drop{ top: 500px;}
+    .filter_drop{ top: 465px;}
+
+    .dest_happiness::before{
+        background-size: 30%;
+        background-position: 113% 43%;
+    }
 }
 
 @media (max-width:1500px){
@@ -1103,11 +1175,21 @@ button.swal2-cancel:hover{
         max-width: 25%;
     }
 
+    nav.home_header img.logo{ height: 147px; margin: 0px;}
+    .ftrd_header .img_main{ margin-right: -110px;}
+    .animated_elements .img_portfolio{ width: 185px;}
+    .animated_elements .img_th{ width: 105px; left: 95px;}
+
     .container .edit_dashboard{  width: 75%;}
 
-    .filter_drop{ top: 482px;}
+    .filter_drop{ top: 448px;}
 
     .thumb_sec{ background-position: -150px -400px!important;}
+
+    .dest_happiness::before{
+        background-size: 37%;
+        background-position:122% 17%;
+    }
 }
 
 @media (max-width: 1366px){
@@ -1116,25 +1198,43 @@ button.swal2-cancel:hover{
     /*login page*/
     .login_sec img.ftrd{ margin-left: 0px; }
 
-    .filter_drop{  top: 474px;}
+    .filter_drop{  top: 439px;}
 
     /* destination happiness */
     .dest_happiness{
         background-position: -333px 160px!important;    
     }
+    .dest_happiness::before{
+        background-size: 32%;
+        background-position: 113% 15%;
+    }
  
 }
 
 @media (max-width: 1280px){
+    /* home header */
+    .animated_elements .img_portfolio{ width: 165px;}
+    .animated_elements .img_th{ width: 90px; left: 95px;}
+    .animated_elements .img_flipped{ width: 114px;margin-left: 31vw;}
+
+
     .filter_drop{ top: 463px;}
     .container .edit_dashboard{  width: 100%;}
+
+    .dest_happiness::before{
+        background-position: 113% 8%;
+    }
 }
 
 @media (max-width: 1199px){
-    .filter_drop{ top: 473px;}
+    .filter_drop{ top: 453px;}
     .filter_drop + .container{ padding-bottom: 0px;}
 
     nav.home_header img.logo{ height: 135px;}
+    .ftrd_header img{ max-width: 84%;}
+    .animated_elements .img_portfolio{ width: 140px;}
+    .animated_elements .img_th{ width: 78px; left: 95px;}
+    nav.home_header .navbar-nav{     margin-top: -65px;}
 
     /*login page*/
     .login_sec img.ftrd{ height: 402px; }
@@ -1261,6 +1361,11 @@ button.swal2-cancel:hover{
     }
     .privacy .content_left{ max-width: 100%; flex-basis: 100%;}
 
+    /* destination happiness */
+    .dest_happiness::before{
+        background-position: 113% 0%;
+    }
+
 
 }
 
@@ -1308,6 +1413,11 @@ button.swal2-cancel:hover{
 
     .dest_happiness{ background-position: 65% 77%!important;}
     .dest_happiness .container{ background-position: -24% 80%;}
+    .dest_happiness::before {
+        background-size: 40%;
+        background-position: 113% 48%;
+        height: 100%;
+    }
 }
 
 @media(max-width: 680px){
@@ -1446,6 +1556,7 @@ button.swal2-cancel:hover{
     .dest_happiness{ padding-top: 45px;}
     .navbar-toggler{  margin-right: 15px;}
     .nav_single .navbar-toggler, .home_header .navbar-toggler{  margin-right: 0px;}
+    .dest_happiness::before{ background-position: 154% 54%;  background-size: 60%;}
 
 }
 
@@ -1460,6 +1571,7 @@ button.swal2-cancel:hover{
         background-size: 140%;
         background-position: 54% -20px;
     }
+    .dest_happiness::before{ background-position: 154% 54%;  background-size: 60%;}
 }
 
 @media(max-width: 375px){

@@ -14,7 +14,12 @@ const HomePageHeader = props => {
 
 
             <div class="ftrd_header">
-                <img src="/assets/img/mrl-header-02.webp" />
+                <img class="img_main" src="/assets/img/mrl-header-kid-01.svg" />
+                <div class="animated_elements">
+                    <img class="img_flipped" src="/assets/img/orange-flipped.svg" />
+                    <img class="img_th" src="/assets/img/black-thumb.svg" />
+                    <img class="img_portfolio" src="/assets/img/orange-portfolio.svg" />
+                </div>
             </div>
 
 
