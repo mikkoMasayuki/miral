@@ -57,11 +57,11 @@ const ProjectLists = props => {
 				if ( getfilterType[i].className == "ftype") {
 
 					if (getfilterType[i].value==="Most Popular") {
-						getfilterType[i].checked = true;
-						filterType = getfilterType[i].value
+						//getfilterType[i].checked = true;
+						//filterType = getfilterType[i].value
 					}		
 					if(getfilterType[i].value==="") {
-						getfilterType[i].checked = false;		
+						//getfilterType[i].checked = false;		
 					} 						
 				}
 			
