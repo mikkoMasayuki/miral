@@ -39,6 +39,10 @@ const AddProjectSingleItem = props => {
 
 	const Business_options = [
 		{
+			label: "Choose",
+			value: "",
+		},		
+		{
 		  label: "Miral",
 		  value: "Miral",
 		},
@@ -58,6 +62,10 @@ const AddProjectSingleItem = props => {
 
 
 	  const location_options = [
+		{
+			label: "Choose",
+			value: "",
+		},		
 		{
 		  label: "Yas Island, Abu Dhabi",
 		  value: "Yas Island Abu Dhabi",
@@ -206,6 +214,11 @@ const AddProjectSingleItem = props => {
 		event.preventDefault();  
 
     }
+
+	const addHttps =  (event) => {
+		let webhttp = document.getElementById("website")
+		webhttp.value = 'https://'
+	} 
 
 	const onlyOne = (checkbox) => {
 		let checkboxes = document.getElementsByName("statusbox")
@@ -357,7 +370,7 @@ const AddProjectSingleItem = props => {
 
 
 						<label>Website:
-							<input type="text" id="website" />
+							<input type="text" id="website" onClick={addHttps}/>
 						</label>
 					</fieldset>   
 
