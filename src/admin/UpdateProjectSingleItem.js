@@ -248,7 +248,7 @@ const UpdateProjectSingleItem = props => {
 			showCancelButton: true,
 			confirmButtonText: `Delete`,
 			cancelButtonText: `Don't Delete`,
-			reverseButtons: false
+			reverseButtons: true
 		  }).then((result) => {
 			if (result.isConfirmed) {
 
@@ -425,7 +425,7 @@ const UpdateProjectSingleItem = props => {
 						<label>Statistics:</label>
 						<span class="group">
 							<input type="text" placeholder="Completion year" defaultValue={props.year} id="yyear" />
-							<input type="text" placeholder="Architect" defaultValue={props.value} id="vval" />
+							<input type="hidden" placeholder="Architect" defaultValue={props.value} id="vval" />
 						</span>
 
 						<span class="group">
