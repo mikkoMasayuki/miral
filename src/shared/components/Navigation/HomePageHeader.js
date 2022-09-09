@@ -14,7 +14,7 @@ const HomePageHeader = props => {
 
 
             <div class="ftrd_header">
-                <img src="/assets/img/mrl-header-01.webp" />
+                <img src="/assets/img/mrl-header-02.webp" />
             </div>
 
 

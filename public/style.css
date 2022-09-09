@@ -168,11 +168,12 @@ nav.home_header #navbarNav{ flex-basis: 40%; }
 body.cms_body{ background: #e6e7e8!important; }
 .m_header_alt .nav-item.nav_about a{ 
     background: #1ca6b8;
-    width: auto;
+    width: 120px;
     border-radius: 3px;
     text-transform: uppercase;
     padding: 11px 20px 10px 20px!important;
 }
+
 .m_header_alt{ background: #fff!important;padding: 15px 0px!important; }
 .m_header_alt::before{ content: none; }
 .m_header_alt a.navbar-brand{ background: transparent; }
@@ -227,6 +228,12 @@ body.log_in{ background: #e6e7e8!important; }
     margin-right: 10px;
     text-transform: uppercase;
 }
+.login_sec .box a.sub_mit:hover,
+.login_sec .box button.sub_mit:hover,
+.login_sec .box input.sub_mit:hover{
+    background: #c66a00;
+}
+
 
 .login_sec img.ftrd{ 
     border-radius: 10px; 
@@ -245,7 +252,7 @@ body.log_in{ background: #e6e7e8!important; }
 
 /*############ footer starts ############*/
 footer{ padding-bottom: 40px; }
-footer p{ color: #4a4a49; }
+footer p{ color: #4a4a49;    font-size: 14px; }
 footer p a { text-decoration: underline; color: #4a4a49; margin-right: 5px; text-underline-offset: 3px;}
 footer p a:hover{ color: #4a4a49; }
 /*############ footer ends ##############*/
@@ -293,10 +300,20 @@ body button:focus{ border:none; outline: none;}
 }
 
 .bt_right button, .bt_right .btn{ margin-left: 29px; }
-.bt_left button.dark, .bt_right .btn.dark{  
+.bt_left button.dark, .bt_right .btn.dark, button.reset{ 
     color: #fff;
+    background: #555;
+}
+.bt_left button.dark:hover, .bt_right .btn.dark:hover,
+button.reset:hover{
     background: #333;
 }
+/* button.dark{
+    background: #555;
+}
+button.dark:hover{
+    background: #333;
+} */
 .filter_tags p span{ margin-right: 10px;  }
 a.bt_orange, a.bt_orange:hover, button.bt_orange, button.bt_orange:hover,
 button.bt_orange.active{  
@@ -304,6 +321,9 @@ button.bt_orange.active{
     background: #ff8a03;
 }
 .bt_left button.bt_orange{ margin-right: 15px;  }
+button.bt_orange:hover{
+    background: #c66a00;
+}
 
 /*############ thumb_sec ends ############*/
 
@@ -318,7 +338,7 @@ button.bt_orange.active{
     right: 0;
     z-index: 11;
     /* top: 87px; */
-    top: 498px;
+    top: 470px;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-42px);
@@ -571,11 +591,15 @@ p.tag.tag_2{ display: none;}
 .dash_add_project{
     padding: 45px 0 40px 0;
 }
-.dash_add_project .btn,
-.dash_add_project .btn:hover{
+.dash_add_project .btn{
  background: #ff8a03;
  box-shadow: none;
  color: #fff;
+}
+.dash_add_project .btn:hover, a.bt_orange:hover,
+button.swal2-cancel:hover{
+    background: #c66a00!important;
+    color: #fff;
 }
 
 .dash_add_project .box_wrapper{
@@ -1052,15 +1076,15 @@ p.tag.tag_2{ display: none;}
 }
 
 @media (max-width:1700px){
-    .filter_drop{ top: 476px;}
+    .filter_drop{ top: 456px;}
 }
 
 @media (max-width:1600px){
-    .filter_drop{ top: 521px;}
+    .filter_drop{ top: 500px;}
 }
 
 @media (max-width:1500px){
-    .filter_drop{ top: 511px;}
+    .filter_drop{ top: 489px;}
 }
 
 @media (max-width: 1460px){  
@@ -1071,7 +1095,7 @@ p.tag.tag_2{ display: none;}
 
     .container .edit_dashboard{  width: 75%;}
 
-    .filter_drop{ top: 502px;}
+    .filter_drop{ top: 482px;}
 
     .thumb_sec{ background-position: -150px -400px!important;}
 }
@@ -1082,7 +1106,7 @@ p.tag.tag_2{ display: none;}
     /*login page*/
     .login_sec img.ftrd{ margin-left: 0px; }
 
-    .filter_drop{  top: 490px;}
+    .filter_drop{  top: 474px;}
 
     /* destination happiness */
     .dest_happiness{
@@ -1092,12 +1116,12 @@ p.tag.tag_2{ display: none;}
 }
 
 @media (max-width: 1280px){
-    .filter_drop{ top: 475px;}
+    .filter_drop{ top: 463px;}
     .container .edit_dashboard{  width: 100%;}
 }
 
 @media (max-width: 1199px){
-    .filter_drop{ top: 483px;}
+    .filter_drop{ top: 473px;}
     .filter_drop + .container{ padding-bottom: 0px;}
 
     nav.home_header img.logo{ height: 120px;}
@@ -1147,6 +1171,13 @@ p.tag.tag_2{ display: none;}
     .m_header_alt .collapse:not(.show){ display: inline-block; flex-basis: 30%;  }
     .m_header_alt .nav-item.nav_about a{ padding: 10px 15px!important; margin-right: 0px;}
     .m_header_alt img.logo{ margin-left: 0px;}
+    .m_header_alt .nav-item.nav_about{
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        top: 3px;
+    }
 
 
 
@@ -1193,7 +1224,7 @@ p.tag.tag_2{ display: none;}
     .filter_drop .bt_wrap{ position: initial; text-align: right; padding: 20px 0;display: inline-block; width: 100%; }
     .filter_drop .bg_overlay{  height: 108vh;top: 356px; }
     .filter_drop form{ gap:25px; }
-    .filter_drop{  top: 443px;}
+    .filter_drop{  top: 434px;}
 
     .portfolio_map .bt_row{ padding: 45px 30px 20px 30px;}
 
@@ -1256,12 +1287,12 @@ p.tag.tag_2{ display: none;}
 
 
 
-  .filter_drop{ top: 444px;}
+  .filter_drop{ top: 435px;}
 
 }
 
 @media(max-width: 768px){
-    .filter_drop{ top: 468px; }
+    .filter_drop{ top: 459px; }
 
     .dest_happiness{ background-position: 65% 77%!important;}
     .dest_happiness .container{ background-position: -24% 80%;}
@@ -1297,7 +1328,7 @@ p.tag.tag_2{ display: none;}
         max-width: 50%;
     }
 
-    .filter_drop{ top: 435px;}
+    .filter_drop{ top: 444px;}
     .filter_drop .bg_overlay{ opacity: 0; height: 60vh;}
     .filter_drop fieldset{ flex: 0 0 50%; max-width: 42%; }
     .filter_drop .bt_wrap button{ margin-left: 5px;    padding: 15px 15px 13px 15px; }
