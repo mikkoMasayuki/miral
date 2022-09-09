@@ -60,8 +60,7 @@ const SingleItem = props => {
 					</div>
 					<ul>
 						<li><strong>Completed:</strong> {props.year}</li>
-						<li><strong>Size:</strong> {props.size}</li>
-						<li><strong>Architect:</strong> {props.value} </li>
+						<li><strong>Size:</strong> {props.size} sqm.</li>
 						<li><strong>Website: </strong><a target="_blank" href={props.website}>{removeHttp(props.website)}</a></li>
 					</ul>					
 				</div>
