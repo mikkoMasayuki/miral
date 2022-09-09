@@ -79,7 +79,7 @@ const SingleItem = props => {
 					</div>
 					<ul>
 						<li><strong>Completed:</strong> {props.year}</li>
-						<li><strong>Size:</strong> {props.size} (sq.m)</li>
+						<li><strong>Size (sq.m):</strong> {props.size}</li>
 						<li><strong>Website: </strong><a target="_blank" href={addHttp(props.website)}>{removeHttp(props.website)}</a></li>
 					</ul>					
 				</div>
