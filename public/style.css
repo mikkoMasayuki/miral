@@ -1154,6 +1154,7 @@ button.swal2-cancel:hover{
 
 @media (max-width:1700px){
     .filter_drop{ top: 456px;}
+    .animated_elements .img_flipped { margin-left: 29vw; }
 }
 
 @media (max-width:1600px){
@@ -1175,6 +1176,7 @@ button.swal2-cancel:hover{
         max-width: 25%;
     }
 
+    .animated_elements .img_flipped { margin-left: 29vw; }    
     nav.home_header img.logo{ height: 147px; margin: 0px;}
     .ftrd_header .img_main{ margin-right: -110px;}
     .animated_elements .img_portfolio{ width: 185px;}
