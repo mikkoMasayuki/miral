@@ -75,13 +75,19 @@ const SingleItem = props => {
 	}	
 
 	function putComma(val) {
-
+		let ret = ''
 		if (val === 'Yas Island Abu Dhabi') {
-			return 'Yas Island, Abu Dhabi'
+			ret = 'Yas Island, Abu Dhabi'
+		} else {
+			ret = val
 		}
 		if (val === 'Saadiyat Island Abu Dhabi') {
-			return 'Saadiyat Island, Abu Dhabi'
+			ret = 'Saadiyat Island, Abu Dhabi'
+		} else {
+			ret = val
 		}
+		return ret
+
 }
 
 
