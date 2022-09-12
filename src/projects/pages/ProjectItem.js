@@ -37,17 +37,15 @@ const ProjectItem = props => {
 
 
 	function putComma(val) {
-		let ret = ''
+		let ret = val
 		if (val === 'Yas Island Abu Dhabi') {
 			ret = 'Yas Island, Abu Dhabi'
-		} else {
-			ret = val
 		}
 		if (val === 'Saadiyat Island Abu Dhabi') {
 			ret = 'Saadiyat Island, Abu Dhabi'
-		} else {
-			ret = val
 		}
+
+		
 		return ret
 
 }
