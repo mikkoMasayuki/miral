@@ -19,6 +19,9 @@ const HomePageHeader = props => {
 		        <a class="nav-link " href="/destination-happiness/index.html">ABOUT</a>
 		      </li>
 
+			  	<li class="nav-item">
+                    <a class="nav-link " href="/">MIRAL.AE</a>
+            	</li>
 		     
 
 		      <li class="nav-item lang ">

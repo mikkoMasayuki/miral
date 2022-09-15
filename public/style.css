@@ -89,7 +89,7 @@ nav.m_header{ background: #333; position: relative; padding: 0px 0px; }
 /*home header*/
 nav.home_header{ overflow: hidden; }
 nav.home_header img.logo{  
-    margin: 23px 0 0 0px;
+    margin: 7px 0 0 0px;
     height: 150px;
 
 }
@@ -381,14 +381,13 @@ button.bt_orange:hover{
 
 /*############ filter dropdownstarts ############*/
 .filter_drop{  
-    background: #ededed;
+    background: rgba(237 237 237 / 85%);
     padding: 45px 0px;
     position: absolute;
     left: 0;
     right: 0;
     z-index: 11;
-    /* top: 87px; */
-    top: 483px;
+    margin-top: -517px;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-42px);
@@ -1165,13 +1164,10 @@ div.item-images div.first-row,div.item-images div.next-row {
 }
 
 @media (max-width:1700px){
-    .filter_drop{ top: 456px;}
     .animated_elements .img_flipped { margin-left: 29vw; }
 }
 
 @media (max-width:1600px){
-    .filter_drop{ top: 465px;}
-
     .dest_happiness::before{
         background-size: 30%;
         background-position: 113% 43%;
@@ -1179,7 +1175,7 @@ div.item-images div.first-row,div.item-images div.next-row {
 }
 
 @media (max-width:1500px){
-    .filter_drop{ top: 489px;}
+
 }
 
 @media (max-width: 1460px){  
@@ -1189,14 +1185,12 @@ div.item-images div.first-row,div.item-images div.next-row {
     }
 
     .animated_elements .img_flipped { margin-left: 29vw; }    
-    nav.home_header img.logo{ height: 147px; margin: 0px;}
+    nav.home_header img.logo{ /*height: 147px;*/ margin: 0px;}
     .ftrd_header .img_main{ margin-right: -110px;}
     .animated_elements .img_portfolio{ width: 185px;}
     .animated_elements .img_th{ width: 105px; left: 95px;}
 
     .container .edit_dashboard{  width: 75%;}
-
-    .filter_drop{ top: 448px;}
 
     .thumb_sec{ background-position: -150px -400px!important;}
 
@@ -1212,7 +1206,6 @@ div.item-images div.first-row,div.item-images div.next-row {
     /*login page*/
     .login_sec img.ftrd{ margin-left: 0px; }
 
-    .filter_drop{  top: 439px;}
 
     /* destination happiness */
     .dest_happiness{
@@ -1231,8 +1224,6 @@ div.item-images div.first-row,div.item-images div.next-row {
     .animated_elements .img_th{ width: 90px; left: 95px;}
     .animated_elements .img_flipped{ width: 114px;margin-left: 31vw;}
 
-
-    .filter_drop{ top: 463px;}
     .container .edit_dashboard{  width: 100%;}
 
     .dest_happiness::before{
@@ -1241,11 +1232,10 @@ div.item-images div.first-row,div.item-images div.next-row {
 }
 
 @media (max-width: 1199px){
-    .filter_drop{ top: 453px;}
     .filter_drop + .container{ padding-bottom: 0px;}
 
-    nav.home_header img.logo{ height: 135px;}
-    .ftrd_header img{ max-width: 84%;}
+    nav.home_header img.logo{ /*height: 135px;*/}
+    .ftrd_header .img_main{ max-width: 92%;     margin-right: -182px;}
     .animated_elements .img_portfolio{ width: 140px;}
     .animated_elements .img_th{ width: 78px; left: 95px;}
     nav.home_header .navbar-nav{     margin-top: -65px;}
@@ -1284,11 +1274,11 @@ div.item-images div.first-row,div.item-images div.next-row {
     nav.home_header::before{
         background-image: url(assets/img/mobile-header.jpg);
         background-position: center -80px;
-        background-size: 100%;
+        background-size: 110%;
         background-repeat: no-repeat;
     }
 
-    nav.home_header img.logo{ height: 120px;}
+    nav.home_header img.logo{ /*height: 120px;*/ margin-top: 10px;}
 
 
     /*cms header*/
@@ -1350,7 +1340,6 @@ div.item-images div.first-row,div.item-images div.next-row {
     .filter_drop .bt_wrap{ position: initial; text-align: right; padding: 20px 0;display: inline-block; width: 100%; }
     .filter_drop .bg_overlay{  height: 108vh;top: 356px; }
     .filter_drop form{ gap:25px; }
-    .filter_drop{  top: 434px;}
 
     .portfolio_map .bt_row{ padding: 45px 30px 20px 30px;}
 
@@ -1417,14 +1406,10 @@ div.item-images div.first-row,div.item-images div.next-row {
   .dest_happiness .ftrd_img{ padding-top: 20px; }
 
 
-
-  .filter_drop{ top: 435px;}
-
 }
 
 @media(max-width: 768px){
-    .filter_drop{ top: 459px; }
-
+    /* destination happiness */
     .dest_happiness{ background-position: 65% 77%!important;}
     .dest_happiness .container{ background-position: -24% 80%;}
     .dest_happiness::before {
@@ -1442,7 +1427,7 @@ div.item-images div.first-row,div.item-images div.next-row {
     .m_header_alt img.logo{ margin-left: 0px;}
     .m_header_alt a.navbar-brand{ padding-left: 20px;}
 
-    nav.home_header img.logo{ height: 110px; margin-top: 10px; }
+    nav.home_header img.logo{ /*height: 110px;*/ margin-top: 10px; }
     nav.home_header::before{
         background-position: center -50px;
     }
@@ -1464,7 +1449,6 @@ div.item-images div.first-row,div.item-images div.next-row {
         max-width: 50%;
     }
 
-    .filter_drop{ top: 444px;}
     .filter_drop .bg_overlay{ opacity: 0; height: 60vh;}
     .filter_drop fieldset{ flex: 0 0 50%; max-width: 42%; }
     .filter_drop .bt_wrap button{ margin-left: 5px;    padding: 15px 15px 13px 15px; }
@@ -1534,11 +1518,11 @@ div.item-images div.first-row,div.item-images div.next-row {
 
 @media(max-width: 580px){
     /* home header */
-    nav.home_header a.navbar-brand{ margin-left: 30px; padding: 10px 25px 10px 5px; }
+    nav.home_header a.navbar-brand{ margin-left: 30px; padding: 10px 5px 10px 5px; }
 
     nav.home_header::before{
-        background-size: 130%;
-        background-position: 54% -30px;
+        background-size: 140%;
+        background-position: 54% 0px;
     }
 
     nav.home_header .navbar-toggler{ top: 5px;}
@@ -1564,7 +1548,6 @@ div.item-images div.first-row,div.item-images div.next-row {
     /*admin projecs*/
     .dash_add_project{ padding: 20px 0px 30px 0px; }
 
-    .filter_drop{  top: 436px;}
 
     /* destination */
     .dest_happiness{ padding-top: 45px;}
@@ -1575,31 +1558,31 @@ div.item-images div.first-row,div.item-images div.next-row {
 }
 
 @media(max-width: 450px){
-    .filter_drop{ top: 508px; }
+
 }
 
 @media(max-width: 400px){
     
 
     nav.home_header::before{
-        background-size: 140%;
-        background-position: 54% -20px;
+        background-size: 145%;
+        background-position: 54% 0px;
     }
     .dest_happiness::before{ background-position: 154% 54%;  background-size: 60%;}
 }
 
 @media(max-width: 375px){
-    .filter_drop{ top: 529px; }
+
 }
 @media(max-width: 365px){
     nav.home_header::before{
         background-size: 152%;
-        background-position: 54% -20px;
+        background-position: 54% 0px;
     }
 }
 
 @media(max-width: 320px){
-    .filter_drop{ top: 549px; }
+
 }
 
 
