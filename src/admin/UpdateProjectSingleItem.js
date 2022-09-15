@@ -57,23 +57,31 @@ const UpdateProjectSingleItem = props => {
 		{
 			label: "Choose",
 			value: "",
-		},			
+		},		
 		{
-		  label: "Yas Island, Abu Dhabi",
-		  value: "Yas Island Abu Dhabi",
+			label: "Yas Island",
+			value: "Yas Island",
 		},
 		{
-		  label: "Saadiyat Island, Abu Dhabi",
-		  value: "Saadiyat Island Abu Dhabi",
+			label: "Abu Dhabi",
+			value: "Abu Dhabi",
+		},		
+		{
+			label: "Saadiyat Island",
+			value: "Saadiyat Island",
 		},
 		{
-		  label: "Abu Dhabi City",
-		  value: "Abu Dhabi City",
-		},
+			label: "Al Ain",
+			value: "Al Ain",
+		},	
 		{
-		  label: "Jordan",
-		  value: "Jordan",
-		},
+			label: "Jordan",
+			value: "Jordan",
+		},		  	
+		{
+			label: "Kazakhstan",
+			value: "Kazakhstan",
+		}
 	  ];	  
 
 	function handleSelectChange(e) {
@@ -259,6 +267,7 @@ const UpdateProjectSingleItem = props => {
 			  fetch('http://3.28.53.5:4052/project/'+props.id, requestDelete)
 			  .then(response => response.json())
 			  .then((result) => {
+				console.log(result)
 				  if(result.error === null ){
 					  window.location.replace('/admin/projects')  				  
 				  } 
@@ -274,7 +283,39 @@ const UpdateProjectSingleItem = props => {
 		  })		
     }
 
+	const showImageInput = (item) => {
+			if(item > 0) {
+				return '<div>'+item+'</div>';
+			}
+	}
 
+	function readURL(event) {
+
+		let image_source = event.target.id.split("-") 
+		//alert( id_s[1] )
+		//console.log(event.target.value)
+		
+		let src_file = document.getElementById(event.target.id)
+		
+		if (src_file.files && src_file.files[0]) {
+			let reader = new FileReader()
+			let preview_img = document.getElementById(image_source[1])
+
+			reader.onload = function (e) {
+				preview_img.src = e.target.result
+								
+			};
+
+			reader.readAsDataURL(src_file.files[0])
+		}
+		
+		
+	}
+
+	function uploadImage() {
+		let f= document.getElementById('source-img1')
+		alert(f.value);
+	}
 
     return <React.Fragment>
 
@@ -368,9 +409,9 @@ const UpdateProjectSingleItem = props => {
 						<span class="group">
 
 						<label class="ch_lbl">
-							<input type="checkbox" defaultChecked={getData("Meet",props.ptype) ? true : false} value="Meet" class="ftype" />
+							<input type="checkbox" defaultChecked={getData("Business Venues",props.ptype) ? true : false} value="Business Venues" class="ftype" />
 								<span class="checkmark"></span>
-								Meet
+								Business Venues
 							</label>
 
 							<label class="ch_lbl">
@@ -410,7 +451,15 @@ const UpdateProjectSingleItem = props => {
 							<input type="text" defaultValue={props.website} id="website" />
 						</label>
 					</fieldset>   
+					<fieldset class="half">
+						<label>Headline (EN):
+							<input id="headline_en" type="text" />
+						</label>
 
+						<label>Headline (AR):
+							<input id="headline_ar" type="text" />							
+						</label>
+					</fieldset> 
 					<fieldset class="half">
 						<label>Description (EN):
 							<textarea id="desc_en" defaultValue={props.description_en}></textarea>
@@ -437,7 +486,7 @@ const UpdateProjectSingleItem = props => {
 					<fieldset class="ima_ges">
 						<label>Images <span>(1600 x 1020 pixels JPG/WebP, optimum file size 500Kb)</span></label>
 						<div class="item_wrap">
-							
+
 
 							{props.images.map(image => {
 								return <div class="item">
@@ -445,14 +494,60 @@ const UpdateProjectSingleItem = props => {
 								<a>Remove</a>
 								</div>
 							})}
-
-
-
-
+													
 						</div>
 
-						<button class="btn bt_orange">Add more images</button>
-					</fieldset>					
+						<button class="btn bt_orange" onClick={uploadImage}>Add more images</button>
+					</fieldset>		
+					<fieldset class="ima_ges">
+
+						<div class="row">	
+							<div class="col-md-12">
+								<table>
+									<tr>
+										<td>
+											<img class="uploaded-images" id="img1" src="/assets/img/no-image.jpg" alt="image" />
+											<input id="source-img1" type='file' onChange={readURL} />											
+										</td>
+										<td>
+											<img class="uploaded-images" id="img2" src="/assets/img/no-image.jpg" alt="image" />
+											<input id="source-img2" type='file' onChange={readURL} />
+										</td>
+										<td>
+											<img class="uploaded-images" id="img3" src="/assets/img/no-image.jpg" alt="image" />
+											<input id="source-img3" type='file' onChange={readURL} />
+										</td>
+										<td>
+											<img class="uploaded-images" id="img4" src="/assets/img/no-image.jpg" alt="image" />
+											<input id="source-img4" type='file' onChange={readURL} />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<img class="uploaded-images" id="img5" src="/assets/img/no-image.jpg" alt="image" />								
+											<input id="source-img5" type='file' onChange={readURL} />											
+										</td>
+										<td>
+											<img class="uploaded-images" id="img6" src="/assets/img/no-image.jpg" alt="image" />
+											<input id="source-img6" type='file' onChange={readURL} />
+										</td>
+										<td>
+										<img class="uploaded-images" id="img7" src="/assets/img/no-image.jpg" alt="image" />
+								<input id="source-img7" type='file' onChange={readURL} />											
+										</td>
+										<td>
+
+										<img class="uploaded-images" id="img8" src="/assets/img/no-image.jpg" alt="image" />
+								<input id="source-img8" type='file' onChange={readURL} />											
+										</td>
+									</tr>									
+								</table>
+
+
+							</div>
+
+						</div>								
+					</fieldset>			
 
 					<fieldset class="btns">
 						<button class="btn bt_orange save" type='submit' onClick={updateAPIData}>Update</button>
