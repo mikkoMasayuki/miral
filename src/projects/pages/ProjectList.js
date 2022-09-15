@@ -364,9 +364,9 @@ const ProjectLists = props => {
 									Dine
 								</label>	
 								<label>
-									<input class="ftype" type="checkbox" value="Meet" onClick={handleFilterChange} />
+									<input class="ftype" type="checkbox" value="Business Venues" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
-									Meet
+									Business Venues
 								</label>																																
 
 								<label>
@@ -400,30 +400,35 @@ const ProjectLists = props => {
 								</label>
 
 								<label>
-									<input class="floc" type="checkbox" value="Yas Island Abu Dhabi" onClick={handleFilterChange}/>
+									<input class="floc" type="checkbox" value="Yas Island" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Yas Island, Abu Dhabi
+									Yas Island
 								</label>
-
 								<label>
-									<input class="floc" type="checkbox" value="Saadiyat Island Abu Dhabi" onClick={handleFilterChange}/>
+									<input class="floc" type="checkbox" value="Abu Dhabi" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Saadiyat Island, Abu Dhabi
+									Abu Dhabi
 								</label>
-
 								<label>
-									<input class="floc" type="checkbox" value="Abu Dhabi City" onClick={handleFilterChange}/>
+									<input class="floc" type="checkbox" value="Saadiyat Island" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Abu Dhabi City
+									Saadiyat Island
 								</label>
-
-
+								<label>
+									<input class="floc" type="checkbox" value="Al Ain" onClick={handleFilterChange}/>
+									<span className="checkmark"></span>
+									Al Ain
+								</label>
 								<label>
 									<input class="floc" type="checkbox" value="Jordan" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									Jordan
 								</label>
-
+								<label>
+									<input class="floc" type="checkbox" value="Kazakhstan" onClick={handleFilterChange}/>
+									<span className="checkmark"></span>
+									Kazakhstan
+								</label>
 							</fieldset>
 
 
