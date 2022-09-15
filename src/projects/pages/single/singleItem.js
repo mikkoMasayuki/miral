@@ -115,7 +115,7 @@ const SingleItem = props => {
 				</div>
 
 				<div class=" content_right">
-
+				<h3>Headline Test</h3>		
 				<p>{props.description}</p>
 
 			</div>
