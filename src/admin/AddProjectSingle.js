@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ImageUploading from 'react-images-uploading';
 import { Link,useHistory } from 'react-router-dom'
-
+import Swal from 'sweetalert2'
 
 
 const AddProjectSingleItem = props => {
+
+	const name_en = useRef(null);
+	const name_ar = useRef(null);
 
     let history = useHistory();
     const [id, setID] = useState(null);
@@ -67,33 +70,69 @@ const AddProjectSingleItem = props => {
 			value: "",
 		},		
 		{
-		  label: "Yas Island, Abu Dhabi",
-		  value: "Yas Island Abu Dhabi",
+			label: "Yas Island",
+			value: "Yas Island",
 		},
 		{
-		  label: "Saadiyat Island, Abu Dhabi",
-		  value: "Saadiyat Island Abu Dhabi",
+			label: "Abu Dhabi",
+			value: "Abu Dhabi",
+		},		
+		{
+			label: "Saadiyat Island",
+			value: "Saadiyat Island",
 		},
 		{
-		  label: "Abu Dhabi City",
-		  value: "Abu Dhabi City",
-		},
+			label: "Al Ain",
+			value: "Al Ain",
+		},	
 		{
-		  label: "Jordan",
-		  value: "Jordan",
-		},
+			label: "Jordan",
+			value: "Jordan",
+		},		  	
+		{
+			label: "Kazakhstan",
+			value: "Kazakhstan",
+		}
+
 	  ];
 	  	  
 	function handleSelectChange(e) {
 		console.log(  e.target.value )
-			return e.target.value
+		return e.target.value
 	}
 
+	const swalWithBootstrapButtons = Swal.mixin({
+		customClass: {
+		  confirmButton: 'btn btn-success',
+		  cancelButton: 'btn btn-danger'
+		},
+		buttonsStyling: false
+	  })
 
+	const openErrorMsg =  (msg) => {
+		  swalWithBootstrapButtons.fire({
+			title: `Error`,
+			text: msg,
+			icon: 'warning',
+			showCancelButton: false,
+			confirmButtonText: `Ok`
+		  }).then((result) => {
+			if (result.isConfirmed) {
+				window.setTimeout(function () { 
+					//document.getElementById('name').focus()
+					name_en.current.focus()
+				}, 500) 				
+			}
+		   }
+		  )   
+		
+		
+	}
     
     const AddAPIData = async (event) => {
 
-
+		
+		//name_ar.current.focus();
 
 		let filterType = "";
 		let filterRole = "";
@@ -166,42 +205,103 @@ const AddProjectSingleItem = props => {
 
 		let busi = document.getElementById("selbusiness").value 
 
-        /*
+
+
+		let images_arr = []
+
+		let kv = []
+		let temp = ''
+
+		temp = document.getElementById("url-img1").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }
+
+		temp = document.getElementById("url-img2").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }		 
+		temp = document.getElementById("url-img3").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }
+
+		temp = document.getElementById("url-img4").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }			  
+
+		temp = document.getElementById("url-img5").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }
+
+		temp = document.getElementById("url-img6").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }		 
+
+		temp = document.getElementById("url-img7").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp ) 
+		  }
+
+		temp = document.getElementById("url-img8").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }	
+		
+
+		  console.log(images_arr)
+		  
+		  
+		//let images_url = ["https://bucket-miral.s3.me-central-1.amazonaws.com/l81hexcj7qpvdur27qnlogin-ftrd.png","https://bucket-miral.s3.me-central-1.amazonaws.com/l81hehzvaa6fz9p0zt799destination-happiness.png"]
         
+		let images_url = images_arr
 
-        let Ptype = document.getElementById("ptype").value;
-        let Role = document.getElementById("role").value;
-        let Business = document.getElementById("business").value;                        
-        */
-
-
-        
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+			
             body: JSON.stringify({ 
                 name: Name, name_ar: Name_Ar, status: Status, type: tType, role: rRole,
                 location: Location, location_ar: Location_ar, website: Website, desciption: Description_en,
                 desciption_ar: Description_ar, year: Yyear, size: Ssize, value: Vval,
                 annual_visitor: Annual_v,business: busi,
-				lat: lat, long: long 
+				lat: lat, long: long,
+				images: images_url
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
         };
 
-        fetch('http://3.28.53.5:4052/project', requestOptions)
-		.then(response => response.json())
-		.then((result) => {
-			console.log('Success:', result)
-			console.log('error:', result.error)
-			if(result.error === null ){
-				window.location.replace('/admin/projects')
-			} else {
-				alert("Something is wrong while saving please try again!")
-			}
-				
-		})			
+
+		console.log("requestOptions : "+JSON.stringify(requestOptions))
+		console.log("requestOptions : "+requestOptions.method)
+		console.log("requestOptions : "+requestOptions.headers['Content-Type'])		
+		console.log("requestOptions : "+requestOptions.body)
+
+		if ( Name.length <=0 ) {
+			openErrorMsg('Project Name is required.')
+		} else {
+			fetch('http://3.28.53.5:4052/project', requestOptions)
+			.then(response => response.json())
+			.then((result) => {
+				console.log('Success:', result)
+				console.log('error:', result.error)
+				if(result.error === null ){
+					window.location.replace('/admin/projects')
+					
+				} else {
+					alert("Something is wrong while saving please try again!")
+				}
+					
+			})
+		}
+
+	
+	
           
+		//window.location.replace('/admin/projects')
         //alert('Added');
         //window.location.replace('/admin/projects')
 
@@ -245,6 +345,151 @@ const AddProjectSingleItem = props => {
 		
 	}
 
+	function uniqueFileName() {
+		const dateString = Date.now().toString(36)
+		const randomness = Math.random().toString(36).substr(2)
+		let ret = dateString.replace(".","") + randomness.replace(".","")
+		return ret
+	}	
+
+	function readURL(event) {
+
+		let image_source = event.target.id.split("-") 
+
+		let src_file = document.getElementById(event.target.id)
+		
+		if (src_file.files && src_file.files[0]) {
+			let reader = new FileReader()
+			let preview_img = document.getElementById(image_source[1])
+
+			reader.onload = function (e) {
+				preview_img.src = e.target.result
+								
+			};
+
+			reader.readAsDataURL(src_file.files[0])
+		}
+		
+		
+	}		
+
+
+	function uploadImagetest() {
+
+
+
+		let images_arr = []
+
+		let kv = []
+		let temp = ''
+
+
+
+
+
+		temp = document.getElementById("url-img1").value
+		  if (  temp !== "" || temp.length > 0) {
+			kv["image_url"] = temp
+			images_arr.push( temp )
+		  }
+
+		temp = document.getElementById("url-img2").value
+		  if (  temp !== "" || temp.length > 0) {
+			kv["image_url"] = temp
+			images_arr.push( temp )
+		  }		 
+		temp = document.getElementById("url-img3").value
+		  if (  temp !== "" || temp.length > 0) {
+			kv["image_url"] = temp
+			images_arr.push( temp )
+		  }
+
+		temp = document.getElementById("url-img4").value
+		  if (  temp !== "" || temp.length > 0) {
+			kv["image_url"] = temp
+			images_arr.push( temp )
+		  }			  
+
+		temp = document.getElementById("url-img5").value
+		  if (  temp !== "" || temp.length > 0) {
+			kv["image_url"] = temp
+			images_arr.push( temp )
+		  }
+
+		temp = document.getElementById("url-img6").value
+		  if (  temp !== "" || temp.length > 0) {
+			kv["image_url"] = temp
+			images_arr.push( temp )
+		  }		 
+
+		temp = document.getElementById("url-img7").value
+		  if (  temp !== "" || temp.length > 0) {
+			kv["image_url"] = temp
+			images_arr.push( temp ) 
+		  }
+
+		temp = document.getElementById("url-img8").value
+		  if (  temp !== "" || temp.length > 0) {
+			kv["image_url"] = temp
+			images_arr.push( temp )
+		  }	
+
+		  let images_url = ["https://bucket-miral.s3.me-central-1.amazonaws.com/l81hexcj7qpvdur27qnlogin-ftrd.png","https://bucket-miral.s3.me-central-1.amazonaws.com/l81hehzvaa6fz9p0zt799destination-happiness.png"]
+
+		  console.log(images_url)
+		  console.log(images_arr)
+		  console.log(JSON.stringify( images_arr ))  
+
+	}
+
+	function uploadImage(e) {
+		//console.log(e.target.files[0])
+		//alert(e.target.files[0].name)
+				//const input = document.getElementById("source-img1")
+				
+				let image_source = e.target.id.split("-") 
+				let filename = e.target.files[0].name
+				let file_ext = filename.split(".") 
+				let formData = new FormData()
+
+
+				formData.append("image", e.target.files[0])
+				formData.append("filename", uniqueFileName()+file_ext[0]+"."+file_ext[1])
+			
+				const requestOptions = {
+					method: 'POST',
+					body: formData
+				}
+
+				  fetch('http://3.28.53.5:4052/project/upload', requestOptions)
+				  .then(response => response.json())
+				  .then((result) => {
+					  console.log('Success:', result)
+					  console.log('error:', result.error)
+					  if(result.error === null ){
+
+						let reader = new FileReader()
+						let preview_img = document.getElementById(image_source[1])
+			
+						reader.onload = function (e) {
+							preview_img.src = e.target.result
+						}
+			
+						reader.readAsDataURL(e.target.files[0])		
+						
+						document.getElementById("url-"+image_source[1]).value = result.data
+						console.log('data:', result.data)
+						
+					  } else {
+						  alert("Something is wrong while saving please try again!")
+					  }
+						  
+				  })	
+
+
+	}	
+
+
 
     return <React.Fragment>
 
@@ -268,10 +513,10 @@ const AddProjectSingleItem = props => {
 
 					<fieldset class="half">
 						<label>Name (EN):
-							<input id="name" type="text" />
+							<input ref={name_en} id="name" type="text" />
 						</label>
 						<label>Name (AR):
-							<input id="name_ar" type="text" />
+							<input ref={name_ar} id="name_ar" type="text" />
 						</label>
 					</fieldset>
 
@@ -334,9 +579,9 @@ const AddProjectSingleItem = props => {
 
 						<span class="group">
               <label class="ch_lbl">
-                <input type="checkbox" value="Meet" class="ftype" />
+                <input type="checkbox" value="Business Venues" class="ftype" />
                 <span class="checkmark"></span>
-                Meet
+                Business Venues
               </label>
 
               <label class="ch_lbl">
@@ -373,6 +618,15 @@ const AddProjectSingleItem = props => {
 							<input type="text" id="website" onClick={addHttps}/>
 						</label>
 					</fieldset>   
+					<fieldset class="half">
+						<label>Headline (EN):
+							<input id="headline_en" type="text" />
+						</label>
+
+						<label>Headline (AR):
+							<input id="headline_ar" type="text" />							
+						</label>
+					</fieldset>  
 
 					<fieldset class="half">
 						<label>Description (EN):
@@ -398,55 +652,71 @@ const AddProjectSingleItem = props => {
 					</fieldset>
 
 					<fieldset class="ima_ges">
-						<label>Images (JPG max file size 2mb):</label>
+						<label>Images <span>(1600 x 1020 pixels JPG/WebP, optimum file size 500Kb)</span></label>
 						<div class="item_wrap">
 						</div>
 
-						<button class="btn bt_orange">Add more images</button>
+						<a class="btn bt_orange" onClick={uploadImagetest} >Add more images</a>
 					</fieldset>			
-          <fieldset>
-            <div className="App">
-              <ImageUploading
-                multiple
-                value={images}
-                onChange={onChange}
-                maxNumber={maxNumber}
-                dataURLKey="data_url"
-              >
-                {({
-                  imageList,
-                  onImageUpload,
-                  onImageRemoveAll,
-                  onImageUpdate,
-                  onImageRemove,
-                  isDragging,
-                  dragProps,
-                }) => (
-                  // write your building UI
-                  <div className="upload__image-wrapper">
-                    <button
-                      style={isDragging ? { color: 'red' } : undefined}
-                      onClick={onImageUpload}
-                      {...dragProps}
-                    >
-                      Click or Drop here
-                    </button>
-                    &nbsp;
-                    <button onClick={onImageRemoveAll}>Remove all images</button>
-                    {imageList.map((image, index) => (
-                      <div key={index} className="image-item">
-                        <img src={image['data_url']} alt="" width="100" />
-                        <div className="image-item__btn-wrapper">
-                          <button onClick={() => onImageUpdate(index)}>Update</button>
-                          <button onClick={() => onImageRemove(index)}>Remove</button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </ImageUploading>
-            </div>            
-          </fieldset>		
+          
+
+		<fieldset class="ima_ges">
+
+			<div class="row">	
+				<div class="col-md-12">
+					<table>
+					<tr>
+					<td>
+						<img class="uploaded-images" id="img1" src="/assets/img/no-image.jpg" alt="image" />
+						<input id="source-img1" type='file' onChange={uploadImage}/>	
+						<input id="url-img1" type='hidden'/>	
+					</td>
+					<td>
+						<img class="uploaded-images" id="img2" src="/assets/img/no-image.jpg" alt="image" />
+						<input id="source-img2" type='file' onChange={uploadImage} />
+						<input id="url-img2" type='hidden'/>	
+					</td>
+					<td>
+						<img class="uploaded-images" id="img3" src="/assets/img/no-image.jpg" alt="image" />
+						<input id="source-img3" type='file' onChange={uploadImage} />
+						<input id="url-img3" type='hidden'/>
+					</td>
+					<td>
+						<img class="uploaded-images" id="img4" src="/assets/img/no-image.jpg" alt="image" />
+						<input id="source-img4" type='file' onChange={uploadImage} />
+						<input id="url-img4" type='hidden'/>
+					</td>
+					</tr>
+					<tr>
+					<td>
+						<img class="uploaded-images" id="img5" src="/assets/img/no-image.jpg" alt="image" />								
+						<input id="source-img5" type='file' onChange={uploadImage} />
+						<input id="url-img5" type='hidden'/>										
+					</td>
+					<td>
+						<img class="uploaded-images" id="img6" src="/assets/img/no-image.jpg" alt="image" />
+						<input id="source-img6" type='file' onChange={uploadImage} />
+						<input id="url-img6" type='hidden'/>
+					</td>
+					<td>
+						<img class="uploaded-images" id="img7" src="/assets/img/no-image.jpg" alt="image" />
+						<input id="source-img7" type='file' onChange={uploadImage} />
+						<input id="url-img7" type='hidden'/>											
+					</td>
+					<td>
+
+						<img class="uploaded-images" id="img8" src="/assets/img/no-image.jpg" alt="image" />
+						<input id="source-img8" type='file' onChange={uploadImage} />
+						<input id="url-img8" type='hidden'/>										
+					</td>
+					</tr>									
+					</table>
+
+
+				</div>
+
+			</div>								
+		</fieldset>			  		
 
 		<fieldset class="btns">
 			<button class="btn bt_orange save" type='submit' onClick={AddAPIData}>Add</button>
