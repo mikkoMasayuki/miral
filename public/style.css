@@ -657,7 +657,7 @@ button.swal2-cancel:hover{
     background: #fff;
     border-radius: 5px;
     padding: 20px 20px 17px 20px;
-    width: 460px;
+    width: 560px;
     min-height: 350px;
 }
 
@@ -1112,6 +1112,18 @@ button.swal2-cancel:hover{
     background: #ff8a03!important;
     border:none!important;
     box-shadow: none!important;
+}
+
+img.uploaded-images {
+    margin-bottom: 5px;
+    border-radius: 8px;
+    height: 97px;
+    display: block;
+    object-fit: cover;
+}
+
+div.item-images div.first-row,div.item-images div.next-row {
+    display: flex;
 }
 
 
