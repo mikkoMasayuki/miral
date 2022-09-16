@@ -89,14 +89,14 @@ nav.m_header{ background: #333; position: relative; padding: 0px 0px; }
 /*home header*/
 nav.home_header{ overflow: hidden; }
 nav.home_header img.logo{  
-    margin: 7px 0 0 0px;
+    margin: 10px 0 0 0px;
     height: 150px;
 
 }
 nav.home_header,
 nav.home_header a.navbar-brand{ background: #fff; border-radius: 0px; }
 
-nav.home_header .navbar-nav{ display: block; margin-top: -85px; }
+nav.home_header .navbar-nav{ display: block; margin-top: -55px; }
 nav.home_header .nav-item a{  
     padding: 5px 20px!important;
     justify-content: flex-end;
@@ -381,7 +381,7 @@ button.bt_orange:hover{
 
 /*############ filter dropdownstarts ############*/
 .filter_drop{  
-    background: rgba(237 237 237 / 85%);
+    background: rgba(237 237 237 / 93%);
     padding: 45px 0px;
     position: absolute;
     left: 0;
@@ -587,7 +587,7 @@ p.tag.tag_2{ display: none;}
 }
 
 .single_proj .content_left .details ul{ padding-left: 0px; margin: 0px 0 -7px 0; }
-.single_proj .content_left .details li{ list-style: none;     margin-bottom: 2px; word-break: break-word;}
+.single_proj .content_left .details li{ list-style: none; margin-bottom: 2px; word-break: break-word;}
 .single_proj .content_left .details li strong{ font-weight: 500; }
 .single_proj .content_left p {  
     line-height: 1.5;
@@ -596,7 +596,7 @@ p.tag.tag_2{ display: none;}
     color: #333;
 }
 
-.single_proj .content_right h3{ font-weight: 500; font-size: 22px;    margin-bottom: 17px; }
+.single_proj .content_right h3{ font-weight: 500; font-size: 22px; margin-bottom: 8px; }
 .single_proj .content_right  p{ font-size: 16px; }
 .single_proj .content_right .bt_wrap .btn{  
     background: #CACCCB;
@@ -859,7 +859,7 @@ button.swal2-cancel:hover{
     font-size: 14px;
 }
 
-.edit_dashboard .stats input{ margin-bottom: 15px;  }
+.edit_dashboard .stats input{ margin-bottom: 15px; margin-top: 0px; }
 .edit_dashboard .stats .group{ width: 32%; }
 
 .edit_dashboard .ima_ges .item_wrap{  
@@ -1186,7 +1186,7 @@ div.item-images div.first-row,div.item-images div.next-row {
 
     .animated_elements .img_flipped { margin-left: 29vw; }    
     nav.home_header img.logo{ /*height: 147px;*/ margin: 0px;}
-    .ftrd_header .img_main{ margin-right: -110px;}
+    .ftrd_header .img_main{ margin-right: -139px; max-width: 82%;}
     .animated_elements .img_portfolio{ width: 185px;}
     .animated_elements .img_th{ width: 105px; left: 95px;}
 
@@ -1202,6 +1202,7 @@ div.item-images div.first-row,div.item-images div.next-row {
 
 @media (max-width: 1366px){
     body .container{ max-width: 100%; margin: auto;}
+    .ftrd_header .img_main{ max-width: 85%;}
 
     /*login page*/
     .login_sec img.ftrd{ margin-left: 0px; }
@@ -1238,7 +1239,7 @@ div.item-images div.first-row,div.item-images div.next-row {
     .ftrd_header .img_main{ max-width: 92%;     margin-right: -182px;}
     .animated_elements .img_portfolio{ width: 140px;}
     .animated_elements .img_th{ width: 78px; left: 95px;}
-    nav.home_header .navbar-nav{     margin-top: -65px;}
+    nav.home_header .navbar-nav{     margin-top: -40px;}
 
     /*login page*/
     .login_sec img.ftrd{ height: 402px; }
@@ -1565,7 +1566,7 @@ div.item-images div.first-row,div.item-images div.next-row {
     
 
     nav.home_header::before{
-        background-size: 145%;
+        background-size: 150%;
         background-position: 54% 0px;
     }
     .dest_happiness::before{ background-position: 154% 54%;  background-size: 60%;}
