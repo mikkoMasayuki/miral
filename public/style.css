@@ -1590,3 +1590,5 @@ div.item-images div.first-row,div.item-images div.next-row {
     /* CSS specific to iOS devices */ 
     .thumb_sec .item .desc p.tag span{ padding: 7px 7px 5px 7px;}
   }
+
+.hideme {display:none;}  
