@@ -652,15 +652,15 @@ const AddProjectSingleItem = props => {
 					</fieldset>
 
 					<fieldset class="ima_ges">
-						<label>Images <span>(1600 x 1020 pixels JPG/WebP, optimum file size 500Kb)</span></label>
+						<label>Images: <span>(1600 x 1020 pixels JPG/WebP, optimum file size 500Kb)</span></label>
 						<div class="item_wrap">
 						</div>
 
 						<a class="btn bt_orange" onClick={uploadImagetest} >Add more images</a>
 					</fieldset>			
           
-
-		<fieldset class="ima_ges">
+							
+		<fieldset class="ima_ges hideme">
 
 			<div class="row">	
 				<div class="col-md-12">
@@ -716,7 +716,8 @@ const AddProjectSingleItem = props => {
 				</div>
 
 			</div>								
-		</fieldset>			  		
+		</fieldset>		
+	  		
 
 		<fieldset class="btns">
 			<button class="btn bt_orange save" type='submit' onClick={AddAPIData}>Add</button>
