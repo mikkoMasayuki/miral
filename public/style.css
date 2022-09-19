@@ -880,6 +880,7 @@ button.swal2-cancel:hover{
     margin-bottom: 5px; 
     border-radius: 8px; 
     height: 97px;
+    width: 151px;
     display: block;
     object-fit: cover;
 }
@@ -899,6 +900,11 @@ button.swal2-cancel:hover{
 .edit_dashboard .btns a{  
     margin-left: 20px;
     margin-bottom: 8px;
+}
+
+a.add_more_imgs{ display: none;}
+.edit_dashboard fieldset.ima_ges + fieldset.ima_ges{
+    margin-top: -55px;
 }
 /*############ admin Edit Projects ends ############*/
 
@@ -1119,6 +1125,7 @@ img.uploaded-images {
     height: 97px;
     display: block;
     object-fit: cover;
+    margin-right: 10px;
 }
 
 div.item-images div.first-row,div.item-images div.next-row {

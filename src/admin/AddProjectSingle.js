@@ -656,7 +656,7 @@ const AddProjectSingleItem = props => {
 						<div class="item_wrap">
 						</div>
 
-						<a class="btn bt_orange" onClick={uploadImagetest} >Add more images</a>
+						<a class="btn bt_orange add_more_imgs" onClick={uploadImagetest} >Add more images</a>
 					</fieldset>			
           
 							
@@ -668,7 +668,7 @@ const AddProjectSingleItem = props => {
 					<tr>
 					<td>
 						<label for="source-img1">
-								<img class="uploaded-images" id="img1" src="/assets/img/no-image.jpg" alt="image" />
+								<img class="uploaded-images" id="img1" src="/assets/img/upload-placeholder.png" alt="image" />
 						</label>						
 						
 						<input class="hideme" name="source-img1" id="source-img1" type='file' onChange={uploadImage}/>	
@@ -676,7 +676,7 @@ const AddProjectSingleItem = props => {
 					</td>
 					<td>
 						<label for="source-img2">
-							<img class="uploaded-images" id="img2" src="/assets/img/no-image.jpg" alt="image" />
+							<img class="uploaded-images" id="img2" src="/assets/img/upload-placeholder.png" alt="image" />
 						</label>						
 						
 						<input class="hideme" name="source-img2" id="source-img2" type='file' onChange={uploadImage} />
@@ -684,7 +684,7 @@ const AddProjectSingleItem = props => {
 					</td>
 					<td>
 						<label for="source-img3">
-							<img class="uploaded-images" id="img3" src="/assets/img/no-image.jpg" alt="image" />
+							<img class="uploaded-images" id="img3" src="/assets/img/upload-placeholder.png" alt="image" />
 						</label>						
 						
 						<input class="hideme" name="source-img3" id="source-img3" type='file' onChange={uploadImage} />
@@ -692,7 +692,7 @@ const AddProjectSingleItem = props => {
 					</td>
 					<td>
 						<label for="source-img4">
-							<img class="uploaded-images" id="img4" src="/assets/img/no-image.jpg" alt="image" />
+							<img class="uploaded-images" id="img4" src="/assets/img/upload-placeholder.png" alt="image" />
 						</label>						
 						
 						<input class="hideme" name="source-img4" id="source-img4" type='file' onChange={uploadImage} />
@@ -703,7 +703,7 @@ const AddProjectSingleItem = props => {
 					<td>
 
 						<label for="source-img5">
-							<img class="uploaded-images" id="img5" src="/assets/img/no-image.jpg" alt="image" />
+							<img class="uploaded-images" id="img5" src="/assets/img/upload-placeholder.png" alt="image" />
 						</label>							
 														
 						<input class="hideme" name="source-img5" id="source-img5" type='file' onChange={uploadImage} />
@@ -712,7 +712,7 @@ const AddProjectSingleItem = props => {
 					<td>
 
 						<label for="source-img6">
-						<img class="uploaded-images" id="img6" src="/assets/img/no-image.jpg" alt="image" />
+						<img class="uploaded-images" id="img6" src="/assets/img/upload-placeholder.png" alt="image" />
 						</label>
 
 						
@@ -722,7 +722,7 @@ const AddProjectSingleItem = props => {
 					<td>
 
 						<label for="source-img7">
-							<img class="uploaded-images" id="img7" src="/assets/img/no-image.jpg" alt="image" />
+							<img class="uploaded-images" id="img7" src="/assets/img/upload-placeholder.png" alt="image" />
 						</label>
 						
 						<input class="hideme" name="source-img7" id="source-img7" type='file' onChange={uploadImage} />
@@ -730,7 +730,7 @@ const AddProjectSingleItem = props => {
 					</td>
 					<td>
 						<label for="source-img8">
-							<img class="uploaded-images" id="img8" src="/assets/img/no-image.jpg" alt="image" />
+							<img class="uploaded-images" id="img8" src="/assets/img/upload-placeholder.png" alt="image" />
 						</label>
 						
 						<input class="hideme" name="source-img8"  id="source-img8" type='file' onChange={uploadImage} />
