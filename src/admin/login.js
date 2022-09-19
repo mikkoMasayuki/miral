@@ -38,7 +38,7 @@ import { useLocation } from 'react-router-dom';
         const url_arr = tmp_url.split("/")
         localStorage.setItem('is_login', 1)
 
-        setWithExpiry('timer_set', 'timertimeout', 2)        
+        setWithExpiry('timer_set', 'timertimeout', 10)        
         window.location.href = window.location.protocol + "//" + url_arr[2]+"/admin/projects";
     } else {
       alert("Wrong email or password combination");
