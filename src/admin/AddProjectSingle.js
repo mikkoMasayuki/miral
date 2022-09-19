@@ -660,53 +660,80 @@ const AddProjectSingleItem = props => {
 					</fieldset>			
           
 							
-		<fieldset class="ima_ges hideme">
+		<fieldset class="ima_ges">
 
 			<div class="row">	
 				<div class="col-md-12">
 					<table>
 					<tr>
 					<td>
-						<img class="uploaded-images" id="img1" src="/assets/img/no-image.jpg" alt="image" />
-						<input id="source-img1" type='file' onChange={uploadImage}/>	
+						<label for="source-img1">
+								<img class="uploaded-images" id="img1" src="/assets/img/no-image.jpg" alt="image" />
+						</label>						
+						
+						<input class="hideme" name="source-img1" id="source-img1" type='file' onChange={uploadImage}/>	
 						<input id="url-img1" type='hidden'/>	
 					</td>
 					<td>
-						<img class="uploaded-images" id="img2" src="/assets/img/no-image.jpg" alt="image" />
-						<input id="source-img2" type='file' onChange={uploadImage} />
+						<label for="source-img2">
+							<img class="uploaded-images" id="img2" src="/assets/img/no-image.jpg" alt="image" />
+						</label>						
+						
+						<input class="hideme" name="source-img2" id="source-img2" type='file' onChange={uploadImage} />
 						<input id="url-img2" type='hidden'/>	
 					</td>
 					<td>
-						<img class="uploaded-images" id="img3" src="/assets/img/no-image.jpg" alt="image" />
-						<input id="source-img3" type='file' onChange={uploadImage} />
+						<label for="source-img3">
+							<img class="uploaded-images" id="img3" src="/assets/img/no-image.jpg" alt="image" />
+						</label>						
+						
+						<input class="hideme" name="source-img3" id="source-img3" type='file' onChange={uploadImage} />
 						<input id="url-img3" type='hidden'/>
 					</td>
 					<td>
-						<img class="uploaded-images" id="img4" src="/assets/img/no-image.jpg" alt="image" />
-						<input id="source-img4" type='file' onChange={uploadImage} />
+						<label for="source-img4">
+							<img class="uploaded-images" id="img4" src="/assets/img/no-image.jpg" alt="image" />
+						</label>						
+						
+						<input class="hideme" name="source-img4" id="source-img4" type='file' onChange={uploadImage} />
 						<input id="url-img4" type='hidden'/>
 					</td>
 					</tr>
 					<tr>
 					<td>
-						<img class="uploaded-images" id="img5" src="/assets/img/no-image.jpg" alt="image" />								
-						<input id="source-img5" type='file' onChange={uploadImage} />
+
+						<label for="source-img5">
+							<img class="uploaded-images" id="img5" src="/assets/img/no-image.jpg" alt="image" />
+						</label>							
+														
+						<input class="hideme" name="source-img5" id="source-img5" type='file' onChange={uploadImage} />
 						<input id="url-img5" type='hidden'/>										
 					</td>
 					<td>
+
+						<label for="source-img6">
 						<img class="uploaded-images" id="img6" src="/assets/img/no-image.jpg" alt="image" />
-						<input id="source-img6" type='file' onChange={uploadImage} />
+						</label>
+
+						
+						<input class="hideme" name="source-img6" id="source-img6" type='file' onChange={uploadImage} />
 						<input id="url-img6" type='hidden'/>
 					</td>
 					<td>
-						<img class="uploaded-images" id="img7" src="/assets/img/no-image.jpg" alt="image" />
-						<input id="source-img7" type='file' onChange={uploadImage} />
+
+						<label for="source-img7">
+							<img class="uploaded-images" id="img7" src="/assets/img/no-image.jpg" alt="image" />
+						</label>
+						
+						<input class="hideme" name="source-img7" id="source-img7" type='file' onChange={uploadImage} />
 						<input id="url-img7" type='hidden'/>											
 					</td>
 					<td>
-
-						<img class="uploaded-images" id="img8" src="/assets/img/no-image.jpg" alt="image" />
-						<input id="source-img8" type='file' onChange={uploadImage} />
+						<label for="source-img8">
+							<img class="uploaded-images" id="img8" src="/assets/img/no-image.jpg" alt="image" />
+						</label>
+						
+						<input class="hideme" name="source-img8"  id="source-img8" type='file' onChange={uploadImage} />
 						<input id="url-img8" type='hidden'/>										
 					</td>
 					</tr>									
