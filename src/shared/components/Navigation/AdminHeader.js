@@ -85,7 +85,7 @@ const AdminHeader = props => {
 
 	if (value === 'expired') {
 		setWithExpiry('timer_set_final', 'timertimeout', 1)
-		openWarningMsg('One minute left! You will be logout')
+		openWarningMsg('One minute left! You will be logged out')
 	}
 
 	if (value_final === 'expired') {
