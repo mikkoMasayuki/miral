@@ -2,8 +2,7 @@ import logo from './logo.svg';
 //import './App.css';
 import React, {useEffect,useState} from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import { combineReducers } from 'redux';
-import { sessionReducer } from 'redux-react-session';
+
 
 
 import Users from './user/pages/User';
@@ -14,13 +13,12 @@ import SingleHeader from './shared/components/Navigation/SinglePageHeader';
 import AdminHeader from './shared/components/Navigation/AdminHeader';
 
 import ProjectSingle from './projects/pages/single/projectSingle';
-import MapView from './maps/mapView';
 import Login from './login/login';
 import Admin from './admin/login';
 import AdminProjects from './admin/projects';
 import AdminUpdateProjects from './admin/UpdateProject';
 import AdminAddProjects from './admin/AddProject';
-import MapList from './maps/maplist';
+
 
 const App = () => {
 
@@ -61,10 +59,6 @@ const App = () => {
       <Route path="/project/:name/:id" exact >
         <SingleHeader/>
         <ProjectSingle></ProjectSingle>
-      </Route>
-
-      <Route path="/map" exact>
-        <MapList></MapList>
       </Route>
 
       <Route path="/" exact>
