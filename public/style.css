@@ -884,6 +884,7 @@ button.swal2-cancel:hover{
     width: 151px;
     display: block;
     object-fit: cover;
+    cursor: pointer;
 }
 
 
