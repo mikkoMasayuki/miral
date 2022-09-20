@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import parse from 'html-react-parser';
+
 
 
 
