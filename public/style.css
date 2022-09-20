@@ -868,6 +868,7 @@ button.swal2-cancel:hover{
     padding-top: 10px;
     padding-bottom: 30px;
     width: 67%;
+    flex-wrap: wrap;
 }
 
 .edit_dashboard .ima_ges label span{
@@ -1119,16 +1120,16 @@ a.add_more_imgs{ display: none;}
     box-shadow: none!important;
 }
 
-img.uploaded-images {
-    margin-bottom: 5px;
+.edit_dashboard .ima_ges img.uploaded-images {
+    margin-bottom: 15px;
     border-radius: 8px;
     height: 97px;
     display: block;
     object-fit: cover;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
-div.item-images div.first-row,div.item-images div.next-row {
+div.item-images div.first-row, div.item-images div.next-row {
     display: flex;
 }
 
@@ -1498,6 +1499,21 @@ div.item-images div.first-row,div.item-images div.next-row {
     .edit_dashboard .ima_ges .item_wrap{ flex-wrap: wrap; }
     .edit_dashboard .ima_ges .item{ flex-basis: 46%; }
     .edit_dashboard .btns .btn{ margin-left: 5px;padding: 10px 10px; }
+
+    .edit_dashboard .ima_ges table{
+        border-collapse: initial;
+        width: 100%;
+    }
+
+    .edit_dashboard .ima_ges table tr{ display: block;  width: 100%;}
+    .edit_dashboard .ima_ges table td{ 
+        display: block;
+        width: 50%;
+        float: left;
+        margin: 0;
+    }
+
+
 
 
     .swal2-confirm,
