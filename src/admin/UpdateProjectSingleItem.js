@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import parse from 'html-react-parser';
 
 
 
@@ -12,6 +13,10 @@ const UpdateProjectSingleItem = props => {
     const [Name, setName] = useState('');
     const [Name_Ar, setName_Ar] = useState('');
     const [checkbox, setCheckbox] = useState(false);
+
+
+	//alert(props.images.length)
+
    
 
     useEffect(() => {
@@ -170,6 +175,60 @@ const UpdateProjectSingleItem = props => {
         */
 
 
+
+		let images_arr = []
+
+		let kv = []
+		let temp = ''
+
+		temp = document.getElementById("url-img1").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }
+
+		temp = document.getElementById("url-img2").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }		 
+		temp = document.getElementById("url-img3").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }
+
+		temp = document.getElementById("url-img4").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }			  
+
+		temp = document.getElementById("url-img5").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }
+
+		temp = document.getElementById("url-img6").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }		 
+
+		temp = document.getElementById("url-img7").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp ) 
+		  }
+
+		temp = document.getElementById("url-img8").value
+		  if (  temp !== "" || temp.length > 0) {
+			images_arr.push( temp )
+		  }	
+		
+
+		  console.log(images_arr)
+		  
+		  
+		//let images_url = ["https://bucket-miral.s3.me-central-1.amazonaws.com/l81hexcj7qpvdur27qnlogin-ftrd.png","https://bucket-miral.s3.me-central-1.amazonaws.com/l81hehzvaa6fz9p0zt799destination-happiness.png"]
+        
+		let images_url = images_arr		
+
+
         
         const requestOptions = {
             method: 'PUT',
@@ -180,6 +239,7 @@ const UpdateProjectSingleItem = props => {
                 desciption_ar: Description_ar, year: Yyear, size: Ssize, value: Vval,
                 annual_visitor: Annual_v,
 				lat: lat, long: long, business: busi, 
+				images: images_url
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
         };
@@ -312,10 +372,194 @@ const UpdateProjectSingleItem = props => {
 		
 	}
 
-	function uploadImage() {
-		let f= document.getElementById('source-img1')
-		alert(f.value);
-	}
+	function readURL(event) {
+
+		let image_source = event.target.id.split("-") 
+
+		let src_file = document.getElementById(event.target.id)
+		
+		if (src_file.files && src_file.files[0]) {
+			let reader = new FileReader()
+			let preview_img = document.getElementById(image_source[1])
+
+			reader.onload = function (e) {
+				preview_img.src = e.target.result
+								
+			};
+
+			reader.readAsDataURL(src_file.files[0])
+		}
+		
+		
+	}	
+
+	function uniqueFileName() {
+		const dateString = Date.now().toString(36)
+		const randomness = Math.random().toString(36).substr(2)
+		let ret = dateString.replace(".","") + randomness.replace(".","")
+		return ret
+	}	
+
+	function uploadImage(e) {
+				
+
+				let image_source = e.target.id.split("-") 
+				let filename = e.target.files[0].name
+				let file_ext = filename.split(".") 
+				let formData = new FormData()
+
+
+				formData.append("image", e.target.files[0])
+				formData.append("filename", uniqueFileName()+file_ext[0]+"."+file_ext[1])
+			
+				const requestOptions = {
+					method: 'POST',
+					body: formData
+				}
+
+				console.log("formdata >>>>>>>>>>>>>>>>>>>>>>>>>>")
+				console.log(formData.get('image'))
+				console.log(formData.get('filename'))
+				console.log(image_source[1])
+
+
+				let readerloading = new FileReader()
+				let preview_img_loading = document.getElementById(image_source[1])
+	
+				readerloading.onload = function (e) {
+					preview_img_loading.src = '/assets/img/loading-bars.gif'
+					//document.getElementById("url-"+image_source[1]).value = result.data
+				}				
+
+				
+				  fetch('http://3.28.53.5:4052/project/upload', requestOptions)
+				  .then(response => response.json())
+				  .then((result) => {
+					  console.log('Success:', result)
+					  console.log('error:', result.error)
+					  if(result.error === null ){
+
+						let reader = new FileReader()
+						let preview_img = document.getElementById(image_source[1])
+			
+						reader.onload = function (e) {
+							//preview_img.src = e.target.result
+							preview_img.src = result.data
+							document.getElementById("url-"+image_source[1]).value = result.data
+						}
+			
+						reader.readAsDataURL(e.target.files[0])		
+						
+						document.getElementById("url-"+image_source[1]).value = result.data
+						console.log('data:', result.data)
+						
+					  } else {
+						  alert("Something is wrong while saving please try again!")
+					  }
+						  
+				  })	
+				  
+				  
+
+
+	}	
+
+
+	const generateImages = (item) => {
+
+		
+		let html = ''
+		let imgs = ''
+		let imgs_row1 = ''
+		let imgs_row2 = ''
+		let imgs_remain = ''
+		let presetImages = 8
+		let remainImgs = presetImages - item.length
+		let colcounter = 0
+		let newArr = []
+
+		for(let i=0;i<item.length;i++) {
+			newArr.push(item[i].image_url)
+		}
+
+
+		if (remainImgs>0) {
+			for(let i=0;i<remainImgs;i++) {
+				newArr.push('/assets/img/upload-placeholder.png')
+			}
+			
+		}
+		
+
+
+		let tmp = ''
+		let src_label = ''
+		let src_input = ''		
+		let src_img = ''	
+
+		return <React.Fragment>
+			{
+
+					newArr.map( (item,counter) => {
+						counter++
+						src_label = "source-img"+counter
+						src_input = "url-img"+counter
+						src_img = "img"+counter
+						
+
+						return <div class="item">
+						<label for={src_label}>
+							<img id={src_img} src={item} />
+						</label>	
+						<input class="hideme" name={src_label} id={src_label} type="file" onChange={uploadImage} />
+						<input id={src_input} value={item} type="hidden"/>
+						<a>Remove</a>
+						</div>
+					})
+				
+					
+				
+			}
+		</React.Fragment>
+		/*
+		for(let i=0;i<newArr.length;i++) {
+			colcounter++
+
+			if(colcounter <= 4) {
+				imgs_row1 = imgs_row1 
+				+ '<td>' 
+				+ '<label for="source-img'+i+'">'
+				+ '<img src="'
+				+ newArr[i]
+				+ '"/>'
+				+ '</label>'
+				+ '<input class="hidemex" name="source-img'+i+'" id="source-img'+i+'" type="file" onChange={uploadImage} />'
+				+ '<input id="url-img'+i+'" type="hidden"/>'
+				+ '<a>Remove</a>'
+				+'</td>'	
+	
+			} else {
+				imgs_row2 = imgs_row2 
+				+ '<td>' 
+				+ '<label for="source-img'+i+'">'
+				+ '<img src="'
+				+ newArr[i]
+				+ '"/>'
+				+ '</label>'
+				+ '<input class="hideme" name="source-img'+i+'" id="source-img'+i+'" type="file" onChange={uploadImage} />'
+				+ '<input id="url-img'+i+'" type="hidden"/>'
+				+ '<a>Remove</a>'
+				+'</td>'			
+			}
+		}
+
+		imgs = '<tr>'+imgs_row1+'</tr><tr>'+imgs_row2+'</tr>'
+		html = '<table>'+imgs+'</table>'
+
+		return parse(html)
+		*/
+
+	}	
 
     return <React.Fragment>
 
@@ -486,69 +730,13 @@ const UpdateProjectSingleItem = props => {
 					<fieldset class="ima_ges">
 						<label>Images: <span>(1600 x 1020 pixels JPG/WebP, optimum file size 500Kb)</span></label>
 						<div class="item_wrap">
-
-
-							{props.images.map(image => {
-								return <div class="item">
-								<img src={image.image_url} />
-								<a>Remove</a>
-								</div>
-							})}
-													
+							{generateImages(props.images)}			
 						</div>
 
-						<button class="btn bt_orange" onClick={uploadImage}>Add more images</button>
+						
 					</fieldset>		
 					
-					<fieldset class="ima_ges hideme">
-
-						<div class="row">	
-							<div class="col-md-12">
-								<table>
-									<tr>
-										<td>
-											<img class="uploaded-images" id="img1" src="/assets/img/no-image.jpg" alt="image" />
-											<input id="source-img1" type='file' onChange={readURL} />											
-										</td>
-										<td>
-											<img class="uploaded-images" id="img2" src="/assets/img/no-image.jpg" alt="image" />
-											<input id="source-img2" type='file' onChange={readURL} />
-										</td>
-										<td>
-											<img class="uploaded-images" id="img3" src="/assets/img/no-image.jpg" alt="image" />
-											<input id="source-img3" type='file' onChange={readURL} />
-										</td>
-										<td>
-											<img class="uploaded-images" id="img4" src="/assets/img/no-image.jpg" alt="image" />
-											<input id="source-img4" type='file' onChange={readURL} />
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<img class="uploaded-images" id="img5" src="/assets/img/no-image.jpg" alt="image" />								
-											<input id="source-img5" type='file' onChange={readURL} />											
-										</td>
-										<td>
-											<img class="uploaded-images" id="img6" src="/assets/img/no-image.jpg" alt="image" />
-											<input id="source-img6" type='file' onChange={readURL} />
-										</td>
-										<td>
-										<img class="uploaded-images" id="img7" src="/assets/img/no-image.jpg" alt="image" />
-								<input id="source-img7" type='file' onChange={readURL} />											
-										</td>
-										<td>
-
-										<img class="uploaded-images" id="img8" src="/assets/img/no-image.jpg" alt="image" />
-								<input id="source-img8" type='file' onChange={readURL} />											
-										</td>
-									</tr>									
-								</table>
-
-
-							</div>
-
-						</div>								
-					</fieldset>		
+						
 						
 
 					<fieldset class="btns">
