@@ -86,6 +86,11 @@ const SingleItem = props => {
 
 }
 
+let real_images = props.images
+
+
+
+console.log(props.images)
 
     return <React.Fragment>
         <div class="row head_content">
@@ -127,11 +132,26 @@ const SingleItem = props => {
 		</div>
 
         <div class="row single_grid">
+
+			{
+/*
             {props.images.map(image => {
+
 			return <div class="col-md-6 item">
 				<img src={ typeof(image.image_url) !== 'undefined' && image.image_url != null ? image.image_url : '' } />
 			</div>
             })}
+*/
+
+			}
+
+
+	            {real_images.map(image => {
+
+					return <div class="col-md-6 item">
+						<img src={ typeof(image.image_url) !== 'undefined' && image.image_url != null && image.image_url != '/assets/img/upload-placeholder.png' ? image.image_url : '' } />
+					</div>
+					})}
 
 			
 		</div>
