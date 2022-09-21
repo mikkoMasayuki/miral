@@ -164,7 +164,8 @@ const UpdateProjectSingleItem = props => {
 		let lat = coords[0]
 		let long = coords[1]
 		let busi = document.getElementById("selbusiness").value 
-
+		let head_line_en = 'testing headline eng'
+		let head_line_ar = 'testing headline ara'
 	
         /*
         
@@ -238,7 +239,7 @@ const UpdateProjectSingleItem = props => {
                 location: Location, location_ar: Location_ar, website: Website, desciption: Description_en,
                 desciption_ar: Description_ar, year: Yyear, size: Ssize, value: Vval,
                 annual_visitor: Annual_v,
-				lat: lat, long: long, business: busi, 
+				lat: lat, long: long, business: busi, headline_en: head_line_en, headline_ar: head_line_ar,
 				images: images_url
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
@@ -697,11 +698,11 @@ const UpdateProjectSingleItem = props => {
 					</fieldset>   
 					<fieldset class="half">
 						<label>Headline (EN):
-							<input id="headline_en" type="text" />
+							<input id="headline_en" type="text" defaultValue={props.headline_en} />
 						</label>
 
 						<label>Headline (AR):
-							<input id="headline_ar" type="text" />							
+							<input id="headline_ar" type="text" defaultValue={props.headline_ar}/>							
 						</label>
 					</fieldset> 
 					<fieldset class="half">
