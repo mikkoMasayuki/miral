@@ -120,7 +120,7 @@ console.log(props.images)
 				</div>
 
 				<div class=" content_right">
-				<h3>Headline Test</h3>		
+				<h3>{props.headline_en}</h3>		
 				<p>{props.description}</p>
 
 			</div>
