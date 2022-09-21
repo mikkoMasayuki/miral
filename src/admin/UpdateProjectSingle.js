@@ -36,6 +36,8 @@ const UpdateProjectSingle = props => {
               size={project.size}
               value={project.value}
               annual_visitor={project.annual_visitor}
+              headline_en={project.headline_en}
+              headline_ar={project.headline_ar}
               />;
           })}
     </React.Fragment>
