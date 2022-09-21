@@ -164,8 +164,8 @@ const UpdateProjectSingleItem = props => {
 		let lat = coords[0]
 		let long = coords[1]
 		let busi = document.getElementById("selbusiness").value 
-		let head_line_en = 'testing headline eng'
-		let head_line_ar = 'testing headline ara'
+		let head_line_en = document.getElementById("headline_en").value 
+		let head_line_ar = document.getElementById("headline_ar").value 
 	
         /*
         
@@ -465,6 +465,18 @@ const UpdateProjectSingleItem = props => {
 
 	}	
 
+	function removeImage(e) {
+
+		let image_source = e.target.id.split("-") 
+		
+		let reader = new FileReader()
+		let preview_img = document.getElementById(image_source[1])
+
+		preview_img.src = '/assets/img/upload-placeholder.png'
+		document.getElementById("url-"+image_source[1]).value = '/assets/img/upload-placeholder.png'
+		console.log(preview_img)
+		e.preventDefault()
+	}
 
 	const generateImages = (item) => {
 
@@ -497,6 +509,7 @@ const UpdateProjectSingleItem = props => {
 		let src_label = ''
 		let src_input = ''		
 		let src_img = ''	
+		let src_btn = ''
 
 		return <React.Fragment>
 			{
@@ -506,7 +519,7 @@ const UpdateProjectSingleItem = props => {
 						src_label = "source-img"+counter
 						src_input = "url-img"+counter
 						src_img = "img"+counter
-						
+						src_btn = "btn-img"+counter
 
 						return <div class="item">
 						<label for={src_label}>
@@ -514,7 +527,7 @@ const UpdateProjectSingleItem = props => {
 						</label>	
 						<input class="hideme" name={src_label} id={src_label} type="file" onChange={uploadImage} />
 						<input id={src_input} value={item} type="hidden"/>
-						<a>Remove</a>
+						<a class="remove-btn" href="" id={src_btn} onClick={removeImage}>Remove</a>
 						</div>
 					})
 				
@@ -561,6 +574,23 @@ const UpdateProjectSingleItem = props => {
 		*/
 
 	}	
+
+	let real_images = []
+	let to_push = {}
+
+	console.log(props.images)
+	props.images.map(image => {
+		if (typeof(image.image_url) !== 'undefined' && image.image_url != null && image.image_url != '/assets/img/upload-placeholder.png')  {
+			
+			to_push = {}
+			to_push.id = image.id
+			to_push.image_url = image.image_url
+
+			real_images.push(to_push)
+		}
+	})	
+
+	console.log(real_images)
 
     return <React.Fragment>
 
@@ -731,7 +761,11 @@ const UpdateProjectSingleItem = props => {
 					<fieldset class="ima_ges">
 						<label>Images: <span>(1600 x 1020 pixels JPG/WebP, optimum file size 500Kb)</span></label>
 						<div class="item_wrap">
-							{generateImages(props.images)}			
+							{
+							/*generateImages(props.images)*/
+							generateImages(real_images)
+							
+							}			
 						</div>
 
 						
