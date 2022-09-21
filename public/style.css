@@ -1136,8 +1136,6 @@ div.item-images div.first-row, div.item-images div.next-row {
 }
 
 
-
-
 /*####### mobile queries ##################*/
 @media (min-width:1800px){
     .filter_drop + .container{ /*padding-bottom: 80px;*/}
@@ -1169,10 +1167,6 @@ div.item-images div.first-row, div.item-images div.next-row {
     body .container{ max-width: 100%;  }
 }
 
-@media (max-width:992px){
-
-}
-
 @media (max-width:1700px){
     .animated_elements .img_flipped { margin-left: 29vw; }
 }
@@ -1182,10 +1176,6 @@ div.item-images div.first-row, div.item-images div.next-row {
         background-size: 30%;
         background-position: 113% 43%;
     }
-}
-
-@media (max-width:1500px){
-
 }
 
 @media (max-width: 1460px){  
@@ -1306,8 +1296,6 @@ div.item-images div.first-row, div.item-images div.next-row {
         top: 3px;
     }
 
-
-
     /*home menu*/
     nav.home_header{ /*height: 168px; */ overflow: visible;}
     nav.home_header a.navbar-brand{ 
@@ -1354,8 +1342,6 @@ div.item-images div.first-row, div.item-images div.next-row {
 
     .portfolio_map .bt_row{ padding: 45px 30px 20px 30px;}
 
-
-
     /*admin edit users*/
     .edit_dashboard fieldset.half label{ flex-basis: 50%; }
     .edit_dashboard fieldset.sta_tus select{ width: 47.5%; }
@@ -1379,7 +1365,6 @@ div.item-images div.first-row, div.item-images div.next-row {
     .dest_happiness::before{
         background-position: 113% 0%;
     }
-
 
 }
 
@@ -1416,7 +1401,6 @@ div.item-images div.first-row, div.item-images div.next-row {
   .dest_happiness .box{ height: 400px; margin: 25px 0px; }
   .dest_happiness .ftrd_img{ padding-top: 20px; }
 
-
 }
 
 @media(max-width: 768px){
@@ -1444,7 +1428,7 @@ div.item-images div.first-row, div.item-images div.next-row {
     }
 
     /*login page*/
-    .login_sec{     padding: 60px 0px; }
+    .login_sec{  padding: 60px 0px; }
     .login_sec .box span img{ height: 160px; }
     .login_sec .box span{ font-size: 14px; }
     .login_sec .box form{ width: 100%; }
@@ -1515,17 +1499,11 @@ div.item-images div.first-row, div.item-images div.next-row {
         margin: 0;
     }
 
-
-
-
     .swal2-confirm,
     .swal2-cancel {
         padding: 12px 20px 10px 20px!important;
     }
     .swal2-show{ width: 95%!important;}
-
-
-
 
     /*destination happiness*/
     .dest_happiness .content_left h2{ font-size: 30px;  }
@@ -1539,8 +1517,6 @@ div.item-images div.first-row, div.item-images div.next-row {
      }
 
      .privacy h1{ font-size: 30px; margin-bottom: 20px; }
-
-     
 
 }
 
@@ -1585,13 +1561,7 @@ div.item-images div.first-row, div.item-images div.next-row {
 
 }
 
-@media(max-width: 450px){
-
-}
-
 @media(max-width: 400px){
-    
-
     nav.home_header::before{
         background-size: 150%;
         background-position: 54% 0px;
@@ -1599,20 +1569,12 @@ div.item-images div.first-row, div.item-images div.next-row {
     .dest_happiness::before{ background-position: 154% 54%;  background-size: 60%;}
 }
 
-@media(max-width: 375px){
-
-}
 @media(max-width: 365px){
     nav.home_header::before{
         background-size: 152%;
         background-position: 54% 0px;
     }
 }
-
-@media(max-width: 320px){
-
-}
-
 
 @supports (-webkit-touch-callout: none) {
     /* CSS specific to iOS devices */ 

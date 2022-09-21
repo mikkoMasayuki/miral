@@ -1,0 +1,135 @@
+body{ 
+	direction: rtl; 
+    font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+/* ########### header starts ########## */
+/* single proj */
+.m_header::before{
+    right: auto;
+    left: 0;
+}
+.m_header img.logo{
+    margin-left: 15px;
+    margin-right: -20px;
+}
+.navbar-expand-lg .navbar-nav{
+    margin-right: auto;
+    margin-left: 0!important;
+}
+.m_header a.navbar-brand{ margin-right: -20px;}
+
+/* home header */
+nav.home_header a.navbar-brand{
+    text-align: right;
+    margin-left: 1rem;
+}
+.ftrd_header{
+    direction: ltr;
+}
+/* ########### header starts ########## */
+
+
+/* ########### news section starts ########## */
+.news_sec{ text-align: right;}
+/* ########### news section starts ########## */
+
+
+/* ########### filter dropdown starts ########## */
+.bt_left button.bt_orange{ 
+    margin-right: 0px;
+    margin-left: 15px;
+}
+.filter_drop .bt_wrap{
+    right: auto;
+    left: 15px;
+}
+.filter_drop form, .filter_drop .frm_wrap{
+    text-align: right;
+}
+.filter_drop input:checked ~ .checkmark{
+    right: 0;
+    left: auto;
+}
+.filter_drop label input{
+    margin-right: 0px;
+    margin-left: 9px;
+}
+/* ########### filter dropdown ends ########## */
+
+
+/* ########### projects listing starts ########## */
+.thumb_sec .item .desc{
+    text-align: right;
+}
+.thumb_sec .item .desc h4 + p{ padding-right: 0px;}
+/* ########### projects listing starts ########## */
+
+
+/* ########### footer starts ########## */
+footer p{ text-align: right;}
+/* ########### footer starts ########## */
+
+
+/* ########### single projects starts ########## */
+.single_proj .content_left h2{ text-align: right;}
+.single_proj .content_right{ float: left; padding-left: 0; text-align: right;}
+.single_proj .content_left .details{ float: right; text-align: right;}
+.single_proj .content_left .details ul{ padding-right: 6px;}
+/* ########### single projects starts ########## */
+
+
+/* ########### destination happiness starts ########## */
+.dest_happiness{
+    background: url(../assets/img/mrl-bg-right4-ar.svg)no-repeat!important;
+    background-position: -336px 65px!important;
+    background-size: 140%!important;
+}
+.dest_happiness .content_left { text-align: right;}
+.dest_happiness::before{
+    right: auto;
+    left: 0;
+    background-position: -13% 17%;
+}
+.dest_happiness .container{
+    background-position: 124% 40%;
+}
+/* ########### destination happiness starts ########## */
+
+
+/* ########### privacy starts ########## */
+.privacy{
+    background-position: 133% 11%!important;
+    text-align: right;
+}
+/* ########### privacy starts ########## */
+
+
+
+@media (max-width:1366px){
+    /* destination happiness */
+    .dest_happiness{
+        background-position: -333px 160px!important;    
+    }
+}
+
+@media(max-width: 991px){
+    /* header */
+    .navbar-toggler{ margin-left: 15px;}
+    .nav-item a{ padding: 10px 0px 10px 0px!important;}
+    .m_header a.navbar-brand{
+        margin-right: -50px;
+        padding-right: 33px;
+    }
+    .m_header img.logo{ margin-right: 15px; margin-left: 0px;}
+
+
+
+    /* home header */
+    nav.home_header::before{ transform: scaleX(-1);}
+    nav.home_header .navbar-toggler{ right: auto; left: 0;}
+    nav.home_header .navbar-nav{ padding-left: 15px;}
+
+
+   
+}
