@@ -32,6 +32,9 @@ const SingleList = props => {
               role={project.role.split(',')}
       			  favorite={project.is_favorite}
               business={project.business.split(',')}
+              headline={project.headline}
+              headline_en={project.headline_en}
+              headline_ar={project.headline_ar}              
               />;
           })}
     </React.Fragment>
