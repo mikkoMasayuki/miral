@@ -38,6 +38,7 @@ h4{ font-size: 22px; }
 p, li{ font-size: 16px; line-height: 1.4; margin-top: 0px; font-family: 'Gotham', sans-serif!important;}
 a { outline: none !important; background: none;}
 
+a.remove-btn {text-decoration: none!important;}
 
 /*Form elements*/
 form label{ display: block;}
@@ -1538,6 +1539,8 @@ div.item-images div.first-row, div.item-images div.next-row {
      }
 
      .privacy h1{ font-size: 30px; margin-bottom: 20px; }
+
+     
 
 }
 
