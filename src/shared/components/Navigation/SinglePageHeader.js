@@ -20,7 +20,7 @@ const HomePageHeader = props => {
 		      </li>
 
 			  	<li class="nav-item">
-                    <a class="nav-link " href="/">MIRAL.AE</a>
+                    <a class="nav-link " target="_blank" href="https://miral.ae/">MIRAL.AE</a>
             	</li>
 		     
 
