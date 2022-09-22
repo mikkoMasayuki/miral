@@ -652,7 +652,7 @@ const AddProjectSingleItem = props => {
 					</fieldset>
 
 					<fieldset class="ima_ges">
-						<label>Images: <span>(1600 x 1020 pixels JPG/WebP, optimum file size 500Kb)</span></label>
+						<label>Images: <span>(1600 x 1020 pixels JPG/WebP, optimum file size 1MB)</span></label>
 						<div class="item_wrap">
 						</div>
 
