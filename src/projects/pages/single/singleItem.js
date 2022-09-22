@@ -63,11 +63,11 @@ const SingleItem = props => {
 
 	function removeHttp(url) {
 		//return url.replace(/^https?:\/\/www./, '');
-		let stripwww =  url.replace(/www/i, '')
-		let striphttp = stripwww.replace(/http?:\/\/./i, '')
-		let striphttps = striphttp.replace(/https?:\/\/./i, '')
+		let strip =  url.replace("www.", '')
+			strip = strip.replace("https://", '')
+			strip = strip.replace("http://", '')
 
-		return striphttps
+		return strip
 	}
 
 	function addHttp(url) {
