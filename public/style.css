@@ -38,7 +38,7 @@ h4{ font-size: 22px; }
 p, li{ font-size: 16px; line-height: 1.4; margin-top: 0px; font-family: 'Gotham', sans-serif!important;}
 a { outline: none !important; background: none;}
 
-a.remove-btn {text-decoration: none!important;}
+a.remove-btn {text-decoration: none!important; color: #333;}
 
 /*Form elements*/
 form label{ display: block;}
@@ -633,7 +633,12 @@ p.tag.tag_2{ display: none;}
 
 .single_grid{ padding-top: 20px;    padding-bottom: 40px; }
 .single_grid .item{ margin-bottom: 30px; padding: 0 20px; }
-.single_grid .item img{ border-radius: 5px; }
+.single_grid .item img{ 
+    border-radius: 5px; 
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+}
 /*############ single Projects  ends ############*/
 
 
@@ -1341,6 +1346,7 @@ div.item-images div.first-row, div.item-images div.next-row {
     .filter_drop form{ gap:25px; }
 
     .portfolio_map .bt_row{ padding: 45px 30px 20px 30px;}
+    .single_grid .item img{ height: 300px;}
 
     /*admin edit users*/
     .edit_dashboard fieldset.half label{ flex-basis: 50%; }
@@ -1465,6 +1471,7 @@ div.item-images div.first-row, div.item-images div.next-row {
     .single_proj .content_left h2{ font-size: 30px; }
     .single_proj .content_left h2 span{ font-size: 20px; }
     .single_proj .content_right h3{ font-size: 20px; }
+    .single_grid .item img{ height: 250px;}
     
 
     /*admin-projects*/
