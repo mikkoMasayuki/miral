@@ -401,67 +401,107 @@ const UpdateProjectSingleItem = props => {
 		return ret
 	}	
 
+
+	const swalWithBootstrapButtonss = Swal.mixin({
+		customClass: {
+		  confirmButton: 'btn btn-success',
+		  cancelButton: 'btn btn-danger'
+		},
+		buttonsStyling: false
+	  })
+
+	const uploadErrorMsg =  (msg) => {
+		  swalWithBootstrapButtonss.fire({
+			title: `Error`,
+			text: msg,
+			icon: 'warning',
+			showCancelButton: false,
+			confirmButtonText: `Ok`
+		  }).then((result) => {
+			if (result.isConfirmed) {
+				window.setTimeout(function () { 
+					//document.getElementById('name').focus()
+					//name_en.current.focus()
+				}, 500) 				
+			}
+		   }
+		  )   
+		
+		
+	}
+    
+
 	function uploadImage(e) {
 				
+				const MAX_FILE_SIZE = 1024 // 1MB
+				const fileSizeKiloBytes = e.target.files[0].size / 1024
 
 				let image_source = e.target.id.split("-") 
 				let filename = e.target.files[0].name
 				let file_ext = filename.split(".") 
 				let formData = new FormData()
 
-
-				formData.append("image", e.target.files[0])
-				formData.append("filename", uniqueFileName()+file_ext[0]+"."+file_ext[1])
-			
-				const requestOptions = {
-					method: 'POST',
-					body: formData
+				
+				if(file_ext[1]!=='jpg' && file_ext[1]!=='jpeg' && file_ext[1]!=='webp') {
+					uploadErrorMsg( "Invalid file type. Allowed files are *.jpg or *.jpeg or *.webp only")
+					return
 				}
 
-				console.log("formdata >>>>>>>>>>>>>>>>>>>>>>>>>>")
-				console.log(formData.get('image'))
-				console.log(formData.get('filename'))
-				console.log(image_source[1])
-
-
-				let readerloading = new FileReader()
-				let preview_img_loading = document.getElementById(image_source[1])
-	
-				readerloading.onload = function (e) {
-					preview_img_loading.src = '/assets/img/loading-bars.gif'
-					//document.getElementById("url-"+image_source[1]).value = result.data
-				}				
-
+				if(fileSizeKiloBytes > MAX_FILE_SIZE){
+					uploadErrorMsg("File size is greater than maximum limit of 1MB")
+					return
+				} else {
+					formData.append("image", e.target.files[0])
+					formData.append("filename", uniqueFileName()+file_ext[0]+"."+file_ext[1])
 				
-				  fetch('http://3.28.53.5:4052/project/upload', requestOptions)
-				  .then(response => response.json())
-				  .then((result) => {
-					  console.log('Success:', result)
-					  console.log('error:', result.error)
-					  if(result.error === null ){
-
-						let reader = new FileReader()
-						let preview_img = document.getElementById(image_source[1])
-			
-						reader.onload = function (e) {
-							//preview_img.src = e.target.result
-							preview_img.src = result.data
+					const requestOptions = {
+						method: 'POST',
+						body: formData
+					}
+	
+					console.log("formdata >>>>>>>>>>>>>>>>>>>>>>>>>>")
+					console.log(formData.get('image'))
+					console.log(formData.get('filename'))
+					console.log(image_source[1])
+	
+	
+					let readerloading = new FileReader()
+					let preview_img_loading = document.getElementById(image_source[1])
+		
+					readerloading.onload = function (e) {
+						preview_img_loading.src = '/assets/img/loading-bars.gif'
+						//document.getElementById("url-"+image_source[1]).value = result.data
+					}				
+	
+					
+					  fetch('http://3.28.53.5:4052/project/upload', requestOptions)
+					  .then(response => response.json())
+					  .then((result) => {
+						  console.log('Success:', result)
+						  console.log('error:', result.error)
+						  if(result.error === null ){
+	
+							let reader = new FileReader()
+							let preview_img = document.getElementById(image_source[1])
+				
+							reader.onload = function (e) {
+								//preview_img.src = e.target.result
+								preview_img.src = result.data
+								document.getElementById("url-"+image_source[1]).value = result.data
+							}
+				
+							reader.readAsDataURL(e.target.files[0])		
+							
 							document.getElementById("url-"+image_source[1]).value = result.data
-						}
-			
-						reader.readAsDataURL(e.target.files[0])		
-						
-						document.getElementById("url-"+image_source[1]).value = result.data
-						console.log('data:', result.data)
-						
-					  } else {
-						  alert("Something is wrong while saving please try again!")
-					  }
-						  
-				  })	
-				  
-				  
-
+							console.log('data:', result.data)
+							
+						  } else {
+							  alert("Something is wrong while saving please try again!")
+						  }
+							  
+					  })
+					  
+				}
 
 	}	
 
