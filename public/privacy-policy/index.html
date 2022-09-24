@@ -17,6 +17,30 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../style.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../ar.css"> -->
+	<script>
+
+		const queryParams = new URLSearchParams(window.location.search)
+				const lang = queryParams.get("l")
+				let urlparams = "?l="+lang
+				if(lang === null) {
+					urlparams = ""
+				}
+		
+				const home_url = "/"+urlparams
+				const about_url = "/destination-happiness/index.html"+urlparams
+				const miral_url = "https://miral.ae/"+urlparams	
+				const privacy_url = "/privacy-policy/index.html"+urlparams	
+				const arab_url ="#"+urlparams	
+		
+				if( lang == null || lang !=='ar') {
+					
+				} else {
+					document.write('<link rel="stylesheet" type="text/css" href="../ar.css" />');
+				}    
+				
+		
+				
+			</script>	
 </head>
 <body>
 
@@ -24,22 +48,22 @@
 <!-- header starts -->
 <nav class="navbar navbar-expand-lg  m_header about_header ">
 	<div class="container">
-		<a class="navbar-brand" href="/"><img class="logo" src="../assets/img/mrl-logo.svg" alt=""></a>
+		<a class="navbar-brand" id="home_url" href="/"><img class="logo" src="../assets/img/mrl-logo.svg" alt=""></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"><i class="lnr lnr-menu"></i></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 		   <ul class="navbar-nav ml-auto">
 		      <li class="nav-item">
-		        <a class="nav-link " href="/destination-happiness/index.html">ABOUT</a>
+		        <a class="nav-link " id="about_url" href="/destination-happiness/index.html">ABOUT</a>
 		      </li>
 
 			  <li class="nav-item">
-				<a class="nav-link " href="/">MIRAL.AE</a>
+				<a class="nav-link " id="miral_url" href="/">MIRAL.AE</a>
 			</li>
 
 		      <li class="nav-item lang ">
-		        	<a class="nav-link " href="#">العربية</a>
+		        	<a class="nav-link " id="arab_url" href="#">العربية</a>
 		      </li>
 		     
 		    </ul>
@@ -152,7 +176,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<p><span>© 2022 Miral. All rights reserved.</span> <a href="/privacy-policy/index.html">Privacy Policy</a> </p>
+				<p><span>© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html">Privacy Policy</a> </p>
 			</div>
 		</div>
 	</div>
@@ -173,6 +197,12 @@
 	    $('.star_icon').click(function() {
 	        $(this).toggleClass('active');
 	    });
+
+		document.getElementById("home_url").href = home_url
+		document.getElementById("about_url").href = about_url
+		document.getElementById("miral_url").href = miral_url
+		document.getElementById("privacy_url").href = privacy_url
+		document.getElementById("arab_url").href = arab_url			
 	});
 </script>
 
