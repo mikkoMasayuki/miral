@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-//import './App.css';
+//import './ar.css';
 import React, {useEffect,useState} from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
@@ -21,6 +21,16 @@ import AdminAddProjects from './admin/AddProject';
 
 
 const App = () => {
+
+  /*
+  const queryParams = new URLSearchParams(window.location.search)
+  const lang = queryParams.get("l")
+  if( lang == null || lang !=='ar') {
+    
+  }
+  */
+  
+
 
   return <Router>
       
