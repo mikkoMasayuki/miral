@@ -55,7 +55,39 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
     <title>Miral - Portfolio</title>
+
+    <script>
+        const queryParams = new URLSearchParams(window.location.search)
+        const lang = queryParams.get("l")
+		let urlparams = "?l="+lang
+		if(lang === null) {
+			urlparams = ""
+		}
+
+		const home_url = "/"+urlparams
+		const about_url = "/destination-happiness/index.html"+urlparams
+		const miral_url = "https://miral.ae/"	
+		const privacy_url = "/privacy-policy/index.html"+urlparams	
+		const arab_url ="#"+urlparams	
+
+        let lang_filter_projects = 'FILTER PROJECTS'
+        let lang_reset = 'RESET'
+        let lang_copyright = '© 2022 Miral. All rights reserved.'
+
+        if( lang == null || lang !=='ar') {
+            
+        } else {
+            document.write('<link rel="stylesheet" type="text/css" href="../ar.css" />');
+            lang_filter_projects = 'تصفية نتائج البحث'
+            lang_reset = 'إعادة ضبط'
+            lang_copyright = '© 2022 ميرال. جميع الحقوق محفوظة. سياسة الخصوصية'
+        }    
+		
+
+		
+    </script>    
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -71,7 +103,7 @@
                 <div class="col-md-12">
                     <div class="bt_left">
                         <button id="btnfilter" class="active bt_orange bt_filter">FILTER PROJECTS</button>
-                         <button onclick="hardReset()" class="dark">RESET</button>
+                         <button id="b_reset" onclick="hardReset()" class="dark">RESET</button>
                          <button id="btnloadmap" style="display:none" onclick="LoadMap()" class="dark">loadmap</button>
                     </div>
                 </div>
@@ -91,7 +123,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<p><span>© 2022 Miral. All rights reserved.</span> <a href="/privacy-policy/index.html">Privacy Policy</a> </p>
+				<p><span id="copyright">© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html">Privacy Policy</a> </p>
 			</div>
 		</div>
 	</div>
@@ -481,7 +513,8 @@
 	    $('.star_icon').click(function() {
 	        $(this).toggleClass('active');
 	    });
-        
+
+
 	});
 </script>
 <!-- fill star icon onClick ends -->
@@ -521,13 +554,18 @@
         }, 1000);
 
         loadbod();
+
+
 	});
  
 function loadbod() {
         var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
         var interval = setInterval(function(){
             LoadMap();
-            console.log('loaded....');
+		document.getElementById("privacy_url").href = privacy_url
+        document.getElementById("btnfilter").innerHTML = lang_filter_projects
+        document.getElementById("b_reset").innerHTML = lang_reset
+        document.getElementById("copyright").innerHTML = lang_copyright
           },900);
 
         setTimeout(() => {
