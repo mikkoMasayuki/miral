@@ -4,11 +4,21 @@ import ReactDOM from "react-dom"
 
 const MainHeader = props => {
 
-    // return <header>
+    const queryParams = new URLSearchParams(window.location.search)
+    const lang = queryParams.get("l")    
 
-    //     {props.children}
+    let urlparams = "?l="+lang
 
-    // </header>;
+    if(lang === null) {
+        urlparams = ""
+    }
+    
+    const home_url = "/"+urlparams
+    const about_url = "/destination-happiness/index.html"+urlparams
+    const miral_url = "https://miral.ae/"+urlparams
+    const privacy_url = "/privacy-policy/index.html"+urlparams	
+    const arab_url ="#"+urlparams
+
     const content  = 
     <div className="container">
 
@@ -27,7 +37,7 @@ const MainHeader = props => {
             </li>
 
             <li className="nav-item nav_about">
-                <a className="nav-link " href="/destination-happiness/index.html">About</a>
+                <a className="nav-link " href={about_url}>About</a>
             </li>
 
             <li className="nav-item prof_icon">
