@@ -3,6 +3,82 @@ import { Link } from "react-router-dom";
 import ProjectItem from "./ProjectItem";
 const ProjectLists = props => {
 
+    const queryParams = new URLSearchParams(window.location.search)
+    const lang = queryParams.get("l")    
+
+    let urlparams = "?l="+lang
+
+    let lang_about = 'About'
+	let lang_filter_projects = 'FILTER PROJECTS'
+	let lang_reset = 'RESET'
+	let lang_type = 'Type'
+	let lang_all = 'All'
+	let lang_most_popular = 'Most Popular'
+	let lang_stay = 'Stay'
+	let lang_play = 'Play'
+	let lang_dine = 'Dine'
+	let lang_business_venues = 'Business Venues'
+	let lang_culture = 'Culture'
+	let lang_destination = 'Destination'
+
+	let lang_location = 'Location'
+	let lang_yas_island = 'Yas Island'
+	let lang_abu_dhabi = 'Abu Dhabi'
+	let lang_saadiyat_island = 'Saadiyat Island'
+	let lang_al_ain = 'Al Ain'
+	let lang_jordan = 'Jordan'
+	let lang_kazakhstan = 'Kazakhstan'
+
+	let lang_business = 'Business'
+	let lang_miral = 'Miral'
+	let lang_miral_destinations = 'Miral Destinations'
+	let lang_miral_experiences = 'Miral Experiences'
+	let lang_yas_asset_management = 'Yas Asset Management'
+
+	let lang_completed = 'Completed'
+	let lang_size = 'Size'
+	let lang_website = 'Website'
+	let lang_readmore = 'Read more'
+
+
+    if(lang === null || lang!=='ar') {
+        urlparams = ""
+    } else {
+        lang_about = 'نبذة عن الحافظة'
+		lang_filter_projects = 'تصفية نتائج البحث'
+		lang_reset = 'إعادة ضبط'
+		lang_type = 'نوع'
+		lang_all = 'الكل'
+		lang_most_popular = 'الأكثر شيوعاً'
+		lang_stay = 'الفنادق'
+		lang_play = 'التجارب'
+		lang_dine = 'المطاعم'
+		lang_business_venues = 'مرافق فعاليات الأعمال'
+		lang_culture = 'ثقافة'
+		lang_destination = 'وجهات'
+
+		lang_location = 'الموقع'
+		lang_yas_island = 'جزيرة ياس'
+		lang_abu_dhabi = 'أبوظبي'
+		lang_saadiyat_island = 'جزيرة السعديات'
+		lang_al_ain = 'العين'
+		lang_jordan = 'الأردن'
+		lang_kazakhstan = 'كازخستان'		
+
+		lang_business = 'المنشأة'
+		lang_miral = 'ميرال'
+		lang_miral_destinations = 'ميرال ديستينيشنز'
+		lang_miral_experiences = 'ميرال إكسبيرينسز'
+		lang_yas_asset_management = 'ياس لإدارة الأصول'		
+
+		lang_completed = 'سنة الإنجاز:'
+		lang_size = 'المساحة (متر مربع):'
+		lang_website = 'الموقع الالكتروني:'	
+		lang_readmore = 'اقرأ المزيد'	
+    }	
+
+	
+
 	/*
     if (props.items.length === 0) {
       return (
@@ -334,51 +410,51 @@ const ProjectLists = props => {
 					<div className="col-md-12">
 						<div class="frm_wrap">
 							<fieldset>
-								<legend>Type:</legend>
+								<legend>{lang_type}:</legend>
 
 								
 								<label>
 									<input id="ftype_all" class="ftype" type="checkbox" value="" onClick={handleFilterReset}/>
 									<span className="checkmark"></span>
-									All
+									{lang_all}
 								</label>
 								<label>
 									<input class="ftype" type="checkbox"  value="Most Popular" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Most Popular
+									{lang_most_popular}
 								</label>								
 								<label>
 									<input class="ftype" type="checkbox" value="Stay" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
-									Stay
+									{lang_stay}
 								</label>	
 								<label>
 									<input class="ftype" type="checkbox" value="Play" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
-									Play
+									{lang_play}
 								</label>	
 
 								<label>
 									<input class="ftype" type="checkbox" value="Dine" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
-									Dine
+									{lang_dine}
 								</label>	
 								<label>
 									<input class="ftype" type="checkbox" value="Business Venues" onClick={handleFilterChange} />
 									<span className="checkmark"></span>
-									Business Venues
+									{lang_business_venues}
 								</label>																																
 
 								<label>
 									<input class="ftype" type="checkbox" value="Culture" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Culture
+									{lang_culture}
 								</label>								
 
 								<label>
 									<input class="ftype" type="checkbox" value="Destination" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Destination
+									{lang_destination}
 								</label>
 
 
@@ -391,79 +467,79 @@ const ProjectLists = props => {
 
 
 							<fieldset>
-								<legend>Location:</legend>
+								<legend>{lang_location}:</legend>
 								
 								<label>
 									<input id="floc_all" class="floc" type="checkbox" value="" onClick={handleFilterReset}/>
 									<span className="checkmark"></span>
-									All
+									{lang_all}
 								</label>
 
 								<label>
 									<input class="floc" type="checkbox" value="Yas Island" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Yas Island
+									{lang_yas_island}
 								</label>
 								<label>
 									<input class="floc" type="checkbox" value="Abu Dhabi" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Abu Dhabi
+									{lang_abu_dhabi}
 								</label>
 								<label>
 									<input class="floc" type="checkbox" value="Saadiyat Island" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Saadiyat Island
+									{lang_saadiyat_island}
 								</label>
 								<label>
 									<input class="floc" type="checkbox" value="Al Ain" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Al Ain
+									{lang_al_ain}
 								</label>
 								<label>
 									<input class="floc" type="checkbox" value="Jordan" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Jordan
+									{lang_jordan}
 								</label>
 								<label>
 									<input class="floc" type="checkbox" value="Kazakhstan" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Kazakhstan
+									{lang_kazakhstan}
 								</label>
 							</fieldset>
 
 
 							<fieldset>
-								<legend>Business:</legend>
+								<legend>{lang_business}:</legend>
 								
 								<label>
 									<input id="fbusi_all" class="fbusi" type="checkbox" value="" onClick={handleFilterReset}/>
 									<span className="checkmark"></span>
-									All
+									{lang_all}
 								</label>
 								
 
 								<label>
 									<input class="fbusi" type="checkbox" value="Miral" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Miral
+									{lang_miral}
 								</label>
 
 								<label>
 									<input class="fbusi" type="checkbox" value="Miral Destinations" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Miral Destinations
+									{lang_miral_destinations}
 								</label>
 
 								<label>
 									<input class="fbusi" type="checkbox" value="Miral Experiences" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Miral Experiences
+									{lang_miral_experiences}
 								</label>
 
 								<label>
 									<input class="fbusi" type="checkbox" value="Yas Asset Management" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
-									Yas Asset Management
+									{lang_yas_asset_management}
 								</label>
 							</fieldset>
 
@@ -471,7 +547,7 @@ const ProjectLists = props => {
 
 							<div className="bt_wrap">
 								<button className="show_results dark" onClick={handleForceClose}>Show {props.items.length} results</button>
-								<button id="btnreset" className="reset dark" onClick={handleFilterResetFromButton}> Reset</button>
+								<button id="btnreset" className="reset dark" onClick={handleFilterResetFromButton}> {lang_reset}</button>
 								<button className="show_results dark" onClick={handleForceClose}>HIDE</button>
 
 							</div>
