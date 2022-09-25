@@ -31,11 +31,14 @@ const queryParams = new URLSearchParams(window.location.search)
 		const miral_url = "https://miral.ae/"+urlparams	
 		const privacy_url = "/privacy-policy/index.html"+urlparams	
 		const arab_url ="#"+urlparams	
+		
+		let lang_privacypolicy = "Privacy Policy"
 
         if( lang == null || lang !=='ar') {
             
         } else {
             document.write('<link rel="stylesheet" type="text/css" href="../ar.css" />');
+			lang_privacypolicy = 'سياسة الخصوصية'
         }    
 		
 
@@ -117,7 +120,7 @@ const queryParams = new URLSearchParams(window.location.search)
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<p><span>© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html">Privacy Policy</a> </p>
+				<p><span>© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html"><span id="lang_privacypolicy">Privacy Policy</span>span></a> </p>
 			</div>
 		</div>
 	</div>
@@ -144,6 +147,7 @@ const queryParams = new URLSearchParams(window.location.search)
 		document.getElementById("miral_url").href = miral_url
 		document.getElementById("privacy_url").href = privacy_url
 		document.getElementById("arab_url").href = arab_url		
+		document.getElementById("lang_privacypolicy").innerHTML = lang_privacypolicy
 		
 	});
 </script>
