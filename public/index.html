@@ -75,6 +75,7 @@
         let lang_filter_projects = 'FILTER PROJECTS'
         let lang_reset = 'RESET'
         let lang_copyright = '© 2022 Miral. All rights reserved.'
+        let lang_privacypolicy = "Privacy Policy"
 
         if( lang == null || lang !=='ar') {
             
@@ -83,6 +84,7 @@
             lang_filter_projects = 'تصفية نتائج البحث'
             lang_reset = 'إعادة ضبط'
             lang_copyright = '© 2022 ميرال. جميع الحقوق محفوظة. سياسة الخصوصية'
+            lang_privacypolicy = 'سياسة الخصوصية'
         }    
 		
 
@@ -123,7 +125,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<p><span id="copyright">© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html">Privacy Policy</a> </p>
+				<p><span id="copyright">© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html"><span id="lang_privacypolicy">Privacy Policy</span></a> </p>
 			</div>
 		</div>
 	</div>
@@ -562,11 +564,12 @@ function loadbod() {
         var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
         var interval = setInterval(function(){
             LoadMap();
-		document.getElementById("privacy_url").href = privacy_url
+          },900);
+          document.getElementById("privacy_url").href = privacy_url
         document.getElementById("btnfilter").innerHTML = lang_filter_projects
         document.getElementById("b_reset").innerHTML = lang_reset
         document.getElementById("copyright").innerHTML = lang_copyright
-          },900);
+        document.getElementById("lang_privacypolicy").innerHTML = lang_privacypolicy          
 
         setTimeout(() => {
             clearInterval(interval);
