@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ProjectItem from "./ProjectItem";
 const ProjectLists = props => {
 
+
     const queryParams = new URLSearchParams(window.location.search)
     const lang = queryParams.get("l")    
 
@@ -40,6 +41,11 @@ const ProjectLists = props => {
 	let lang_website = 'Website'
 	let lang_readmore = 'Read more'
 
+	let lang_description = props.description
+	let lang_headline = props.headline_en
+	let lang_name_field = props.name
+
+
 
     if(lang === null || lang!=='ar') {
         urlparams = ""
@@ -73,8 +79,13 @@ const ProjectLists = props => {
 
 		lang_completed = 'سنة الإنجاز:'
 		lang_size = 'المساحة (متر مربع):'
-		lang_website = 'الموقع الالكتروني:'	
-		lang_readmore = 'اقرأ المزيد'	
+		lang_website = 'الموقع الالكتروني:'		
+		lang_readmore = 'اقرأ المزيد'
+		lang_description = props.description_ar
+		lang_headline = props.headline_ar
+		lang_name_field = props.name_ar
+
+															
     }	
 
 	
@@ -588,6 +599,7 @@ const ProjectLists = props => {
               key={project.id}
               id={project.id}
               name={project.name}
+			  name_ar={project.name_ar}
               description={project.description}
               location={project.location}
 			  image={project.image[0]}
