@@ -41,6 +41,11 @@ const ProjectItem = props => {
 	let lang_website = 'Website'
 	let lang_readmore = 'Read more'
 
+	let lang_description = props.description
+	let lang_headline = props.headline_en
+	let lang_name_field = props.name
+	let lang_location_field = props.location
+
 
     if(lang === null || lang!=='ar') {
         urlparams = ""
@@ -74,10 +79,42 @@ const ProjectItem = props => {
 
 		lang_completed = 'سنة الإنجاز:'
 		lang_size = 'المساحة (متر مربع):'
-		lang_website = 'الموقع الالكتروني:'	
-		lang_readmore = 'اقرأ المزيد'	
-    }
-    
+		lang_website = 'الموقع الالكتروني:'		
+		lang_readmore = 'اقرأ المزيد'
+		lang_description = props.description_ar
+		lang_headline = props.headline_ar
+		lang_name_field = props.name_ar
+
+			let str_compare = 'Yas Island'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'جزيرة ياس'	
+			}
+
+			str_compare = 'Abu Dhabi'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'أبوظبي'	
+			}
+
+			str_compare = 'Saadiyat Island'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'جزيرة السعديات'	
+			}
+
+			str_compare = 'Al Ain'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'العين'	
+			}
+
+			str_compare = 'Jordan'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'الأردن'
+			}
+
+			str_compare = 'Kazakhstan'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'كازخستان'	
+			}														
+    }	
 
 	
     const openFavHandler = e => {
@@ -140,8 +177,8 @@ const ProjectItem = props => {
 
 			  
 
-                    <h4 >{props.name}</h4>
-					<p>{putComma(props.location)}</p>
+                    <h4 >{lang_name_field}</h4>
+					<p>{putComma(lang_location_field)}</p>
 
 					<p className="tag tag_1">
 						{
