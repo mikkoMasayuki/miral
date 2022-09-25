@@ -19,6 +19,7 @@ const SingleList = props => {
               key={project.id}
               id={project.id}
               name={project.name}
+              name_ar={project.name_ar}
               description={project.desciption}
               description_ar={project.desciption_ar}
               location={project.location}
