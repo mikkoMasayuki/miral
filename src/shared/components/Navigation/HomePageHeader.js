@@ -4,6 +4,7 @@ import ReactDOM from "react-dom"
 
 const HomePageHeader = props => {
 
+
     const queryParams = new URLSearchParams(window.location.search)
     const lang = queryParams.get("l")    
 
@@ -41,6 +42,10 @@ const HomePageHeader = props => {
 	let lang_website = 'Website'
 	let lang_readmore = 'Read more'
 
+	let lang_description = props.description
+	let lang_headline = props.headline_en
+
+
 
     if(lang === null || lang!=='ar') {
         urlparams = ""
@@ -74,9 +79,10 @@ const HomePageHeader = props => {
 
 		lang_completed = 'سنة الإنجاز:'
 		lang_size = 'المساحة (متر مربع):'
-		lang_website = 'الموقع الالكتروني:'	
-		lang_readmore = 'اقرأ المزيد'	
-    }
+		lang_website = 'الموقع الالكتروني:'		
+		lang_readmore = 'اقرأ المزيد'
+																
+    } 
 
 
 
