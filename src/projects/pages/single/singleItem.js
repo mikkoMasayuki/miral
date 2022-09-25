@@ -48,6 +48,8 @@ const SingleItem = props => {
 
 	let lang_description = props.description
 	let lang_headline = props.headline_en
+	let lang_name_field = props.name
+	let lang_location_field = props.location
 
 
     if(lang === null || lang!=='ar') {
@@ -80,12 +82,14 @@ const SingleItem = props => {
 		lang_miral_experiences = 'ميرال إكسبيرينسز'
 		lang_yas_asset_management = 'ياس لإدارة الأصول'		
 
-		lang_completed = 'سنة الإنجاز:'
-		lang_size = 'المساحة (متر مربع):'
-		lang_website = 'الموقع الالكتروني:'		
+		lang_completed = 'سنة الإنجاز'
+		lang_size = 'المساحة (متر مربع)'
+		lang_website = 'الموقع الالكتروني'		
 		lang_readmore = 'اقرأ المزيد'
 		lang_description = props.description_ar
 		lang_headline = props.headline_ar
+		lang_name_field = props.name_ar
+		lang_location_field = props.location_ar
     }	
 
 
