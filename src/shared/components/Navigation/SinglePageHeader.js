@@ -7,10 +7,13 @@ const HomePageHeader = props => {
     const lang = queryParams.get("l")    
 
     let urlparams = "?l="+lang
+	let lang_about = 'ABOUT'
 
-    if(lang === null) {
+    if(lang === null || lang!=='ar') {
         urlparams = ""
-    }
+    } else {
+		lang_about = 'نبذة عن الحافظة'
+	}
     
     const home_url = "/"+urlparams
     const about_url = "/destination-happiness/index.html"+urlparams
@@ -29,7 +32,7 @@ const HomePageHeader = props => {
 		<div class="collapse navbar-collapse" id="navbarNav">
 		   <ul class="navbar-nav ml-auto">
 		      <li class="nav-item">
-		        <a class="nav-link " href={about_url}>ABOUT</a>
+		        <a class="nav-link " href={about_url}>{lang_about}</a>
 		      </li>
 
 			  	<li class="nav-item">
