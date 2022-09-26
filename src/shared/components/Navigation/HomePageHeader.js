@@ -45,6 +45,8 @@ const HomePageHeader = props => {
 	let lang_description = props.description
 	let lang_headline = props.headline_en
 
+    let lang_switcher = 'العربية'
+    let arab_url ="?l=ar"
 
 
     if(lang === null || lang!=='ar') {
@@ -81,7 +83,9 @@ const HomePageHeader = props => {
 		lang_size = 'المساحة (متر مربع):'
 		lang_website = 'الموقع الالكتروني:'		
 		lang_readmore = 'اقرأ المزيد'
-																
+        
+        lang_switcher = 'العربية'	
+        arab_url ="?l=en"															
     } 
 
 
@@ -92,7 +96,7 @@ const HomePageHeader = props => {
     const about_url = "/destination-happiness/index.html"+urlparams
     const miral_url = "https://miral.ae/"+urlparams
     const privacy_url = "/privacy-policy/index.html"+urlparams	
-    const arab_url ="#"+urlparams	
+    
 
 
     const content  = 
@@ -128,7 +132,7 @@ const HomePageHeader = props => {
 
                 
                 <li class="nav-item lang ">
-                        <a class="nav-link " href={arab_url}>العربية</a>
+                        <a class="nav-link " href={arab_url}>{lang_switcher}</a>
                 </li>
                 
                 </ul>
