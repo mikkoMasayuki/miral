@@ -7,6 +7,25 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
+	 <!-- favicon -->
+	 <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/favicon2/apple-icon-57x57.png">
+	 <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/favicon2/apple-icon-60x60.png">
+	 <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon2/apple-icon-72x72.png">
+	 <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon2/apple-icon-76x76.png">
+	 <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon2/apple-icon-114x114.png">
+	 <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/favicon2/apple-icon-120x120.png">
+	 <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon2/apple-icon-144x144.png">
+	 <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/favicon2/apple-icon-152x152.png">
+	 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon2/apple-icon-180x180.png">
+	 <link rel="icon" type="image/png" sizes="192x192"  href="/assets/img/favicon2/android-icon-192x192.png">
+	 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon2/favicon-32x32.png">
+	 <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/favicon2/favicon-96x96.png">
+	 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon2/favicon-16x16.png">
+	 <link rel="manifest" href="/assets/img/favicon2/manifest.json">
+	 <meta name="msapplication-TileColor" content="#ffffff">
+	 <meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png">
+	 <meta name="theme-color" content="#ffffff">
+
 	<!-- frameworks -->
 	<link href="../assets/framework/css/bootstrap.min.css" rel="stylesheet">
 	
@@ -33,12 +52,18 @@ const queryParams = new URLSearchParams(window.location.search)
 		const arab_url ="/destination-happiness/index.html"+urlparams
 		
 		let lang_privacypolicy = "Privacy Policy"
+		let lang_about = 'ABOUT'
+		let lang_switcher = 'العربية'
+		let lang_copyright = '© 2022 Miral. All rights reserved.'
 
         if( lang == null || lang !=='ar') {
             
         } else {
             document.write('<link rel="stylesheet" type="text/css" href="../ar.css" />');
 			lang_privacypolicy = 'سياسة الخصوصية'
+			lang_about = 'نبذة عن الحافظة'
+			lang_switcher = 'ENGLISH'		
+			lang_copyright = '© 2022 ميرال. جميع الحقوق محفوظة. سياسة الخصوصية'
         }    
 		
 
@@ -65,7 +90,7 @@ const queryParams = new URLSearchParams(window.location.search)
 		      </li>
 
 		      <li class="nav-item">
-				<a class="nav-link " id="miral_url" href="/">MIRAL.AE</a>
+				<a class="nav-link " id="miral_url" href="https://miral.ae/?l=ar" target="_blank">MIRAL.AE</a>
 				</li>
 
 		      <li class="nav-item lang ">
@@ -84,7 +109,7 @@ const queryParams = new URLSearchParams(window.location.search)
 	<div class="container">
 		<div class="row head_content">
 			
-			<div class="col-md-6 content_left">
+			<div class="col-md-6 content_left" id="">
 				<h2>DESTINATION <br> HAPPINESS<span>.</span></h2>
 				<p>Hac volutpat faucibus sed augue tristique. Consectetuer fringilla  faucibus. Suspendisse suspendisse commodo porttitor donec phasellus  non bibendum condimentum maecenas primis at nunc auctor, vehicula  etiam donec dis leo. Sollicitudin sit vehicula nascetur leo.</p>
 
@@ -120,7 +145,7 @@ const queryParams = new URLSearchParams(window.location.search)
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<p><span>© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html"><span id="lang_privacypolicy">Privacy Policy</span></a> </p>
+				<p><span id="copyright">© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html"><span id="lang_privacypolicy">Privacy Policy</span></a> </p>
 			</div>
 		</div>
 	</div>
@@ -148,6 +173,9 @@ const queryParams = new URLSearchParams(window.location.search)
 		document.getElementById("privacy_url").href = privacy_url
 		document.getElementById("arab_url").href = arab_url		
 		document.getElementById("lang_privacypolicy").innerHTML = lang_privacypolicy
+		document.getElementById("about_url").innerHTML = lang_about
+		document.getElementById("arab_url").innerHTML = lang_switcher
+		document.getElementById("copyright").innerHTML = lang_copyright
 		
 	});
 </script>

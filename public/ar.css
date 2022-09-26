@@ -24,6 +24,7 @@ body h1, body h2, body h3, body h4, body h5, p, li{
     margin-left: 0!important;
 }
 .m_header a.navbar-brand{ margin-right: -20px;}
+.nav-item.lang a{ padding: 10px 20px!important;}
 
 /* home header */
 nav.home_header a.navbar-brand{

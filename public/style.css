@@ -11,6 +11,7 @@ Version: 1.0
 
 [ July 25, 2022 ]  */
 
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
 html{ overflow-x: hidden; }
 html body{
   font-family: 'Gotham', sans-serif!important;
@@ -90,8 +91,8 @@ nav.m_header{ background: #333; position: relative; padding: 0px 0px; }
 /*home header*/
 nav.home_header{ overflow: hidden; }
 nav.home_header img.logo{  
-    margin: 10px 0 0 0px;
-    height: 150px;
+    margin: 40px 0 0 0px;
+    height: 130px;
 
 }
 nav.home_header,
@@ -184,11 +185,10 @@ nav.home_header #navbarNav{ flex-basis: 40%; }
 }
 
 .nav-item.lang a{
-    
     font-family: 'Tajawal', sans-serif!important;
     font-size: 14px;
     -webkit-text-stroke: 0.15px;
-    padding: 6px 20px!important;
+    /* padding: 6px 20px!important; */
 }
 .nav-item.prof_icon a{  
     background: #ededed;
@@ -213,7 +213,7 @@ nav.home_header #navbarNav{ flex-basis: 40%; }
     color: #fff;
 }
 
-.lang_switcher { font-size: 14px;}
+.lang_switcher { font-size: 14px;  font-family: 'Tajawal', sans-serif!important;}
 .navbar-nav { padding-top: 0px; }
 
 
@@ -1191,8 +1191,12 @@ div.item-images div.first-row, div.item-images div.next-row {
         max-width: 25%;
     }
 
+    nav.home_header img.logo{  
+        margin: 17px 0 0 0px;
+        height: 130px;
+    }
+
     .animated_elements .img_flipped { margin-left: 29vw; }    
-    nav.home_header img.logo{ /*height: 147px;*/ margin: 0px;}
     .ftrd_header .img_main{ margin-right: -139px; max-width: 82%;}
     .animated_elements .img_portfolio{ width: 185px;}
     .animated_elements .img_th{ width: 105px; left: 95px;}
