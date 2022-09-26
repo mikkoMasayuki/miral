@@ -9,6 +9,7 @@ const SingleItem = props => {
 	const history = useHistory();
 
 
+
     const queryParams = new URLSearchParams(window.location.search)
     const lang = queryParams.get("l")    
 
@@ -82,43 +83,43 @@ const SingleItem = props => {
 		lang_miral_experiences = 'ميرال إكسبيرينسز'
 		lang_yas_asset_management = 'ياس لإدارة الأصول'		
 
-		lang_completed = 'سنة الإنجاز'
-		lang_size = 'المساحة (متر مربع)'
-		lang_website = 'الموقع الالكتروني'		
+		lang_completed = 'سنة الإنجاز:'
+		lang_size = 'المساحة (متر مربع):'
+		lang_website = 'الموقع الالكتروني:'		
 		lang_readmore = 'اقرأ المزيد'
 		lang_description = props.description_ar
 		lang_headline = props.headline_ar
 		lang_name_field = props.name_ar
 
-		let str_compare = 'Yas Island'
-		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
-			lang_location_field = 'جزيرة ياس'	
-		}
+			let str_compare = 'Yas Island'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'جزيرة ياس'	
+			}
 
-		str_compare = 'Abu Dhabi'
-		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
-			lang_location_field = 'أبوظبي'	
-		}
+			str_compare = 'Abu Dhabi'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'أبوظبي'	
+			}
 
-		str_compare = 'Saadiyat Island'
-		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
-			lang_location_field = 'جزيرة السعديات'	
-		}
+			str_compare = 'Saadiyat Island'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'جزيرة السعديات'	
+			}
 
-		str_compare = 'Al Ain'
-		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
-			lang_location_field = 'العين'	
-		}
+			str_compare = 'Al Ain'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'العين'	
+			}
 
-		str_compare = 'Jordan'
-		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
-			lang_location_field = 'الأردن'
-		}
+			str_compare = 'Jordan'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'الأردن'
+			}
 
-		str_compare = 'Kazakhstan'
-		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
-			lang_location_field = 'كازخستان'	
-		}	
+			str_compare = 'Kazakhstan'
+			if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+				lang_location_field = 'كازخستان'	
+			}														
     }	
 
 
@@ -225,15 +226,91 @@ props.images.map(image => {
 				<div class="details">
 					<div class="tag_wrap">
 						{
-							props.type
-							.map(t => <span>{t}</span>)
-							.reduce((prev, curr) => [prev, '', curr])
+
+props.type
+.map(t => {
+	let lang_tag = <span>{t}</span>
+	let str_compare = ''
+	if(lang === null || lang!=='ar') {
+		return lang_tag
+	} else {
+		str_compare = 'Most Popular'
+		if(t.toLowerCase() === str_compare.toLowerCase()) {
+			lang_tag = <span>{lang_most_popular}</span>
+			return lang_tag
+		}									
+		str_compare = 'Stay'
+		if(t.toLowerCase() === str_compare.toLowerCase()) {
+			lang_tag = <span>{lang_stay}</span>
+			return lang_tag
+		}
+		str_compare = 'Play'
+		if(t.toLowerCase() === str_compare.toLowerCase()) {
+			lang_tag = <span>{lang_stay}</span>
+			return lang_tag
+		}	
+		str_compare = 'Dine'
+		if(t.toLowerCase() === str_compare.toLowerCase()) {
+			lang_tag = <span>{lang_dine}</span>
+			return lang_tag
+		}	
+		str_compare = 'Business Venues'
+		if(t.toLowerCase() === str_compare.toLowerCase()) {
+			lang_tag = <span>{lang_dine}</span>
+			return lang_tag
+		}		
+		str_compare = 'Culture'
+		if(t.toLowerCase() === str_compare.toLowerCase()) {
+			lang_tag = <span>{lang_dine}</span>
+			return lang_tag
+		}		
+		str_compare = 'Destination'
+		if(t.toLowerCase() === str_compare.toLowerCase()) {
+			lang_tag = <span>{lang_dine}</span>
+			return lang_tag
+		}																																									
+	}
+
+
+
+})
+.reduce((prev, curr) => [prev, '', curr])
 						}
 						<br/>
 						{
-							props.business
-							.map(t => <span class='mana_ged'>{t}</span>)
-							.reduce((prev, curr) => [prev, '', curr])
+props.business
+.map(t => {
+
+let lang_tag = <span className='mana_ged'>{t}</span>
+let str_compare = ''
+if(lang === null || lang!=='ar') {
+	return lang_tag
+} else {
+	
+	str_compare = 'Miral'
+	if(t.toLowerCase() === str_compare.toLowerCase()) {
+		lang_tag = <span className='mana_ged'>{lang_miral}</span>
+		return lang_tag
+	}			
+	str_compare = 'Miral Destinations'
+	if(t.toLowerCase() === str_compare.toLowerCase()) {
+		lang_tag = <span className='mana_ged'>{lang_miral_destinations}</span>
+		return lang_tag
+	}		
+	str_compare = 'Miral Experiences'
+	if(t.toLowerCase() === str_compare.toLowerCase()) {
+		lang_tag = <span className='mana_ged'>{lang_miral_experiences}</span>
+		return lang_tag
+	}								
+	str_compare = 'Yas Asset Management'
+	if(t.toLowerCase() === str_compare.toLowerCase()) {
+		lang_tag = <span className='mana_ged'>{lang_yas_asset_management}</span>
+		return lang_tag
+	}
+
+}							
+})
+.reduce((prev, curr) => [prev, '', curr])
 						}
 						
 					</div>

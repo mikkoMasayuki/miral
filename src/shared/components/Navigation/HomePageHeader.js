@@ -84,7 +84,7 @@ const HomePageHeader = props => {
 		lang_website = 'الموقع الالكتروني:'		
 		lang_readmore = 'اقرأ المزيد'
         
-        lang_switcher = 'العربية'	
+        lang_switcher = 'ENGLISH'	
         arab_url ="?l=en"															
     } 
 

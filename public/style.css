@@ -184,7 +184,8 @@ nav.home_header #navbarNav{ flex-basis: 40%; }
 }
 
 .nav-item.lang a{
-    font-family: 'Noto Kufi Arabic', sans-serif;
+    
+    font-family: 'Tajawal', sans-serif!important;
     font-size: 16.5px;
     -webkit-text-stroke: 0.15px;
     padding: 6px 20px!important;
