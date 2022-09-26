@@ -62,7 +62,7 @@
         const queryParams = new URLSearchParams(window.location.search)
         const lang = queryParams.get("l")
 		let urlparams = "?l="+lang
-		if(lang === null) {
+		if(lang === null || lang!=='ar') {
 			urlparams = ""
 		}
 
@@ -125,7 +125,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<p><span id="copyright">© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html"><span id="lang_privacypolicy">Privacy Policy</span></a> </p>
+				<p><span id="copyright">© 2022 Miral. All rights reserved.</span> <a id="privacy_url" href="/privacy-policy/index.html"><span id="lang_privacypolicy">Privacy Policy</span>.</a> </p>
 			</div>
 		</div>
 	</div>
@@ -157,16 +157,6 @@
 		btn.click()
         $('.bt_row .bt_left .bt_filter').removeClass('active');
 	    $('.filter_drop').removeClass('shown');        
-
-        //var gmaps_projects = JSON.parse(document.getElementById("filtered_data").innerHTML);
-        //alert( gmaps_projects[0].name)  
-        //alert( markers[0].title)   
-        //alert(gmaps_projects.length)
-        //var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
-        //alert( gmaps_projects[0].name)  
-        //alert( markers[0].title)   
-        //alert(gmaps_projects.length)             
-
         LoadMap();
    } 
 
@@ -179,14 +169,39 @@
     function getTags(item) {
     return [item.type];
     }
+
 	function LoadMap() {
 
-        var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
-        //alert( "zzz "+gmaps_projects[0].image[0].image_url)  
-       
-       var d_marker= [];
-       var d_tags1 = '';
-       var d_tags2 = '';
+    var gmaps_projects = JSON.parse(localStorage.getItem('filter_projects'));   
+    //alert( "zzz "+gmaps_projects[0].image[0].image_url)  
+
+    const queryParams = new URLSearchParams(window.location.search)
+    const lang = queryParams.get("l")    
+
+    let urlparams = "?l="+lang        
+
+
+  
+
+    var d_marker= [];
+    var d_tags1 = '';
+    var d_tags2 = '';
+
+	let lang_name_field = ''
+	let lang_location_field = ''    
+    let lang_most_popular = 'الأكثر شيوعاً'
+    let lang_stay = 'الفنادق'
+    let lang_play = 'التجارب'
+    let lang_dine = 'المطاعم'
+    let lang_business_venues = 'مرافق فعاليات الأعمال'
+    let lang_culture = 'ثقافة'
+    let lang_destination = 'وجهات'    
+
+    let lang_business = 'المنشأة'
+    let lang_miral = 'ميرال'
+    let lang_miral_destinations = 'ميرال ديستينيشنز'
+    let lang_miral_experiences = 'ميرال إكسبيرينسز'
+    let lang_yas_asset_management = 'ياس لإدارة الأصول'	    
 
         for(var i=0; i<gmaps_projects.length; i++) {
             var tags1 = '';
@@ -200,29 +215,125 @@
                     image_url = ''; 
                 }
 
+            let lang_name_field = gmaps_projects[i].name
+            let lang_location_field = gmaps_projects[i].location
+            let str_compare = ''
+
+            if(lang === null || lang!=='ar') {
+
+            } else {
+                lang_name_field = gmaps_projects[i].name_ar
+                lang_location_field = gmaps_projects[i].location
+
+                str_compare = 'Yas Island'
+
+                if(lang_location_field.toLowerCase() === str_compare.toLowerCase()) {
+                    lang_location_field = 'جزيرة ياس'	
+                }
+
+                str_compare = 'Abu Dhabi'
+                if(lang_location_field.toLowerCase() === str_compare.toLowerCase()) {
+                    lang_location_field = 'أبوظبي'	
+                }
+
+                str_compare = 'Saadiyat Island'
+                if(lang_location_field.toLowerCase() === str_compare.toLowerCase()) {
+                    lang_location_field = 'جزيرة السعديات'	
+                }
+
+                str_compare = 'Al Ain'
+                if(lang_location_field.toLowerCase() === str_compare.toLowerCase()) {
+                    lang_location_field = 'العين'	
+                }
+
+                str_compare = 'Jordan'
+                if(lang_location_field.toLowerCase() === str_compare.toLowerCase()) {
+                    lang_location_field = 'الأردن'
+                }
+
+                str_compare = 'Kazakhstan'
+                if(lang_location_field.toLowerCase() === str_compare.toLowerCase()) {
+                    lang_location_field = 'كازخستان'	
+                }                
+            }
+               
                 
             d_tags1 =gmaps_projects[i].type.split(",");
             for(var j=0;j<d_tags1.length;j++) {
-                    tags1=tags1+'<span>'+d_tags1[j].trim()+'</span>';
+
+								let str_compare = ''
+
+								if(lang === null || lang!=='ar') {
+									tags1=tags1+'<span>'+d_tags1[j].trim()+'</span>';
+								} else {
+									str_compare = 'Most Popular'
+									if(d_tags1[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                        tags1=tags1+'<span>'+lang_most_popular+'</span>';
+									}									
+									str_compare = 'Stay'
+									if(d_tags1[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                        tags1=tags1+'<span>'+lang_stay+'</span>';
+									}
+									str_compare = 'Play'
+									if(d_tags1[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                        tags1=tags1+'<span>'+lang_play+'</span>';
+									}	
+									str_compare = 'Dine'
+									if(d_tags1[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                        tags1=tags1+'<span>'+lang_dine+'</span>';
+									}	
+									str_compare = 'Business Venues'
+									if(d_tags1[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                        tags1=tags1+'<span>'+lang_business_venues+'</span>';
+									}		
+									str_compare = 'Culture'
+									if(d_tags1[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                        tags1=tags1+'<span>'+lang_culture+'</span>';
+									}		
+									str_compare = 'Destination'
+									if(d_tags1[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                        tags1=tags1+'<span>'+lang_destination+'</span>';
+									}																																									
+								}                    
             }
 
             d_tags2 =gmaps_projects[i].business.split(",");
             for(var j=0;j<d_tags2.length;j++) {
-                    tags2=tags2+'<span class="mana_ged">'+d_tags2[j].trim()+'</span>';
+                    //tags2=tags2+'<span class="mana_ged">'+d_tags2[j].trim()+'</span>';
+                    let str_compare = ''
+
+                        if(lang === null || lang!=='ar') {
+                            tags2=tags2+'<span class="mana_ged">'+d_tags2[j].trim()+'</span>';
+                        } else {
+                            str_compare = 'Miral'
+                            if(d_tags2[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                tags2=tags2+'<span class="mana_ged">'+lang_miral+'</span>';
+                            }									
+                            str_compare = 'Miral Destinations'
+                            if(d_tags2[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                ttags2=tags2+'<span class="mana_ged">'+lang_miral_destinations+'</span>';
+                            }
+                            str_compare = 'Yas Asset Management'
+                            if(d_tags2[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                tags2=tags2+'<span class="mana_ged">'+lang_yas_asset_management+'</span>';
+                            }	
+                           																																								
+                        }                     
             }            
 
-            d_marker.push({"title": gmaps_projects[i].name,
+            d_marker.push({"title": lang_name_field,
                             "lat": gmaps_projects[i].lat,
                             "lng": gmaps_projects[i].long,
                             "description": '<div class=" item"><a class="link" href="/project/'+gmaps_projects[i].name+'/'+gmaps_projects[i].id+'"> </a><div class="ftrd_img">'
                                 +image_url+'</div><div class="desc"><h4>'
-                                +gmaps_projects[i].name+'</h4><p>'
-                                +gmaps_projects[i].location+'</p><p class="tag tag_1">'
+                                +lang_name_field+'</h4><p>'
+                                +lang_location_field+'</p><p class="tag tag_1">'
                                 +tags1+'</p><p class="tag">'
                                 +tags2+'</p><br></div></div>',
                             "icon": 'assets/img/map-pin.png'
                         }) 
         }
+
         
 
         var markers = d_marker;
@@ -505,7 +616,7 @@
 		}
 	}
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANt6Xy9LQccwaqMhnj1MQ9_CFVftSYuKA&callback=initMap&v=weekly&channel=2" async defer >  </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlUQvDdsTjdqJ1qNnN1qxqaIDv26K8oLU&callback=initMap&v=weekly&channel=2" async defer >  </script>
 
   
   
