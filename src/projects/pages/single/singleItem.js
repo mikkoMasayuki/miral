@@ -89,7 +89,36 @@ const SingleItem = props => {
 		lang_description = props.description_ar
 		lang_headline = props.headline_ar
 		lang_name_field = props.name_ar
-		lang_location_field = props.location_ar
+
+		let str_compare = 'Yas Island'
+		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+			lang_location_field = 'جزيرة ياس'	
+		}
+
+		str_compare = 'Abu Dhabi'
+		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+			lang_location_field = 'أبوظبي'	
+		}
+
+		str_compare = 'Saadiyat Island'
+		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+			lang_location_field = 'جزيرة السعديات'	
+		}
+
+		str_compare = 'Al Ain'
+		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+			lang_location_field = 'العين'	
+		}
+
+		str_compare = 'Jordan'
+		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+			lang_location_field = 'الأردن'
+		}
+
+		str_compare = 'Kazakhstan'
+		if(props.location.toLowerCase() === str_compare.toLowerCase()) {
+			lang_location_field = 'كازخستان'	
+		}	
     }	
 
 
@@ -192,7 +221,7 @@ props.images.map(image => {
         <div class="row head_content">
 			
 			<div class="col-md-12 content_left">
-				<h2>{props.name} <span> {putComma( props.location )} </span></h2>
+				<h2>{lang_name_field} <span> {putComma( lang_location_field )} </span></h2>
 				<div class="details">
 					<div class="tag_wrap">
 						{
