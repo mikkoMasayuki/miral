@@ -10,7 +10,7 @@ const HomePageHeader = props => {
 
     let urlparams = "?l="+lang
 
-    let lang_about = 'About'
+    let lang_about = 'ABOUT'
 	let lang_filter_projects = 'FILTER PROJECTS'
 	let lang_reset = 'RESET'
 	let lang_type = 'Type'

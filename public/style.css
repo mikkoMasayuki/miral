@@ -306,7 +306,7 @@ body.log_in{ background: #e6e7e8!important; }
 /*############ footer starts ############*/
 footer{ padding-bottom: 40px; }
 footer p{ color: #4a4a49;    font-size: 14px; }
-footer p a { text-decoration: underline; color: #4a4a49; margin-right: 5px; text-underline-offset: 3px;}
+footer p a { text-decoration: underline; color: #4a4a49; text-underline-offset: 3px;}
 footer p a:hover{ color: #4a4a49; }
 /*############ footer ends ##############*/
 
