@@ -186,7 +186,7 @@ nav.home_header #navbarNav{ flex-basis: 40%; }
 .nav-item.lang a{
     
     font-family: 'Tajawal', sans-serif!important;
-    font-size: 16.5px;
+    font-size: 14px;
     -webkit-text-stroke: 0.15px;
     padding: 6px 20px!important;
 }
@@ -213,6 +213,7 @@ nav.home_header #navbarNav{ flex-basis: 40%; }
     color: #fff;
 }
 
+.lang_switcher { font-size: 14px;}
 .navbar-nav { padding-top: 0px; }
 
 

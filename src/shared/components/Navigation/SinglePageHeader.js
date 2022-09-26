@@ -45,8 +45,8 @@ const HomePageHeader = props => {
             	</li>
 		     
 
-		      <li class="nav-item lang ">
-		        	<a class="nav-link " href={arab_url}>{lang_switcher}</a>
+		      <li class="nav-item">
+		        	<a class="nav-link lang_switcher" href={arab_url}>{lang_switcher}</a>
 		      </li>
 		     
 		    </ul>

@@ -42,9 +42,9 @@ const SingleItem = props => {
 	let lang_miral_experiences = 'Miral Experiences'
 	let lang_yas_asset_management = 'Yas Asset Management'
 
-	let lang_completed = 'Completed'
-	let lang_size = 'Size'
-	let lang_website = 'Website'
+	let lang_completed = 'Completed: '
+	let lang_size = 'Size: '
+	let lang_website = 'Website: '
 	let lang_readmore = 'Read more'
 
 	let lang_description = props.description
@@ -315,9 +315,9 @@ if(lang === null || lang!=='ar') {
 						
 					</div>
 					<ul>
-						<li><strong>{lang_completed}:</strong> {props.year}</li>
-						<li><strong>{lang_size} (sq.m):</strong> {props.size}</li>
-						<li><strong>{lang_website}: </strong><a target="_blank" href={addHttp(props.website)}>{removeHttp(props.website)}</a></li>
+						<li><strong>{lang_completed}</strong> {props.year}</li>
+						<li><strong>{lang_size} (sq.m)</strong> {props.size}</li>
+						<li><strong>{lang_website} </strong><a target="_blank" href={addHttp(props.website)}>{removeHttp(props.website)}</a></li>
 					</ul>					
 				</div>
 
