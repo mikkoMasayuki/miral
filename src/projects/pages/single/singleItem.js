@@ -216,7 +216,7 @@ props.images.map(image => {
 })
 
 
-//console.log(props.items)
+
 
     return <React.Fragment>
         <div class="row head_content">
@@ -316,7 +316,7 @@ if(lang === null || lang!=='ar') {
 					</div>
 					<ul>
 						<li><strong>{lang_completed}</strong> {props.year}</li>
-						<li><strong>{lang_size} (sq.m)</strong> {props.size}</li>
+						<li><strong>{lang_size} {(lang === null || lang!=='ar') ? '(sq.m)' : ''}</strong> {props.size}</li>
 						<li><strong>{lang_website} </strong><a target="_blank" href={addHttp(props.website)}>{removeHttp(props.website)}</a></li>
 					</ul>					
 				</div>

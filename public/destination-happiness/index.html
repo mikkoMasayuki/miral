@@ -46,24 +46,67 @@ const queryParams = new URLSearchParams(window.location.search)
 		}
 
 		const home_url = "/"+urlparams
-		const about_url = "/destination-happiness/index.html"+urlparams
-		const miral_url = "https://miral.ae/"+urlparams	
+		//let about_url = "/destination-happiness/index.html"+urlparams
+		let about_url = "/destination-happiness/index.html"
+		let miral_url = "https://miral.ae/"	
 		const privacy_url = "/privacy-policy/index.html"+urlparams	
-		const arab_url ="/destination-happiness/index.html"+urlparams
+		let arab_url ="/destination-happiness/index.html"+urlparams
 		
 		let lang_privacypolicy = "Privacy Policy"
 		let lang_about = 'ABOUT'
 		let lang_switcher = 'العربية'
 		let lang_copyright = '© 2022 Miral. All rights reserved.'
+		let lang_destination_happiness = 'DESTINATION <br> HAPPINESS<span>.</span>'
+		let lang_content = 
+		`<p>Hac volutpat faucibus sed augue tristique. Consectetuer fringilla  faucibus. Suspendisse suspendisse commodo porttitor donec phasellus  non bibendum condimentum maecenas primis at nunc auctor, vehicula  etiam donec dis leo. Sollicitudin sit vehicula nascetur leo.</p>
+		<p>Eleifend sapien volutpat. Pharetra ultricies ultrices adipiscing  commodo et pretium eleifend, fusce suspendisse sollicitudin habitasse.  Euismod aliquet. At suscipit Facilisi Est ac fringilla ante.</p>
+		<p>Hendrerit ligula ligula hendrerit ad conubia facilisi. Donec mi enim.  Turpis ultrices malesuada, sem, est dolor condimentum sit porta  imperdiet A rutrum dictum commodo ligula vestibulum nibh etiam  mauris convallis nascetur neque per condimentum.</p>`
 
         if( lang == null || lang !=='ar') {
-            
+            arab_url ="/destination-happiness/index.html?l=ar"
         } else {
             document.write('<link rel="stylesheet" type="text/css" href="../ar.css" />');
 			lang_privacypolicy = 'سياسة الخصوصية'
 			lang_about = 'نبذة عن الحافظة'
 			lang_switcher = 'ENGLISH'		
-			lang_copyright = '© 2022 ميرال. جميع الحقوق محفوظة. سياسة الخصوصية'
+			//lang_copyright = '© 2022 ميرال. جميع الحقوق محفوظة. سياسة الخصوصية'
+			lang_copyright = '© 2022 ميرال. جميع الحقوق محفوظة.'
+			lang_destination_happiness = 'وجهات سعيدة'
+			miral_url = "https://miral.ae/ar"	
+			about_url = "/destination-happiness/index.html?l=ar"
+			arab_url ="/destination-happiness/index.html?l=en"
+			lang_content =
+			`
+أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
+أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
+أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
+نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
+كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."
+"سيت يتبيرسبايكياتيس يوندي أومنيس أستي ناتيس أيررور سيت فوليبتاتيم أكيسأنتييوم
+دولاريمكيو لايودانتيوم,توتام ريم أبيرأم,أيكيو أبسا كيواي أب أللو أنفينتوري فيرأتاتيس ايت
+كياسي أرشيتيكتو بيتاي فيتاي ديكاتا سيونت أكسبليكابو. نيمو أنيم أبسام فوليوباتاتيم كيواي
+فوليوبتاس سايت أسبيرناتشر أيوت أودايت أيوت فيوجايت, سيد كيواي كونسيكيونتشر ماجناي
+دولارس أيوس كيواي راتاشن فوليوبتاتيم سيكيواي نيسكايونت. نيكيو بوررو كيوايسكيوم
+ايست,كيواي دولوريم ايبسيوم كيوا دولار سايت أميت, كونسيكتيتيور,أديبايسكاي فيلايت, سيد
+كيواي نون نيومكيوام ايايوس موداي تيمبورا انكايديونت يوت لابوري أيت دولار ماجنام
+ألايكيوام كيوايرات فوليوبتاتيم. يوت اينايم أد مينيما فينيام, كيواس نوستريوم أكسيركايتاشيم
+يلامكوربوريس سيوسكايبيت لابورايوسام, نايساي يوت ألايكيوايد أكس أيا كوموداي
+كونسيكيواتشر؟ كيوايس أيوتيم فيل أيوم أيوري ريبريهينديرايت كيواي ان إيا فوليوبتاتي
+فيلايت ايسسي كيوم نايهايل موليستايا كونسيكيواتيو,فيلايليوم كيواي دولوريم أيوم فيوجايات كيو
+فوليوبتاس نيولا باراياتيور؟"
+" أت فيرو ايوس ايت أكيوساميوس ايت أيوستو أودايو دايجنايسسايموس ديوكايميوس كيواي
+بلاندايتاييس برايسينتايوم فوليوبتاتيوم ديلينايتاي أتكيوي كورريوبتاي كيوأوس دولوريس أيت
+سيما يليكيوسيونت ان كيولبا كيواي أوفايكيا ديسيريونت موللايتايا انايماي, أيدي ايست لابوريوم
+دايستا ينستايو. نام لايبيرو تيمبور, كيوم سوليوتا نوبايس ايست ايلاجينداي أوبتايو كيومكيوي
+نايهايل ايمبيدايت كيو ماينيوس ايدي كيوود ماكسهيمي بلاسايت فاسيري بوسسايميوس,أومنايس
+فوليوبتاس ايت ايوت أسسيو ميندايست, أومنيوس دولار ريبيللينديوس. تيمبورايبيوس أيوتيم
+كيواس موليستاياس أكسكيبتيوراي ساينت أوككايكاتاي كيبايدايتات نون بروفايدنت
+أيت دولوريوم فيوجا.ايت هاريوم كيوايديم ريريوم فاكايلايسايست ايت أكسبيدايتا
+كيوايبيوسدام ايت أوت
+أوففايكايس ديبايتايس أيوت ريريوم نيسيسسايتاتايبيوس سايبي ايفينايت يوت ايت فوليبتاتيس 
+ريبيودايايانداي ساينت ايت موليسفاياي نون ريكيوسانداي.اتاكيوي ايريوم ريريوم هايس تينيتور
+أ ساباينتي ديليكتيوس, يوت أيوت رياسايندايس فوليوبتاتايبص مايوريس ألايس			
+			`			
         }    
 		
 
@@ -110,13 +153,14 @@ const queryParams = new URLSearchParams(window.location.search)
 		<div class="row head_content">
 			
 			<div class="col-md-6 content_left" id="">
-				<h2>DESTINATION <br> HAPPINESS<span>.</span></h2>
+				<h2 id="destination_happiness">DESTINATION <br> HAPPINESS<span>.</span></h2>
+				<div id="content">
 				<p>Hac volutpat faucibus sed augue tristique. Consectetuer fringilla  faucibus. Suspendisse suspendisse commodo porttitor donec phasellus  non bibendum condimentum maecenas primis at nunc auctor, vehicula  etiam donec dis leo. Sollicitudin sit vehicula nascetur leo.</p>
 
 				<p>Eleifend sapien volutpat. Pharetra ultricies ultrices adipiscing  commodo et pretium eleifend, fusce suspendisse sollicitudin habitasse.  Euismod aliquet. At suscipit Facilisi Est ac fringilla ante.</p>
 
 				<p>Hendrerit ligula ligula hendrerit ad conubia facilisi. Donec mi enim.  Turpis ultrices malesuada, sem, est dolor condimentum sit porta  imperdiet A rutrum dictum commodo ligula vestibulum nibh etiam  mauris convallis nascetur neque per condimentum.</p>
-					
+				</div>
 
 			</div>
 
@@ -176,6 +220,9 @@ const queryParams = new URLSearchParams(window.location.search)
 		document.getElementById("about_url").innerHTML = lang_about
 		document.getElementById("arab_url").innerHTML = lang_switcher
 		document.getElementById("copyright").innerHTML = lang_copyright
+		document.getElementById("destination_happiness").innerHTML = lang_destination_happiness
+		document.getElementById("content").innerHTML = lang_content
+		
 		
 	});
 </script>

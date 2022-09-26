@@ -10,17 +10,19 @@ const HomePageHeader = props => {
 	let lang_about = 'ABOUT'
     const home_url = "/"+urlparams
     const about_url = "/destination-happiness/index.html"+urlparams
-    const miral_url = "https://miral.ae/"+urlparams
+    let miral_url = "https://miral.ae/"
     const privacy_url = "/privacy-policy/index.html"+urlparams	
     let lang_switcher = 'العربية'
     let arab_url ="?l=ar"
 
     if(lang === null || lang!=='ar') {
         urlparams = ""
+		miral_url = "https://miral.ae/"
     } else {
 		lang_about = 'نبذة عن الحافظة'
 		lang_switcher = 'ENGLISH'	
 		arab_url ="?l=en"		
+		miral_url = "https://miral.ae/ar"
 	}
     
 

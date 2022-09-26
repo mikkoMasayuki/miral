@@ -557,7 +557,7 @@ const ProjectLists = props => {
 
 
 							<div className="bt_wrap">
-								<button className="show_results dark" onClick={handleForceClose}>Show {props.items.length} results</button>
+								<button className="show_results dark" onClick={handleForceClose}>{(lang === null || lang!=='ar') ? `Show ${props.items.length} results` : `نتيجة ${props.items.length} عرض`}</button>
 								<button id="btnreset" className="reset dark" onClick={handleFilterResetFromButton}> {lang_reset}</button>
 								<button className="show_results dark" onClick={handleForceClose}>HIDE</button>
 
