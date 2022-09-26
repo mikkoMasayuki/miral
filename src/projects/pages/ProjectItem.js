@@ -182,15 +182,91 @@ const ProjectItem = props => {
 
 					<p className="tag tag_1">
 						{
+
 							props.type
-							.map(t => <span>{t}</span>)
+							.map(t => {
+								let lang_tag = <span>{t}</span>
+								let str_compare = ''
+								if(lang === null || lang!=='ar') {
+									return lang_tag
+								} else {
+									str_compare = 'Most Popular'
+									if(t.toLowerCase() === str_compare.toLowerCase()) {
+										lang_tag = <span>{lang_most_popular}</span>
+										return lang_tag
+									}									
+									str_compare = 'Stay'
+									if(t.toLowerCase() === str_compare.toLowerCase()) {
+										lang_tag = <span>{lang_stay}</span>
+										return lang_tag
+									}
+									str_compare = 'Play'
+									if(t.toLowerCase() === str_compare.toLowerCase()) {
+										lang_tag = <span>{lang_stay}</span>
+										return lang_tag
+									}	
+									str_compare = 'Dine'
+									if(t.toLowerCase() === str_compare.toLowerCase()) {
+										lang_tag = <span>{lang_dine}</span>
+										return lang_tag
+									}	
+									str_compare = 'Business Venues'
+									if(t.toLowerCase() === str_compare.toLowerCase()) {
+										lang_tag = <span>{lang_dine}</span>
+										return lang_tag
+									}		
+									str_compare = 'Culture'
+									if(t.toLowerCase() === str_compare.toLowerCase()) {
+										lang_tag = <span>{lang_dine}</span>
+										return lang_tag
+									}		
+									str_compare = 'Destination'
+									if(t.toLowerCase() === str_compare.toLowerCase()) {
+										lang_tag = <span>{lang_dine}</span>
+										return lang_tag
+									}																																									
+								}
+
+
+
+							})
 							.reduce((prev, curr) => [prev, '', curr])
 						}
 					</p>
 					<p className="tag" >
 						{
 							props.business
-							.map(t => <span className='mana_ged'>{t}</span>)
+							.map(t => {
+							
+							let lang_tag = <span className='mana_ged'>{t}</span>
+							let str_compare = ''
+							if(lang === null || lang!=='ar') {
+								return lang_tag
+							} else {
+								
+								str_compare = 'Miral'
+								if(t.toLowerCase() === str_compare.toLowerCase()) {
+									lang_tag = <span className='mana_ged'>{lang_miral}</span>
+									return lang_tag
+								}			
+								str_compare = 'Miral Destinations'
+								if(t.toLowerCase() === str_compare.toLowerCase()) {
+									lang_tag = <span className='mana_ged'>{lang_miral_destinations}</span>
+									return lang_tag
+								}		
+								str_compare = 'Miral Experiences'
+								if(t.toLowerCase() === str_compare.toLowerCase()) {
+									lang_tag = <span className='mana_ged'>{lang_miral_experiences}</span>
+									return lang_tag
+								}								
+								str_compare = 'Yas Asset Management'
+								if(t.toLowerCase() === str_compare.toLowerCase()) {
+									lang_tag = <span className='mana_ged'>{lang_yas_asset_management}</span>
+									return lang_tag
+								}
+
+							}							
+						})
 							.reduce((prev, curr) => [prev, '', curr])
 						}
 					</p>
