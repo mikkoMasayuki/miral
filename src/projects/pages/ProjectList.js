@@ -12,6 +12,7 @@ const ProjectLists = props => {
     let lang_about = 'About'
 	let lang_filter_projects = 'FILTER PROJECTS'
 	let lang_reset = 'RESET'
+	let lang_hide = 'HIDE'
 	let lang_type = 'Type'
 	let lang_all = 'All'
 	let lang_most_popular = 'Most Popular'
@@ -53,6 +54,7 @@ const ProjectLists = props => {
         lang_about = 'نبذة عن الحافظة'
 		lang_filter_projects = 'تصفية نتائج البحث'
 		lang_reset = 'إعادة ضبط'
+		lang_hide = 'إخفاء'
 		lang_type = 'نوع'
 		lang_all = 'الكل'
 		lang_most_popular = 'الأكثر شيوعاً'
@@ -557,9 +559,11 @@ const ProjectLists = props => {
 
 
 							<div className="bt_wrap">
-								<button className="show_results dark" onClick={handleForceClose}>{(lang === null || lang!=='ar') ? `Show ${props.items.length} results` : `نتيجة ${props.items.length} عرض`}</button>
+								<button className="show_results dark" onClick={handleForceClose}>
+									{(lang === null || lang!=='ar') ? `Show ${props.items.length} results` : `عرض ${props.items.length} نتيجة`}
+								</button>
 								<button id="btnreset" className="reset dark" onClick={handleFilterResetFromButton}> {lang_reset}</button>
-								<button className="show_results dark" onClick={handleForceClose}>HIDE</button>
+								<button className="show_results dark" onClick={handleForceClose}>{lang_hide}</button>
 
 							</div>
 						</div>
