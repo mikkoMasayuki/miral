@@ -57,6 +57,8 @@ const queryParams = new URLSearchParams(window.location.search)
 		let lang_switcher = 'العربية'
 		let lang_copyright = '© 2022 Miral. All rights reserved.'
 		let lang_destination_happiness = 'DESTINATION <br> HAPPINESS<span>.</span>'
+		let lang_miral_web = "MIRAL WEBSITE"
+
 		let lang_content = 
 		`<p>Hac volutpat faucibus sed augue tristique. Consectetuer fringilla  faucibus. Suspendisse suspendisse commodo porttitor donec phasellus  non bibendum condimentum maecenas primis at nunc auctor, vehicula  etiam donec dis leo. Sollicitudin sit vehicula nascetur leo.</p>
 		<p>Eleifend sapien volutpat. Pharetra ultricies ultrices adipiscing  commodo et pretium eleifend, fusce suspendisse sollicitudin habitasse.  Euismod aliquet. At suscipit Facilisi Est ac fringilla ante.</p>
@@ -75,6 +77,7 @@ const queryParams = new URLSearchParams(window.location.search)
 			miral_url = "https://miral.ae/ar"	
 			about_url = "/destination-happiness/index.html?l=ar"
 			arab_url ="/destination-happiness/index.html?l=en"
+			lang_miral_web = "ميرال"
 			lang_content =
 
 			`
@@ -146,7 +149,7 @@ const queryParams = new URLSearchParams(window.location.search)
 		      </li>
 
 		      <li class="nav-item">
-				<a class="nav-link " id="miral_url" href="https://miral.ae/?l=ar" target="_blank">MIRAL.AE</a>
+				<a class="nav-link " id="miral_url" href="https://miral.ae/?l=ar" target="_blank"><span id="miral_web">MIRAL.AE</span></a>
 				</li>
 
 		      <li class="nav-item lang ">
@@ -235,7 +238,7 @@ const queryParams = new URLSearchParams(window.location.search)
 		document.getElementById("copyright").innerHTML = lang_copyright
 		document.getElementById("destination_happiness").innerHTML = lang_destination_happiness
 		document.getElementById("content").innerHTML = lang_content
-		
+		document.getElementById("miral_web").innerHTML = lang_miral_web
 		
 	});
 </script>

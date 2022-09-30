@@ -48,6 +48,7 @@ const HomePageHeader = props => {
     let lang_switcher = 'العربية'
     let arab_url ="?l=ar"
 	let miral_url = "https://miral.ae/"
+	let lang_miral_web = "MIRAL WEBSITE"
 
 
     if(lang === null || lang!=='ar') {
@@ -88,7 +89,8 @@ const HomePageHeader = props => {
         
         lang_switcher = 'ENGLISH'	
         arab_url ="?l=en"	
-		miral_url = "https://miral.ae/ar"														
+		miral_url = "https://miral.ae/ar"		
+		lang_miral_web = "ميرال"												
     } 
 
 
@@ -130,7 +132,7 @@ const HomePageHeader = props => {
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " target="_blank" href={miral_url}>MIRAL.AE</a>
+                    <a class="nav-link " target="_blank" href={miral_url}>{lang_miral_web}</a>
                 </li>
 
                 
