@@ -37,29 +37,50 @@
 	<link rel="stylesheet" type="text/css" href="../style.css">
 	<!-- <link rel="stylesheet" type="text/css" href="../ar.css"> -->
 	<script>
+const queryParams = new URLSearchParams(window.location.search)
+        const lang = queryParams.get("l")
+		let urlparams = "?l="+lang
+		if(lang === null) {
+			urlparams = ""
+		}
 
-		const queryParams = new URLSearchParams(window.location.search)
-				const lang = queryParams.get("l")
-				let urlparams = "?l="+lang
-				if(lang === null) {
-					urlparams = ""
-				}
+		const home_url = "/"+urlparams
+		//let about_url = "/destination-happiness/index.html"+urlparams
+		let about_url = "/destination-happiness/index.html"
+		let miral_url = "https://miral.ae/"	
+		const privacy_url = "/privacy-policy/index.html"+urlparams	
+		//let arab_url ="/destination-happiness/index.html"+urlparams
+		arab_url = "/privacy-policy/index.html?l=ar"
 		
-				const home_url = "/"+urlparams
-				const about_url = "/destination-happiness/index.html"+urlparams
-				const miral_url = "https://miral.ae/"+urlparams	
-				const privacy_url = "/privacy-policy/index.html"+urlparams	
-				const arab_url ="#"+urlparams	
-		
-				if( lang == null || lang !=='ar') {
-					
-				} else {
-					document.write('<link rel="stylesheet" type="text/css" href="../ar.css" />');
-				}    
+		let lang_privacypolicy = "Privacy Policy"
+		let lang_about = 'ABOUT'
+		let lang_switcher = 'العربية'
+		let lang_copyright = '© 2022 Miral. All rights reserved.'
+		let lang_destination_happiness = 'DESTINATION <br> HAPPINESS<span>.</span>'
+		let lang_miral_web = "MIRAL WEBSITE"
+
+
+        if( lang == null || lang !=='ar') {
+            //arab_url ="/destination-happiness/index.html?l=ar"
+			arab_url = "/privacy-policy/index.html?l=ar"
+        } else {
+            document.write('<link rel="stylesheet" type="text/css" href="../ar.css" />');
+			lang_privacypolicy = 'سياسة الخصوصية'
+			lang_about = 'نبذة عن الحافظة'
+			lang_switcher = 'ENGLISH'		
+			lang_copyright = '© 2022 ميرال. جميع الحقوق محفوظة.'
+			lang_destination_happiness = 'وجهات سعيدة'
+			miral_url = "https://miral.ae/ar"	
+			about_url = "/destination-happiness/index.html?l=ar"
+			//arab_url ="/destination-happiness/index.html?l=en"
+			arab_url = "/privacy-policy/index.html?l=en"
+			lang_miral_web = "ميرال"
+		}	
+   
 				
 		
 				
-			</script>	
+	</script>	
 </head>
 <body>
 
@@ -73,17 +94,20 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 		   <ul class="navbar-nav ml-auto">
-		      <li class="nav-item">
-		        <a class="nav-link " id="about_url" href="/destination-happiness/index.html">ABOUT</a>
-		      </li>
-
-			  <li class="nav-item">
-				<a class="nav-link " id="miral_url" href="/">MIRAL.AE</a>
-			</li>
-
-		      <li class="nav-item lang ">
-		        	<a class="nav-link " id="arab_url" href="#">العربية</a>
-		      </li>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+				  <a class="nav-link " id="about_url" href="#">ABOUT</a>
+				</li>
+  
+				<li class="nav-item">
+				  <a class="nav-link " id="miral_url" href="https://miral.ae/?l=ar" target="_blank"><span id="miral_web">MIRAL.AE</span></a>
+				  </li>
+  
+				<li class="nav-item lang ">
+					  <a class="nav-link " id="arab_url" href="#">العربية</a>
+				</li>
+			   
+			  </ul>
 		     
 		    </ul>
 		    
@@ -221,7 +245,14 @@
 		document.getElementById("about_url").href = about_url
 		document.getElementById("miral_url").href = miral_url
 		document.getElementById("privacy_url").href = privacy_url
-		document.getElementById("arab_url").href = arab_url			
+		document.getElementById("arab_url").href = arab_url		
+		//document.getElementById("lang_privacypolicy").innerHTML = lang_privacypolicy
+		document.getElementById("about_url").innerHTML = lang_about
+		//document.getElementById("arab_url").innerHTML = lang_switcher
+		//document.getElementById("copyright").innerHTML = lang_copyright
+		//document.getElementById("destination_happiness").innerHTML = lang_destination_happiness
+		//document.getElementById("content").innerHTML = lang_content
+		document.getElementById("miral_web").innerHTML = lang_miral_web
 	});
 </script>
 
