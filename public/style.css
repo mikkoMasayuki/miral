@@ -867,6 +867,8 @@ button.swal2-cancel:hover{
     font-size: 14px;
 }
 
+.edit_dashboard textarea#desc_ar{ text-align: right;}
+
 .edit_dashboard .stats input{ margin-bottom: 15px; margin-top: 0px; }
 .edit_dashboard .stats .group{ width: 32%; }
 
