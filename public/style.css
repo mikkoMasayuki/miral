@@ -600,7 +600,7 @@ p.tag.tag_2{ display: none;}
 }
 
 .single_proj .content_right h3{ font-weight: 500; font-size: 22px; margin-bottom: 8px; }
-.single_proj .content_right  p{ font-size: 16px; }
+.single_proj .content_right  p{ font-size: 16px;white-space: pre-wrap; }
 .single_proj .content_right .bt_wrap .btn{  
     background: #CACCCB;
     border: none;
@@ -1397,7 +1397,7 @@ div.item-images div.first-row, div.item-images div.next-row {
  .single_grid{ padding-top: 0px; }
  .single_grid .item{ margin-bottom: 20px; }
  .single_proj .content_left .details{ width: 100%; margin-bottom: 0;}
- .single_proj .content_right{ width: 100%; float: none;  padding-left: 0;}
+ .single_proj .content_right{ width: 100%; float: none;  padding-left: 0;     padding-right: 0;}
 
 
   /*admin edit users*/
