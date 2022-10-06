@@ -1252,7 +1252,8 @@ div.item-images div.first-row, div.item-images div.next-row {
     .ftrd_header .img_main{ max-width: 92%;     margin-right: -182px;}
     .animated_elements .img_portfolio{ width: 140px;}
     .animated_elements .img_th{ width: 78px; left: 95px;}
-    nav.home_header .navbar-nav{     margin-top: -40px;}
+    nav.home_header .navbar-nav{  margin-top: -40px;text-align: right;}
+    nav.home_header #navbarNav{  flex-basis: 41%;}
 
     /*login page*/
     .login_sec img.ftrd{ height: 402px; }

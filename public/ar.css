@@ -121,6 +121,10 @@ footer p{ text-align: right;}
     }
 }
 
+@media (max-width: 1199px){
+    nav.home_header .navbar-nav{ text-align: left; padding-right: 0px;}
+}
+
 @media(max-width: 991px){
     /* header */
     .about_header .navbar-toggler{ margin-left: 15px;}
@@ -149,10 +153,20 @@ footer p{ text-align: right;}
    
 }
 
+@media(max-width: 768px){
+    .dest_happiness::before{ background-position: -13% 50%;}
+   
+}
 
 @media(max-width: 680px){
 
     /* home filter */
     .filter_drop label input{ left: auto; right: 0;}
     .filter_drop label{ padding-left: 0px; padding-right: 22px;}
+
+    .dest_happiness::before{ background-position: -13% 59%;}
+}
+
+@media(max-width: 580px){
+    .dest_happiness::before{     background-size: 40%;    background-position: -13% 66%;}
 }
