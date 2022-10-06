@@ -207,6 +207,27 @@ const SingleItem = props => {
 
 }
 
+function singleItemBlock() {
+let lc_year =''
+let lc_size = ''
+let lc_web = ''
+
+	if ( props.year.length > 0 ) {
+		lc_year = <li><strong>{lang_completed}</strong> {props.year}</li>
+	}
+	if ( props.size.length > 0 ) {
+		lc_size = <li><strong>{lang_size}</strong> {props.size}</li>
+	} 
+	if ( props.website.length > 0 ) {
+		lc_web = <li><strong>{lang_website}</strong> <a target="_blank" href={addHttp(props.website)}>{removeHttp(props.website)}</a></li>
+	} 
+return ( <ul>
+		{lc_year}
+		{lc_size}
+		{lc_web}
+	</ul>)
+}
+
 let real_images = []
 
 props.images.map(image => {
@@ -214,9 +235,6 @@ props.images.map(image => {
 		real_images.push(image.image_url)
 	}
 })
-
-
-
 
     return <React.Fragment>
         <div class="row head_content">
@@ -314,11 +332,17 @@ if(lang === null || lang!=='ar') {
 						}
 						
 					</div>
-					<ul>
+					
+						{
+						/*	
+						<ul>
 						<li><strong>{lang_completed}</strong> {props.year}</li>
 						<li><strong>{lang_size} {(lang === null || lang!=='ar') ? '(sq.m)' : ''}</strong> {props.size}</li>
 						<li><strong>{lang_website} </strong><a target="_blank" href={addHttp(props.website)}>{removeHttp(props.website)}</a></li>
-					</ul>					
+						</ul>
+						*/}	
+						{singleItemBlock()}
+											
 				</div>
 
 				<div class=" content_right">
