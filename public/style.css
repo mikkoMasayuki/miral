@@ -171,7 +171,7 @@ nav.home_header #navbarNav{ flex-basis: 40%; }
     background: #333;
     border-radius: 100px;
 }
-.m_header img.logo{ height: 62px;  margin-right: 15px;    margin-left: -20px; }
+.m_header img.logo{ height: 68px;  margin-right: 15px; margin-left: -20px; }
 
 .nav-item input{font-weight: 500; height: 42px; border: 1px solid #dadada; }
 .nav-item input::placeholder{color: #262626;  }
