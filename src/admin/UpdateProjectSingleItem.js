@@ -429,9 +429,12 @@ const UpdateProjectSingleItem = props => {
 		
 		
 	}
-    
+    function uploadImage(e) {
+		alert('1')
+	}
 
-	function uploadImage(e) {
+	function zuploadImage(e) {
+		
 				
 				const MAX_FILE_SIZE = 1024 // 1MB
 				const fileSizeKiloBytes = e.target.files[0].size / 1024
@@ -440,9 +443,13 @@ const UpdateProjectSingleItem = props => {
 				let filename = e.target.files[0].name
 				let file_ext = filename.split(".") 
 				let formData = new FormData()
+				
+				//console.log(file_ext)
 
 				
+				
 				if(file_ext[1]!=='jpg' && file_ext[1]!=='jpeg' && file_ext[1]!=='webp') {
+					//e.target.files[0].name = null
 					uploadErrorMsg( "Invalid file type. Allowed files are *.jpg or *.jpeg or *.webp only")
 					return
 				}
@@ -789,7 +796,7 @@ const UpdateProjectSingleItem = props => {
 						<label>Statistics:</label>
 						<span class="group">
 							<input type="text" placeholder="Completion year" defaultValue={props.year} id="yyear" />
-							<input type="hidden" placeholder="Architect" defaultValue={props.value} id="vval" />
+							<input type="text" placeholder="Value (AED)" defaultValue={props.value} id="vval" />
 						</span>
 
 						<span class="group">

@@ -43,8 +43,9 @@ const SingleItem = props => {
 	let lang_yas_asset_management = 'Yas Asset Management'
 
 	let lang_completed = 'Completed: '
-	let lang_size = 'Size: '
+	let lang_size = 'Size (sqm.): '
 	let lang_website = 'Website: '
+	let lang_value = 'Value: '
 	let lang_readmore = 'Read more'
 
 	let lang_description = props.description
@@ -211,6 +212,7 @@ function singleItemBlock() {
 let lc_year =''
 let lc_size = ''
 let lc_web = ''
+let lc_val = ''
 
 	if ( props.year.length > 0 ) {
 		lc_year = <li><strong>{lang_completed}</strong> {props.year}</li>
@@ -218,12 +220,16 @@ let lc_web = ''
 	if ( props.size.length > 0 ) {
 		lc_size = <li><strong>{lang_size}</strong> {props.size}</li>
 	} 
+	if ( props.value.length > 0 ) {
+		lc_val = <li><strong>{lang_value}</strong> {props.value}</li>
+	} 	
 	if ( props.website.length > 0 ) {
 		lc_web = <li><strong>{lang_website}</strong> <a target="_blank" href={addHttp(props.website)}>{removeHttp(props.website)}</a></li>
 	} 
 return ( <ul>
 		{lc_year}
 		{lc_size}
+		{lc_val}
 		{lc_web}
 	</ul>)
 }

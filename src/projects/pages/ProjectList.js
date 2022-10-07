@@ -503,21 +503,25 @@ const ProjectLists = props => {
 									<span className="checkmark"></span>
 									{lang_saadiyat_island}
 								</label>
+								{/*
 								<label>
 									<input class="floc" type="checkbox" value="Al Ain" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									{lang_al_ain}
 								</label>
+								*/}
 								<label>
 									<input class="floc" type="checkbox" value="Jordan" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									{lang_jordan}
 								</label>
+								{/*
 								<label>
 									<input class="floc" type="checkbox" value="Kazakhstan" onClick={handleFilterChange}/>
 									<span className="checkmark"></span>
 									{lang_kazakhstan}
 								</label>
+								*/}
 							</fieldset>
 
 
