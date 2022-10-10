@@ -87,6 +87,7 @@ const SingleItem = props => {
 		lang_completed = 'سنة الإنجاز:'
 		lang_size = 'المساحة (متر مربع):'
 		lang_website = 'الموقع الالكتروني:'		
+		lang_value = 'القيمة:'
 		lang_readmore = 'اقرأ المزيد'
 		lang_description = props.description_ar
 		lang_headline = props.headline_ar

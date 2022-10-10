@@ -212,17 +212,17 @@ const ProjectItem = props => {
 									}	
 									str_compare = 'Business Venues'
 									if(t.toLowerCase() === str_compare.toLowerCase()) {
-										lang_tag = <span>{lang_dine}</span>
+										lang_tag = <span>{lang_business_venues}</span>
 										return lang_tag
 									}		
 									str_compare = 'Culture'
 									if(t.toLowerCase() === str_compare.toLowerCase()) {
-										lang_tag = <span>{lang_dine}</span>
+										lang_tag = <span>{lang_culture}</span>
 										return lang_tag
 									}		
 									str_compare = 'Destination'
 									if(t.toLowerCase() === str_compare.toLowerCase()) {
-										lang_tag = <span>{lang_dine}</span>
+										lang_tag = <span>{lang_destination}</span>
 										return lang_tag
 									}																																									
 								}
