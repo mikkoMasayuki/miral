@@ -1598,3 +1598,17 @@ div.item-images div.first-row, div.item-images div.next-row {
   }
 
 .hideme {display:none;}  
+
+li.draggableitems {
+    background-color: lightblue;
+    width: 100%;
+    height: 50px;
+    text-align: left;
+    border: solid 1px;
+    padding-left: 10px;
+    border-style: ridge;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }

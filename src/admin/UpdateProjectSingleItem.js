@@ -429,11 +429,11 @@ const UpdateProjectSingleItem = props => {
 		
 		
 	}
-    function uploadImage(e) {
+    function xuploadImage() {
 		alert('1')
 	}
 
-	function zuploadImage(e) {
+	function uploadImage(e) {
 		
 				
 				const MAX_FILE_SIZE = 1024 // 1MB
@@ -451,6 +451,7 @@ const UpdateProjectSingleItem = props => {
 				if(file_ext[1]!=='jpg' && file_ext[1]!=='jpeg' && file_ext[1]!=='webp') {
 					//e.target.files[0].name = null
 					uploadErrorMsg( "Invalid file type. Allowed files are *.jpg or *.jpeg or *.webp only")
+					document.getElementById('source-'+image_source[1]).value = null
 					return
 				}
 
