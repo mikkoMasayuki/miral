@@ -20,7 +20,7 @@ const ProjectSingle = () => {
 
         const sendRequest = async () => {
             
-            const response = await fetch(`https://3.28.53.5/project/${projID}`)
+            const response = await fetch(`https://mrl-portfolio.com/project/${projID}`)
 
             const responseData = await response.json();
 

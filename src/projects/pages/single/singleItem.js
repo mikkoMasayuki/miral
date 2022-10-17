@@ -162,7 +162,7 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('https://3.28.53.5/project', requestOptions)
+			fetch('https://mrl-portfolio.com/project', requestOptions)
 			.then(response => response.json());
 		}else{
 			const requestOptions = {
@@ -174,7 +174,7 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('https://3.28.53.5/project', requestOptions)
+			fetch('https://mrl-portfolio.com/project', requestOptions)
 			.then(response => response.json());
 		}
 	}

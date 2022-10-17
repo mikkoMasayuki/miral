@@ -36,7 +36,7 @@ const ListProjects = props => {
     
     useEffect(() => {
       const sendRequest = async () => {
-          const response = await fetch('https://3.28.53.5/project')
+          const response = await fetch('https://mrl-portfolio.com/project')
           const responseData = await response.json();
           setLoadedProject(responseData.data);
       };
@@ -90,7 +90,7 @@ const ListProjects = props => {
             body: JSON.stringify({ id: id, is_favorite: order})
           };  
 
-          fetch('https://3.28.53.5/project', requestOptions)
+          fetch('https://mrl-portfolio.com/project', requestOptions)
           .then(response => response.json())
           .then((result) => {
             console.log('Success:', result)

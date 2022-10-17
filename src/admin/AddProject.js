@@ -13,7 +13,7 @@ const AddProject = () => {
     useEffect(() => {
         const sendRequest = async () => {
             
-            const response = await fetch(`https://3.28.53.5/project`)
+            const response = await fetch(`https://mrl-portfolio.com/project`)
 
             const responseData = await response.json();
 

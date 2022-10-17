@@ -244,7 +244,7 @@ const UpdateProjectSingleItem = props => {
                 //, value: Vval, annual_visitor: Annual_visitor    
             })
         };
-        fetch('https://3.28.53.5/project', requestOptions)
+        fetch('https://mrl-portfolio.com/project', requestOptions)
             .then(response => response.json())
 			.then((result) => {
 				console.log('Success:', result)
@@ -325,7 +325,7 @@ const UpdateProjectSingleItem = props => {
 				method: 'DELETE'
 			};
 			
-			  fetch('https://3.28.53.5/project/'+props.id, requestDelete)
+			  fetch('https://mrl-portfolio.com/project/'+props.id, requestDelete)
 			  .then(response => response.json())
 			  .then((result) => {
 				console.log(result)
@@ -482,7 +482,7 @@ const UpdateProjectSingleItem = props => {
 					}				
 	
 					
-					  fetch('https://3.28.53.5/project/upload', requestOptions)
+					  fetch('https://mrl-portfolio.com/project/upload', requestOptions)
 					  .then(response => response.json())
 					  .then((result) => {
 						  console.log('Success:', result)
