@@ -40,12 +40,12 @@ const Projects = (props) => {
        
 
         const sendRequest = async () => {
-            const response = await fetch('http://3.28.53.5:4052/project/?'+filters)
+            const response = await fetch('https://3.28.53.5/project/?'+filters)
             const responseData = await response.json();
 
             setLoadedProject(responseData.data);
 
-            console.log('http://3.28.53.5:4052/project/?'+ filters);  
+            console.log('http://3.28.53.5/project/?'+ filters);  
             console.log('filters click: ', filters);    
             console.log('-------response data filtered-------->');
             //console.log(responseData.data);
@@ -70,7 +70,7 @@ const Projects = (props) => {
 
     useEffect(() => {
         const sendRequest = async () => {
-            const response = await fetch('http://3.28.53.5:4052/project/?status=1')
+            const response = await fetch('https://3.28.53.5/project/?status=1')
 
             const responseData = await response.json();
 

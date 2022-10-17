@@ -283,7 +283,7 @@ const AddProjectSingleItem = props => {
 		if ( Name.length <=0 ) {
 			openErrorMsg('Project Name is required.')
 		} else {
-			fetch('http://3.28.53.5:4052/project', requestOptions)
+			fetch('https://3.28.53.5/project', requestOptions)
 			.then(response => response.json())
 			.then((result) => {
 				console.log('Success:', result)
@@ -502,7 +502,7 @@ const AddProjectSingleItem = props => {
 						body: formData
 					}
 
-					fetch('http://3.28.53.5:4052/project/upload', requestOptions)
+					fetch('https://3.28.53.5/project/upload', requestOptions)
 					.then(response => response.json())
 					.then((result) => {
 						console.log('Success:', result)

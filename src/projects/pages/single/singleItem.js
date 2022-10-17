@@ -162,7 +162,7 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('http://3.28.53.5:4052/project', requestOptions)
+			fetch('https://3.28.53.5/project', requestOptions)
 			.then(response => response.json());
 		}else{
 			const requestOptions = {
@@ -174,7 +174,7 @@ const SingleItem = props => {
 				})
 			};
 	
-			fetch('http://3.28.53.5:4052/project', requestOptions)
+			fetch('https://3.28.53.5/project', requestOptions)
 			.then(response => response.json());
 		}
 	}

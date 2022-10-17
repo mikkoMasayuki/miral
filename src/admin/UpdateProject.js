@@ -14,7 +14,7 @@ const Update = () => {
     useEffect(() => {
         const sendRequest = async () => {
             
-            const response = await fetch(`http://3.28.53.5:4052/project/${projID}`)
+            const response = await fetch(`https://3.28.53.5/project/${projID}`)
 
             const responseData = await response.json();
 

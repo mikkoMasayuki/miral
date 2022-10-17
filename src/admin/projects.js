@@ -13,7 +13,7 @@ const AdminProjects = () => {
 
     useEffect(() => {
         const sendRequest = async () => {
-            const response = await fetch('http://3.28.53.5:4052/project')
+            const response = await fetch('https://3.28.53.5/project')
 
             const responseData = await response.json();
 

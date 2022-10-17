@@ -670,7 +670,7 @@ button.swal2-cancel:hover{
 
 .dash_add_project .box_wrapper .col-md-12{ padding: 0px 0px;}
 
-.dash_add_project .box_wrapper p{ margin-bottom: 3px; font-size: 14px; }
+.dash_add_project .box_wrapper p{ margin-bottom: 3px; font-size: 14px; padding-right:10px;}
 .dash_add_project .box_wrapper p a{
  color: #333;
 }
