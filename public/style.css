@@ -1287,7 +1287,7 @@ div.item-images div.first-row, div.item-images div.next-row {
 
 
     nav.home_header::before{
-        background-image: url(assets/img/mobile-header.jpg);
+        background-image: url(assets/img/mobile-header.webp);
         background-position: center -80px;
         background-size: 110%;
         background-repeat: no-repeat;
@@ -1542,7 +1542,7 @@ div.item-images div.first-row, div.item-images div.next-row {
 
     nav.home_header::before{
         background-size: 140%;
-        background-position: 54% 0px;
+        background-position: 30% -20px;
     }
 
     nav.home_header .navbar-toggler{ top: 5px;}
@@ -1580,15 +1580,15 @@ div.item-images div.first-row, div.item-images div.next-row {
 @media(max-width: 400px){
     nav.home_header::before{
         background-size: 150%;
-        background-position: 54% 0px;
+        background-position: 30% 0px;
     }
     .dest_happiness::before{ background-position: 154% 54%;  background-size: 60%;}
 }
 
 @media(max-width: 365px){
     nav.home_header::before{
-        background-size: 152%;
-        background-position: 54% 0px;
+        background-size: 144%;
+        background-position: 30% 0px;
     }
 }
 
