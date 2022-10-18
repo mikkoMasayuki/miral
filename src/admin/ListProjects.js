@@ -145,6 +145,8 @@ const ListProjects = props => {
       });
     };    
 
+
+  {  /*
   return <React.Fragment>
 
   <div className="container dash_add_project">
@@ -162,6 +164,28 @@ const ListProjects = props => {
 
       
     </React.Fragment>
+
+        */ }
+        return <React.Fragment>
+
+        <div className="container dash_add_project">
+            <a class="btn" href="">Add Project</a>
+              <div className="box_wrapper"> 
+                {props.items.map(project => {
+                    return <ProjRow 
+                    key={project.id}
+                    id={project.id}
+                    name={project.name}
+                    description={project.description}
+                    location={project.location}
+              image={project.image[0]}
+                    />;
+                })}
+              </div>
+            </div>
+      
+            
+          </React.Fragment>        
 
 };
 
