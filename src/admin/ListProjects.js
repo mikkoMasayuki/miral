@@ -178,7 +178,8 @@ const ListProjects = props => {
                     name={project.name}
                     description={project.description}
                     location={project.location}
-              image={project.image[0]}
+                    image={project.image[0]}
+                    status={project.status}
                     />;
                 })}
               </div>
