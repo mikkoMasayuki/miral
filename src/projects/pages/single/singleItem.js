@@ -197,7 +197,7 @@ const SingleItem = props => {
 		}
 	}	
 
-	function putComma(val) {
+	function putComma(val,val2) {
 		let ret = val
 		if (val === 'Yas Island Abu Dhabi') {
 			ret = 'Yas Island, Abu Dhabi'
@@ -205,12 +205,10 @@ const SingleItem = props => {
 		if (val === 'Saadiyat Island Abu Dhabi') {
 			ret = 'Saadiyat Island, Abu Dhabi'
 		}
-		if (val.toUpperCase() === 'YAS ISLAND') {
+		if (val.toUpperCase() === val2.toUpperCase()) {
 			ret = ''
 		}		
-		if (val.toUpperCase() === 'SAADIYAT ISLAND') {
-			ret = ''
-		}		
+	
 		return ret
 
 }
@@ -253,7 +251,7 @@ props.images.map(image => {
         <div class="row head_content">
 			
 			<div class="col-md-12 content_left">
-				<h2>{lang_name_field} <span> {putComma( lang_location_field )} </span></h2>
+				<h2>{lang_name_field} <span> {putComma( lang_location_field,lang_name_field )} </span></h2>
 				<div class="details">
 					<div class="tag_wrap">
 						{
