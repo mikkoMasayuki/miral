@@ -205,6 +205,12 @@ const SingleItem = props => {
 		if (val === 'Saadiyat Island Abu Dhabi') {
 			ret = 'Saadiyat Island, Abu Dhabi'
 		}
+		if (val.toUpperCase() === 'YAS ISLAND') {
+			ret = ''
+		}		
+		if (val.toUpperCase() === 'SAADIYAT ISLAND') {
+			ret = ''
+		}		
 		return ret
 
 }
