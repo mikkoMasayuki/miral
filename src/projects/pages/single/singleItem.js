@@ -45,7 +45,7 @@ const SingleItem = props => {
 	let lang_completed = 'Completed: '
 	let lang_size = 'Size (sqm.): '
 	let lang_website = 'Website: '
-	let lang_value = 'Value: '
+	let lang_value = 'Value (AED): '
 	let lang_readmore = 'Read more'
 
 	let lang_description = props.description

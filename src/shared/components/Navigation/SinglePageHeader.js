@@ -4,9 +4,13 @@ import ReactDOM from "react-dom"
 
 const HomePageHeader = props => {
     const queryParams = new URLSearchParams(window.location.search)
-    const lang = queryParams.get("l")    
+    let lang = queryParams.get("l")  
+	let urlparams = "?l="+lang
 
-    let urlparams = "?l="+lang
+	if(lang === null) {
+		urlparams = ''
+	}	
+    
 	let lang_about = 'ABOUT'
     const home_url = "/"+urlparams
     const about_url = "/destination-happiness/index.html"+urlparams

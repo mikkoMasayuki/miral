@@ -801,7 +801,7 @@ const UpdateProjectSingleItem = props => {
 						</span>
 
 						<span class="group">
-							<input type="text" placeholder="Size(sqm)" defaultValue={props.size} id="ssize" />
+							<input type="text" placeholder="Size (sqm)" defaultValue={props.size} id="ssize" />
 							<input type="hidden" placeholder="Annual visitors" id="annual_visitor" />
 						</span>
 					</fieldset>

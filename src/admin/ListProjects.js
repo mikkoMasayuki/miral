@@ -43,12 +43,7 @@ const ListProjects = props => {
       sendRequest();
   }, [] )    
 
-  console.log('>>>>>>>>>>>>')
 
- // xx.forEach( fld => { console.log(fld.id) } )
-  console.log('<<<<<<<<<<<')
-
-    console.log('again......')
     let newArr = []
     let to_push = {}
 
@@ -63,12 +58,7 @@ const ListProjects = props => {
       newArr.push(to_push)      
 
     }
-    
-    //console.log(props.items)
-    console.log('xxxxxxxxxxxxxx')
-    console.log(newArr)
-
-
+ 
     const thelist = newArr
     //console.log(thelist)
     /*
@@ -169,7 +159,7 @@ const ListProjects = props => {
         return <React.Fragment>
 
         <div className="container dash_add_project">
-            <a class="btn" href="">Add Project</a>
+            <Link to={`/admin/addproject`} className='btn' >Add Project</Link>
               <div className="box_wrapper"> 
                 {props.items.map(project => {
                     return <ProjRow 

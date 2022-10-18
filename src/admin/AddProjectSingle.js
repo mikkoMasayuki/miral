@@ -688,7 +688,7 @@ const AddProjectSingleItem = props => {
 						</span>
 
 						<span class="group">
-							<input type="text" placeholder="Size(sqm)" id="ssize" />
+							<input type="text" placeholder="Size (sqm)" id="ssize" />
 							<input type="hidden" placeholder="Value (USD)" id="annual_visitor" />							
 						</span>
 					</fieldset>
