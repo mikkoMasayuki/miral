@@ -111,7 +111,7 @@ const HomePageHeader = props => {
             <a class="navbar-brand" href={home_url}><img class="logo" src="/assets/img/miral-logo.svg" alt="" /></a>
 
             <div class="ftrd_header">
-                <img class="img_main" src="/assets/img/mrl-header-kid-01.svg" />
+                <img class="img_main" src="/assets/img/mrl-header-kid-02.png" />
                 <div class="animated_elements">
                     <img class="img_flipped" src="/assets/img/orange-flipped.svg" />
                     <img class="img_th" src="/assets/img/black-thumb.svg" />

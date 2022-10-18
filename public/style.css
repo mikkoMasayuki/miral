@@ -557,7 +557,7 @@ p.tag.tag_2{ display: none;}
     padding-left: 20px;
     float: right;
 }
-.single_proj .content_left h2{ font-size: 40px; font-weight: 500; text-transform: uppercase;}
+.single_proj .content_left h2{ font-size: 40px; font-weight: 500; text-transform: capitalize;}
 .single_proj .content_left h2 span{ font-size: 25px;display: block; color: #1ca6b8;  }
 
 .single_proj .tag_wrap{ padding:0px 0px 10px 0px; }
