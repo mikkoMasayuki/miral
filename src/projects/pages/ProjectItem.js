@@ -149,7 +149,7 @@ const ProjectItem = props => {
 	}
 
 
-	function putComma(val) {
+	function putComma(val,val2) {
 		let ret = val
 		if (val === 'Yas Island Abu Dhabi') {
 			ret = 'Yas Island, Abu Dhabi'
@@ -157,7 +157,9 @@ const ProjectItem = props => {
 		if (val === 'Saadiyat Island Abu Dhabi') {
 			ret = 'Saadiyat Island, Abu Dhabi'
 		}
-
+		if (val.toUpperCase() === val2.toUpperCase()) {
+			ret = ''
+		}
 		
 		return ret
 
@@ -178,7 +180,7 @@ const ProjectItem = props => {
 			  
 
                     <h4 >{lang_name_field}</h4>
-					<p>{putComma(lang_location_field)}</p>
+					<p>{putComma(lang_location_field,lang_name_field)}</p>
 
 					<p className="tag tag_1">
 						{
