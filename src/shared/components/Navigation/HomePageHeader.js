@@ -153,8 +153,9 @@ const HomePageHeader = props => {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2>LOREM IPSUM DOLOR SIT AMET CONSECTETUR</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim  ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href={about_url}>{lang_readmore}</a></p>
+<p>
+Miral is the leading creator of immersive destinations and experiences that contribute to the growth of the leisure and entertainment industry, and Abu Dhabi’s overall tourism. <a href={about_url}>{lang_readmore}</a>
+</p>				
 			</div>
 		</div>
 	</div>
