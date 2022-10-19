@@ -5,6 +5,17 @@ import App from './App';
 import './assets/framework/css/bootstrap.min.css'
 import reportWebVitals from './reportWebVitals';
 
+if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.hostname === "") {
+} else {
+  if (window.location.protocol == 'http:') {
+    window.location.href =
+    window.location.href.replace(
+               'http:', 'https:');
+  }    
+}
+
+
+
 if(window.location.pathname.includes('/project')) {
 
   const e = document.querySelector('#mapwrap');
