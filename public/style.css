@@ -1088,7 +1088,7 @@ a.add_more_imgs{ display: none;}
 }
 .dest_happiness .box_row .item{padding: 0 30px; }
 .dest_happiness .box_row .item:nth-child(3) .box img{
-    margin-left: -15px;
+    
 }
 .dest_happiness .box_row .box{ 
     border: 1px solid #ccc;
@@ -1109,10 +1109,12 @@ a.add_more_imgs{ display: none;}
 }
 .dest_happiness .logo_row .logo_wrap{
     display: flex;
-    flex-wrap: wrap;
-    gap: 70px;
+    flex-wrap: nowrap;
+    gap: 100px;
     align-items: center;
     justify-content: center;
+    animation: move 8s linear infinite;
+    white-space: nowrap;
 }
 
 .dest_happiness .logo_row .logo_wrap img{
@@ -1123,9 +1125,23 @@ a.add_more_imgs{ display: none;}
     height: 150px;
 }
 
+.dest_happiness .logo_row .logo_wrap img.reduced{
+    height: 65px;
+}
+
 .dest_happiness .logo_row img.offset_top{
     margin-top: -20px;
 }
+
+
+@keyframes move {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 
 /*############ Destination Happiness ends ############*/
 
@@ -1261,7 +1277,7 @@ div.item-images div.first-row, div.item-images div.next-row {
         background-size: 37%;
         background-position:122% 17%;
     }
-    .dest_happiness .logo_row .logo_wrap{ gap: 40px;}
+    /* .dest_happiness .logo_row .logo_wrap{ gap: 40px;} */
     .dest_happiness .logo_row .logo_wrap img{ height: 90px;}
     .dest_happiness .logo_row .logo_wrap img.tall{ height: 140px;}
 }
@@ -1318,6 +1334,8 @@ div.item-images div.first-row, div.item-images div.next-row {
     /* about */
     .dest_happiness .logo_row .logo_wrap img{ height: 70px;}
     .dest_happiness .logo_row .logo_wrap img.tall{ height: 125px;}
+    .dest_happiness .logo_row .logo_wrap{ gap: 80px;}
+    .dest_happiness .logo_row .logo_wrap img.reduced{ height: 60px;}
 
 }
 
@@ -1476,9 +1494,10 @@ div.item-images div.first-row, div.item-images div.next-row {
   .dest_happiness .box{  margin: 25px 0px; }
   .dest_happiness .ftrd_img{ padding-top: 20px; }
   .dest_happiness .box_row{ padding: 0px 0 0 0 ;}
-  .dest_happiness .logo_row .logo_wrap{ gap: 20px;}
+  .dest_happiness .logo_row .logo_wrap{ gap: 40px; animation: none; flex-wrap: wrap;}
   .dest_happiness .logo_row .logo_wrap img{ height: 60px;}
   .dest_happiness .logo_row .logo_wrap img.tall{ height: 110px;}
+  .dest_happiness .logo_row .logo_wrap img.reduced{ height: 45px;}
 
 }
 
@@ -1593,7 +1612,11 @@ div.item-images div.first-row, div.item-images div.next-row {
     .dest_happiness .logo_wrap{  text-align: center;padding-bottom: 30px;}
     .dest_happiness .logo_desc .logo_wrap img{ width: 120px;}
     .dest_happiness .logo_row{ padding: 30px 0;}
-    .dest_happiness .logo_row .logo_wrap{ padding-bottom: 0px;}
+    .dest_happiness .logo_row .logo_wrap{ padding-bottom: 0px;  gap: 25px;}
+
+    .dest_happiness .logo_row .logo_wrap img{ height: 40px;}
+    .dest_happiness .logo_row .logo_wrap img.tall{ height: 90px;}
+    .dest_happiness .logo_row .logo_wrap img.reduced{ height: 32px;}
 
 
     
