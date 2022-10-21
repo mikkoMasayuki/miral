@@ -153,6 +153,7 @@ const HomePageHeader = props => {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
+<h4 class="header-heading">DESTINATION HAPPINESS</h4>				
 <p>
 Miral is the leading creator of immersive destinations and experiences that contribute to the growth of the leisure and entertainment industry, and Abu Dhabi’s overall tourism. <a href={about_url}>{lang_readmore}</a>
 </p>				

@@ -1612,3 +1612,8 @@ li.draggableitems {
     align-items: center;
     justify-content: flex-start;
   }
+
+
+  .header-heading {
+    color: #c66a00;
+  }
