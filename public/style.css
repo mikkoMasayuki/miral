@@ -1094,6 +1094,7 @@ a.add_more_imgs{ display: none;}
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 30px;
+    height: 100%;
 }
 
 .dest_happiness .box_row .box img{
@@ -1110,11 +1111,10 @@ a.add_more_imgs{ display: none;}
 .dest_happiness .logo_row .logo_wrap{
     display: flex;
     flex-wrap: nowrap;
-    gap: 100px;
+    gap: 80px;
     align-items: center;
     justify-content: center;
-    animation: move 8s linear infinite;
-    white-space: nowrap;
+    animation: move 8s linear infinite .5s;
 }
 
 .dest_happiness .logo_row .logo_wrap img{
