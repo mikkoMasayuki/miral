@@ -89,7 +89,7 @@ footer p{ text-align: right;}
 
 /* ########### destination happiness starts ########## */
 .dest_happiness{
-    background: url(../assets/img/mrl-bg-right4-ar.svg)no-repeat!important;
+    /* background: url(../assets/img/mrl-bg-right4-ar.svg)no-repeat!important; */
     background-position: -336px 65px!important;
     background-size: 140%!important;
 }
@@ -101,6 +101,10 @@ footer p{ text-align: right;}
 }
 .dest_happiness .container{
     background-position: 124% 40%;
+}
+.dest_happiness .box .img_wrap, .dest_happiness .box p,
+.dest_happiness .logo_desc .desc p{
+    text-align: right;
 }
 /* ########### destination happiness starts ########## */
 
