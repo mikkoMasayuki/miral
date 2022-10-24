@@ -52,7 +52,8 @@ const ProjectLists = props => {
         urlparams = ""
     } else {
         lang_about = 'نبذة عن الحافظة'
-		lang_filter_projects = 'تصفية نتائج البحث'
+		//lang_filter_projects = 'تصفية نتائج البحث'
+		lang_filter_projects = 'البحث'
 		lang_reset = 'إعادة ضبط'
 		lang_hide = 'إخفاء'
 		lang_type = 'نوع'

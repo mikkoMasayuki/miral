@@ -55,8 +55,10 @@ const HomePageHeader = props => {
         urlparams = ""
 		
     } else {
-        lang_about = 'نبذة عن الحافظة'
-		lang_filter_projects = 'تصفية نتائج البحث'
+        //lang_about = 'نبذة عن الحافظة'
+		lang_about ='نبذة عن ميرال'
+		//lang_filter_projects = 'تصفية نتائج البحث'
+		lang_filter_projects = 'البحث'
 		lang_reset = 'إعادة ضبط'
 		lang_type = 'نوع'
 		lang_all = 'الكل'
@@ -90,7 +92,8 @@ const HomePageHeader = props => {
         lang_switcher = 'ENGLISH'	
         arab_url ="?l=en"	
 		miral_url = "https://miral.ae/ar"		
-		lang_miral_web = "ميرال"												
+		//lang_miral_web = "ميرال"												
+		lang_miral_web = "الموقع الالكتروني"												
     } 
 
 
