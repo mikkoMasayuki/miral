@@ -11,7 +11,7 @@ const HomePageHeader = props => {
 		urlparams = ''
 	}	
     
-	let lang_about = 'ABOUT'
+	let lang_about = 'ABOUT MIRAL'
     const home_url = "/"+urlparams
     const about_url = "/destination-happiness/index.html"+urlparams
     let miral_url = "https://miral.ae/"
