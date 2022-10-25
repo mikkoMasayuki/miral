@@ -49,7 +49,7 @@ const HomePageHeader = props => {
     let arab_url ="?l=ar"
 	let miral_url = "https://miral.ae/"
 	let lang_miral_web = "MIRAL WEBSITE"
-	let lang_about_content = "Miral is the leading creator of immersive destinations and experiences that contribute to the growth of the leisure and entertainment industry, and Abu Dhabi’s overall tourism. We conceive, create, operate and manage immersive destinations and experiences that attract visitors from across the world to create memories, accelerating the realisation of the Emirate’s tourism vision and growth."
+	let lang_about_content = "Miral is the leading creator of immersive destinations and experiences that contributes to the growth of the leisure & entertaintment industry and Abu Dhabi’s economic diversification."
 
 
     if(lang === null || lang!=='ar') {
