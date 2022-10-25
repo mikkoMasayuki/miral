@@ -160,7 +160,7 @@ const HomePageHeader = props => {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-			<h4 >{lang_about}<span class="header-heading" >.</span></h4>				
+			<h4 >{lang_about}</h4>				
 			<p>{lang_about_content} <a href={about_url}>{lang_readmore}</a></p>							
 			</div>
 		</div>
