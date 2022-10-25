@@ -98,7 +98,7 @@ nav.home_header img.logo{
 nav.home_header,
 nav.home_header a.navbar-brand{ background: #fff; border-radius: 0px; }
 
-nav.home_header .navbar-nav{ display: block; margin-top: -55px; }
+nav.home_header .navbar-nav{ display: block; margin-top: -40px; }
 nav.home_header .nav-item a{  
     padding: 5px 20px!important;
     justify-content: flex-end;
@@ -1108,6 +1108,7 @@ a.add_more_imgs{ display: none;}
 
 .dest_happiness .logo_row{
     padding: 50px 0;
+    margin: 0 -70px;
 }
 .dest_happiness .logo_row .logo_wrap{
     display: flex;
@@ -1115,11 +1116,11 @@ a.add_more_imgs{ display: none;}
     gap: 80px;
     align-items: center;
     justify-content: center;
-    animation: move 8s linear infinite .5s;
+    /* animation: move 4s linear infinite ; */
 }
 
 .dest_happiness .logo_row .logo_wrap img{
-    height: 105px;
+    height: 90px;
 }
 
 .dest_happiness .logo_row .logo_wrap img.tall{
@@ -1127,8 +1128,13 @@ a.add_more_imgs{ display: none;}
 }
 
 .dest_happiness .logo_row .logo_wrap img.reduced{
-    height: 65px;
+    height: 55px;
 }
+
+.dest_happiness .logo_row .logo_wrap img.reduced2{
+    height: 95px;
+}
+
 
 .dest_happiness .logo_row img.offset_top{
     margin-top: -20px;
@@ -1495,10 +1501,14 @@ div.item-images div.first-row, div.item-images div.next-row {
   .dest_happiness .box{  margin: 25px 0px; }
   .dest_happiness .ftrd_img{ padding-top: 20px; }
   .dest_happiness .box_row{ padding: 0px 0 0 0 ;}
-  .dest_happiness .logo_row .logo_wrap{ gap: 40px; animation: none; flex-wrap: wrap;}
+
+  .dest_happiness .logo_row{ margin: 0px 0px;}
+  .dest_happiness .logo_row .logo_wrap{ gap: 40px; animation: none!important; flex-wrap: wrap!important;}
   .dest_happiness .logo_row .logo_wrap img{ height: 60px;}
   .dest_happiness .logo_row .logo_wrap img.tall{ height: 110px;}
   .dest_happiness .logo_row .logo_wrap img.reduced{ height: 45px;}
+  .dest_happiness .logo_row img.offset_top{ margin-top: 0px;}
+  .dest_happiness .logo_row .logo_wrap img.infiniteslide_clone{ display: none!important;}
 
 }
 
@@ -1620,6 +1630,7 @@ div.item-images div.first-row, div.item-images div.next-row {
     .dest_happiness .logo_row .logo_wrap img{ height: 40px;}
     .dest_happiness .logo_row .logo_wrap img.tall{ height: 90px;}
     .dest_happiness .logo_row .logo_wrap img.reduced{ height: 32px;}
+    .dest_happiness .logo_row .logo_wrap img.reduced2{ height: 60px;}
 
 
     
