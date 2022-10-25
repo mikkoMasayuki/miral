@@ -49,6 +49,7 @@ const HomePageHeader = props => {
     let arab_url ="?l=ar"
 	let miral_url = "https://miral.ae/"
 	let lang_miral_web = "MIRAL WEBSITE"
+	let lang_about_content = "Miral is the leading creator of immersive destinations and experiences that contribute to the growth of the leisure and entertainment industry, and Abu Dhabi’s overall tourism. We conceive, create, operate and manage immersive destinations and experiences that attract visitors from across the world to create memories, accelerating the realisation of the Emirate’s tourism vision and growth."
 
 
     if(lang === null || lang!=='ar') {
@@ -93,8 +94,11 @@ const HomePageHeader = props => {
         arab_url ="?l=en"	
 		miral_url = "https://miral.ae/ar"		
 		//lang_miral_web = "ميرال"												
-		lang_miral_web = "الموقع الالكتروني"												
-    } 
+		lang_miral_web = "الموقع الالكتروني"	
+		
+		lang_about_content = "ميرال هي الشركة الرائدة في مجال تطوير الوجهات والتجارب الغامرة في أبوظبي، والتي تسهم في نمو قطاع الترفيه والاستجمام وتعزز التنوع الاقتصادي في الإمارة."    
+	
+	} 
 
 
 
@@ -156,11 +160,8 @@ const HomePageHeader = props => {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-			<h4 >ABOUT MIRAL<span class="header-heading" >.</span></h4>				
-
-<p>
-Miral is the leading creator of immersive destinations and experiences that contribute to the growth of the leisure and entertainment industry, and Abu Dhabi’s overall tourism. We conceive, create, operate and manage immersive destinations and experiences that attract visitors from across the world to create memories, accelerating the realisation of the Emirate’s tourism vision and growth. <a href={about_url}>{lang_readmore}</a>
-</p>							
+			<h4 >{lang_about}<span class="header-heading" >.</span></h4>				
+			<p>{lang_about_content} <a href={about_url}>{lang_readmore}</a></p>							
 			</div>
 		</div>
 	</div>
