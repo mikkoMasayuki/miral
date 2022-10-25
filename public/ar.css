@@ -107,6 +107,8 @@ footer p{ text-align: right;}
 .dest_happiness .logo_desc .desc p{
     text-align: right;
 }
+
+.logo_desc .logo_wrap{ width: 255px; margin: auto; }
 /* ########### destination happiness starts ########## */
 
 
