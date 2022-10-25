@@ -3,6 +3,7 @@
 html body{ 
 	direction: rtl; 
     font-family: 'Tajawal', sans-serif!important;
+    overflow-x: hidden;
 }
 
 body h1, body h2, body h3, body h4, body h5, p, li{

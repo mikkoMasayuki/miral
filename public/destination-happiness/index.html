@@ -62,6 +62,21 @@ const queryParams = new URLSearchParams(window.location.search)
 		let lang_content = 
 		`<p>Miral is the leading creator of immersive destinations and experiences that contribute to the growth of the leisure and entertainment industry, and Abu Dhabi’s overall tourism. We conceive, create, operate and manage immersive destinations and experiences that attract visitors from across the world to create memories, accelerating the realisation of the Emirate’s tourism vision and growth.</p>`
 
+		let miral_experiences = 
+		`<p>Miral Experiences operates a diverse portfolio of world-class and award-winning immersive experiences and attractions, in Abu Dhabi and beyond, brining joy to visitors from around the world.</p>
+		
+		<p>Catering to all tastes and ages, evoking feelings from thrill to joy and everything in between, these one-of-a-kind, seamless experiences invigorate all senses and create memories that last a lifetime.</p>`
+
+		let miral_destinations = 
+		`<p>Miral Destinations is the trusted onestop destination partner that inspires and connects people through the power of shared experiences, delivering countless memorable moments and joy to guests across leisure, entertainment, and tourism attractions and landmarks throughout Abu Dhabi and beyond.</p>
+		
+		<p>Miral Destinations will contribute to Abu Dhabi achieving international recognition and commercial success, strengthening the emirate’s reputation as a global tourism hub.</p>`
+
+		let miral_management = 
+		`<p>Yas Asset Management operates and manages a portfolio of vibrant assets; from Yas Bay, the UAE’s fi nest superyacht marina, dining experiences, to retail and leisure assets.</p>
+		
+		<p>This portfolio is all within the vicinity of Yas Island and contributing to positioning it as one of the top global destinations for entertainment and leisure.</p>`
+
         if( lang == null || lang !=='ar') {
             arab_url ="/destination-happiness/index.html?l=ar"
         } else {
@@ -78,50 +93,27 @@ const queryParams = new URLSearchParams(window.location.search)
 			lang_miral_web = "ميرال"
 			lang_content =
 
-			`
-<p>
-أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
-أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
-أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
-نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
-كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم."
-</p>
+			`<p>ميرال هي الشركة الرائدة في مجال تطوير الوجهات والتجارب الغامرة في أبوظبي، والتي تسهم في نمو قطاع الترفيه والاستجمام وتعزز التنوع الاقتصادي في الإمارة</p>
+			<p>نقوم بتصميم وبناء وتشغيل وإدارة وجهات وتجارب غامرة تستقطب الزوار من جميع أنحاء العالم وتقدم لهم تجارب شاملة لا تُنسى، كما نعمل دائماً على دعم وتسريع وتيرة التنوع الاقتصادي في أبوظبي .</p>
+			`			
+			
+			miral_experiences = 
+			`<p>يتولى ميرال إكسبيرينسز تشغيل مجموعة متنوعة من التجارب ومرافق الجذب الغامرة عالمية المستوى والحائزة على العديد من الجوائز داخل أبوظبي وخارجها، وتقدم من خلال هذه المرافق أوقات حافلة بالمتعة والترفيه للزوار من مختلف أنحاء العالم.</p>
+			
+			<p>وتعزز هذه التجارب الفريدة التي تواكب جميع الأذواق والأعمار البهجة والفرح والحماس، وتثري جميع الحواس لتوفر ذكريات مميزة تعيش طويلاً مع الزوار.</p>`
+		
+			
+			miral_destinations = 
+			`<p>ميرال دستينيشنز هو الشريك الموثوق الذي يُلهم الناس ويعزز التواصل بينهم من خلال توفير التجارب الترفيهية التي تقدم أوقات مليئة بالمتعة، بالإضافة إلى الذكريات المميزة التي لا تُنسى، وذلك عبر مختلف مرافق ومعالم الاستجمام والترفيه والسياحة داخل أبوظبي وخارجها.</p>
+			
+			<p>كما يسهم ميرال دستينيشنز بترسيخ حضور أبوظبي العالمي ونجاحها الاقتصادي، وتعزيز مكانتها وسمعتها كمركز عالمي للسياحة.</p>`
 
-
-<p>
-"سيت يتبيرسبايكياتيس يوندي أومنيس أستي ناتيس أيررور سيت فوليبتاتيم أكيسأنتييوم
-دولاريمكيو لايودانتيوم,توتام ريم أبيرأم,أيكيو أبسا كيواي أب أللو أنفينتوري فيرأتاتيس ايت
-كياسي أرشيتيكتو بيتاي فيتاي ديكاتا سيونت أكسبليكابو. نيمو أنيم أبسام فوليوباتاتيم كيواي
-فوليوبتاس سايت أسبيرناتشر أيوت أودايت أيوت فيوجايت, سيد كيواي كونسيكيونتشر ماجناي
-دولارس أيوس كيواي راتاشن فوليوبتاتيم سيكيواي نيسكايونت. نيكيو بوررو كيوايسكيوم
-ايست,كيواي دولوريم ايبسيوم كيوا دولار سايت أميت, كونسيكتيتيور,أديبايسكاي فيلايت, سيد
-كيواي نون نيومكيوام ايايوس موداي تيمبورا انكايديونت يوت لابوري أيت دولار ماجنام
-ألايكيوام كيوايرات فوليوبتاتيم. يوت اينايم أد مينيما فينيام, كيواس نوستريوم أكسيركايتاشيم
-يلامكوربوريس سيوسكايبيت لابورايوسام, نايساي يوت ألايكيوايد أكس أيا كوموداي
-كونسيكيواتشر؟ كيوايس أيوتيم فيل أيوم أيوري ريبريهينديرايت كيواي ان إيا فوليوبتاتي
-فيلايت ايسسي كيوم نايهايل موليستايا كونسيكيواتيو,فيلايليوم كيواي دولوريم أيوم فيوجايات كيو
-</p>
-
-<p>
-فوليوبتاس نيولا باراياتيور؟"
-" أت فيرو ايوس ايت أكيوساميوس ايت أيوستو أودايو دايجنايسسايموس ديوكايميوس كيواي
-بلاندايتاييس برايسينتايوم فوليوبتاتيوم ديلينايتاي أتكيوي كورريوبتاي كيوأوس دولوريس أيت
-سيما يليكيوسيونت ان كيولبا كيواي أوفايكيا ديسيريونت موللايتايا انايماي, أيدي ايست لابوريوم
-دايستا ينستايو. نام لايبيرو تيمبور, كيوم سوليوتا نوبايس ايست ايلاجينداي أوبتايو كيومكيوي
-نايهايل ايمبيدايت كيو ماينيوس ايدي كيوود ماكسهيمي بلاسايت فاسيري بوسسايميوس,أومنايس
-فوليوبتاس ايت ايوت أسسيو ميندايست, أومنيوس دولار ريبيللينديوس. تيمبورايبيوس أيوتيم
-كيواس موليستاياس أكسكيبتيوراي ساينت أوككايكاتاي كيبايدايتات نون بروفايدنت
-أيت دولوريوم فيوجا.ايت هاريوم كيوايديم ريريوم فاكايلايسايست ايت أكسبيدايتا
-</p>
-
-<p>
-كيوايبيوسدام ايت أوت
-أوففايكايس ديبايتايس أيوت ريريوم نيسيسسايتاتايبيوس سايبي ايفينايت يوت ايت فوليبتاتيس 
-ريبيودايايانداي ساينت ايت موليسفاياي نون ريكيوسانداي.اتاكيوي ايريوم ريريوم هايس تينيتور
-</p>
-
-`			
-        }    
+			miral_management = 
+			`<p>يتولى ياس لإدارة الأصول تشغيل وإدارة محفظة الأصول الحيوية للشركة؛ بدءاً من ياس باي وياس مارينا، أفضل مرسى لليخوت الفاخرة في الإمارات، وصولاً إلى الأصول المتخصصة بالمطاعم ومتاجر التجزئة ووجهات الاستجمام.</p>
+			
+			<p>وتقع جميع الأصول في محيط جزيرة ياس، حيث تسهم في تعزيز مكانة الجزيرة كوجهة عالمية للاستجمام والترفيه.</p>`
+		
+		}    
 		
 
 		
@@ -206,22 +198,13 @@ const queryParams = new URLSearchParams(window.location.search)
 		<div class="row box_row">
 			<div class="col-md-4 item">
 				<div class="box">
-					<div class="img_wrap">
+					<div class="img_wrap" >
 						<img src="../assets/img/logo-miral-experiences.svg" alt="">
 					</div>
-					<p>Miral Experiences operates a diverse portfolio
-						of world-class and award-winning immersive
-						experiences and attractions, in Abu Dhabi
-						and beyond, brining joy to visitors from
-						around the world.
-					</p>
-
-					<p>Catering to all tastes and ages, evoking
-							feelings from thrill to joy and everything
-							in between, these one-of-a-kind, seamless
-							experiences invigorate all senses and create
-							memories that last a lifetime.
-					</p>
+					<div id="miral_experiences">
+						
+					</div>
+					
 				</div>
 			</div>
 
@@ -230,20 +213,9 @@ const queryParams = new URLSearchParams(window.location.search)
 					<div class="img_wrap">
 						<img src="../assets/img/logo-miral-destinations.svg" alt="">
 					</div>
-					<p>Miral Destinations is the trusted onestop destination partner that inspires and
-						connects people through the power of shared
-						experiences, delivering countless memorable
-						moments and joy to guests across leisure,
-						entertainment, and tourism attractions
-						and landmarks throughout Abu Dhabi and
-						beyond.
-					</p>
-
-					<p>Miral Destinations will contribute to Abu
-						Dhabi achieving international recognition
-						and commercial success, strengthening the
-						emirate’s reputation as a global tourism hub.
-					</p>
+					<div id="miral_destinations">
+					
+					</div>
 				</div>
 			</div>
 
@@ -252,18 +224,9 @@ const queryParams = new URLSearchParams(window.location.search)
 					<div class="img_wrap">
 						<img src="../assets/img/logo-yas-asset-management.png" alt="">
 					</div>
-					<p>Yas Asset Management operates and
-						manages a portfolio of vibrant assets; from
-						Yas Bay, the UAE’s fi nest superyacht marina,
-						dining experiences, to retail and leisure
-						assets.
-					</p>
-
-					<p>This portfolio is all within the vicinity of
-						Yas Island and contributing to positioning
-						it as one of the top global destinations for
-						entertainment and leisure.
-					</p>
+					<div id="miral_management">
+						
+					</div>
 				</div>
 			</div>
 		</div>
@@ -334,6 +297,9 @@ const queryParams = new URLSearchParams(window.location.search)
 		document.getElementById("destination_happiness").innerHTML = lang_destination_happiness
 		document.getElementById("content").innerHTML = lang_content
 		document.getElementById("miral_web").innerHTML = lang_miral_web
+		document.getElementById("miral_experiences").innerHTML = miral_experiences
+		document.getElementById("miral_destinations").innerHTML = miral_destinations
+		document.getElementById("miral_management").innerHTML = miral_management
 		
 	});
 </script>
