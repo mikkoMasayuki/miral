@@ -24,11 +24,11 @@ const HomePageHeader = props => {
         urlparams = ""
 		miral_url = "https://miral.ae/"
     } else {
-		lang_about = 'نبذة عن الحافظة'
+		lang_about = 'نبذة عن ميرال'
 		lang_switcher = 'ENGLISH'	
 		arab_url ="?l=en"		
 		miral_url = "https://miral.ae/ar"
-		lang_miral_web = "ميرال"	
+		lang_miral_web = "الموقع الالكتروني"	
 	}
     
 
