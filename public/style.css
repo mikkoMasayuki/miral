@@ -938,13 +938,13 @@ a.add_more_imgs{ display: none;}
 
 .portfolio_map .item{  
     position: relative;
-    width: 285px;
+    width: 315px;
     margin-bottom: 0px;
     max-width: 100%!important;
 }
 
 .portfolio_map .item .ftrd_img img{
-    height: 160px;
+    height: 145px;
 }
 
 .portfolio_map .desc svg{bottom: 20px;  }
