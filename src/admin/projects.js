@@ -14,11 +14,12 @@ const AdminProjects = () => {
     useEffect(() => {
         const sendRequest = async () => {
             const response = await fetch('https://mrl-portfolio.com/project')
+            //const response = await fetch('http://127.0.0.1:4052/project')
 
             const responseData = await response.json();
 
             setLoadedProject(responseData.data);
-
+            console.log('-------------project.js-------------');
             console.log(responseData.data);
            // console.log('Admin Projects - Running from :'+process.env.REACT_APP_APIURL)
         };

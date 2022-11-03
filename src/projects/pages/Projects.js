@@ -41,6 +41,7 @@ const Projects = (props) => {
 
         const sendRequest = async () => {
             const response = await fetch('https://mrl-portfolio.com/project/?'+filters)
+            //const response = await fetch('http://127.0.0.1:4052/project/?'+filters)
             const responseData = await response.json();
 
             setLoadedProject(responseData.data);
@@ -71,6 +72,8 @@ const Projects = (props) => {
     useEffect(() => {
         const sendRequest = async () => {
             const response = await fetch('https://mrl-portfolio.com/project/?status=1')
+            //const response = await fetch('http://127.0.0.1:4052/project/?status=1')
+
 
             const responseData = await response.json();
 

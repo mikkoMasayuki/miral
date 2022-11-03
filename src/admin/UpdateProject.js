@@ -15,6 +15,7 @@ const Update = () => {
         const sendRequest = async () => {
             
             const response = await fetch(`https://mrl-portfolio.com/project/${projID}`)
+            //const response = await fetch(`http://127.0.0.1:4052/project/${projID}`)
 
             const responseData = await response.json();
 

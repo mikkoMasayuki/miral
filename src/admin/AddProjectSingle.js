@@ -284,6 +284,8 @@ const AddProjectSingleItem = props => {
 			openErrorMsg('Project Name is required.')
 		} else {
 			fetch('https://mrl-portfolio.com/project', requestOptions)
+			//fetch('http://127.0.0.1:4052/project', requestOptions)
+
 			.then(response => response.json())
 			.then((result) => {
 				console.log('Success:', result)
@@ -503,6 +505,7 @@ const AddProjectSingleItem = props => {
 					}
 
 					fetch('https://mrl-portfolio.com/project/upload', requestOptions)
+					//fetch('http://127.0.0.1:4052/project/upload', requestOptions)
 					.then(response => response.json())
 					.then((result) => {
 						console.log('Success:', result)

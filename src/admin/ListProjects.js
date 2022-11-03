@@ -32,17 +32,19 @@ const ListProjects = props => {
 
     /*useEffect(() => {}, [dataList])*/    
 
+    /*
     const [loadedProject, setLoadedProject] = useState();
     
     useEffect(() => {
       const sendRequest = async () => {
-          const response = await fetch('https://mrl-portfolio.com/project')
+          //const response = await fetch('https://mrl-portfolio.com/project')
+          const response = await fetch('http://127.0.0.1:4052/project')
           const responseData = await response.json();
           setLoadedProject(responseData.data);
       };
       sendRequest();
   }, [] )    
-
+*/
 
     let newArr = []
     let to_push = {}
@@ -70,7 +72,7 @@ const ListProjects = props => {
     ]
     */
     const [dataList, setDataList] = useState(thelist);
-    console.log(dataList)
+    //console.log(dataList)
 
     const updateAPIData = async (id,order) => {
       
@@ -81,6 +83,7 @@ const ListProjects = props => {
           };  
 
           fetch('https://mrl-portfolio.com/project', requestOptions)
+          //fetch('http://127.0.0.1:4052/project', requestOptions)
           .then(response => response.json())
           .then((result) => {
             console.log('Success:', result)
@@ -107,7 +110,7 @@ const ListProjects = props => {
             console.log('name :'+dataList[i].name)
             console.log('old index :'+oldIndex)
             console.log('New index :'+newIndex)
-            updateAPIData(dataList[i].id,newIndex)
+            //updateAPIData(dataList[i].id,newIndex)
             break;
           }
       }
@@ -131,12 +134,21 @@ const ListProjects = props => {
         const ret = newItems.sort((a, b) => a.order - b.order);
         console.log('------ reordered list ------')
         console.log(ret)
+
+        for (let i = 0; i < dataList.length; i++) {
+          //console.log('id :'+dataList[i].id + ' is_favorite :' + dataList[i].is_favorite + ' order :'+ dataList[i].order)
+          updateAPIData(dataList[i].id, dataList[i].order)
+        }
+
         return ret
       });
+
+
+      //console.log(dataList)
     };    
 
 
-  {  /*
+  {  
   return <React.Fragment>
 
   <div className="container dash_add_project">
@@ -155,7 +167,9 @@ const ListProjects = props => {
       
     </React.Fragment>
 
-        */ }
+         }
+
+        /*
         return <React.Fragment>
 
         <div className="container dash_add_project">
@@ -176,7 +190,8 @@ const ListProjects = props => {
             </div>
       
             
-          </React.Fragment>        
+          </React.Fragment>       
+          */ 
 
 };
 

@@ -245,6 +245,7 @@ const UpdateProjectSingleItem = props => {
             })
         };
         fetch('https://mrl-portfolio.com/project', requestOptions)
+		//fetch('http://127.0.0.1:4052/project', requestOptions)
             .then(response => response.json())
 			.then((result) => {
 				console.log('Success:', result)
@@ -326,6 +327,7 @@ const UpdateProjectSingleItem = props => {
 			};
 			
 			  fetch('https://mrl-portfolio.com/project/'+props.id, requestDelete)
+			  //fetch('http://127.0.0.1:4052/project/'+props.id, requestDelete)
 			  .then(response => response.json())
 			  .then((result) => {
 				console.log(result)
@@ -483,6 +485,7 @@ const UpdateProjectSingleItem = props => {
 	
 					
 					  fetch('https://mrl-portfolio.com/project/upload', requestOptions)
+					  //fetch('http://127.0.0.1:4052/project/upload', requestOptions)
 					  .then(response => response.json())
 					  .then((result) => {
 						  console.log('Success:', result)

@@ -132,6 +132,7 @@ const ProjectItem = props => {
 			};
 	
 			fetch('https://mrl-portfolio.com/project', requestOptions)
+			//fetch('http://127.0.0.1:4052/project', requestOptions)
 			.then(response => response.json());
 		}else{
 			const requestOptions = {
@@ -144,6 +145,7 @@ const ProjectItem = props => {
 			};
 	
 			fetch('https://mrl-portfolio.com/project', requestOptions)
+			//fetch('http://127.0.0.1:4052/project', requestOptions)
 			.then(response => response.json());
 		}
 	}
