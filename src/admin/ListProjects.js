@@ -2,7 +2,7 @@ import React from "react";
 import { useRef, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import ProjRow from "./ProjectRow";
-import { sortableContainer, sortableElement } from "react-sortable-hoc";
+import { sortableContainer, sortableElement, sortableHandle } from "react-sortable-hoc";
 
 const itemStyles = {
   padding: "10px",
@@ -11,8 +11,14 @@ const itemStyles = {
   margin: "10px"
 };
 
+
+const DragHandle = sortableHandle(() => <span class="draghandle">::</span>);
+
 const SortableItem = sortableElement(({ project }) => {
-  return <div style={itemStyles}>{project.name}</div>;
+  return <div style={itemStyles}><DragHandle />
+        <div class="box">
+          <p><Link to={`/admin/update/${project.id}`} className='link' >{project.name ==='' ? '  ' : project.name } <span className={project.status == 2 ? 'jsx_orange' : 'jsx_black'}>{project.status == 2 ? 'Draft' : 'Published'}</span></Link></p></div>
+  </div>;
 });
 
 const SortableContainer = sortableContainer(({ children }) => {
@@ -55,6 +61,7 @@ const ListProjects = props => {
       to_push.id = props.items[i].id
       to_push.is_favorite = props.items[i].is_favorite
       to_push.name = props.items[i].name
+      to_push.status = props.items[i].status
       to_push.order = i
 
       newArr.push(to_push)      
@@ -155,7 +162,7 @@ const ListProjects = props => {
       
       <Link to={`/admin/addproject`} className='btn' >Add Project</Link>
         <div className="box_wrapper"> 
-        <SortableContainer onSortEnd={onSortEnd}>
+        <SortableContainer onSortEnd={onSortEnd} useDragHandle>
         {dataList.map((project, index) => (
           <SortableItem key={index} index={index} project={project} />
         ))}
