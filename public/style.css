@@ -391,7 +391,7 @@ button.bt_orange:hover{
     left: 0;
     right: 0;
     z-index: 11;
-    margin-top: -517px;
+    margin-top: -589px;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-42px);
@@ -459,7 +459,19 @@ button.bt_orange:hover{
 
 .filter_tags{ display: none!important;}
 
-.filter_drop + .container{ padding-bottom: 0px; padding-top: 45px;}
+.filter_drop + .container{ padding-bottom: 0px; padding-top: 30px;}
+
+
+/* sorting row */
+.portfolio_map .sort_row{ padding: 30px 50px 0 60px;}
+.portfolio_map .sort_row .col-md-12{
+    padding:  0 15px;
+}
+
+.portfolio_map .sort_row span{ display: inline-block; padding-right: 10px;}
+.portfolio_map .sort_row button{ margin-right: 5px; background: #888;}
+.portfolio_map .sort_row button.active{ background: #333;}
+
 /*############ filter dropdownends ############*/
 
 
@@ -683,6 +695,19 @@ button.swal2-cancel:hover{
 .dash_add_project .box_wrapper p.draft a, 
 .dash_add_project .box_wrapper span.jsx_orange , 
 .dash_add_project .box_wrapper p a span.jsx_orange a{color: #ff8a03;  }
+
+
+/* draggable */
+.dash_add_project .box_wrapper .container{ padding: 0px;}
+.dash_add_project .box_wrapper .list_item{ display: flex;}
+.dash_add_project .box_wrapper .list_item .draghandle{ 
+    padding-right: 10px;
+    position: relative;
+    top: -2px;
+    cursor: grab;
+}
+.dash_add_project .box_wrapper .list_item .box{ width: 100%;}
+
 /*############ admin Projects ends ############*/
 
 
@@ -1153,6 +1178,7 @@ a.add_more_imgs{ display: none;}
 
 /*############ Destination Happiness ends ############*/
 
+
 /*############ Privacy Policy starts ############*/
 .privacy{  
     background-position: -32% 11%!important;
@@ -1350,6 +1376,7 @@ div.item-images div.first-row, div.item-images div.next-row {
 
 @media(max-width: 991px){
     body .container{ padding-left: 30px ; padding-right: 30px;}
+    .portfolio_map .sort_row{ padding: 30px 30px 0 30px;}
 
     /*header*/
     nav.m_header{ padding: 0px!important; }
@@ -1696,6 +1723,9 @@ div.item-images div.first-row, div.item-images div.next-row {
         background-position: 60% 0px;
     }
     .dest_happiness::before{ background-position: 154% 54%;  background-size: 60%;}
+
+    .portfolio_map .sort_row span{ display: block; margin-bottom: 10px;}
+    .filter_drop{ margin-top: -621px;}
 }
 
 @media(max-width: 365px){

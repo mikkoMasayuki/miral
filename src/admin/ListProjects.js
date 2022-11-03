@@ -5,17 +5,17 @@ import ProjRow from "./ProjectRow";
 import { sortableContainer, sortableElement, sortableHandle } from "react-sortable-hoc";
 
 const itemStyles = {
-  padding: "10px",
-  border: "1px #000 solid",
-  backgroundColor: "#FFF",
-  margin: "10px"
+  // padding: "10px",
+  // border: "1px #000 solid",
+  // backgroundColor: "#FFF",
+  // margin: "10px"
 };
 
 
 const DragHandle = sortableHandle(() => <span class="draghandle">::</span>);
 
 const SortableItem = sortableElement(({ project }) => {
-  return <div style={itemStyles}><DragHandle />
+  return <div class="list_item" style={itemStyles}><DragHandle />
         <div class="box">
           <p><Link to={`/admin/update/${project.id}`} className='link' >{project.name ==='' ? '  ' : project.name } <span className={project.status == 2 ? 'jsx_orange' : 'jsx_black'}>{project.status == 2 ? 'Draft' : 'Published'}</span></Link></p></div>
   </div>;
