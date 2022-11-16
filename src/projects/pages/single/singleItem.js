@@ -20,7 +20,7 @@ const SingleItem = props => {
 	let lang_reset = 'RESET'
 	let lang_type = 'Type'
 	let lang_all = 'All'
-	let lang_most_popular = 'Most Popular'
+	let lang_most_popular = 'Featured'
 	let lang_stay = 'Stay'
 	let lang_play = 'Play'
 	let lang_dine = 'Dine'
@@ -261,7 +261,14 @@ props.type
 	let lang_tag = <span>{t}</span>
 	let str_compare = ''
 	if(lang === null || lang!=='ar') {
-		return lang_tag
+		str_compare = 'Most Popular'
+		if(t.toLowerCase() === str_compare.toLowerCase()) {
+			lang_tag = <span>{lang_most_popular}</span>
+			return lang_tag
+		} else {
+			return lang_tag	
+		}	 	
+		
 	} else {
 		str_compare = 'Most Popular'
 		if(t.toLowerCase() === str_compare.toLowerCase()) {

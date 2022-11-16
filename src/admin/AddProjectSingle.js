@@ -595,7 +595,7 @@ const AddProjectSingleItem = props => {
 						  <label class="ch_lbl">
 								<input type="checkbox" value="Most Popular" class="ftype" />
 								<span class="checkmark"></span>
-								Most Popular
+								Featured
 							</label>
 
 						  <label class="ch_lbl">

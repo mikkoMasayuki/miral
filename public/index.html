@@ -289,7 +289,13 @@
 								let str_compare = ''
 
 								if(lang === null || lang!=='ar') {
-									tags1=tags1+'<span>'+d_tags1[j].trim()+'</span>';
+									str_compare = 'Most Popular'
+									if(d_tags1[j].trim().toLowerCase() === str_compare.toLowerCase()) {
+                                        tags1=tags1+'<span>Feautred</span>';
+									} else {
+                                        tags1=tags1+'<span>'+d_tags1[j].trim()+'</span>';
+                                    }                                   
+									
 								} else {
 									str_compare = 'Most Popular'
 									if(d_tags1[j].trim().toLowerCase() === str_compare.toLowerCase()) {

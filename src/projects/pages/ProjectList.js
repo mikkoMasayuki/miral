@@ -15,7 +15,7 @@ const ProjectLists = props => {
 	let lang_hide = 'HIDE'
 	let lang_type = 'Type'
 	let lang_all = 'All'
-	let lang_most_popular = 'Most Popular'
+	let lang_most_popular = 'Featured'
 	let lang_stay = 'Stay'
 	let lang_play = 'Play'
 	let lang_dine = 'Dine'
