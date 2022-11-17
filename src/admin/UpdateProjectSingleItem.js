@@ -703,7 +703,7 @@ const UpdateProjectSingleItem = props => {
 						    <label class="ch_lbl">
 								<input type="checkbox" defaultChecked={getData("Most Popular",props.ptype) ? true : false} value="Most Popular" class="ftype" />
 								<span class="checkmark"></span>
-								Featured
+								Featured Projects
 							</label>
 
 						    <label class="ch_lbl">

@@ -14,7 +14,7 @@ const ProjectItem = props => {
 	let lang_reset = 'RESET'
 	let lang_type = 'Type'
 	let lang_all = 'All'
-	let lang_most_popular = 'Featured'
+	let lang_most_popular = 'Featured Projects'
 	let lang_stay = 'Stay'
 	let lang_play = 'Play'
 	let lang_dine = 'Dine'
